@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>厦门红叶帮帮忙后台管理系统</title>
+    <meta name="keywords"/>
+    <meta name="description"/>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/public/Static/bootstrap/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入）
+    <link rel="stylesheet" href="/public/Static/bootstrap/css/bootstrap-theme.min.css">-->
+    <link rel="stylesheet" href="/public/Admin/css/style.min.css?v=4.1.0">
+    <link href="/public/Admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="/public/Admin/css/animate.min.css" rel="stylesheet">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script type="text/javascript" src='/public/Static/jquery-1.11.2.min.js'></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="/public/Static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/public/Admin/js/jquery.metisMenu.js"></script>
+    <script src="/public/Admin/js/jquery.slimscroll.min.js"></script>
+    <script src="/public/Admin/js/pace.min.js"></script>
+    <script src="/public/Admin/js/layer/layer.min.js"></script>
+    <script src="/public/Admin/js/welcome.min.js"></script>
+    <script src="/public/Admin/js/huge.min.js"></script>
+    <script src="/public/Admin/js/contabs.min.js"></script>
+    <block name="style"></block>
+</head>
+<body class="fixed-sidebar full-height-layout gray-bg">
+<div class="pace  pace-inactive">
+    <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+        <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+</div>
+<!-- 头部 -->
+<include file="Public/header"/>
+<!-- /头部 -->
+
+<div id="main" class="clearfix">
+    <!-- 菜单 -->
+    <include file="Public/menu"/>
+    <!-- /菜单-->
+
+    <!-- 主体 -->
+    <div id="content" class="bootstrap">
+        <block name="body"></block>
+    </div>
+    <!-- /主体 -->
+
+</div>
+<!-- 底部 -->
+<include file="Public/footer"/>
+<!-- /底部 -->
+<block name="modal"></block>
+<block name="script"></block>
+</body>
+</html>

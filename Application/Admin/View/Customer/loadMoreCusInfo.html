@@ -1,0 +1,16 @@
+ <volist name="info" id="data">
+    <div class="vertical-timeline-block">
+        <div class="vertical-timeline-icon {$class.yanse}">
+            <i class="fa {$class.tubiao}"></i>
+        </div>
+
+        <div class="vertical-timeline-content">
+            <h2>{$data.Result}</h2>
+            <p>{$data.Content|htmlspecialchars_decode}</p>
+            <span class="vertical-date">
+                             跟进人:{$data.EmpName}                <br>
+                                            <small>{$data.time}</small>
+            </span>
+        </div>
+    </div>
+</volist>

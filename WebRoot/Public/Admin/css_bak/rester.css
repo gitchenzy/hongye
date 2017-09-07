@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document 统一设置的库*/
+*html{background-image:url(about:blank);background-attachment:fixed;}
+*{-webkit-touch-callout:none;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,blockquote,a,em,img,ol,ul,li,form,dl,dt,dd,input,button{border:0;margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0;display:table;;}
+td{ }
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
+button,input{font:12px/1.5 Arial,Sans-serif,Tahoma;outline:0}
+body{background:#fff; font-family:'Microsoft YaHei',Tahoma,Arial,Roboto,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC",sans-self; color:#919191;margin:0 auto; position:relative;}
+h2,h3,h4{font-size:100%;}
+h2{font-size:1.125em}
+h3{font-size:1em}
+h4{font-size:0.875em}
+h5{font-size:0.75em}
+em,i{font-style:normal;font-weight:normal}
+em{font-family:Arial}
+table,td,th,li,img,input,select{outline:0;vertical-align:middle}
+blockquote:before,blockquote:after,q:before,q:after{content:""}
+blockquote,q{quotes:"" ""}
+input{-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;}
+input,label,select,textarea{vertical-align:middle;}
+input[type="checkbox"]{-webkit-appearance:checkbox;-moz-appearance:checkbox;appearance:checkbox}
+input[type="radio"]{-webkit-appearance:radio;-moz-appearance:radio;appearance:radio}
+textarea{resize:vertical;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;}
+select{border:1px solid #eaeaea;padding:2px;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;}
+a,a:focus,a:outline,a img{border:0;outline:0}
+a{color:#919191;outline:0;text-decoration:none}
+a:hover{outline:0;}
+li{list-style:none;vertical-align:middle;}
+ul, ol{ list-style: none;}
+i{ font-style:normal;}
+.clearfix{*zoom:1;}
+.clearfix:after{content:"";display:table;clear:both}
+.clearfloat { clear:both;}
+.tc{text-align:center}
+.tr{text-align:right}
+.tl{text-align:left}
+.fl{float:left;_display:inline}
+.fr{float:right;_display:inline}
+.vt,img{vertical-align:top}
+.vm{vertical-align:middle}
+.vb{vertical-align:bottom}
+.red,.error{color:#cc0000;}
+.green{color:#0fba67}
+.blue{color:#2c66dc}
+.org{color:#FF5500}
+.gray,.time{color:#999}
+.gray6{color:#666}
+.show{display:block }
+.hide{display:none}
+.posr{position:relative}
+.posa{ position:absolute}
+.fixed{position:fixed}
+.t_center { text-align:center;}
+.ellipsis{white-space:nowrap; text-overflow:ellipsis; overflow:hidden;}
+.transparent{background:rgba(3,108,213,0.6);}
+.f_gray{-webkit-filter: grayscale(100%);-moz-filter: grayscale(100%);-ms-filter: grayscale(100%);-o-filter: grayscale(100%);filter: grayscale(100%);filter: gray;}
+.text-shadow { text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);}
+.box_shadow { box_shadow:0 1px 6px rgba(0, 0, 0, 0.2);}
+.bottom_shadow {box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);}
+.a_transition { -webkit-transition:all 0.3s ease-in-out;-moz-transition:all 0.3s ease-in-out;-ms-transition:all 0.3s ease-in-out;-o-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}
+.open_fast{-webkit-transform: translateZ(0); -moz-transform: translateZ(0); -ms-transform: translateZ(0); -o-transform: translateZ(0); transform: translateZ(0);-webkit-backface-visibility:hidden; -webkit-perspective:1000;} /*开启硬件加速*/
