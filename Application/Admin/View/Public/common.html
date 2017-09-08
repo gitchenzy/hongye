@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>厦门红叶帮帮忙后台管理系统</title>
+    <meta name="keywords"/>
+    <meta name="description"/>
+    <link rel="stylesheet" href="/public/Admin/css/style.min.css">
+    <link rel="stylesheet" href="/public/Static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/Static/assets/bootstrap-table/src/bootstrap-table.css">
+    <link rel="stylesheet" href="/public/Static/assets/bootstrap-table/src/bootstrap-editable.css">
+    <link rel="stylesheet" href="/public/Static/assets/examples.css">
+    <link rel="stylesheet" href="/public/Admin/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/Admin/css/custom.css">
+    <link rel="stylesheet" href="/public/Admin/css/animate.min.css">
+    <link rel="stylesheet" href="/public/Admin/css/huge.css">
+    <link rel="stylesheet" href="/public/Admin/css/toastr.min.css">
+    <link rel="stylesheet" href="/public/Admin/css/sweetalert.css">
+    <link rel="stylesheet" href="/public/Admin/css/summernote.css">
+    <script type="text/javascript" src='/public/Static/jquery-1.11.2.min.js'></script>
+    <script type="text/javascript" src="/public/admin/js/jquery.js"></script>
+    <script>
+        // 现在window.$和window.jQuery是1.11版本:
+        console.log($().jquery); // => '1.11.0'
+        var $jq = jQuery.noConflict(true);
+        // 现在window.$和window.jQuery被恢复成1.5版本:
+        console.log($().jquery); // => '1.5.0'
+        // 可以通过$jq访问1.11版本的jQuery了
+    </script>
+
+
+    <link rel="stylesheet" href="/public/admin/css/jquery.autocomplete.css">
+    <script type="text/javascript" src="/public/admin/js/jquery.bgiframe.min.js"></script>
+    <script type="text/javascript" src="/public/admin/js/jquery.ajaxQueue.js"></script>
+    <script type="text/javascript" src="/public/admin/js/jquery.autocomplete.js"></script>
+    <script src="/public/Static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/public/Static/assets/bootstrap-table/src/bootstrap-table.js"></script>
+    <script src="/public/Static/assets/bootstrap-table/src/extensions/export/bootstrap-table-export.js"></script>
+    <script src="/public/Static/assets/tableExport.js"></script>
+    <script src="/public/Static/assets/bootstrap-table/src/extensions/editable/bootstrap-table-editable.js"></script>
+    <script src="/public/Static/assets/bootstrap-table/src/bootstrap-editable.js"></script>
+    <script src="/public/Admin/js/icheck.min.js"></script>
+    <script src="/public/Admin/js/content.min.js"></script>
+    <script src="/public/Admin/js/bootstrapValidator.js"></script>
+    <script src="/public/Admin/js/toastr.min.js"></script>
+    <script src="/public/Static/assets/analytics.js"></script>
+    <script src="/public/Admin/js/sweetalert.min.js"></script>
+    <script src="/public/Admin/js/layer/laydate/laydate.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Static/uploadify/jquery.uploadify.min.js"></script>
+    <script type="text/javascript" src="/public/Admin/js/summernote.min.js"></script>
+    <script type="text/javascript" src="/public/Admin/js/summernote-zh-CN.js"></script>
+    <script src="/public/Admin/js/huge.js"></script>
+    <block name="style"></block>
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <!-- 主体 -->
+        <block name="body"></block>
+    <!-- /主体 -->
+</div>
+<!-- 底部 -->
+<include file="Public/footer"/>
+<!-- /底部 -->
+<block name="modal"></block>
+<block name="script"></block>
+</body>
+</html>

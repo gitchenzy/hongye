@@ -1,0 +1,40 @@
+<extend name="Public/base"/>
+<block name="body">
+    <div class="w-admin">
+        <div class="panel">
+            <?php if(isset($message)) {?>
+            <h2 class="text-success" style="padding-left: 15px;"><i class="fa fa-check-circle-o"></i> <?php echo($message); ?></h2>
+            <?php }else{?>
+            <h2 class="text-danger" style="padding-left: 15px;"><i class="fa fa-exclamation-triangle"></i> <?php echo($error); ?></h2>
+            <?php }?>
+            <empty name="error_detail">
+                <div class="panel-body">
+                    <blockquote>
+                        <p>页面自动 <a id="href" href="<?php echo($jumpUrl); ?>">跳转</a> 等待时间： <b id="wait"><?php echo($waitSecond); ?></b></p>
+                    </blockquote>
+                </div>
+                <else/>
+                <div id="my_error">{$error_detail}</div>
+            </empty>
+            <div class="panel-footer">
+                <a href="<?php echo($jumpUrl); ?>"   id="" name="submitAddcustomer" class="btn btn-success">
+                    <i class="fa fa-arrow-circle-o-right"></i> 立即跳转
+                </a>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="script">
+<script type="text/javascript">
+(function(){
+    var wait = document.getElementById('wait'),href = document.getElementById('href').href;
+    var interval = setInterval(function(){
+        var time = --wait.innerHTML;
+        if(time <= 0) {
+            location.href = href;
+            clearInterval(interval);
+        };
+    }, 1000);
+})();
+</script>
+</block>

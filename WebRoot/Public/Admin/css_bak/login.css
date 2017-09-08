@@ -1,0 +1,56 @@
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, a, em, img, ol, ul, li, form, dl, dt, dd, input, button{ outline: none;box-sizing: border-box;}
+img { border: 0;}
+/*登录界面body*/
+
+.login-header {  height: 60px;  padding: 10px;}
+.login-panel .slideBox{ width: 450px;display: inline-block;  height: 369px;   margin-right: 90px;}
+.login-panel .slideBox img { width:100%;}
+body { background: #fff; }
+.login-header {     display: table; border-bottom: 1px solid #ECECEC;height: 124px;    padding: 0px 70px;box-sizing: border-box;}
+.login-header .logo {vertical-align:middle;  display: table-cell;}
+.login-header .header{padding-left:10px; vertical-align:middle;  display: table-cell; color: #006AB7;font-size: 17px;}
+li{list-style: none;}
+/**/
+.w-container { width: 1190px; margin: 0 auto;}
+input{border: 0;}
+.login-panel {margin: 0 auto; height:544px;background-color: #F7FBFF;  text-align: center;  box-sizing: border-box;padding-top: 116px;}
+.login-panel .login-tab{display: inline-block;  width: 395px;}
+.login-panel .login-tab .hd { padding: 20px 10px 10px 10px; text-align: center;}
+.login-panel .login-tab .hd a { display: inline-block; padding: 10px 20px; font-size: 16px;}
+.login-panel .login-tab .hd a.on { padding-left: 35px; background: url("../images/login_input.png") no-repeat; background-position:-332px -43px; color: #333; font-size: 18px;}
+.login-panel .login-tab .bd {   box-sizing: border-box;  height: 374px; background: #fff;   padding-top: 20px;border: #eee 1px solid;  font-size: 14px;}
+.login-panel .login-tab .bd .title{font-size: 18px;color:#006AB7;   text-align: left;  border-bottom: 1px solid #D9D9D9;padding-left: 56px;padding-bottom: 15px;}
+.login-panel .panel {}
+.login-panel .form-login {  margin: 28px 30px 0px 30px;}
+.login-panel .form-login .form-group {  line-height: 22px;display: inline-block;   height: 34px; box-sizing: border-box;width: 283px;  border: 1px solid #77A6BC;background: #fff;    padding: 5px 5px 5px 40px;margin: 8px 0 8px 0; position: relative; }
+.login-panel .form-login .form-group label { float: left; margin-left: -30px; background: url("../images/login_input.png") no-repeat; width: 20px; height: 20px; vertical-align: middle; display: inline-block; }
+.login-panel .form-login .form-group label.control-label-username { background-position: 0px 4px;}
+.login-panel .form-login .form-group label.control-label-password { background-position: 0px -40px;}
+.login-panel .form-login .form-group label.control-label-valid { background-position: 0px -134px;}
+/*.login-panel .form-login .form-group label.control-label-valid { background-image:url("../Images/icon_valid.png"); background-position:0 4px;}*/
+.login-panel .form-login .form-group input { width: 100%;  font-size: 16px;}
+.login-panel .form-login .form-group .command { position: absolute; right: 3px; top: 3px;}
+.login-panel .form-login .form-group .command img { height: 26px;}
+/*.login-panel .form-group-command { padding: 20px 0 ;}*/
+.login-panel .form-group-command .btn-login { cursor:pointer;  width: 220px; background-color: #00A0E9;display: inline-block; text-align: center;height: 44px; line-height: 42px; color: #fff;font-size:16px;  }
+.login-panel .form-group-command .btn-login span {  display: block; height: 44px; }
+.login-panel .account-info { margin:0 30px 0px 30px;  padding: 20px 0; text-align: right;}
+.login-panel .account-info .join { color: #e12000;}
+/*.login-panel .account-info .logo { background: url("../Images/logo_small.png"); display: inline-block; width: 69px; height: 20px; float: left;}*/
+.login-panel .error-container { padding: 0 0 5px 0; display: none;}
+/*.login-panel .error-container label.error { display: block; padding: 0 0 5px 20px; background: url("../Images/icon_error_small.png") no-repeat left top;}*/
+.login-panel .info {  margin: 9px 0;
+    /* margin: -15px 0 0 0; */
+    font-size: 12px;
+    color: #999;
+    text-align: center;}
+.login-panel .form-register {margin:0 30px 20px 30px;}
+.login-panel .form-register h2 { margin-bottom: 10px;}
+.login-panel .form-register .form-group { border: 1px solid #eee; background: #fff;  padding: 5px 5px 5px 90px;margin-bottom: -1px; }
+.login-panel .form-register .form-group label {float: left; margin-left: -90px; font-size: 16px; line-height: 30px; font-family: 'Microsoft YaHei', "Heiti SC"; font-weight: normal; width: 80px; display: inline-block; text-align: right;}
+.login-panel .form-register .form-group input { width: 100%; height: 30px; font-size: 16px;}
+.login-panel .form-group:first-child { }
+.login-panel .form-group:last-child { }
+
+/*正在进行中的按钮的样式*/
+.ongoing{background:#777;}

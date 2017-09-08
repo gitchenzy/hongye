@@ -1,0 +1,342 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="nav-close"><i class="fa fa-times-circle"></i>
+    </div>
+    <div class="slimScrollDiv" style="position: relative; width: auto; height: 100%;"><div class="sidebar-collapse" style="width: auto; height: 100%;">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <span><img alt="image" class="img-circle" src="/public/Admin/img/profile_small.jpg"></span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                               <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
+                                <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
+                                </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a class="J_menuItem" href="form_avatar.html" data-index="0">修改头像</a>
+                        </li>
+                        <li><a class="J_menuItem" href="profile.html" data-index="1">个人资料</a>
+                        </li>
+                        <li><a class="J_menuItem" href="contacts.html" data-index="2">联系我们</a>
+                        </li>
+                        <li><a class="J_menuItem" href="mailbox.html" data-index="3">信箱</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="/Admin/Account/logout">安全退出</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="logo-element">果
+                </div>
+            </li>
+
+            <li>
+                <a href="">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-label">用户管理</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a class="J_menuItem" href="{:U('Customer/customer')}" data-index="0">用户信息</a>
+                    </li>
+                    <li>
+                    <li>
+                        <a class="J_menuItem" href="/admin/Market/contract" data-index="1">合同信息</a>
+                    </li>
+                    <li>
+                        <a class="J_menuItem" href="/admin/Customer/demand" data-index="5">客户问题需求</a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-user"></i>
+                            <span class="nav-label">基本信息</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-third-level collapse">
+                            <li>
+                                <a class="J_menuItem" href="/admin/Customer/payType" data-index="6">支付方式</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/Market/contractType" data-index="6">合同类型</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/Customer/customerstatus" data-index="6">客户状态</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/Customer/customerRank" data-index="6">客户等级</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/Customer/customerRole" data-index="6">角色关系</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/Customer/customerClose" data-index="6">亲密程度</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/Customer/demandState" data-index="6">问题状态</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/Customer/demandPriority" data-index="6">问题优先级</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa fa-home"></i>
+                    <span class="nav-label">实施信息</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse">
+
+                    <li>
+                        <a class="J_menuItem" href="/admin/Maintain/index" data-index="0">实施记录</a>
+                    </li>
+                </ul>
+
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa fa fa-bar-chart-o"></i>
+                    <span class="nav-label">财务信息</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a class="J_menuItem" href="/admin/OrderInfo/index" data-index="0">财务记录</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa fa-bar-chart-o"></i>
+                    <span class="nav-label">市场信息</span>
+                    <span class="fa arrow"></span>
+                </a>
+
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a class="J_menuItem" href="/admin/Market/index" data-index="0">市场记录</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li>
+                <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">代理信息</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a class="J_menuItem" href="/admin/Agent/index" data-index="19">代理管理</a>
+                    </li>
+                    <li>
+                        <a class="J_menuItem" href="/admin/Agent/agentRule" data-index="20">代理规则</a>
+                    </li>
+                    <li>
+                        <a class="J_menuItem" href="/admin/Agent/agentRate" data-index="20">代理返点</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">产品管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a class="J_menuItem" href="/admin/Product/index" data-index="32">产品信息</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">员工管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a class="J_menuItem" href="/admin/Employee/index" data-index="56">员工信息</a>
+                    </li>
+                    <li>
+                        <a class="J_menuItem" href="/admin/Employee/department" data-index="56">部门信息</a>
+                    </li>
+                    <li>
+                        <a class="J_menuItem" href="/admin/Employee/userGroup" data-index="56">用户组管理</a>
+                    </li>
+                    <li>
+                        <a class="J_menuItem" href="/admin/Employee/menu" data-index="56">菜单管理</a>
+                    </li>
+                </ul>
+
+            </li>
+            <!--
+            <li>
+                <a href="#"><i class="fa fa-table"></i> <span class="nav-label">表格</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a class="J_menuItem" href="table_basic.html" data-index="78">基本表格</a>
+                    </li>
+                    <li><a class="J_menuItem" href="table_data_tables.html" data-index="79">DataTables</a>
+                    </li>
+                    <li><a class="J_menuItem" href="table_jqgrid.html" data-index="80">jqGrid</a>
+                    </li>
+                    <li><a class="J_menuItem" href="table_foo_table.html" data-index="81">Foo Tables</a>
+                    </li>
+                    <li><a class="J_menuItem" href="table_bootstrap.html" data-index="82">Bootstrap Table
+                        <span class="label label-danger pull-right">推荐</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-picture-o"></i> <span class="nav-label">相册</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a class="J_menuItem" href="basic_gallery.html" data-index="83">基本图库</a>
+                    </li>
+                    <li><a class="J_menuItem" href="carousel.html" data-index="84">图片切换</a>
+                    </li>
+                    <li><a class="J_menuItem" href="blueimp.html" data-index="85">Blueimp相册</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="J_menuItem" href="/admin/huge/" data-index="86"><i class="fa fa-magic"></i> <span class="nav-label">CSS动画</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-cutlery"></i> <span class="nav-label">工具 </span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a class="J_menuItem" href="form_builder.html" data-index="87">表单构建器</a>
+                    </li>
+                </ul>
+            </li>
+-->
+        </ul>
+    </div><div class="slimScrollBar" style="width: 4px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 213.293943870015px; background: rgb(0, 0, 0);"></div><div class="slimScrollRail" style="width: 4px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; opacity: 0.9; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div></div>
+</nav>
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
+                    <div class="form-group">
+                        <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
+                    </div>
+                </form>
+            </div>
+            <ul class="nav navbar-top-links navbar-right" style="display:none;">
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li class="m-t-xs">
+                            <div class="dropdown-messages-box">
+                                <a href="profile.html" class="pull-left">
+                                    <img alt="image" class="img-circle" src="img/a7.jpg">
+                                </a>
+                                <div class="media-body">
+                                    <small class="pull-right">46小时前</small>
+                                    <strong>小四</strong> 这个在日本投降书上签字的军官，建国后一定是个不小的干部吧？
+                                    <br>
+                                    <small class="text-muted">3天前 2014.11.8</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a href="profile.html" class="pull-left">
+                                    <img alt="image" class="img-circle" src="img/a4.jpg">
+                                </a>
+                                <div class="media-body ">
+                                    <small class="pull-right text-navy">25小时前</small>
+                                    <strong>国民岳父</strong> 如何看待“男子不满自己爱犬被称为狗，刺伤路人”？——这人比犬还凶
+                                    <br>
+                                    <small class="text-muted">昨天</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a class="J_menuItem" href="mailbox.html" data-index="88">
+                                    <i class="fa fa-envelope"></i> <strong> 查看所有消息</strong>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts" style="display:none;">
+                        <li>
+                            <a href="mailbox.html">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> 您有16条未读消息
+                                    <span class="pull-right text-muted small">4分钟前</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="profile.html">
+                                <div>
+                                    <i class="fa fa-qq fa-fw"></i> 3条新回复
+                                    <span class="pull-right text-muted small">12分钟钱</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a class="J_menuItem" href="notifications.html" data-index="89">
+                                    <strong>查看所有 </strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="hidden-xs">
+                    <a href="" class="J_menuItem" data-index="0"><i class="fa fa-cart-arrow-down"></i> 预留</a>
+                </li>
+                <li class="dropdown hidden-xs">
+                    <a class="right-sidebar-toggle" aria-expanded="false">
+                        <i class="fa fa-tasks"></i> 主题
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="row content-tabs">
+        <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i>
+        </button>
+        <nav class="page-tabs J_menuTabs">
+            <div class="page-tabs-content" style="margin-left: 0px;">
+                <a href="javascript:;" class="J_menuTab active" data-id="index_v1.html">首页</a>
+            </div>
+        </nav>
+        <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
+        </button>
+        <div class="btn-group roll-nav roll-right">
+            <button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span class="caret"></span>
+
+            </button>
+            <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                <li class="J_tabShowActive"><a>定位当前选项卡</a>
+                </li>
+                <li class="divider"></li>
+                <li class="J_tabCloseAll"><a>关闭全部选项卡</a>
+                </li>
+                <li class="J_tabCloseOther"><a>关闭其他选项卡</a>
+                </li>
+            </ul>
+        </div>
+        <a href="/Admin/Account/logout" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+    </div>
+    <div class="row J_mainContent" id="content-main">
+        <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="" frameborder="0" data-id="" seamless="" style="display: inline;"></iframe>
+    </div>
+    <div class="footer">
+        <div class="pull-right">© 2017-2018 <a href="" target="_blank">厦门红叶帮帮忙</a>
+        </div>
+    </div>
+</div>

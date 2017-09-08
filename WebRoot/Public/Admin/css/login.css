@@ -1,0 +1,102 @@
+@charset "utf-8"; /* CSS Document */
+*:focus {outline: none;}/*消除谷歌下input边框*/
+.css3bg{
+    -webkit-transition: background .3s ease,color 0.2s linear;-moz-transition: background .3s ease, color 0.2s linear;
+    -o-transition: background .3s ease, color 0.2s linear;transition: background .3s ease, color 0.2s linear;
+}
+/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */ dl, dt, dd, ul, ol, li, /* list elements 列表元素  */
+pre, /* text formatting elements 文本格式元素 */  fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */ margin: 0; padding: 0; }
+
+/* 设置默认字体 */
+body, button, input, select, textarea { font: 12px/1 微软雅黑, Helvetica, Arial, "\5b8b\4f53", sans-serif; }
+
+h1 { font-size: 18px; /* 18px / 12px = 1.5 */ }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+/* 重置列表元素 */
+ul, ol { list-style: none; }
+
+/* 图片元素 */
+img{ border: none; }
+
+/* 重置文本格式元素 */
+a { text-decoration:none ;
+    color:#666666 ;
+    -webkit-transition: background .3s ease,color 0.2s linear;-moz-transition: background .3s ease, color 0.2s linear;
+    -o-transition: background .3s ease, color 0.2s linear;transition: background .3s ease, color 0.2s linear;
+}
+a:hover { text-decoration: none ; color:#ff4200 }
+
+/* 自定义 */
+.left{ float:left ; display:inline}
+.right{ float:right ; display:inline}
+.center{ margin: 0 auto ; }
+.clear{ clear:both }
+
+
+/* 主体样式 */
+body{ background:url(../img/loginBg3.jpg) top center no-repeat ; height:100% ; line-height:24px; color:#5a5f61}
+
+/* BDSAAS title */
+.crmTitle{ width:390px ; height:auto ; text-align:center  }
+.crm_main{ width:382px ; height:450px ; margin-top:30px; padding:4px  ; background:url(../img/L-M-BG.png) top center no-repeat ; }
+
+/* CRM 问候图片 */
+.huandeng{ width:382px ; height:168px ; position:relative }
+.welcome-text{ width:100% ; height:35px; line-height:35px; text-align:center ; position:absolute ; z-index:999 ; bottom:0 ; left:0 ;
+    background:rgba(0, 0, 0, 0.4) none repeat scroll 0 0 !important; /*实现FF背景透明*/ filter:Alpha(opacity=40); background:#000;/*实现IE背景透明*/ }
+.con{ width:100% ; height:35px; line-height:35px; color:#FFFFFF ; text-align:center ; position:absolute ; z-index:999 ; bottom:0 ; left:0 }
+.huandeng img{ display:block}
+
+/**首页主要部分**/
+.select{ width:340px ; height:auto ; margin: 0 auto ; margin-top:25px ; font-size:13px ;  }
+/* 账户*密码 */
+.l_text{ width:227px ; height:22px ; line-height:22px ; padding:10px ; color:#999999 ; background:url(../img/l_text.png) center no-repeat }
+.l_text:hover{ background:url(../img/l_text_hover.png) center no-repeat }
+
+/* 验证码 */
+.l_text_2{ width:143px ; height:22px; line-height:22px ; font-size:12px;  padding:10px;  color:#5b6061 ; _margin-top:3px;
+    background:url(../img/l_text_2.png) left center no-repeat}
+.yz_img{ width:71px ; height:32px ; line-height:32px; padding:5px ; float:left ; display:inline; margin-left:3px
+; background:url(../img/l_verification.png) center no-repeat }
+.yz_img img{ width:71px ; height:32px ; display:block;cursor:pointer;}
+
+/* CRM 注册/找回 */
+.l_lianjie{ font-size:12px;}
+.l_lianjie a{ color:#2d6cb3}
+.l_lianjie a:hover{ color:#FF9900}
+#forget{ color:#666666}
+#forget:hover{ color:#FF9900}
+
+/** 注册 **/
+.zhuceTop{ width:491px ; line-height:30px ; padding-top:110px; padding-bottom:10px;  color:#fff ;  }
+.zc_title{ font-size:32px ; font-family:微软雅黑  ; text-align:center ;}
+.zc_title span{  font-size:26px; }
+
+.zhuceBox-top{ width:481px ; height:5px ; padding:5px; background:url(../img/zhuceBg.png) top center no-repeat  ; margin-top:0px}
+.zhuceBox-bottom{ width:481px ; height:5px ; padding:5px; background:url(../img/zhuceBg.png) bottom center no-repeat  ; margin-top:0px}
+
+.zhuceBox{ width:481px ; height:auto ; min-height:345px ; padding:5px; background:url(../img/zhuceBg-y.png) repeat-y ; padding-bottom:15px; }
+.zhuceText{ width:80% ; height:auto ; margin-top:25px; }
+.zhuceText table tr td{ padding:5px }
+
+.l-title{ text-align:right; padding-top:10px;}
+
+.mima_qd{ width:240px ; height:14px ; margin-left:3px; margin-top:10px }
+.mm_qd{ width:79px ; height:12px ; line-height:12px ; display:block ; padding:0px ; margin:0 ; text-align:center ; margin-left:1px;color:#fff; background:#eaeaea;
+}
+
+.STYLE1 {font-size: 14px}
+.STYLE2 {color: #999999}
+.STYLE3 {color: #FF0000}
+.xieyi a{ color:#3d82c5}
+.xieyi a:hover{ color:#FF9900}
+
+.loginBox{ width:510px; height:auto ; padding:20px 0 ; position:fixed ; position:absolute ; *position:absolute ; top:30px ; left:50% ; margin-left:-255px;}
+
+/** 找回 **/
+.form-control{width:240px;display:block;padding:10px 0;border-radius: 5px;color:#999999 ;border:0;background:url(../img/l_text.png) center no-repeat}
+
+.form-control:hover{background:url(../img/l_text_hover.png) center no-repeat}

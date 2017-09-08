@@ -1,0 +1,65 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">问题详情</h4>
+</div>
+<div class="modal-body">
+        <fieldset>
+            <table class="table table-bordered" id="table">
+                <tr>
+                    <td>类型</td>
+                    <td>{$info.typeName}</td>
+                </tr>
+                <tr>
+                    <td>标题</td>
+                    <td>{$info.Title}</td>
+                </tr>
+                <tr>
+                    <td>解决人</td>
+                    <td>{$info.EmpName}</td>
+                </tr>
+
+                <tr>
+                    <td>备注</td>
+                    <td>{$info.Note}</td>
+                </tr>
+                <tr>
+                    <td>描述</td>
+                    <td class="col-sm-10 ws">{$info.Description}</td>
+                </tr>
+
+            </table>
+                <div class="log">
+                    <ul>
+                        <volist name="data" id="d">
+                            <li>{$d.Content}</li>
+                        </volist>
+                    </ul>
+                </div>
+        </fieldset>
+
+</div>
+<div class="modle">
+
+    <img id="modle" src="" alt="暂无图片">
+</div>
+<style>
+
+    .modle{position: absolute;top: 150px;left: 0;z-index: 9999999999999;display: none;width:80%;}
+    .ws img{max-width:800px;}
+</style>
+<script>
+var obj = $('#modle');
+    $('img').click(function(){
+        if($(this).hasClass('select')){
+            $('.modle').hide();
+            $(this).removeClass('select')
+        }else{
+            $('.modle').show();
+            var src = $(this).attr('src');
+            obj.attr('src',src);
+            $(this).addClass('select')
+          //  alert(src)
+        }
+
+    })
+    </script>

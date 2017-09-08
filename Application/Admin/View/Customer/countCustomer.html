@@ -1,0 +1,47 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">统计数据</h4>
+</div>
+<div class="modal-body">
+        <fieldset>
+            <table class="table table-bordered" id="table">
+                <tr>
+                    <td>所属人</td>
+                    <td>{$eName}</td>
+                </tr>
+                <volist name="info" id="v">
+                    <tr>
+                        <td>{$v.CtmStatusName}</td>
+                        <td>{$v.count}</td>
+                    </tr>
+                </volist>
+            </table>
+
+        </fieldset>
+
+</div>
+<div class="modle">
+
+    <img id="modle" src="" alt="暂无图片">
+</div>
+<style>
+
+    .modle{position: absolute;top: 150px;left: 0;z-index: 9999999999999;display: none;width:80%;}
+    .ws img{max-width:800px;}
+</style>
+<script>
+var obj = $('#modle');
+    $('img').click(function(){
+        if($(this).hasClass('select')){
+            $('.modle').hide();
+            $(this).removeClass('select')
+        }else{
+            $('.modle').show();
+            var src = $(this).attr('src');
+            obj.attr('src',src);
+            $(this).addClass('select')
+          //  alert(src)
+        }
+
+    })
+    </script>
