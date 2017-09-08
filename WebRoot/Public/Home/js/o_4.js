@@ -18,17 +18,17 @@ w_3.click(function(){
     w_2.css("color","#CCCCCC"); 
 })
 w_5.click(function(){
-    if(w_5.attr("src")=="../pics/评论.png"){
-        w_5.attr("src","../pics/评论1.png");
+    if(w_5.attr("src")=="__PUBLIC__/Home/images/评论.png"){
+        w_5.attr("src","__PUBLIC__/Home/images/评论1.png");
     }else{
-        w_5.attr("src","../pics/评论.png");
+        w_5.attr("src","__PUBLIC__/Home/images/评论.png");
     }
 })
 w_6.click(function(){
-    if(w_6.attr("src")=="../pics/关注2.png"){
-        w_6.attr("src","../pics/关注1.png");
+    if(w_6.attr("src")=="__PUBLIC__/Home/images/关注2.png"){
+        w_6.attr("src","__PUBLIC__/Home/images/关注1.png");
     }else{
-        w_6.attr("src","../pics/关注2.png");
+        w_6.attr("src","__PUBLIC__/Home/images/关注2.png");
     }
 })
 

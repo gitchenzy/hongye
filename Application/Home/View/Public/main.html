@@ -12,7 +12,7 @@
 
 <body>
 
-<div class="all" id="plate_1">
+
 
 <block name="content"></block>
 
@@ -22,7 +22,7 @@
     <div class="main_bottom_box">
         <div class="main_bottom_box_mid">
 
-            <a href="index.html"><img width="30px" height="30px" src="pics/new/home_2.png"></a>
+            <a href="index.html"><img width="30px" height="30px" src="__PUBLIC__/Home/images/new/home_2.png"></a>
 
             <a style="color:#D33D3E" href="index.html">主页</a>
         </div>
@@ -30,7 +30,7 @@
     <div class="main_bottom_box">
         <div class="main_bottom_box_mid">
 
-            <a href="others/find.html"><img src="pics/new/find_1.png"></a>
+            <a href="others/find.html"><img src="__PUBLIC__/Home/images/new/find_1.png"></a>
 
             <a href="others/find.html">发现</a>
         </div>
@@ -39,7 +39,7 @@
     <div onclick="window.location.href='others/original.html'" class="main_bottom_box">
         <div class="main_bottom_box_mid_icon">
 
-            <a href="#"><img src="pics/new/go.png"></a>
+            <a href="#"><img src="__PUBLIC__/Home/images/new/go.png"></a>
 
 
         </div>
@@ -47,17 +47,17 @@
     <div class="main_bottom_box">
         <div class="main_bottom_box_mid">
 
-            <a href="others/news.html"><img src="pics/new/news_1.png"></a>
+            <a href="others/news.html"><img src="__PUBLIC__/Home/images/new/news_1.png"></a>
 
-            <a href="others/news.html">消息</a>
+            <a href="">消息</a>
         </div>
     </div>
     <div class="main_bottom_box">
         <div class="main_bottom_box_mid">
 
-            <a href="others/mine.html"><img src="pics/new/mine_1.png"></a>
+            <a href="{:U('Center/center')}"><img src="__PUBLIC__/Home/images/new/mine_1.png"></a>
 
-            <a href="others/mine.html">我的</a>
+            <a href="{:U('Center/center')}">我的</a>
         </div>
     </div>
 
@@ -65,8 +65,69 @@
 <div class="blank">
 </div>
 
-</div>
-<script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
+
+<script tyep="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.touchSlider.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/main.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $(".main_visual").hover(function(){
+            $("#btn_prev,#btn_next").fadeIn()
+        },function(){
+            $("#btn_prev,#btn_next").fadeOut()
+        });
+
+        $dragBln = false;
+
+        $(".main_image").touchSlider({
+            flexible : true,
+            speed : 200,
+            btn_prev : $("#btn_prev"),
+            btn_next : $("#btn_next"),
+            paging : $(".flicking_con a"),
+            counter : function (e){
+                $(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+            }
+        });
+
+        $(".main_image").bind("mousedown", function() {
+            $dragBln = false;
+        });
+
+        $(".main_image").bind("dragstart", function() {
+            $dragBln = true;
+        });
+
+        $(".main_image a").click(function(){
+            if($dragBln) {
+                return false;
+            }
+        });
+
+        timer = setInterval(function(){
+            $("#btn_next").click();
+        }, 2000);
+
+        $(".main_visual").hover(function(){
+            clearInterval(timer);
+        },function(){
+            timer = setInterval(function(){
+                $("#btn_next").click();
+            },2000);
+        });
+
+        $(".main_image").bind("touchstart",function(){
+            clearInterval(timer);
+        }).bind("touchend", function(){
+            timer = setInterval(function(){
+                $("#btn_next").click();
+            }, 2000);
+        });
+
+    });
+</script>
 
 <block name="js">
 
