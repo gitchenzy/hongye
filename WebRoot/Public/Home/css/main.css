@@ -364,7 +364,7 @@ html body {
 	
 }
 .stantic_lang_2_icon{
-	background:url(../images/icon_1.png);
+	background:url(__PUBLIC__/Home/images/icon_1.png);
 	width:15px;
 	height:15px;
 	margin:10px 5px 0px 0px;
@@ -468,7 +468,7 @@ html body {
 	width:20px;
 	border-radius:10px;
 	float:left;
-	background:url(../images/icon_2.png);
+	background:url(__PUBLIC__/Home/images/icon_2.png);
 	margin:0px 10px 0px 0px;
 	
 }
@@ -531,19 +531,23 @@ html body {
 	width:100%;
 	height:178px
 }
+.main_image li span img{
+	width: 360px;
+	height: 220px;
+}
 .main_image li a{
 	display:block;
 	width:100%;
 	height:178px
 }
 .main_image li .img_1{
-	background:url(../images/img_main_1.jpg) center top no-repeat
+	background:url(__PUBLIC__/Home/images/img_main_1.jpg) center top no-repeat
 }
 .main_image li .img_4{
-	background:url(../images/img_main_2.jpg) center top no-repeat
+	background:url(__PUBLIC__/Home/images/img_main_2.jpg) center top no-repeat
 }
 .main_image li .img_3{
-	background:url(../images/img_main_3.jpg) center top no-repeat
+	background:url(__PUBLIC__/Home/images/img_main_3.jpg) center top no-repeat
 }
 
 
@@ -563,7 +567,7 @@ div.flicking_con a{
 	height:21px;
 	margin:0;
 	padding:0;
-	background:url(../images/12.png) 0 0 no-repeat;
+	background:url(__PUBLIC__/Home/images/12.png) 0 0 no-repeat;
 	display:block;
 	text-indent:-1000px
 	}
@@ -593,7 +597,7 @@ div.flicking_con a.on{
 		margin-bottom:10px;
 	padding:0px;
 	width:100%;
-	height:82px;
+	height:92px;
 	
 }
 .stantic_3_in{
@@ -631,7 +635,7 @@ div.flicking_con a.on{
 }
 .top_arrow{
 	display:inline-block;
-	background:url(images/new/findin.png) no-repeat;
+	background:url(pics/new/findin.png) no-repeat;
 	width:50px;
 	height:30px;
 	
@@ -767,7 +771,7 @@ div.flicking_con a.on{
 	height:168px;
 	margin:0px;
 	padding:0px;
-	background:url(../images/img_main_1.jpg) no-repeat center;
+	background:url(__PUBLIC__/Home/images/img_main_1.jpg) no-repeat center;
 	
 	
 }
@@ -857,7 +861,7 @@ div.flicking_con a.on{
 	margin:10px 15px 10px 15px;
 	height:195px;
 	overflow:hidden;
-	background:url(../images/img_main_3.jpg) no-repeat center;
+	background:url(__PUBLIC__/Home/images/img_main_3.jpg) no-repeat center;
 	
 }
 .find_card_black{
@@ -920,7 +924,7 @@ div.flicking_con a.on{
 .mine_banner{
 	width:100%;
 	height:95px;
-	background:url(../images/woolk.jpg) no-repeat center;
+	background:url(__PUBLIC__/Home/images/woolk.jpg) no-repeat center;
     margin:0px;
 	padding-top:73px;
 	
@@ -1413,7 +1417,7 @@ div.flicking_con a.on{
 	
 }
 .notes_b{
-	height:200px;
+	height:700px;
 	width:100%;
 	background:#CCCCCC;
 	
@@ -1421,7 +1425,7 @@ div.flicking_con a.on{
 /*-works-*/
 .top_share{
 	display:inline-block;
-	background:url(../images/%E5%88%86%E4%BA%AB2.png);
+	background:url(__PUBLIC__/Home/images/%E5%88%86%E4%BA%AB2.png);
 	width:30px;
 	height:30px;
 float:right;
@@ -1447,7 +1451,7 @@ float:right;
 .top_newarrow{
 	
 		display:inline-block;
-	background:url(../images/return_1.png);
+	background:url(__PUBLIC__/Home/images/return_1.png);
 	width:30px;
 	height:30px;
 	float:left;
@@ -1457,7 +1461,7 @@ float:right;
 .work_banner{
 	width:100%;
 	height:170px;
-	background:url(../images/img_main_1.jpg) center no-repeat;
+	background:url(__PUBLIC__/Home/images/img_main_1.jpg) center no-repeat;
 	
 }
 .work_card{
@@ -1477,7 +1481,7 @@ float:right;
 	height:35px;
 	border-radius:17.5px;
 	margin:0px 5px 0px 0px;
-	background:url(../images/img_1.jpg) no-repeat center;
+	background:url(__PUBLIC__/Home/images/img_1.jpg) no-repeat center;
 	float:left;
 }
 .work_r span{
@@ -1547,7 +1551,7 @@ float:right;
 	left:50%;
 	width:45px; 
 	height:45px;
-	background:url(../images/%C3%97%20%E5%88%A0%E9%99%A4.png);
+	background:url(__PUBLIC__/Home/images/%C3%97%20%E5%88%A0%E9%99%A4.png);
 }
 /*-get-*/
 .get_bg{
@@ -1619,13 +1623,13 @@ float:right;
 	height:35px;
 	border-radius:17.5px;
 	float:left;
-	background:url(../images/img_1.jpg) no-repeat;
+	background:url(__PUBLIC__/Home/images/img_1.jpg) no-repeat;
 	margin:2px 5px 0px 15px ;
 }
 
 .first_pic{
 	float:right;
-	background:url(../images/%E7%9F%A9%E5%BD%A29.png) no-repeat ;
+	background:url(__PUBLIC__/Home/images/%E7%9F%A9%E5%BD%A29.png) no-repeat ;
 	height:20px;
 	width:20px;
     position:relative;
@@ -1773,7 +1777,7 @@ float:right;
 	height:20px;
 	width:20px;
 	float:right;
-	background:url(../images/%E8%BF%94%E5%9B%9E.png);
+	background:url(__PUBLIC__/Home/images/%E8%BF%94%E5%9B%9E.png);
 	
 }
 .buildl{

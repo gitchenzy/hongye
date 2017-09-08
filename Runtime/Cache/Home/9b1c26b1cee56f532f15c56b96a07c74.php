@@ -1,10 +1,20 @@
-<extend name="Public:main" />
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
 
-<block name="js">
+    <link rel="stylesheet" type="text/css" href="/Public/Home/css/main.css" />
 
 
-</block>
-<block name="content">
+    <title>红叶帮帮忙</title>
+</head>
+
+<body>
+
+
+
+
 
     <div class="top">
         <div id="c4" class="helftop">
@@ -42,19 +52,19 @@
     <div class="mid">
         <div class="mid_box">
             <div class="mid_box_bg">
-                <a><img id="img1" src="__PUBLIC__/Home/images/new/love.png"></a>
+                <a><img id="img1" src="/Public/Home/images/new/love.png"></a>
                 <a href="#">公益</a>
             </div>
         </div>
         <div class="mid_box">
             <div class="mid_box_bg">
-                <a><img id="img2" src="__PUBLIC__/Home/images/new/togather.png"></a>
+                <a><img id="img2" src="/Public/Home/images/new/togather.png"></a>
                 <a href="#">拼团</a>
             </div>
         </div>
         <div class="mid_box">
             <div class="mid_box_bg">
-                <a><img id="img3" src="__PUBLIC__/Home/images/new/dream.png"></a>
+                <a><img id="img3" src="/Public/Home/images/new/dream.png"></a>
                 <a href="#">愿望</a>
             </div>
         </div>
@@ -64,7 +74,7 @@
     <div onClick="window.location.href='others/works.html'" class="midcard">
         <div class="midcard_top">
             <div class="midcard_top_pic">
-                <img src="__PUBLIC__/Home/images/new/pic.png">
+                <img src="/Public/Home/images/new/pic.png">
 
             </div>
             <div class="midcard_top_name">
@@ -75,7 +85,7 @@
 
             </div>
             <div class="midcard_address_icon">
-                <img src="__PUBLIC__/Home/images/new/local.png">
+                <img src="/Public/Home/images/new/local.png">
             </div>
         </div>
         <div class="midcard_content">
@@ -83,7 +93,7 @@
         </div>
         <div class="midcard_img">
             <div align="center" class="midcard_img_content">
-                <img src="__PUBLIC__/Home/images/little_banner.jpg">
+                <img src="/Public/Home/images/little_banner.jpg">
             </div>
         </div>
         <div class="midcard_contain">
@@ -104,7 +114,7 @@
     <div onClick="window.location.href='others/works.html'" class="midcard">
         <div class="midcard_top">
             <div class="midcard_top_pic">
-                <img src="__PUBLIC__/Home/images/new/pic.png">
+                <img src="/Public/Home/images/new/pic.png">
 
             </div>
             <div class="midcard_top_name">
@@ -115,7 +125,7 @@
 
             </div>
             <div class="midcard_address_icon">
-                <img src="__PUBLIC__/Home/images/new/local.png">
+                <img src="/Public/Home/images/new/local.png">
             </div>
 
         </div>
@@ -124,7 +134,7 @@
         </div>
         <div class="midcard_img">
             <div align="center" class="midcard_img_content">
-                <img src="__PUBLIC__/Home/images/little_banner.jpg">
+                <img src="/Public/Home/images/little_banner.jpg">
 
             </div>
         </div>
@@ -146,7 +156,7 @@
     <div onClick="window.location.href='others/works.html'" class="midcard">
         <div class="midcard_top">
             <div class="midcard_top_pic">
-                <img src="__PUBLIC__/Home/images/new/pic.png">
+                <img src="/Public/Home/images/new/pic.png">
 
             </div>
             <div class="midcard_top_name">
@@ -158,7 +168,7 @@
 
             </div>
             <div class="midcard_address_icon">
-                <img src="__PUBLIC__/Home/images/new/local.png">
+                <img src="/Public/Home/images/new/local.png">
             </div>
 
         </div>
@@ -167,7 +177,7 @@
         </div>
         <div class="midcard_img">
             <div align="center" class="midcard_img_content">
-                <img src="__PUBLIC__/Home/images/little_banner.jpg">
+                <img src="/Public/Home/images/little_banner.jpg">
             </div>
         </div>
         <div class="midcard_contain">
@@ -186,5 +196,126 @@
         </div>
     </div>
 
-</block>
 
+
+
+
+<div class="main_botoom">
+    <div class="main_bottom_box">
+        <div class="main_bottom_box_mid">
+
+            <a href="index.html"><img width="30px" height="30px" src="/Public/Home/images/new/home_2.png"></a>
+
+            <a style="color:#D33D3E" href="index.html">主页</a>
+        </div>
+    </div>
+    <div class="main_bottom_box">
+        <div class="main_bottom_box_mid">
+
+            <a href="others/find.html"><img src="/Public/Home/images/new/find_1.png"></a>
+
+            <a href="others/find.html">发现</a>
+        </div>
+
+    </div>
+    <div onclick="window.location.href='others/original.html'" class="main_bottom_box">
+        <div class="main_bottom_box_mid_icon">
+
+            <a href="#"><img src="/Public/Home/images/new/go.png"></a>
+
+
+        </div>
+    </div>
+    <div class="main_bottom_box">
+        <div class="main_bottom_box_mid">
+
+            <a href="others/news.html"><img src="/Public/Home/images/new/news_1.png"></a>
+
+            <a href="">消息</a>
+        </div>
+    </div>
+    <div class="main_bottom_box">
+        <div class="main_bottom_box_mid">
+
+            <a href="<?php echo U('Center/center');?>"><img src="/Public/Home/images/new/mine_1.png"></a>
+
+            <a href="<?php echo U('Center/center');?>">我的</a>
+        </div>
+    </div>
+
+</div>
+<div class="blank">
+</div>
+
+
+<script tyep="text/javascript" src="/Public/Home/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/Public/Home/js/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" src="/Public/Home/js/jquery.touchSlider.js"></script>
+<script type="text/javascript" src="/Public/Home/js/main.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $(".main_visual").hover(function(){
+            $("#btn_prev,#btn_next").fadeIn()
+        },function(){
+            $("#btn_prev,#btn_next").fadeOut()
+        });
+
+        $dragBln = false;
+
+        $(".main_image").touchSlider({
+            flexible : true,
+            speed : 200,
+            btn_prev : $("#btn_prev"),
+            btn_next : $("#btn_next"),
+            paging : $(".flicking_con a"),
+            counter : function (e){
+                $(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+            }
+        });
+
+        $(".main_image").bind("mousedown", function() {
+            $dragBln = false;
+        });
+
+        $(".main_image").bind("dragstart", function() {
+            $dragBln = true;
+        });
+
+        $(".main_image a").click(function(){
+            if($dragBln) {
+                return false;
+            }
+        });
+
+        timer = setInterval(function(){
+            $("#btn_next").click();
+        }, 2000);
+
+        $(".main_visual").hover(function(){
+            clearInterval(timer);
+        },function(){
+            timer = setInterval(function(){
+                $("#btn_next").click();
+            },2000);
+        });
+
+        $(".main_image").bind("touchstart",function(){
+            clearInterval(timer);
+        }).bind("touchend", function(){
+            timer = setInterval(function(){
+                $("#btn_next").click();
+            }, 2000);
+        });
+
+    });
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
