@@ -80,6 +80,10 @@
     </div>
 </block>
 <block name="script">
+
+    <script type="text/javascript" src='__PUBLIC__/Static/Ueditor23578/ueditor.config.js'></script>
+    <script type="text/javascript" src='__PUBLIC__/Static/Ueditor23578/ueditor.all.min.js'></script>
+
     <script type="text/javascript">
         var $table = $('#table'), $edit=$('#edit');$remove = $('#remove'), selections = [];
         var $add = $('#addform');
@@ -139,18 +143,18 @@
             $remove.click(function () {
                 var ids = getIdSelections();
                 var param = {ids:ids};
-                confirmDelete("/index.php/admin/Customer/delCustomer",param,$table,$remove,"id",ids);
+                confirmDelete("/index.php/admin/Project/delProject",param,$table,$remove,"id",ids);
             });
             $add.click(function(){
                 $("#addCustomer").modal({
-                    remote: "/index.php/admin/Customer/addCustomer"
+                    remote: "/index.php/admin/Project/addProject"
                     ,backdrop: 'static'
                     ,keyboard: false
                 });
             });
             $edit.click(function(){
                 $("#addCustomer").modal({
-                    remote: "/index.php/admin/Customer/editCustomer?id=" + getIdSelections()+'&t=' + Math.random(1000)
+                    remote: "/index.php/admin/Project/editProject?id=" + getIdSelections()+'&t=' + Math.random(1000)
                     ,backdrop: 'static'
                     ,keyboard: false
                 });
@@ -174,6 +178,7 @@
         //$("#model").on("hidden.bs.model",function(e){$(this).removeData();});
         $(function () {
             $("#addCustomer").on("hidden.bs.modal", function() {
+                location.reload();
                 $(this).removeData("bs.modal");
                 $edit.prop('disabled',true);
                 $table.bootstrapTable('refresh', {silent: true});

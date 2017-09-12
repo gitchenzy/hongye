@@ -1,47 +1,31 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title" id="myModalLabel"><empty name="Think.get.id">新增<else /> 编辑</empty>菜单</h4>
+    <h4 class="modal-title" id="myModalLabel"><empty name="Think.get.id">新增<else /> 编辑</empty>项目类型</h4>
 </div>
 <div class="modal-body">
     <form class="form-horizontal" role="form" id="defaultForm" method="post" action="{$self}">
-        <input type="hidden" name="id" value="{$info.ID}" />
+        <input type="hidden" name="id" value="{$info.id}" />
         <fieldset>
-            <empty name="Think.get.id">
+            <!--<empty name="Think.get.id">-->
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" >上级菜单</label>
+                    <label class="col-sm-2 control-label" >上级项目类型</label>
                     <div class="col-sm-3">
-                        {:parse_dropdownlist($info[PID],$menu,"PID","PID","form-control","请选择上级菜单")}
+                        {:parse_dropdownlist($info[pid],$menu,"pid","pid","form-control","请选择父级类型")} （注释：没有选择则为顶级类型）
                     </div>
                 </div>
-            </empty>
+            <!--</empty>-->
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="Title">菜单标题</label>
+                <label class="col-sm-2 control-label" for="title">项目类标题</label>
                 <div class="col-sm-4">
-                    <input class="form-control" id="Title" name="Title" type="text" value="{$info.Title}"/>
+                    <input class="form-control" id="title" name="title" type="text" value="{$info.title}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="Url">菜单url</label>
+                <label class="col-sm-2 control-label" for="small_pic">项目小图标</label>
                 <div class="col-sm-4">
-                    <empty name="Think.get.id">
-                        <textarea name="Url" class="form-control"></textarea>
-                    <else />
-                        <input class="form-control" id="Url" name="Url"  value="{$info.Url}" type="text" />
-                    </empty>
-                </div>
-
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label" for="Sort">排序</label>
-                <div class="col-sm-4">
-                    <input class="form-control" id="Sort" name="Sort"  value="{$info.Sort}" type="text" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label" >是否为菜单</label>
-                <div class="col-sm-4">
-                    <input name="ShowType" type="radio" checked value="0" type="text" />是
-                    <input name="ShowType" type="radio" <if condition="$info['ShowType'] gt 0">checked</if> value="2" type="text" />否
+                    <input type="hidden" id="small_pic" name="small_pic" value="{$info.small_pic}" />
+                    <img src="{$info.small_pic|default='/public/no_photo.png'}" width="50" id="photo_preview" />
+                    <input class="upload-btn" type="file" id="btn-upload">
                 </div>
             </div>
 
@@ -53,7 +37,35 @@
     <button type="button" class="btn btn-default" data-dismiss="modal" id="close">关闭</button>
     <button type="button" class="btn btn-primary" id="submit">保存</button>
 </div>
+
+<script type="text/javascript" src='__PUBLIC__/Static/uploadifive/Sample/jquery.uploadifive.min.js'></script>
+
+
 <script type="text/javascript">
+
+    $(function () {
+        $("#btn-upload").uploadifive({
+            height: 25,
+            swf: '/Public/Static/uploadify/uploadify.swf',
+            uploadScript: "{:U('File/uploadType',array('session_id'=>session_id()))}",
+            width: 80,
+            buttonClass: "l-btn",
+            buttonText: '上传',
+            onUploadComplete: function (file, data) {
+                data = $.parseJSON(data);
+                if (data.status) {
+                    $("#photo_preview").attr("src", data.data);
+                    $("#small_pic").val(data.data);
+                }
+                else {
+                    show_alert(data.info);
+                }
+            }
+        });
+    });
+
+
+
     $("#submit").click(function(){
         $("#defaultForm").submit();
     })

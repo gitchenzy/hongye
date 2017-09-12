@@ -2,7 +2,7 @@
 <block name="body">
     <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <h5>菜单信息</h5>
+            <h5>项目类型</h5>
             <div class="ibox-tools" style="display:none;">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
@@ -25,21 +25,18 @@
             <div class="row row-lg">
                 <div class="col-sm-12">
                     <div id="toolbar">
-                        <php> if(display_menu('/admin/Employee/addMenu')){ </php>
-                            <a class="btn btn-success" data-toggle="modal" data-target="#addCustomer" data-remote="/admin/Employee/addMenu" >
-                                新增
-                            </a>
-                        <php> } </php>
-                        <php> if(display_menu('/admin/Employee/editMenu')){ </php>
-                            <button id="edit" class="btn btn-primary" disabled>
-                                编辑
-                            </button>
-                        <php> } </php>
-                        <php> if(display_menu('/admin/Employee/delMenu')){ </php>
-                            <button id="remove" class="btn btn-danger" disabled>
-                                <i class="glyphicon glyphicon-remove"></i> 删除
-                            </button>
-                        <php> } </php>
+
+                        <a class="btn btn-success" data-toggle="modal" data-target="#addCustomer" data-remote="{:U('Project/addProType')}" >
+                            新增
+                        </a>
+
+                        <button id="edit" class="btn btn-primary" disabled>
+                            编辑
+                        </button>
+
+                        <button id="remove" class="btn btn-danger" disabled>
+                            <i class="glyphicon glyphicon-remove"></i> 删除
+                        </button>
 
                     </div>
                     <table id="table"
@@ -50,8 +47,8 @@
                            data-show-export="true"
                            data-minimum-count-columns="5"
                            data-pagination="true"
-                           data-id-field="ID"
-                           data-sort-name="Sort"
+                           data-id-field="id"
+                           data-sort-name="id"
                            data-detail-formatter="detailFormatter"
                            data-click-select = true
                            data-order="asc"
@@ -60,7 +57,7 @@
                            data-page-list="[10,20,50,100,ALL]"
                            data-show-footer="false"
                            data-side-pagination="server"
-                           data-url="/admin/Employee/loadMenu"
+                           data-url="{:U('Project/loadProType')}"
                            data-response-handler="responseHandler">
                     </table>
 
@@ -101,9 +98,10 @@
                         //{field: 'Number', title: 'Number', formatter: function (value, row, index) {return index + 1;}},
                         {checkbox: true, align: 'center', valign: 'middle'},
                         //{field: 'Sort',title: '排序', align: 'center', valign: 'middle', sortable: true,},
-                        {field: 'Title',title: '标题', align: 'center'},
-                        {field: 'PName', title: '上级菜单', align: 'center'},
-                        {field: 'Url', title: '链接地址', align: 'center'},
+                        {field: 'id',title: '类型id', align: 'center'},
+                        {field: 'title',title: '标题', align: 'center'},
+                        {field: 'pid', title: '父级标题', align: 'center'},
+                        {field: 'small_pic', title: '小图标', align: 'center'},
                     ]
                 ]
             });
@@ -127,11 +125,11 @@
             $remove.click(function () {
                 var ids = getIdSelections();
                 var param = {ids:ids};
-                confirmDelete("/admin/Employee/delMenu",param,$table,$remove,"ID",ids);
+                confirmDelete("/index.php/admin/Project/delProType",param,$table,$remove,"id",ids);
             });
             $edit.click(function(){
                 $("#addCustomer").modal({
-                    remote: "/admin/Employee/editMenu?id=" + getIdSelections()+'&t=' + Math.random(1000)
+                    remote: "/index.php/admin/Project/editProType?id=" + getIdSelections()+'&t=' + Math.random(1000)
                 });
             });
             $(window).resize(function () {
@@ -143,7 +141,7 @@
 
         function getIdSelections(param) {
             return $.map($table.bootstrapTable('getSelections'), function (row) {
-                return row.ID;
+                return row.id;
             });
         }
         //$("#model").on("hidden.bs.model",function(e){$(this).removeData();});
