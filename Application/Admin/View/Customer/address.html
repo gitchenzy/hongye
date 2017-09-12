@@ -2,7 +2,7 @@
 <block name="body">
     <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <h5>用户信息</h5>
+            <h5>收货地址管理</h5>
             <div class="ibox-tools" style="display:none;">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
@@ -26,23 +26,26 @@
                 <div class="col-sm-12">
                     <div id="toolbar">
 
-                           <!-- <a class="btn btn-success" data-toggle="modal" data-target="#addCustomer" data-remote="/admin/Customer/addCustomer">
-                                新增1
+                           <!-- <a class="btn btn-success" data-toggle="modal" data-target="#addCustomer1" data-remote="/admin/Customer/addDemand" >
+                                新增
                             </a>-->
                             <button id="addform" class="btn btn-success">
                                 新增
                             </button>
 
-
-
                             <button id="edit" class="btn btn-primary" disabled>
                                 编辑
                             </button>
 
-
                             <button id="remove" class="btn btn-danger" disabled>
                                 <i class="glyphicon glyphicon-remove"></i> 删除
                             </button>
+
+
+
+
+
+
                     </div>
                     <table id="table"
                            data-toolbar="#toolbar"
@@ -53,18 +56,19 @@
                            data-minimum-count-columns="5"
                            data-pagination="true"
                            data-id-field="id"
-                           data-sort-name="reg_time"
+                           data-sort-name="id"
                            data-detail-formatter="detailFormatter"
                            data-click-select = true
-                           data-order="desc"
+                           data-sort-order="desc"
                            data-page-size = "10"
                            data-page-number = "1"
                            data-page-list="[10,20,50,100,ALL]"
                            data-show-footer="false"
                            data-side-pagination="server"
-                           data-url="{:U('Customer/loadCustomer')}"
+                           data-url="{:U('Customer/loadAddress')}"
                            data-response-handler="responseHandler">
                     </table>
+
                 </div>
             </div>
         </div>
@@ -78,15 +82,95 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="addCustomer1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
 </block>
 <block name="script">
+    <script type="text/javascript" src='__PUBLIC__/Static/Ueditor23578/ueditor.config.js'></script>
+    <script type="text/javascript" src='__PUBLIC__/Static/Ueditor23578/ueditor.all.min.js'></script>
     <script type="text/javascript">
+        function daysBetween(DateOne,DateTwo)
+        {
+            var OneMonth = parseInt(DateOne.substring(5,DateOne.lastIndexOf ('-')));
+            var OneDay = parseInt(DateOne.substring(DateOne.length,DateOne.lastIndexOf ('-')+1));
+            var OneYear = parseInt(DateOne.substring(0,DateOne.indexOf ('-')));
+
+            var TwoMonth = parseInt(DateTwo.substring(5,DateTwo.lastIndexOf ('/')));
+            var TwoDay = parseInt(DateTwo.substring(DateTwo.length,DateTwo.lastIndexOf ('/')+1));
+            var TwoYear = parseInt(DateTwo.substring(0,DateTwo.indexOf ('/')));
+
+           // return TwoMonth;
+
+           if(OneYear > TwoYear){
+                return true;
+           }
+            //如果年份一样则判断月份
+            if(OneYear == TwoYear){
+                if(OneMonth > TwoMonth){
+                    return true;
+                }
+                //如果月份一样 则判断天数
+                if(OneDay >= TwoDay){
+                    return true;
+                }
+            }
+            //如果都小于的话则没有过期返回false
+            return false;
+        }
         var $table = $('#table'), $edit=$('#edit');$remove = $('#remove'), selections = [];
         var $add = $('#addform');
+
         function initTable() {
             $table.bootstrapTable({
-                formatSearch:function(){return '请输入用户微信号或者昵称'},
+
+                rowStyle:function(row, index) {
+                    var paln = row.PlanTime;
+                    var state = row.State;
+                    var myDate = new Date();
+                    var mytime=myDate.toLocaleDateString();
+
+                    if(paln){
+                        if(state =='解决中'){
+                            var cha = daysBetween(paln,mytime);
+                          //  alert(cha)
+                               if(cha){
+                                   return {
+                                       classes: 'text-nowrap another-class',
+                                       css: {}
+                                   };
+                               }else{
+                                   return {
+                                       classes: 'text-nowrap another-class',
+                                       css: {"background-color": "red", "color": "#fff"}
+                                   };
+                               }
+
+                        }else{
+                            return {
+                                classes: 'text-nowrap another-class',
+                                css: {}
+                            };
+                        }
+                    }else{
+                        return {
+                            classes: 'text-nowrap another-class',
+                            css: {}
+                        };
+
+                    }
+                                    },
+
                 height: getHeight(),
+                formatSearch:function(){return '请输入收货人或着会员昵称'},
+//                formatNoMatches:function(){return '没有找到数据！'},
+                formatRefresh:function(){return '刷新'},
+                formatColumns:function(){return '显示的列'},
+
                 clickToSelect:true,
                 formatLoadingMessage:function(){
                     return '正在加载，请稍候...';
@@ -103,17 +187,15 @@
                         //{field: 'Number', title: 'Number', formatter: function (value, row, index) {return index + 1;}},
                         {checkbox: true, align: 'center', valign: 'middle'},
                         //{field: 'Sort',title: '排序', align: 'center', valign: 'middle', sortable: true,},
-                        {field: 'id',title: '会员id', align: 'center'},
-                        {field: 'nick_name',title: '昵称', align: 'center'},
-                        {field: 'grade_name', title: '会员等级', align: 'center'},
-                        {field: 'balance', title: '余额', align: 'left', halign:'center'},
-                        {field: 'phone', title: '手机号码', align: 'center'},
-                        {field: 'weixin', title: '微信号', align: 'center'},
-                        {field: 'sex_name', title: '性别', align: 'center'},
-                        {field: 'status_name', title: '账号状态', align: 'center'},
-                        {field: 'amount', title: '众筹总金额', align: 'center',sortable: true},
-                        {field: 'is_auth', title: '是否认证', align: 'center'},
-//                        {field: 'CreateTime', title: '创建时间', align: 'center',sortable: true},
+                        {field: 'id',title: '编号', align: 'center',sortable: true},
+                        {field: 'nick_name',title: '会员',align: 'left', halign:'center'},
+                        {field: 'name', title: '收货人', align: 'center'},
+                        {field: 'phone', title: '收货电话', align: 'center'},
+                        {field: 'province', title: '省',align: 'left', halign:'center'},
+                        {field: 'city', title: '市', align: 'center'},
+                        {field: 'area', title: '区域', align: 'center'},
+                        {field: 'address', title: '详细地址', align: 'center'},
+                        {field: 'is_default', title: '是否默认', align: 'center'},
                     ]
                 ]
             });
@@ -124,6 +206,7 @@
             $table.on('check.bs.table uncheck.bs.table ' +
                     'check-all.bs.table uncheck-all.bs.table', function () {
                 $remove.prop('disabled', !$table.bootstrapTable('getSelections').length);
+
                 var checkLen = $table.bootstrapTable('getSelections').length;
                 if(checkLen == 1){
                     //$edit.attr("data-remote",""+getIdSelections()+'&t=' + Math.random(1000) );
@@ -131,30 +214,33 @@
 
                 }else{
                     //$edit.attr("data-remote","javascript:void(0);");
+
                     $edit.prop('disabled',true);
+
                 }
                 selections = getIdSelections();
             });
             $remove.click(function () {
                 var ids = getIdSelections();
                 var param = {ids:ids};
-                confirmDelete("/index.php/admin/Customer/delCustomer",param,$table,$remove,"id",ids);
-            });
+                confirmDelete("/index.php/admin/Customer/delAddress",param,$table,$remove,"id",ids);
+            })
+
+
             $add.click(function(){
-                $("#addCustomer").modal({
-                    remote: "/index.php/admin/Customer/addCustomer"
+                $("#addCustomer1").modal({
+                    remote: "/index.php/admin/Customer/addAddress"
                     ,backdrop: 'static'
                     ,keyboard: false
                 });
             });
             $edit.click(function(){
-                $("#addCustomer").modal({
-                    remote: "/index.php/admin/Customer/editCustomer?id=" + getIdSelections()+'&t=' + Math.random(1000)
+                $("#addCustomer1").modal({
+                    remote: "/index.php/admin/Customer/editAddress?id=" + getIdSelections()+'&t=' + Math.random(1000)
                     ,backdrop: 'static'
                     ,keyboard: false
                 });
             });
-
 
 
             $(window).resize(function () {
@@ -163,6 +249,7 @@
                 });
             });
 
+            //$(".form-control").attr('placeholder',"请输入项目名称或描述");
         }
 
         function getIdSelections(param) {
@@ -178,20 +265,22 @@
                 $table.bootstrapTable('refresh', {silent: true});
             });
             eachSeries(getScript, initTable);
+
+        });
+        $(function () {
+            $("#addCustomer1").on("hidden.bs.modal", function() {
+                $(this).removeData("bs.modal");
+                location.reload()
+                // ue = undefined;
+
+                // $table.bootstrapTable('refresh', {url: location.href});
+                $table.bootstrapTable('refresh', {silent: true});
+                //document.write("<script language=javascript src='__PUBLIC__/Static/Ueditor23578/ueditor.config.js'> <\/script>");
+                //document.write("<script language=javascript src='__PUBLIC__/Static/Ueditor23578/ueditor.all.min.js'><\/script>");
+            });
+            eachSeries(getScript, initTable);
         });
 
-
-
-//        function search(){
-//            var ctm = $('#Ctm').val();
-//            var ctmName = $('#DeveloperName').val();
-//            var address = $('#address').val();
-//            var ctmR = $('#CtmRankID').val();
-//            var timeA = $('#TimeA').val();
-//            var timeB = $('#TimeB').val();
-//            var ctmS = $('#ctmS').val();
-//            var str =  '/admin/Customer/loadCustomer?ctmState='+ctm+'&ctmName='+ctmName+'&address='+address+'&timeB='+timeB+'&timeA='+timeA+'&ctmR='+ctmR+'&ctmS='+ctmS;
-//            $table.bootstrapTable('refresh', {url: str});
-//        }
     </script>
+
 </block>

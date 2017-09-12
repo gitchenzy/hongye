@@ -1,102 +1,71 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title" id="myModalLabel"><empty name="Think.get.id">新增<else /> 编辑</empty>客户</h4>
+    <h4 class="modal-title" id="myModalLabel"><empty name="Think.get.id">新增<else /> 编辑</empty>用户</h4>
 </div>
 <div class="modal-body">
     <form class="form-horizontal" role="form" id="defaultForm" method="post" action="{$self}">
-        <input type="hidden" name="id" value="{$info.CustomerID}" />
+        <input type="hidden" name="id" value="{$info.id}" />
         <fieldset>
-            <div class="form-group">
-                <label class="col-sm-2 control-label" for="LoginName" >账号</label>
-                <div class="col-sm-4">
-                    <input  class="form-control" id="LoginName" name="LoginName" type="text" value="{$info.LoginName}" <notempty name="info.LoginName">disabled='disabled'</notempty> />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label" for="Website">网址</label>
-                <div class="col-sm-4">
-                    <input class="form-control" id="Website" type="text" name="Website" value="{$info.Website}"/>
-                </div>
-                <label for="CtmCloseID"  class="col-sm-2 control-label">亲密程度</label>
-                <div class="col-sm-3">
-                    {:parse_dropdownlist($info[CtmCloseID],$cus[co],"CtmCloseID","CtmCloseID","form-control","请选择亲密程度")}
 
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="nick_name">昵称</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="nick_name" type="text" name="nick_name" value="{$info.nick_name}"/>
+                </div>
+
+                <label class="col-sm-2 control-label" for="nick_name">头像</label>
+                <div class="col-sm-4">
+                    <input type="hidden" id="pic" name="pic" value="{$info.pic}" />
+                    <img src="{$info.pic|default='/public/no_photo.png'}" width="100" id="photo_preview" />
+                    <input class="upload-btn" type="file" id="btn-upload">
                 </div>
 
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="ShortName"><span style="color: red;">*</span>&nbsp;简称</label>
+                <label class="col-sm-2 control-label" for="balance"><span style="color: red;">*</span>&nbsp;余额</label>
                 <div class="col-sm-4">
-                    <input class="form-control" id="ShortName" name="ShortName"  value="{$info.ShortName}" type="text" />
+                    <input class="form-control" id="balance" name="balance"  value="{$info.balance}" type="text" />
                 </div>
                 <label class="col-sm-2 control-label">账号状态</label>
                 <div class="col-sm-3" style="padding-top:4px;">
-                    <input type="radio" value="0" checked="checked" name="Status">
+                    <input type="radio" value="1" checked="checked" name="status">
                     正常
-                    <input type="radio" value="1" <if condition="$info['Status'] eq 1">checked="checked"</if> name="Status">
-                    锁定
+                    <input type="radio" value="2" <if condition="$info['status'] eq 2">checked="checked"</if> name="status">
+                    冻结
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="FullName"><span style="color: red;">*</span>&nbsp;全称</label>
+                <label class="col-sm-2 control-label" for="FullName"><span style="color: red;">*</span>&nbsp;性别</label>
                 <div class="col-sm-4">
-                    <input class="form-control" id="FullName" name="FullName"  value="{$info.FullName}" type="text" />
+                    <input type="radio" value="1" checked="checked" name="sex">
+                    男
+                    <input type="radio" value="2" <if condition="$info['sex'] eq 2">checked="checked"</if> name="sex">
+                    女
                 </div>
-                <label  class="col-sm-2 control-label">客户状态</label>
+                <label  class="col-sm-2 control-label">会员等级</label>
                 <div class="col-sm-3">
-                    {:parse_dropdownlist($info[CtmStatusID],$cus[cs],"CtmStatusID","CtmStatusID","form-control","请选择客户状态")}
+                    {:parse_dropdownlist($info[grade_id],$grade,"grade_id","grade_id","form-control","请选择会员等级")}
                 </div>
             </div>
+
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="Contacter"><span style="color: red;">*</span>&nbsp;联系人</label>
+                <label class="col-sm-2 control-label" for="phone"><span style="color: red;">*</span>&nbsp;手机号码</label>
                 <div class="col-sm-4">
-                    <input class="form-control" id="Contacter" name="Contacter"  value="{$info.Contacter}" type="text" />
+                    <input class="form-control" id="phone" name="phone"  value="{$info.phone}" type="text" />
                 </div>
-                <label class="col-sm-2 control-label">联系人角色</label>
+                <label for="weixin"  class="col-sm-2 control-label">微信号</label>
                 <div class="col-sm-3">
-                    {:parse_dropdownlist($info[CtmRoleID],$cus[cr],"CtmRoleID","CtmRoleID","form-control","请选择联系人角色")}
+                    <input class="form-control" id="weixin" name="weixin"  value="{$info.weixin}" type="text" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="Mobile"><span style="color: red;">*</span>&nbsp;手机</label>
+                <label class="col-sm-2 control-label" for="amount"><span style="color: red;">*</span>&nbsp;众筹总金额</label>
                 <div class="col-sm-4">
-                    <input class="form-control" id="Mobile" name="Mobile"  value="{$info.Mobile}" type="text" />
+                    <input class="form-control" id="amount" name="amount"  value="{$info.amount}" type="text" />
                 </div>
-                <label for="Telephone"  class="col-sm-2 control-label">联系电话</label>
-                <div class="col-sm-3">
-                    <input class="form-control" id="Telephone" name="Telephone"  value="{$info.Telephone}" type="text" />
-                </div>
+
             </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label" for="Email"><span style="color: red;">*</span>&nbsp;邮箱</label>
-                <div class="col-sm-4">
-                    <input class="form-control" id="Email" name="Email"  value="{$info.Email}" type="text" />
-                </div>
-                <label for="Qq"  class="col-sm-2 control-label"><span style="color: red;">*</span>&nbsp;qq</label>
-                <div class="col-sm-3">
-                    <input class="form-control" id="Qq" type="text" name="Qq" value="{$info.Qq}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label" for="WeChat">微信号</label>
-                <div class="col-sm-4">
-                    <input class="form-control" id="WeChat" name="WeChat"  value="{$info.WeChat}" type="text" />
-                </div>
-                <label for="CtmRankID"  class="col-sm-2 control-label">客户等级</label>
-                <div class="col-sm-3">
-                    {:parse_dropdownlist($info[CtmRankID],$cus[ck],"CtmRankID","CtmRankID","form-control","请选择客户等级")}
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label" for="Address">地址</label>
-                <div class="col-sm-6">
-                    <input class="form-control" id="Address" name="Address"  value="{$info.Address}" type="text" />
-                </div>
-                <label class="col-sm-1 control-label" for="Sort">排序</label>
-                <div class="col-sm-2">
-                    <input class="form-control" id="Sort" name="Sort"  value="{$info.Sort}" type="text" />
-                </div>
-            </div>
+
         </fieldset>
     </form>
 </div>
@@ -105,50 +74,72 @@
     <button type="button" class="btn btn-primary" id="submit">保存</button>
 </div>
 
+<script type="text/javascript" src='__PUBLIC__/Static/uploadifive/Sample/jquery.uploadifive.min.js'></script>
+
 <script type="text/javascript">
 
+    //设置图片上传插件
+    $(function () {
+        $("#btn-upload").uploadifive({
+            height: 25,
+            swf: '/Public/Static/uploadify/uploadify.swf',
+            uploadScript: "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+            width: 80,
+            buttonClass: "l-btn",
+            buttonText: '上传',
+            onUploadComplete: function (file, data) {
+                data = $.parseJSON(data);
+                if (data.status) {
+                    $("#photo_preview").attr("src", data.data);
+                    $("#pic").val(data.data);
+                }
+                else {
+                    show_alert(data.info);
+                }
+            }
+        });
+    });
+
+
     $("#submit").click(function(){
-        var qq = $('#Qq').val();
-        var ShortName = $('#ShortName').val();
-        var FullName = $('#FullName').val();
-        var Contacter = $('#Contacter').val();
-        var Mobiles = $('#Mobile').val();
-        var Email = $('#Email').val();
-        if(!ShortName){
-            alert('简称不能为空！')
-            return false;
-        }
-        if(!FullName){
-            alert('全称不能为空！')
-            return false;
-        }
-        if(!Contacter){
-            alert('联系人不能为空！')
-            return false;
-        }
-        if(!Mobiles){
-            alert('手机不能为空！')
-            return false;
-        }
-        if(!qq || !Email){
-            alert('qq和邮箱不能为空！')
-            return false;
-        }
+
         $("#defaultForm").submit();
     })
     $(document).ready(function() {
         $('#defaultForm')
-                .bootstrapValidator({
-                    message: 'This value is not valid',
-                    feedbackIcons: {
-                        valid: 'glyphicon glyphicon-ok',
-                        invalid: 'glyphicon glyphicon-remove',
-                        validating: 'glyphicon glyphicon-refresh'
-                    },
-                    fields: {
 
+            .bootstrapValidator({
+                message: 'This value is not valid',
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    LoginName: {
+                        message: '账号不可用',
+                        validators: {
+                            notEmpty: {
+                                message: '账号不能为空'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 30,
+                                message: '账号长度6-30'
+                            },
+                            /*remote: {
+                             url: 'remote.php',
+                             message: '账号不可用'
+                             },*/
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9_\.]+$/,
+                                message: '账号格式不正确'
+                            }
+                        }
                     }
-                })
+                }
+            })
+
                 .on('success.form.bv', function(e) {
                     // Prevent form submission
                     e.preventDefault();

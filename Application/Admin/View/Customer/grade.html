@@ -2,7 +2,7 @@
 <block name="body">
     <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <h5>用户信息</h5>
+            <h5>会员等级</h5>
             <div class="ibox-tools" style="display:none;">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
@@ -26,23 +26,18 @@
                 <div class="col-sm-12">
                     <div id="toolbar">
 
-                           <!-- <a class="btn btn-success" data-toggle="modal" data-target="#addCustomer" data-remote="/admin/Customer/addCustomer">
-                                新增1
-                            </a>-->
-                            <button id="addform" class="btn btn-success">
-                                新增
-                            </button>
+                        <a class="btn btn-success" data-toggle="modal" data-target="#addCustomer" data-remote="{:U('Customer/addGrade')}" >
+                            新增
+                        </a>
 
+                        <button id="edit" class="btn btn-primary" disabled>
+                            编辑
+                        </button>
 
+                        <button id="remove" class="btn btn-danger" disabled>
+                            <i class="glyphicon glyphicon-remove"></i> 删除
+                        </button>
 
-                            <button id="edit" class="btn btn-primary" disabled>
-                                编辑
-                            </button>
-
-
-                            <button id="remove" class="btn btn-danger" disabled>
-                                <i class="glyphicon glyphicon-remove"></i> 删除
-                            </button>
                     </div>
                     <table id="table"
                            data-toolbar="#toolbar"
@@ -53,18 +48,19 @@
                            data-minimum-count-columns="5"
                            data-pagination="true"
                            data-id-field="id"
-                           data-sort-name="reg_time"
+                           data-sort-name="id"
                            data-detail-formatter="detailFormatter"
                            data-click-select = true
-                           data-order="desc"
+                           data-order="asc"
                            data-page-size = "10"
                            data-page-number = "1"
                            data-page-list="[10,20,50,100,ALL]"
                            data-show-footer="false"
                            data-side-pagination="server"
-                           data-url="{:U('Customer/loadCustomer')}"
+                           data-url="{:U('Customer/loadGrade')}"
                            data-response-handler="responseHandler">
                     </table>
+
                 </div>
             </div>
         </div>
@@ -82,10 +78,9 @@
 <block name="script">
     <script type="text/javascript">
         var $table = $('#table'), $edit=$('#edit');$remove = $('#remove'), selections = [];
-        var $add = $('#addform');
         function initTable() {
             $table.bootstrapTable({
-                formatSearch:function(){return '请输入用户微信号或者昵称'},
+                formatSearch:function(){return '请输入标题'},
                 height: getHeight(),
                 clickToSelect:true,
                 formatLoadingMessage:function(){
@@ -103,17 +98,10 @@
                         //{field: 'Number', title: 'Number', formatter: function (value, row, index) {return index + 1;}},
                         {checkbox: true, align: 'center', valign: 'middle'},
                         //{field: 'Sort',title: '排序', align: 'center', valign: 'middle', sortable: true,},
-                        {field: 'id',title: '会员id', align: 'center'},
-                        {field: 'nick_name',title: '昵称', align: 'center'},
-                        {field: 'grade_name', title: '会员等级', align: 'center'},
-                        {field: 'balance', title: '余额', align: 'left', halign:'center'},
-                        {field: 'phone', title: '手机号码', align: 'center'},
-                        {field: 'weixin', title: '微信号', align: 'center'},
-                        {field: 'sex_name', title: '性别', align: 'center'},
-                        {field: 'status_name', title: '账号状态', align: 'center'},
-                        {field: 'amount', title: '众筹总金额', align: 'center',sortable: true},
-                        {field: 'is_auth', title: '是否认证', align: 'center'},
-//                        {field: 'CreateTime', title: '创建时间', align: 'center',sortable: true},
+                        {field: 'id',title: '等级编号', align: 'center'},
+                        {field: 'title',title: '等级标题', align: 'center'},
+                        {field: 'level', title: '等级级别', align: 'center'},
+                        {field: 'grade_where', title: '等级条件', align: 'center'},
                     ]
                 ]
             });
@@ -126,11 +114,10 @@
                 $remove.prop('disabled', !$table.bootstrapTable('getSelections').length);
                 var checkLen = $table.bootstrapTable('getSelections').length;
                 if(checkLen == 1){
-                    //$edit.attr("data-remote",""+getIdSelections()+'&t=' + Math.random(1000) );
+                  //  $edit.attr("href","/admin/Market/editContractType?id="+getIdSelections());
                     $edit.prop('disabled',false);
-
                 }else{
-                    //$edit.attr("data-remote","javascript:void(0);");
+                   // $edit.attr("href","javascript:void(0);");
                     $edit.prop('disabled',true);
                 }
                 selections = getIdSelections();
@@ -138,31 +125,19 @@
             $remove.click(function () {
                 var ids = getIdSelections();
                 var param = {ids:ids};
-                confirmDelete("/index.php/admin/Customer/delCustomer",param,$table,$remove,"id",ids);
-            });
-            $add.click(function(){
-                $("#addCustomer").modal({
-                    remote: "/index.php/admin/Customer/addCustomer"
-                    ,backdrop: 'static'
-                    ,keyboard: false
-                });
+                confirmDelete("/index.php/admin/Customer/delGrade",param,$table,$remove,"CtmRankID",ids);
             });
             $edit.click(function(){
                 $("#addCustomer").modal({
-                    remote: "/index.php/admin/Customer/editCustomer?id=" + getIdSelections()+'&t=' + Math.random(1000)
-                    ,backdrop: 'static'
-                    ,keyboard: false
+                    remote: "/index.php/admin/Customer/editGrade?id=" + getIdSelections()+'&t=' + Math.random(1000)
                 });
+
             });
-
-
-
             $(window).resize(function () {
                 $table.bootstrapTable('resetView', {
                     height: getHeight()
                 });
             });
-
         }
 
         function getIdSelections(param) {
@@ -170,28 +145,14 @@
                 return row.id;
             });
         }
-        //$("#model").on("hidden.bs.model",function(e){$(this).removeData();});
         $(function () {
-            $("#addCustomer").on("hidden.bs.modal", function() {
+            $('#addCustomer').on('hide.bs.modal', function () {
                 $(this).removeData("bs.modal");
                 $edit.prop('disabled',true);
+                $remove.prop('disabled',true);
                 $table.bootstrapTable('refresh', {silent: true});
             });
             eachSeries(getScript, initTable);
         });
-
-
-
-//        function search(){
-//            var ctm = $('#Ctm').val();
-//            var ctmName = $('#DeveloperName').val();
-//            var address = $('#address').val();
-//            var ctmR = $('#CtmRankID').val();
-//            var timeA = $('#TimeA').val();
-//            var timeB = $('#TimeB').val();
-//            var ctmS = $('#ctmS').val();
-//            var str =  '/admin/Customer/loadCustomer?ctmState='+ctm+'&ctmName='+ctmName+'&address='+address+'&timeB='+timeB+'&timeA='+timeA+'&ctmR='+ctmR+'&ctmS='+ctmS;
-//            $table.bootstrapTable('refresh', {url: str});
-//        }
     </script>
 </block>
