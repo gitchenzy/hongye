@@ -17,7 +17,7 @@
 
 
     <div class="top">
-        <div id="c4" class="helftop">
+        <div class="helftop">
             <div class="midtopbox">
             </div>
             <div id="c1" class="helftopbox">
@@ -40,9 +40,9 @@
         </div>
         <div class="main_image">
             <ul>
-                <li><span class="img_3"></span></li>
-                <li><span class="img_4"></span></li>
-                <li><span class="img_1"></span></li>
+                <li><span align="center" class="img_3"><img id="b_1" src="/Public/Home/images/img_main_1.jpg"></span></li>
+                <li><span align="center" class="img_4"><img id="b_2" src="/Public/Home/images/img_main_2.jpg"></span></li>
+                <li><span align="center" class="img_1"><img id="b_3" src="/Public/Home/images/img_main_3.jpg"></span></li>
             </ul>
             <a href="javascript:;" id="btn_prev"></a>
             <a href="javascript:;" id="btn_next"></a>
@@ -212,9 +212,9 @@
     <div class="main_bottom_box">
         <div class="main_bottom_box_mid">
 
-            <a href="others/find.html"><img src="/Public/Home/images/new/find_1.png"></a>
+            <a href="<?php echo U('List/list');?>"><img src="/Public/Home/images/new/find_1.png"></a>
 
-            <a href="others/find.html">发现</a>
+            <a href="<?php echo U('List/list');?>">发现</a>
         </div>
 
     </div>
@@ -251,7 +251,8 @@
 <script tyep="text/javascript" src="/Public/Home/js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="/Public/Home/js/jquery.event.drag-1.5.min.js"></script>
 <script type="text/javascript" src="/Public/Home/js/jquery.touchSlider.js"></script>
-<script type="text/javascript" src="/Public/Home/js/main.js"></script>
+<script type="text/javascript" src="/Public/Home/js/control.js"></script>
+<script type="text/javascript" src="/Public/Home/js/document.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
 

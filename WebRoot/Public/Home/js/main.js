@@ -5,9 +5,9 @@ $(function(){
 	  $("#ac").css({"border":"none","color":"#D33D3E"});
 	  $("#c1").css("border","none");
 	  $("#c1 a").css("color","#CCCCCC");	
-	  $("#img1").attr("src","pics/new/farm.png");
-	  $("#img2").attr("src","pics/new/create.png");
-      $("#img3").attr("src","pics/new/live.png");	  
+	  $("#img1").attr("src","__PUBLIC__/Home/imagesnew/farm.png");
+	  $("#img2").attr("src","__PUBLIC__/Home/imagesnew/create.png");
+      $("#img3").attr("src","__PUBLIC__/Home/imagesnew/live.png");
 	  var txt_1=$("<a>农业</a>");
 	  var txt_2=$("<a>创意</a>");
 	  var txt_3=$("<a>生活</a>");
@@ -25,9 +25,9 @@ $(function(){
 	  $("#ac").css({"border":"none","color":"#CCCCCC"});
 	  $("#c1 a").css("color","#D33D3E");
 	  $("#c2 :first-child").css("border","none");
-	  $("#img1").attr("src","pics/new/love.png")
-	  $("#img2").attr("src","pics/new/togather.png");
-      $("#img3").attr("src","pics/new/dream.png");
+	  $("#img1").attr("src","__PUBLIC__/Home/imagesnew/love.png")
+	  $("#img2").attr("src","__PUBLIC__/Home/imagesnew/togather.png");
+      $("#img3").attr("src","__PUBLIC__/Home/imagesnew/dream.png");
   	  var txt_4=$("<a>公益</a>");
 	  var txt_5=$("<a>拼团</a>");
 	  var txt_6=$("<a>愿望</a>");	

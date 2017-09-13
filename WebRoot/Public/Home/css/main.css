@@ -69,7 +69,7 @@ html body {
 	margin:0px;
 	padding:0;
 	background:#FFFFFF;
-	
+	border-bottom: 1px solid #cccccc;
 }
 .mid_box {
      margin-left:6.16%;
@@ -110,7 +110,7 @@ html body {
 	width:100%;
 	margin:1px 0px 0px 0px;
 	background:#FFFFFF;
-	
+	border-bottom: 1px solid #cccccc;
 	
 }
 .midcard_top{
@@ -318,10 +318,7 @@ html body {
     margin:0px 0px -4px 0px;
     line-height: 15px;
 	text-decoration:none;
-	
-	
-	
-	
+
 }
 .blank{
 	width:100%;
@@ -331,28 +328,20 @@ html body {
 	
 }
 
-
-
-
-
-
 /*-- report --*/
 .stantic_lang_1{
 	margin:0px;
 	padding:0px;
 	width:100%;
 	height:80px;
-	
-	
-	
+
 }
 .stantic_lang_2{
 	margin:0px 15px 0px 15px;
 	padding:0px;
 	height:78px;
 	border-bottom:1px #CCCCCC solid;
-	
-	
+
 }
 .stantic_lang_2_img{
 	margin:15px 10px 15px 15px;
@@ -360,8 +349,7 @@ html body {
 	height:49px;
 	border-radius:2px;
 	float:left;
-	
-	
+
 }
 .stantic_lang_2_icon{
 	background:url(__PUBLIC__/Home/images/icon_1.png);
@@ -540,15 +528,6 @@ html body {
 	width:100%;
 	height:178px
 }
-.main_image li .img_1{
-	background:url(__PUBLIC__/Home/images/img_main_1.jpg) center top no-repeat
-}
-.main_image li .img_4{
-	background:url(__PUBLIC__/Home/images/img_main_2.jpg) center top no-repeat
-}
-.main_image li .img_3{
-	background:url(__PUBLIC__/Home/images/img_main_3.jpg) center top no-repeat
-}
 
 
 
@@ -567,7 +546,7 @@ div.flicking_con a{
 	height:21px;
 	margin:0;
 	padding:0;
-	background:url(__PUBLIC__/Home/images/12.png) 0 0 no-repeat;
+	background:url(../images/12.png) 0 0 no-repeat;
 	display:block;
 	text-indent:-1000px
 	}
@@ -635,7 +614,7 @@ div.flicking_con a.on{
 }
 .top_arrow{
 	display:inline-block;
-	background:url(pics/new/findin.png) no-repeat;
+	background:url(../images/new/findin.png) no-repeat;
 	width:50px;
 	height:30px;
 	
@@ -771,7 +750,7 @@ div.flicking_con a.on{
 	height:168px;
 	margin:0px;
 	padding:0px;
-	background:url(__PUBLIC__/Home/images/img_main_1.jpg) no-repeat center;
+	background:url(../images/img_main_1.jpg) no-repeat center;
 	
 	
 }
@@ -861,8 +840,8 @@ div.flicking_con a.on{
 	margin:10px 15px 10px 15px;
 	height:195px;
 	overflow:hidden;
-	background:url(__PUBLIC__/Home/images/img_main_3.jpg) no-repeat center;
-	
+	background:url(../images/img_main_3.jpg) no-repeat center;
+
 }
 .find_card_black{
 	height:33px;
@@ -924,7 +903,7 @@ div.flicking_con a.on{
 .mine_banner{
 	width:100%;
 	height:95px;
-	background:url(__PUBLIC__/Home/images/woolk.jpg) no-repeat center;
+	background:url(../images/woolk.jpg) no-repeat center;
     margin:0px;
 	padding-top:73px;
 	
@@ -1623,13 +1602,13 @@ float:right;
 	height:35px;
 	border-radius:17.5px;
 	float:left;
-	background:url(__PUBLIC__/Home/images/img_1.jpg) no-repeat;
+	background:url(../images/img_1.jpg) no-repeat;
 	margin:2px 5px 0px 15px ;
 }
 
 .first_pic{
 	float:right;
-	background:url(__PUBLIC__/Home/images/%E7%9F%A9%E5%BD%A29.png) no-repeat ;
+	background:url(../images/box_1.png) no-repeat ;
 	height:20px;
 	width:20px;
     position:relative;
@@ -1707,12 +1686,13 @@ float:right;
 }
 .first_inbox{
 	width:275px;
-	height:115px;
+	height:155px
 	background:#fff;
 	margin:0px auto 0px auto;
 	
 }
-.first_inbox input{
+.first_inbox textarea{
+	resize: none;
 	width:275px;
 	height:115px;
 	background:#fff;
