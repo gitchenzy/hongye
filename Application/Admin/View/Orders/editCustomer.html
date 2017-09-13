@@ -1,0 +1,166 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel"><empty name="Think.get.id">新增<else /> 编辑</empty>用户</h4>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" role="form" id="defaultForm" method="post" action="{$self}">
+        <input type="hidden" name="id" value="{$info.id}" />
+        <fieldset>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="nick_name">昵称</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="nick_name" type="text" name="nick_name" value="{$info.nick_name}"/>
+                </div>
+
+                <label class="col-sm-2 control-label" for="nick_name">头像</label>
+                <div class="col-sm-4">
+                    <input type="hidden" id="pic" name="pic" value="{$info.pic}" />
+                    <img src="{$info.pic|default='/public/no_photo.png'}" width="100" id="photo_preview" />
+                    <input class="upload-btn" type="file" id="btn-upload">
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="balance"><span style="color: red;">*</span>&nbsp;余额</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="balance" name="balance"  value="{$info.balance}" type="text" />
+                </div>
+                <label class="col-sm-2 control-label">账号状态</label>
+                <div class="col-sm-3" style="padding-top:4px;">
+                    <input type="radio" value="1" checked="checked" name="status">
+                    正常
+                    <input type="radio" value="2" <if condition="$info['status'] eq 2">checked="checked"</if> name="status">
+                    冻结
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="FullName"><span style="color: red;">*</span>&nbsp;性别</label>
+                <div class="col-sm-4">
+                    <input type="radio" value="1" checked="checked" name="sex">
+                    男
+                    <input type="radio" value="2" <if condition="$info['sex'] eq 2">checked="checked"</if> name="sex">
+                    女
+                </div>
+                <label  class="col-sm-2 control-label">会员等级</label>
+                <div class="col-sm-3">
+                    {:parse_dropdownlist($info[grade_id],$grade,"grade_id","grade_id","form-control","请选择会员等级")}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="phone"><span style="color: red;">*</span>&nbsp;手机号码</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="phone" name="phone"  value="{$info.phone}" type="text" />
+                </div>
+                <label for="weixin"  class="col-sm-2 control-label">微信号</label>
+                <div class="col-sm-3">
+                    <input class="form-control" id="weixin" name="weixin"  value="{$info.weixin}" type="text" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="amount"><span style="color: red;">*</span>&nbsp;众筹总金额</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="amount" name="amount"  value="{$info.amount}" type="text" />
+                </div>
+
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal" id="close">关闭</button>
+    <button type="button" class="btn btn-primary" id="submit">保存</button>
+</div>
+
+<script type="text/javascript" src='__PUBLIC__/Static/uploadifive/Sample/jquery.uploadifive.min.js'></script>
+
+<script type="text/javascript">
+
+    //设置图片上传插件
+    $(function () {
+        $("#btn-upload").uploadifive({
+            height: 25,
+            swf: '/Public/Static/uploadify/uploadify.swf',
+            uploadScript: "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+            width: 80,
+            buttonClass: "l-btn",
+            buttonText: '上传',
+            onUploadComplete: function (file, data) {
+                data = $.parseJSON(data);
+                if (data.status) {
+                    $("#photo_preview").attr("src", data.data);
+                    $("#pic").val(data.data);
+                }
+                else {
+                    show_alert(data.info);
+                }
+            }
+        });
+    });
+
+
+    $("#submit").click(function(){
+
+        $("#defaultForm").submit();
+    })
+    $(document).ready(function() {
+        $('#defaultForm')
+
+            .bootstrapValidator({
+                message: 'This value is not valid',
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    LoginName: {
+                        message: '账号不可用',
+                        validators: {
+                            notEmpty: {
+                                message: '账号不能为空'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 30,
+                                message: '账号长度6-30'
+                            },
+                            /*remote: {
+                             url: 'remote.php',
+                             message: '账号不可用'
+                             },*/
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9_\.]+$/,
+                                message: '账号格式不正确'
+                            }
+                        }
+                    }
+                }
+            })
+
+                .on('success.form.bv', function(e) {
+                    // Prevent form submission
+                    e.preventDefault();
+                    // Get the form instance
+                    var $form = $(e.target);
+                    // Get the BootstrapValidator instance
+                    var bv = $form.data('bootstrapValidator');
+                    // Use Ajax to submit form data
+                    $.post($form.attr('action'), $form.serialize(), function(result) {
+                        if(result.status==1){
+                            swal({
+                                title:"操作成功！",
+                                text:result.info,
+                                type:"success"
+                            },function(){
+                                $('#defaultForm').bootstrapValidator('resetForm', true);$('input').val('');$('#addCustomer').modal('hide');
+                            });
+                        }else{
+                            toastr.warning(result.info);return false;
+                        }
+                    }, 'json');
+                });
+    });
+</script>
