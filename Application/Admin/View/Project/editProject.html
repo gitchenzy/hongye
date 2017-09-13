@@ -1,6 +1,6 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title" id="myModalLabel"><empty name="Think.get.id">新增<else /> 编辑</empty>用户</h4>
+    <h4 class="modal-title" id="myModalLabel"><empty name="Think.get.id">新增<else /> 编辑</empty>项目</h4>
 </div>
 <div class="modal-body">
     <form class="form-horizontal" role="form" id="defaultForm" method="post" action="{$self}">
@@ -8,60 +8,72 @@
         <fieldset>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="nick_name">昵称</label>
+                <label class="col-sm-2 control-label" for="title">标题</label>
                 <div class="col-sm-4">
-                    <input class="form-control" id="nick_name" type="text" name="nick_name" value="{$info.nick_name}"/>
+                    <input class="form-control" id="title" type="text" name="title" value="{$info.title}"/>
                 </div>
 
-                <label class="col-sm-2 control-label" for="nick_name">头像</label>
+                <label class="col-sm-2 control-label" for="nick_name">项目类型</label>
                 <div class="col-sm-4">
-                    <input type="hidden" id="pic" name="pic" value="{$info.pic}" />
-                    <img src="{$info.pic|default='/public/no_photo.png'}" width="100" id="photo_preview" />
-                    <input class="upload-btn" type="file" id="btn-upload">
+
+                    {:parse_dropdownlist($info[type_id],$menu,"type_id","type_id","form-control","请选择项目类型")}
+
                 </div>
 
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="balance"><span style="color: red;">*</span>&nbsp;余额</label>
+                <label class="col-sm-2 control-label" for="city">城市</label>
                 <div class="col-sm-4">
-                    <input class="form-control" id="balance" name="balance"  value="{$info.balance}" type="text" />
+                    <input class="form-control" id="city" name="city"  value="{$info.city}" type="text" />
                 </div>
-                <label class="col-sm-2 control-label">账号状态</label>
+                <label class="col-sm-2 control-label">项目状态</label>
                 <div class="col-sm-3" style="padding-top:4px;">
-                    <input type="radio" value="1" checked="checked" name="status">
-                    正常
-                    <input type="radio" value="2" <if condition="$info['status'] eq 2">checked="checked"</if> name="status">
-                    冻结
+                    <input type="radio" value="2" checked="checked" name="status">
+                    上线
+                    <input type="radio" value="1" <if condition="$info['status'] eq 1">checked="checked"</if> name="status">
+                    下线
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="FullName"><span style="color: red;">*</span>&nbsp;性别</label>
+
+                <label  class="col-sm-2 control-label">目标金额</label>
+
                 <div class="col-sm-4">
-                    <input type="radio" value="1" checked="checked" name="sex">
-                    男
-                    <input type="radio" value="2" <if condition="$info['sex'] eq 2">checked="checked"</if> name="sex">
-                    女
+                    <input class="form-control" id="target_amount" name="target_amount"  value="{$info.target_amount}" type="text" />
                 </div>
-                <label  class="col-sm-2 control-label">会员等级</label>
+
+                <label class="col-sm-2 control-label" for="">是否热门</label>
                 <div class="col-sm-3">
-                    {:parse_dropdownlist($info[grade_id],$grade,"grade_id","grade_id","form-control","请选择会员等级")}
+                    <input type="radio" value="0" checked="checked" name="is_hot">
+                    否
+                    <input type="radio" value="1" <if condition="$info['is_hot'] eq 2">checked="checked"</if> name="is_hot">
+                    是
                 </div>
+
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="phone"><span style="color: red;">*</span>&nbsp;手机号码</label>
-                <div class="col-sm-4">
-                    <input class="form-control" id="phone" name="phone"  value="{$info.phone}" type="text" />
+                <label class="col-sm-2 control-label" for="start_time">发起时间</label>
+                <div class="col-sm-2">
+                    <input class="form-control" id="start_time" name="start_time"  value="{$info.start_time}" type="text" />
                 </div>
-                <label for="weixin"  class="col-sm-2 control-label">微信号</label>
-                <div class="col-sm-3">
-                    <input class="form-control" id="weixin" name="weixin"  value="{$info.weixin}" type="text" />
+                <label for="end_time"  class="col-sm-2 control-label">结束时间</label>
+                <div class="col-sm-2">
+                    <input class="form-control" id="end_time" name="end_time"  value="{$info.end_time}" type="text" />
                 </div>
+                <empty name="Think.get.id">
+                    <label for="user_id"  class="col-sm-1 control-label">会员id</label>
+                    <div class="col-sm-2">
+                        <input class="form-control" id="user_id" name="user_id"  value="{$info.user_id}" type="text" />
+                    </div>
+                </empty>
             </div>
+
+
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="amount"><span style="color: red;">*</span>&nbsp;众筹总金额</label>
-                <div class="col-sm-4">
-                    <input class="form-control" id="amount" name="amount"  value="{$info.amount}" type="text" />
+                <label class="col-sm-2 control-label" for="amount">&nbsp;项目详情</label>
+                <div class="col-sm-9">
+                    <textarea id="des" name="des" style="width: 99.9%; height: 260px;">{$info.des|htmlspecialchars_decode}</textarea>
                 </div>
 
             </div>
@@ -74,32 +86,12 @@
     <button type="button" class="btn btn-primary" id="submit">保存</button>
 </div>
 
-<script type="text/javascript" src='__PUBLIC__/Static/uploadifive/Sample/jquery.uploadifive.min.js'></script>
 
 <script type="text/javascript">
 
-    //设置图片上传插件
-    $(function () {
-        $("#btn-upload").uploadifive({
-            height: 25,
-            swf: '/Public/Static/uploadify/uploadify.swf',
-            uploadScript: "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
-            width: 80,
-            buttonClass: "l-btn",
-            buttonText: '上传',
-            onUploadComplete: function (file, data) {
-                data = $.parseJSON(data);
-                if (data.status) {
-                    $("#photo_preview").attr("src", data.data);
-                    $("#pic").val(data.data);
-                }
-                else {
-                    show_alert(data.info);
-                }
-            }
-        });
-    });
-
+    var ue = UE.getEditor('des');
+    laydate({elem: '#start_time', format: 'YYYY-MM-DD hh:mm:ss', event: 'focus'});
+    laydate({elem: '#end_time', format: 'YYYY-MM-DD hh:mm:ss', event: 'focus'});
 
     $("#submit").click(function(){
 

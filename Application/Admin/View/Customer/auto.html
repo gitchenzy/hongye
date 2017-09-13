@@ -2,7 +2,7 @@
 <block name="body">
     <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <h5>用户信息</h5>
+            <h5>会员认证</h5>
             <div class="ibox-tools" style="display:none;">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
@@ -29,20 +29,20 @@
                            <!-- <a class="btn btn-success" data-toggle="modal" data-target="#addCustomer" data-remote="/admin/Customer/addCustomer">
                                 新增1
                             </a>-->
-                            <button id="addform" class="btn btn-success">
-                                新增
-                            </button>
+                            <!--<button id="addform" class="btn btn-success">-->
+                                <!--新增-->
+                            <!--</button>-->
 
 
 
                             <button id="edit" class="btn btn-primary" disabled>
-                                编辑
+                                审核
                             </button>
 
 
-                            <button id="remove" class="btn btn-danger" disabled>
-                                <i class="glyphicon glyphicon-remove"></i> 删除
-                            </button>
+                            <!--<button id="remove" class="btn btn-danger" disabled>-->
+                                <!--<i class="glyphicon glyphicon-remove"></i> 删除-->
+                            <!--</button>-->
                     </div>
                     <table id="table"
                            data-toolbar="#toolbar"
@@ -62,7 +62,7 @@
                            data-page-list="[10,20,50,100,ALL]"
                            data-show-footer="false"
                            data-side-pagination="server"
-                           data-url="{:U('Customer/loadCustomer')}"
+                           data-url="{:U('Customer/loadAuto')}"
                            data-response-handler="responseHandler">
                     </table>
                 </div>
@@ -103,17 +103,13 @@
                         //{field: 'Number', title: 'Number', formatter: function (value, row, index) {return index + 1;}},
                         {checkbox: true, align: 'center', valign: 'middle'},
                         //{field: 'Sort',title: '排序', align: 'center', valign: 'middle', sortable: true,},
-                        {field: 'id',title: '会员id', align: 'center'},
-                        {field: 'nick_name',title: '昵称', align: 'center'},
-                        {field: 'grade_name', title: '会员等级', align: 'center'},
-                        {field: 'balance', title: '余额', align: 'left', halign:'center'},
-                        {field: 'phone', title: '手机号码', align: 'center'},
-                        {field: 'weixin', title: '微信号', align: 'center'},
-                        {field: 'sex_name', title: '性别', align: 'center'},
-                        {field: 'status_name', title: '账号状态', align: 'center'},
-                        {field: 'amount', title: '众筹总金额', align: 'center',sortable: true},
-                        {field: 'is_auth', title: '是否认证', align: 'center'},
-//                        {field: 'CreateTime', title: '创建时间', align: 'center',sortable: true},
+                        {field: 'nick_name',title: '会员昵称', align: 'center'},
+                        {field: 'name',title: '名字', align: 'center'},
+                        {field: 'pic', title: '图片', align: 'center'},
+                        {field: 'is_verify', title: '是否审核', align: 'center'},
+                        {field: 'type_name', title: '类型', align: 'left', halign:'center'},
+                        {field: 'address', title: '机构地址', align: 'center'},
+                        {field: 'phone', title: '联系号码', align: 'center'},
                     ]
                 ]
             });
@@ -135,21 +131,21 @@
                 }
                 selections = getIdSelections();
             });
-            $remove.click(function () {
-                var ids = getIdSelections();
-                var param = {ids:ids};
-                confirmDelete("/index.php/admin/Customer/delCustomer",param,$table,$remove,"id",ids);
-            });
-            $add.click(function(){
-                $("#addCustomer").modal({
-                    remote: "/index.php/admin/Customer/addCustomer"
-                    ,backdrop: 'static'
-                    ,keyboard: false
-                });
-            });
+//            $remove.click(function () {
+//                var ids = getIdSelections();
+//                var param = {ids:ids};
+//                confirmDelete("/admin/Customer/delCustomer",param,$table,$remove,"id",ids);
+//            });
+//            $add.click(function(){
+//                $("#addCustomer").modal({
+//                    remote: "/admin/Customer/addCustomer"
+//                    ,backdrop: 'static'
+//                    ,keyboard: false
+//                });
+//            });
             $edit.click(function(){
                 $("#addCustomer").modal({
-                    remote: "/index.php/admin/Customer/editCustomer?id=" + getIdSelections()+'&t=' + Math.random(1000)
+                    remote: "/index.php/admin/Customer/editAuto?id=" + getIdSelections()+'&t=' + Math.random(1000)
                     ,backdrop: 'static'
                     ,keyboard: false
                 });

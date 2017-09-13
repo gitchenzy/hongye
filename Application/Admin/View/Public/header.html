@@ -33,52 +33,22 @@
             <li>
                 <a href="">
                     <i class="fa fa-user"></i>
-                    <span class="nav-label">用户管理</span>
+                    <span class="nav-label">会员管理</span>
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level collapse">
                     <li>
-                        <a class="J_menuItem" href="{:U('Customer/customer')}" data-index="0">用户信息</a>
+                        <a class="J_menuItem" href="{:U('Customer/customer')}" data-index="0">会员信息</a>
                     </li>
                     <li>
                     <li>
-                        <a class="J_menuItem" href="/admin/Market/contract" data-index="1">合同信息</a>
+                        <a class="J_menuItem" href="{:U('Customer/grade')}" data-index="1">会员等级</a>
                     </li>
                     <li>
-                        <a class="J_menuItem" href="/admin/Customer/demand" data-index="5">客户问题需求</a>
+                        <a class="J_menuItem" href="{:U('Customer/address')}" data-index="5">收货地址管理</a>
                     </li>
                     <li>
-                        <a href="">
-                            <i class="fa fa-user"></i>
-                            <span class="nav-label">基本信息</span>
-                            <span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-third-level collapse">
-                            <li>
-                                <a class="J_menuItem" href="/admin/Customer/payType" data-index="6">支付方式</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="/admin/Market/contractType" data-index="6">合同类型</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="/admin/Customer/customerstatus" data-index="6">客户状态</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="/admin/Customer/customerRank" data-index="6">客户等级</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="/admin/Customer/customerRole" data-index="6">角色关系</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="/admin/Customer/customerClose" data-index="6">亲密程度</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="/admin/Customer/demandState" data-index="6">问题状态</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="/admin/Customer/demandPriority" data-index="6">问题优先级</a>
-                            </li>
-                        </ul>
+                        <a class="J_menuItem" href="{:U('Customer/auto')}" data-index="5">会员认证信息</a>
                     </li>
                 </ul>
             </li>
@@ -86,13 +56,16 @@
             <li>
                 <a href="#">
                     <i class="fa fa-home"></i>
-                    <span class="nav-label">实施信息</span>
+                    <span class="nav-label">项目管理</span>
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level collapse">
 
                     <li>
-                        <a class="J_menuItem" href="/admin/Maintain/index" data-index="0">实施记录</a>
+                        <a class="J_menuItem" href="{:U('project/index')}" data-index="0">项目信息</a>
+                    </li>
+                    <li>
+                        <a class="J_menuItem" href="{:U('project/proType')}" data-index="0">项目类型管理</a>
                     </li>
                 </ul>
 
@@ -106,67 +79,42 @@
                 </a>
                 <ul class="nav nav-second-level collapse">
                     <li>
-                        <a class="J_menuItem" href="/admin/OrderInfo/index" data-index="0">财务记录</a>
+                        <a class="J_menuItem" href="{:U('Orders/index')}" data-index="0">财务流水记录</a>
                     </li>
                 </ul>
             </li>
             <li>
                 <a href="#">
-                    <i class="fa fa fa-bar-chart-o"></i>
-                    <span class="nav-label">市场信息</span>
+                    <i class="fa fa-edit"></i>
+                    <span class="nav-label">意见消息</span>
                     <span class="fa arrow"></span>
                 </a>
 
                 <ul class="nav nav-second-level collapse">
                     <li>
-                        <a class="J_menuItem" href="/admin/Market/index" data-index="0">市场记录</a>
+                        <a class="J_menuItem" href="{:U('Message/index')}" data-index="0">投诉意见</a>
                     </li>
                 </ul>
             </li>
 
+            <!--<li>-->
+                <!--<a href="#"><i class="fa fa-flask"></i> <span class="nav-label">员工管理</span><span class="fa arrow"></span></a>-->
+                <!--<ul class="nav nav-second-level collapse">-->
+                    <!--<li>-->
+                        <!--<a class="J_menuItem" href="/admin/Employee/index" data-index="56">员工信息</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a class="J_menuItem" href="/admin/Employee/department" data-index="56">部门信息</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a class="J_menuItem" href="/admin/Employee/userGroup" data-index="56">用户组管理</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a class="J_menuItem" href="/admin/Employee/menu" data-index="56">菜单管理</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
 
-            <li>
-                <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">代理信息</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li>
-                        <a class="J_menuItem" href="/admin/Agent/index" data-index="19">代理管理</a>
-                    </li>
-                    <li>
-                        <a class="J_menuItem" href="/admin/Agent/agentRule" data-index="20">代理规则</a>
-                    </li>
-                    <li>
-                        <a class="J_menuItem" href="/admin/Agent/agentRate" data-index="20">代理返点</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">产品管理</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li>
-                        <a class="J_menuItem" href="/admin/Product/index" data-index="32">产品信息</a>
-                    </li>
-
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">员工管理</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li>
-                        <a class="J_menuItem" href="/admin/Employee/index" data-index="56">员工信息</a>
-                    </li>
-                    <li>
-                        <a class="J_menuItem" href="/admin/Employee/department" data-index="56">部门信息</a>
-                    </li>
-                    <li>
-                        <a class="J_menuItem" href="/admin/Employee/userGroup" data-index="56">用户组管理</a>
-                    </li>
-                    <li>
-                        <a class="J_menuItem" href="/admin/Employee/menu" data-index="56">菜单管理</a>
-                    </li>
-                </ul>
-
-            </li>
+            <!--</li>-->
             <!--
             <li>
                 <a href="#"><i class="fa fa-table"></i> <span class="nav-label">表格</span><span class="fa arrow"></span></a>
@@ -228,7 +176,7 @@
                         <li class="m-t-xs">
                             <div class="dropdown-messages-box">
                                 <a href="profile.html" class="pull-left">
-                                    <img alt="image" class="img-circle" src="img/a7.jpg">
+
                                 </a>
                                 <div class="media-body">
                                     <small class="pull-right">46小时前</small>
@@ -242,7 +190,7 @@
                         <li>
                             <div class="dropdown-messages-box">
                                 <a href="profile.html" class="pull-left">
-                                    <img alt="image" class="img-circle" src="img/a4.jpg">
+
                                 </a>
                                 <div class="media-body ">
                                     <small class="pull-right text-navy">25小时前</small>

@@ -2,7 +2,7 @@
 <block name="body">
     <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <h5>用户信息</h5>
+            <h5>财务流水账单</h5>
             <div class="ibox-tools" style="display:none;">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
@@ -29,20 +29,26 @@
                            <!-- <a class="btn btn-success" data-toggle="modal" data-target="#addCustomer" data-remote="/admin/Customer/addCustomer">
                                 新增1
                             </a>-->
-                            <button id="addform" class="btn btn-success">
-                                新增
-                            </button>
+                            <!--<button id="addform" class="btn btn-success">-->
+                                <!--新增-->
+                            <!--</button>-->
 
 
 
-                            <button id="edit" class="btn btn-primary" disabled>
-                                编辑
-                            </button>
+                            <!--<button id="edit" class="btn btn-primary" disabled>-->
+                                <!--编辑-->
+                            <!--</button>-->
 
 
-                            <button id="remove" class="btn btn-danger" disabled>
-                                <i class="glyphicon glyphicon-remove"></i> 删除
-                            </button>
+                            <!--<button id="remove" class="btn btn-danger" disabled>-->
+                                <!--<i class="glyphicon glyphicon-remove"></i> 删除-->
+                            <!--</button>-->
+                        <select id="type" class="form-control select-huge">
+                            <option value="0">选择类型</option>
+                            <option value="1">充值</option>
+                            <option value="2">提现</option>
+                            <option value="3">项目打款</option>
+                        </select>
                     </div>
                     <table id="table"
                            data-toolbar="#toolbar"
@@ -53,7 +59,7 @@
                            data-minimum-count-columns="5"
                            data-pagination="true"
                            data-id-field="id"
-                           data-sort-name="reg_time"
+                           data-sort-name="id"
                            data-detail-formatter="detailFormatter"
                            data-click-select = true
                            data-order="desc"
@@ -62,7 +68,7 @@
                            data-page-list="[10,20,50,100,ALL]"
                            data-show-footer="false"
                            data-side-pagination="server"
-                           data-url="{:U('Customer/loadCustomer')}"
+                           data-url="{:U('Orders/loadAccount')}"
                            data-response-handler="responseHandler">
                     </table>
                 </div>
@@ -85,7 +91,7 @@
         var $add = $('#addform');
         function initTable() {
             $table.bootstrapTable({
-                formatSearch:function(){return '请输入用户微信号或者昵称'},
+                formatSearch:function(){return '请输入交易号'},
                 height: getHeight(),
                 clickToSelect:true,
                 formatLoadingMessage:function(){
@@ -103,17 +109,12 @@
                         //{field: 'Number', title: 'Number', formatter: function (value, row, index) {return index + 1;}},
                         {checkbox: true, align: 'center', valign: 'middle'},
                         //{field: 'Sort',title: '排序', align: 'center', valign: 'middle', sortable: true,},
-                        {field: 'id',title: '会员id', align: 'center'},
-                        {field: 'nick_name',title: '昵称', align: 'center'},
-                        {field: 'grade_name', title: '会员等级', align: 'center'},
-                        {field: 'balance', title: '余额', align: 'left', halign:'center'},
-                        {field: 'phone', title: '手机号码', align: 'center'},
-                        {field: 'weixin', title: '微信号', align: 'center'},
-                        {field: 'sex_name', title: '性别', align: 'center'},
-                        {field: 'status_name', title: '账号状态', align: 'center'},
-                        {field: 'amount', title: '众筹总金额', align: 'center',sortable: true},
-                        {field: 'is_auth', title: '是否认证', align: 'center'},
-//                        {field: 'CreateTime', title: '创建时间', align: 'center',sortable: true},
+                        {field: 'id',title: '流水id', align: 'center'},
+                        {field: 'pay_no',title: '交易号', align: 'center'},
+                        {field: 'nick_name', title: '交易对象', align: 'center'},
+                        {field: 'pay_type', title: '交易类型', align: 'center', halign:'center'},
+                        {field: 'amount', title: '交易金额', align: 'center'},
+                        {field: 'pay_time', title: '交易时间', align: 'center'},
                     ]
                 ]
             });
@@ -179,19 +180,15 @@
             });
             eachSeries(getScript, initTable);
         });
+        $('#type').change(function(){
+            search();
+        })
 
 
-
-//        function search(){
-//            var ctm = $('#Ctm').val();
-//            var ctmName = $('#DeveloperName').val();
-//            var address = $('#address').val();
-//            var ctmR = $('#CtmRankID').val();
-//            var timeA = $('#TimeA').val();
-//            var timeB = $('#TimeB').val();
-//            var ctmS = $('#ctmS').val();
-//            var str =  '/admin/Customer/loadCustomer?ctmState='+ctm+'&ctmName='+ctmName+'&address='+address+'&timeB='+timeB+'&timeA='+timeA+'&ctmR='+ctmR+'&ctmS='+ctmS;
-//            $table.bootstrapTable('refresh', {url: str});
-//        }
+        function search(){
+            var type = $('#type').val();
+            var str =  '/index.php/admin/Orders/loadAccount?type='+type;
+            $table.bootstrapTable('refresh', {url: str});
+        }
     </script>
 </block>

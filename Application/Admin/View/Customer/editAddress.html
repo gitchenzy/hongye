@@ -1,0 +1,135 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel"><empty name="Think.get.id">新增<else /> 编辑</empty>地址</h4>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" role="form" id="defaultForm" method="post" action="{$self}">
+        <input type="hidden" name="id" value="{$info.id}" />
+        <fieldset>
+
+            <div class="form-group">
+                <empty name="Think.get.id">
+                    <label class="col-sm-2 control-label" for="user_id">会员id</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="user_id" type="text" name="user_id" value="{$info.user_id}"/>
+                    </div>
+                </empty>
+                <label class="col-sm-2 control-label" for="name">收货人</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="name" type="text" name="name" value="{$info.name}"/>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="phone"><span style="color: red;">*</span>&nbsp;收货电话</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="phone" name="phone"  value="{$info.phone}" type="text" />
+                </div>
+                <label class="col-sm-2 control-label">省份</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="province" name="province"  value="{$info.province}" type="text" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="city"><span style="color: red;">*</span>&nbsp;城市</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="city" name="city"  value="{$info.city}" type="text" />
+                </div>
+                <label for="area"  class="col-sm-2 control-label">区域</label>
+                <div class="col-sm-3">
+                    <input class="form-control" id="area" name="area"  value="{$info.area}" type="text" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address"  class="col-sm-2 control-label">详细地址</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="address" name="address"  value="{$info.address}" type="text" />
+                </div>
+
+                <label class="col-sm-2 control-label"><span style="color: red;">*</span>&nbsp;是否默认</label>
+                <div class="col-sm-3">
+                    <input type="radio" value="2" checked="checked" name="is_default">
+                    是
+                    <input type="radio" value="1" <if condition="$info['is_default'] eq 1">checked="checked"</if> name="is_default">
+                    否
+                </div>
+
+            </div>
+
+
+
+
+        </fieldset>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal" id="close">关闭</button>
+    <button type="button" class="btn btn-primary" id="submit">保存</button>
+</div>
+
+<script type="text/javascript">
+
+    //设置图片上传插件
+    $("#submit").click(function(){
+
+        $("#defaultForm").submit();
+    })
+    $(document).ready(function() {
+        $('#defaultForm')
+
+            .bootstrapValidator({
+                message: 'This value is not valid',
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    LoginName: {
+                        message: '账号不可用',
+                        validators: {
+                            notEmpty: {
+                                message: '账号不能为空'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 30,
+                                message: '账号长度6-30'
+                            },
+                            /*remote: {
+                             url: 'remote.php',
+                             message: '账号不可用'
+                             },*/
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9_\.]+$/,
+                                message: '账号格式不正确'
+                            }
+                        }
+                    }
+                }
+            })
+
+                .on('success.form.bv', function(e) {
+                    // Prevent form submission
+                    e.preventDefault();
+                    // Get the form instance
+                    var $form = $(e.target);
+                    // Get the BootstrapValidator instance
+                    var bv = $form.data('bootstrapValidator');
+                    // Use Ajax to submit form data
+                    $.post($form.attr('action'), $form.serialize(), function(result) {
+                        if(result.status==1){
+                            swal({
+                                title:"操作成功！",
+                                text:result.info,
+                                type:"success"
+                            },function(){
+                                $('#defaultForm').bootstrapValidator('resetForm', true);$('input').val('');$('#addCustomer').modal('hide');$('#addCustomer1').modal('hide');
+                            });
+                        }else{
+                            toastr.warning(result.info);return false;
+                        }
+                    }, 'json');
+                });
+    });
+</script>

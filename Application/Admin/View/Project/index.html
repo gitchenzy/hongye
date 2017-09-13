@@ -2,7 +2,7 @@
 <block name="body">
     <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <h5>用户信息</h5>
+            <h5>项目信息</h5>
             <div class="ibox-tools" style="display:none;">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
@@ -53,7 +53,7 @@
                            data-minimum-count-columns="5"
                            data-pagination="true"
                            data-id-field="id"
-                           data-sort-name="reg_time"
+                           data-sort-name="id"
                            data-detail-formatter="detailFormatter"
                            data-click-select = true
                            data-order="desc"
@@ -62,7 +62,7 @@
                            data-page-list="[10,20,50,100,ALL]"
                            data-show-footer="false"
                            data-side-pagination="server"
-                           data-url="{:U('Customer/loadCustomer')}"
+                           data-url="{:U('Project/loadProject')}"
                            data-response-handler="responseHandler">
                     </table>
                 </div>
@@ -80,12 +80,16 @@
     </div>
 </block>
 <block name="script">
+
+    <script type="text/javascript" src='__PUBLIC__/Static/Ueditor23578/ueditor.config.js'></script>
+    <script type="text/javascript" src='__PUBLIC__/Static/Ueditor23578/ueditor.all.min.js'></script>
+
     <script type="text/javascript">
         var $table = $('#table'), $edit=$('#edit');$remove = $('#remove'), selections = [];
         var $add = $('#addform');
         function initTable() {
             $table.bootstrapTable({
-                formatSearch:function(){return '请输入用户微信号或者昵称'},
+                formatSearch:function(){return '请输入用户昵称或者项目标题'},
                 height: getHeight(),
                 clickToSelect:true,
                 formatLoadingMessage:function(){
@@ -103,16 +107,17 @@
                         //{field: 'Number', title: 'Number', formatter: function (value, row, index) {return index + 1;}},
                         {checkbox: true, align: 'center', valign: 'middle'},
                         //{field: 'Sort',title: '排序', align: 'center', valign: 'middle', sortable: true,},
-                        {field: 'id',title: '会员id', align: 'center'},
-                        {field: 'nick_name',title: '昵称', align: 'center'},
-                        {field: 'grade_name', title: '会员等级', align: 'center'},
-                        {field: 'balance', title: '余额', align: 'left', halign:'center'},
-                        {field: 'phone', title: '手机号码', align: 'center'},
-                        {field: 'weixin', title: '微信号', align: 'center'},
-                        {field: 'sex_name', title: '性别', align: 'center'},
-                        {field: 'status_name', title: '账号状态', align: 'center'},
-                        {field: 'amount', title: '众筹总金额', align: 'center',sortable: true},
-                        {field: 'is_auth', title: '是否认证', align: 'center'},
+                        {field: 'id',title: '项目id', align: 'center',sortable: true},
+                        {field: 'title',title: '项目标题', align: 'center'},
+                        {field: 'type_name', title: '项目类型', align: 'center'},
+                        {field: 'user_name', title: '发起人', align: 'left', halign:'center'},
+                        {field: 'city', title: '地点', align: 'center'},
+                        {field: 'target_amount', title: '目标金额', align: 'center'},
+                        {field: 'reach_amount', title: '已达金额', align: 'center'},
+                        {field: 'status_name', title: '项目状态', align: 'center'},
+                        {field: 'is_hot', title: '是否最热', align: 'center'},
+                        {field: 'start_time', title: '发起时间', align: 'center',sortable: true},
+                        {field: 'end_time', title: '结束时间', align: 'center',sortable: true},
 //                        {field: 'CreateTime', title: '创建时间', align: 'center',sortable: true},
                     ]
                 ]
@@ -138,18 +143,18 @@
             $remove.click(function () {
                 var ids = getIdSelections();
                 var param = {ids:ids};
-                confirmDelete("/index.php/admin/Customer/delCustomer",param,$table,$remove,"id",ids);
+                confirmDelete("/index.php/admin/Project/delProject",param,$table,$remove,"id",ids);
             });
             $add.click(function(){
                 $("#addCustomer").modal({
-                    remote: "/index.php/admin/Customer/addCustomer"
+                    remote: "/index.php/admin/Project/addProject"
                     ,backdrop: 'static'
                     ,keyboard: false
                 });
             });
             $edit.click(function(){
                 $("#addCustomer").modal({
-                    remote: "/index.php/admin/Customer/editCustomer?id=" + getIdSelections()+'&t=' + Math.random(1000)
+                    remote: "/index.php/admin/Project/editProject?id=" + getIdSelections()+'&t=' + Math.random(1000)
                     ,backdrop: 'static'
                     ,keyboard: false
                 });
@@ -173,6 +178,7 @@
         //$("#model").on("hidden.bs.model",function(e){$(this).removeData();});
         $(function () {
             $("#addCustomer").on("hidden.bs.modal", function() {
+                location.reload();
                 $(this).removeData("bs.modal");
                 $edit.prop('disabled',true);
                 $table.bootstrapTable('refresh', {silent: true});

@@ -33,7 +33,24 @@ class FileController extends AdminController{
      */
     public function uploadPicture(){
         $return  = array('status' => 1, 'info' => '上传成功', 'data' => '');
-        $setting['rootPath'] = "uploads/".$this->user['EmployeeID']."/picture/";
+        $setting['rootPath'] = "uploads/picture/";
+        makeDir(ROOT_PATH."/".$setting['rootPath']);
+        $Upload = new Upload($setting, "local", C("UPLOAD_LOCAL_CONFIG"));
+        $info   = $Upload->upload($_FILES);
+        if ($info) {
+            $return['data'] = "/" . $setting['rootPath'] . $info['Filedata']['savepath'] . $info['Filedata']['savename'];
+        }
+        else {
+            $return['info'] =  $Upload->getError();
+            $return['status'] = 0;
+        }
+        Log::record(json_encode($return) , Log::INFO);
+        $this->ajaxReturn($return);
+    }
+
+    public function uploadType(){
+        $return  = array('status' => 1, 'info' => '上传成功', 'data' => '');
+        $setting['rootPath'] = "uploads/type/";
         makeDir(ROOT_PATH."/".$setting['rootPath']);
         $Upload = new Upload($setting, "local", C("UPLOAD_LOCAL_CONFIG"));
         $info   = $Upload->upload($_FILES);
