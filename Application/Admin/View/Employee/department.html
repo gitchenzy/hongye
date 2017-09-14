@@ -1,0 +1,161 @@
+<extend name="Public/common" />
+<block name="body">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>部门信息</h5>
+            <div class="ibox-tools" style="display:none;">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#">选项1</a>
+                    </li>
+                    <li><a href="#">选项2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <div class="row row-lg">
+                <div class="col-sm-12">
+                    <div id="toolbar">
+                        <php> if(display_menu('/admin/Employee/addDepartment')){ </php>
+                            <a class="btn btn-success" data-toggle="modal" data-target="#addCustomer" data-remote="/admin/Employee/addDepartment" >
+                                新增
+                            </a>
+                        <php> } </php>
+                        <php> if(display_menu('/admin/Employee/editDepartment')){ </php>
+                            <button id="edit" class="btn btn-primary" disabled>
+                                编辑
+                            </button>
+                        <php> } </php>
+                        <php> if(display_menu('/admin/Employee/delDepartment')){ </php>
+                            <button id="remove" class="btn btn-danger" disabled>
+                                <i class="glyphicon glyphicon-remove"></i> 删除
+                            </button>
+                        <php> } </php>
+                    </div>
+                    <table id="table"
+                           data-toolbar="#toolbar"
+                           data-search="true"
+                           data-show-refresh="true"
+                           data-show-columns="true"
+                           data-show-export="true"
+                           data-minimum-count-columns="5"
+                           data-pagination="true"
+                           data-id-field="DepartmentID"
+                           data-sort-name="Sort"
+                           data-detail-formatter="detailFormatter"
+                           data-click-select = true
+                           data-order="asc"
+                           data-page-size = "10"
+                           data-page-number = "1"
+                           data-page-list="[10,20,50,100,ALL]"
+                           data-show-footer="false"
+                           data-side-pagination="server"
+                           data-url="/admin/Employee/loadDepartment"
+                           data-response-handler="responseHandler">
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="modal">
+    <div class="modal fade" id="addCustomer" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        var $table = $('#table'), $edit=$('#edit');$remove = $('#remove'), selections = [];
+        function initTable() {
+            $table.bootstrapTable({
+                height: getHeight(),
+                clickToSelect:true,
+                formatLoadingMessage:function(){
+                    return '正在加载，请稍候...';
+                },
+                formatShowingRows: function (pageFrom, pageTo, totalRows) {
+                    return '第 ' + pageFrom + ' - ' + pageTo + ' 记录，共 ' + totalRows + ' 条记录';
+                },
+                formatRecordsPerPage:function(pageNumber){
+                    return '每页 '+pageNumber + ' 记录';
+                },
+                //queryParams: queryParams, //参数
+                columns: [
+                    [
+                        //{field: 'Number', title: 'Number', formatter: function (value, row, index) {return index + 1;}},
+                        {checkbox: true, align: 'center', valign: 'middle'},
+                        //{field: 'Sort',title: '排序', align: 'center', valign: 'middle', sortable: true,},
+                        {field: 'DepartmentName',title: '部门名称', align: 'center'},
+                        {field: 'DepartmentNum', title: '部门编号', align: 'center'},
+                        {field: 'OperatorName', title: '操作人', align: 'center'},
+                        {field: 'ModifyTime', title: '操作时间', align: 'center'},
+                        {field: 'Sort', title: '排序', align: 'center'},
+
+                    ]
+                ]
+            });
+            // sometimes footer render error.
+            setTimeout(function () {
+                $table.bootstrapTable('resetView');
+            }, 200);
+            $table.on('check.bs.table uncheck.bs.table ' +
+                    'check-all.bs.table uncheck-all.bs.table', function () {
+                $remove.prop('disabled', !$table.bootstrapTable('getSelections').length);
+                var checkLen = $table.bootstrapTable('getSelections').length;
+                if(checkLen == 1){
+                    //$edit.attr("data-remote",""+getIdSelections()+'&t=' + Math.random(1000) );
+                    $edit.prop('disabled',false);
+                }else{
+                    //$edit.attr("data-remote","javascript:void(0);");
+                    $edit.prop('disabled',true);
+                }
+                selections = getIdSelections();
+            });
+            $remove.click(function () {
+                var ids = getIdSelections();
+                var param = {ids:ids};
+                confirmDelete("/admin/Employee/delDepartment",param,$table,$remove,"DepartmentID",ids);
+            });
+            $edit.click(function(){
+                $("#addCustomer").modal({
+                    remote: "/admin/Employee/editDepartment?id=" + getIdSelections()+'&t=' + Math.random(1000)
+                });
+            });
+            $(window).resize(function () {
+                $table.bootstrapTable('resetView', {
+                    height: getHeight()
+                });
+            });
+        }
+
+        function getIdSelections(param) {
+            return $.map($table.bootstrapTable('getSelections'), function (row) {
+                return row.DepartmentID;
+            });
+        }
+        //$("#model").on("hidden.bs.model",function(e){$(this).removeData();});
+        $(function () {
+            $("#addCustomer").on("hidden.bs.modal", function() {
+                $(this).removeData("bs.modal");
+                $edit.prop('disabled',true);
+                $remove.prop('disabled',true);
+                $table.bootstrapTable('refresh', {silent: true});
+            });
+            eachSeries(getScript, initTable);
+        });
+    </script>
+</block>

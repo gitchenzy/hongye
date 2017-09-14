@@ -11,7 +11,7 @@
  * @return int
  */
 function get_user () {
-    $user = session("CurrentUser");
+    $user = session("current_user");
     if (empty($user)){
         $user = 0;
     }

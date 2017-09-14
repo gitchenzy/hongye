@@ -1,0 +1,155 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel"><empty name="Think.get.id">新增<else /> 编辑</empty>员工</h4>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" role="form" id="defaultForm" method="post" action="{$self}">
+        <input type="hidden" name="id" value="{$info.employeeID}" />
+        <fieldset>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="employee_num">账号</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="employee_num" name="employee_num" type="text"  <if condition="$info.employee_num eq 'admin'">disabled</if> value="{$info.employee_num}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="name">姓名</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="name" name="name" type="text" value="{$info.name}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">性别</label>
+                <div class="col-sm-4">
+                    <input  name="sex" type="radio" value="1" checked="checked" /> 男
+                    <input  name="sex" type="radio" value="2" <if condition="$info['sex'] eq 2">checked="checked"</if> /> 女
+                </div>
+
+            </div>
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-2 control-label" >所属部门</label>-->
+                <!--<div class="col-sm-3">-->
+                    <!--{:parse_dropdownlist($info[DepartmentNum],$dr,"DepartmentNum","DepartmentNum","form-control","请选择所属部门")}-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="position">职位</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="position" name="position"  value="{$info.position}" type="text" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="mobile">手机</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="mobile" name="mobile"  value="{$info.mobile}" type="text" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="email">邮箱</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="email" name="email"  value="{$info.email}" type="text" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" >是否为部门负责人</label>
+                <div class="col-sm-4">
+                    <input  name="is_priority" type="radio" value="1" checked="checked" /> 是
+                    <input  name="is_priority" type="radio" value="2" <if condition="$info['is_priority'] eq 2">checked="checked"</if> /> 否
+                </div>
+
+            </div>
+
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-2 control-label">用户组</label>-->
+                <!--<div class="col-sm-4">-->
+                    <!--<volist name="pr" id="vo">-->
+
+                        <!--<input name="duty[]" <notempty name="vo.biaozhi">checked="checked"</notempty> type="checkbox" value="{$vo.ID}">{$vo.DutyName}-->
+
+                     <!--</volist>-->
+
+                <!--</div>-->
+
+            <!--</div>-->
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" >状态</label>
+                <div class="col-sm-4">
+                    <input  name="status" type="radio" value="0" checked="checked" /> 正常
+                    <input  name="status" type="radio" value="1" <if condition="$info['status'] eq 1">checked="checked"</if> /> 锁定
+                </div>
+
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal" id="close">关闭</button>
+    <button type="button" class="btn btn-primary" id="submit">保存</button>
+</div>
+<script type="text/javascript">
+    $("#submit").click(function(){
+        $("#defaultForm").submit();
+    })
+    $(document).ready(function() {
+        $('#defaultForm')
+                .bootstrapValidator({
+                    message: 'This value is not valid',
+                    feedbackIcons: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    },
+                    fields: {
+                        LoginName: {
+                            message: '账号不可用',
+                            validators: {
+                                notEmpty: {
+                                    message: '账号不能为空'
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 30,
+                                    message: '账号长度6-30'
+                                },
+                                /*remote: {
+                                 url: 'remote.php',
+                                 message: '账号不可用'
+                                 },*/
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9_\.]+$/,
+                                    message: '账号格式不正确'
+                                }
+                            }
+                        }
+                    }
+                })
+                .on('success.form.bv', function(e) {
+                    // Prevent form submission
+                    e.preventDefault();
+                    // Get the form instance
+                    var $form = $(e.target);
+                    // Get the BootstrapValidator instance
+                    var bv = $form.data('bootstrapValidator');
+                    // Use Ajax to submit form data
+                    $.post($form.attr('action'), $form.serialize(), function(result) {
+                        if(result.status==1){
+                            swal({
+                                title:"操作成功！",
+                                text:result.info,
+                                type:"success"
+                            },function(){
+                                $('#defaultForm').bootstrapValidator('resetForm', true);$('input').val('');$('#addCustomer').modal('hide');
+                            });
+                        }else{
+                            toastr.warning(result.info);return false;
+                        }
+                    }, 'json');
+                });
+    });
+</script>

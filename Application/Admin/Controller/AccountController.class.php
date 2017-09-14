@@ -44,66 +44,42 @@ class AccountController extends AdminController {
             if($this->VerifyCodeIsRight($VerifyCode)==false){
                 $this->error('验证码输入错误!');
             }
-            $type = i('type');
-            switch($type){
-                case 1:
-                    $typeName = 'employee';
-                    $typeID = 'EmployeeID';
-                    $name = 'EmployeeNum';
-                    $data['EmployeeNum']=I('LoginName');
-                    if(empty($data['EmployeeNum'])){
-                        $this->error('账号输入错误!');
-                    }
-                break;
-                //2为代理
-                case 2:
-                    $typeName = 'agent';
-                    $data['LoginName']=I('LoginName');
-                    $name = 'LoginName';
-                    $typeID = 'AgentID';
-                    if(empty($data['LoginName'])){
-                        $this->error('账号输入错误!');
-                    }
-                break;
-                case 3:
-                    $typeName = 'customer';
-                    $data['LoginName']=I('LoginName');
-                    $name = 'LoginName';
-                    $typeID = 'CustomerID';
-                    if(empty($data['LoginName'])){
-                        $this->error('账号输入错误!');
-                    }
-                break;
+
+            $typeName = 'employee';
+            $typeID = 'employeeID';
+            $name = 'employee_num';
+            $data['employee_num']=I('LoginName');
+            if(empty($data['employee_num'])){
+                $this->error('账号输入错误!');
             }
 
-            $Password=I('Password');
-            if(empty($Password)){
+
+            $password=I('Password');
+
+            if(empty($password)){
                 $this->error('密码输入错误!');
             }
-            $data['FlagDel']=0;
+            $data['del']=0;
             $user= M($typeName)->where($data)->find();
-            if($type==1){
-                $current_user['Name'] = $user['Name'];
 
-            }else if($type==2){
-                $current_user['Name'] = $user['CompanyName'];
+            $current_user['name'] = $user['name'];
 
-            }elseif($type==3){
-                $current_user['Name'] = $user['ShortName'];
-            }
+
 
             if($user){
-                if($user['Status'] == 1){
+                if($user['sstatus'] == 1){
                     $this->error('用户已被锁定，暂时无法登录!');
                 }else{
-                    if($user['Password']!=get_guoyuanPWD($Password,$user['Random'])){
+                    if($user['password']!=get_guoyuanPWD($password,$user['random'])){
                         $this->error('密码错误!');
                     }else{
-                        $current_user['EmployeeNum'] = $user[$name];
-                        $current_user['EmployeeID'] = $user[$typeID];
-                        $current_user['LoginType'] = $type;
-                        session("CurrentUser" , $current_user);//写入Session 登录成功
-                        $this->success('登录成功', '/admin/');
+                        $current_user['employeen_num'] = $user[$name];
+                        $current_user['name'] = $user['name'];
+                        $current_user['position'] = $user['position'];
+                        $current_user['pic'] = $user['pic'];
+                        $current_user['employeeID'] = $user[$typeID];
+                        session("current_user" , $current_user);//写入Session 登录成功
+                        $this->success('登录成功', '/index.php/admin/');
                     }
                 }
             }
@@ -112,14 +88,12 @@ class AccountController extends AdminController {
             }
         }
         else{
-            if($this->dal->where(array("Status"=>0,"DelFlag"=>0))->count() <= 0){
-                $add["EmployeeNum"] = "admin";
+            if($this->dal->where(array("status"=>0,"del"=>0))->count() <= 0){
+                $add["employee_num"] = "admin";
                 $string = get_string();
-                $add['Random']= $string->rand_string(6,1);
-                $add["Password"] = md5(md5("888888").$add['Random']);
-                $add['RegisterTime'] = time_format();
-                $add['Sort'] = 0;
-                $add['OperatorID'] = "System Generation" ;
+                $add['random']= $string->rand_string(6,1);
+                $add["password"] = md5(md5("123456").$add['Random']);
+                $add['register_time'] = time_format();
                 $this->dal->add($add);
             }
             $this->display();

@@ -5,11 +5,11 @@
         <ul class="nav" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
-                    <span><img alt="image" class="img-circle" src="/public/Admin/img/profile_small.jpg"></span>
+                    <span><img alt="image" class="img-circle" src="{$user.pic|default='/public/Admin/img/profile_small.jpg'}"></span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
-                                <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
+                               <span class="block m-t-xs"><strong class="font-bold">{$user.position}</strong></span>
+                                <span class="text-muted text-xs block">{$user.name}<b class="caret"></b></span>
                                 </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -97,12 +97,12 @@
                 </ul>
             </li>
 
-            <!--<li>-->
-                <!--<a href="#"><i class="fa fa-flask"></i> <span class="nav-label">员工管理</span><span class="fa arrow"></span></a>-->
-                <!--<ul class="nav nav-second-level collapse">-->
-                    <!--<li>-->
-                        <!--<a class="J_menuItem" href="/admin/Employee/index" data-index="56">员工信息</a>-->
-                    <!--</li>-->
+            <li>
+                <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">员工管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a class="J_menuItem" href="/admin/Employee/index" data-index="56">员工信息</a>
+                    </li>
                     <!--<li>-->
                         <!--<a class="J_menuItem" href="/admin/Employee/department" data-index="56">部门信息</a>-->
                     <!--</li>-->
@@ -112,9 +112,9 @@
                     <!--<li>-->
                         <!--<a class="J_menuItem" href="/admin/Employee/menu" data-index="56">菜单管理</a>-->
                     <!--</li>-->
-                <!--</ul>-->
+                </ul>
 
-            <!--</li>-->
+            </li>
             <!--
             <li>
                 <a href="#"><i class="fa fa-table"></i> <span class="nav-label">表格</span><span class="fa arrow"></span></a>
