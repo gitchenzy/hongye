@@ -28,8 +28,11 @@ class ProjectController extends AdminController
         $offset = i("offset");
 
         $limit = i("limit");
+        $status = i("status");
         $search_key = i('search_key');
-
+        if(!empty($status) && isset($status)){
+            $where['p.status'] = $status;
+        }
         $search_value = i('search');
         if($search_value){
             $where['p.title|u.nick_name'] = array('LIKE',"%$search_value%");;
@@ -52,7 +55,8 @@ class ProjectController extends AdminController
 //        dump(M('project')->getlastsql());
         foreach($list as &$v){
             $v['is_hot'] = $v['is_hot']==1?'是':'否';
-            $v['status_name'] = $v['status']==1?'下线':'上线';
+            $v['status_name'] = getProjectStatus($v['status']);
+            $v['pay_status'] = getProjectPayStatus($v['payment_status']);
             $v['start_time'] = date('Y-m-d',$v['start_time']);
             $v['end_time'] =  date('Y-m-d',$v['end_time']);
         }
@@ -116,6 +120,57 @@ class ProjectController extends AdminController
             $this -> error("删除失败！");
         }
     }
+    //项目打款
+    public function addBalance(){
+        $project_id = I('id');
+        $status = M('project') -> where(['id'=>$project_id]) -> getField('status');
+        if(IS_POST){
+            //要更新两个地方
+            $tranDb = M();
+            $tranDb->startTrans();
+            $user_id = $tranDb -> table('project') -> where(['id'=>$project_id]) -> getField('user_id');
+
+            $info['node'] = I('node');
+            $balance = I('balance');
+
+            $info['payment_status'] = I('payment_status') ;
+
+            $res_node = $tranDb -> table('project') -> where(['id'=>$project_id]) -> save($info);
+            $res_balance = $tranDb -> table('users') -> where(['id'=>$user_id]) -> setInc('balance',$balance);
+
+            $add['user_id'] = $user_id;
+            $add['project_id'] = $project_id;
+            $add['pay_time'] = time();
+            $add['amount'] = $balance;
+            $add['pay_type'] = 3;
+            $add['pay_no'] = get_pay_no();
+            $res_pay = $tranDb -> table('user_account')->add($add);
+
+            if($res_node && $res_balance && $res_pay){
+                $tranDb -> commit();
+                $this -> success('打款成功！');
+            }else{
+                $tranDb -> rollback();
+                $this -> error("打款失败！");
+
+            }
+
+        }else{
+
+
+            if($status ==5 || $status == 6){
+                $this -> assign('id',$project_id);
+                $this -> display();
+
+            }else{
+                echo '该项目不需要打款！';
+            }
+
+        }
+
+    }
+
+
     //项目类型
     public function proType(){
         $this -> display();

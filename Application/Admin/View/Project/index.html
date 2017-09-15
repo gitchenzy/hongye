@@ -43,6 +43,21 @@
                             <button id="remove" class="btn btn-danger" disabled>
                                 <i class="glyphicon glyphicon-remove"></i> 删除
                             </button>
+
+                        <button id="addBalance" class="btn btn-primary" disabled>
+                            项目打款
+                        </button>
+
+                        <select id="status" class="form-control select-huge">
+                            <option value="0">项目状态</option>
+                            <option value="1">待审核</option>
+                            <option value="2">进行中</option>
+                            <option value="3">审核不通过</option>
+                            <option value="4">未完成</option>
+                            <option value="5">众筹成功</option>
+                            <option value="6">众筹完成</option>
+                            <option value="7">项目结束</option>
+                        </select>
                     </div>
                     <table id="table"
                            data-toolbar="#toolbar"
@@ -86,6 +101,7 @@
 
     <script type="text/javascript">
         var $table = $('#table'), $edit=$('#edit');$remove = $('#remove'), selections = [];
+        var $addBalance = $('#addBalance');
         var $add = $('#addform');
         function initTable() {
             $table.bootstrapTable({
@@ -116,6 +132,7 @@
                         {field: 'reach_amount', title: '已达金额', align: 'center'},
                         {field: 'status_name', title: '项目状态', align: 'center'},
                         {field: 'is_hot', title: '是否最热', align: 'center'},
+                        {field: 'pay_status', title: '打款状态', align: 'center'},
                         {field: 'start_time', title: '发起时间', align: 'center',sortable: true},
                         {field: 'end_time', title: '结束时间', align: 'center',sortable: true},
 //                        {field: 'CreateTime', title: '创建时间', align: 'center',sortable: true},
@@ -133,10 +150,12 @@
                 if(checkLen == 1){
                     //$edit.attr("data-remote",""+getIdSelections()+'&t=' + Math.random(1000) );
                     $edit.prop('disabled',false);
+                    $addBalance.prop('disabled',false);
 
                 }else{
                     //$edit.attr("data-remote","javascript:void(0);");
                     $edit.prop('disabled',true);
+                    $addBalance.prop('disabled',true);
                 }
                 selections = getIdSelections();
             });
@@ -157,6 +176,12 @@
                     remote: "/index.php/admin/Project/editProject?id=" + getIdSelections()+'&t=' + Math.random(1000)
                     ,backdrop: 'static'
                     ,keyboard: false
+                });
+            });
+            $addBalance.click(function(){
+                $("#addCustomer").modal({
+                    remote: "/index.php/admin/Project/addBalance?id=" + getIdSelections()+'&t=' + Math.random(1000)
+
                 });
             });
 
@@ -181,12 +206,21 @@
                 location.reload();
                 $(this).removeData("bs.modal");
                 $edit.prop('disabled',true);
+                $addBalance.prop('disabled',true);
                 $table.bootstrapTable('refresh', {silent: true});
             });
             eachSeries(getScript, initTable);
         });
 
+        $('#status').change(function(){
+            search();
+        })
 
+        function search(){
+            var status = $('#status').val();
+            var str =  '/index.php/admin/Project/loadProject?status='+status;
+            $table.bootstrapTable('refresh', {url: str});
+        }
 
 //        function search(){
 //            var ctm = $('#Ctm').val();
