@@ -565,6 +565,17 @@ function getProjectPayStatus($type) {
     return $list[$type];
 }
 
+//订单状态
+function getOrderStatus($type) {
+    $list = array(
+        '1' => '未付款' ,
+        '2' => '已付款' ,
+        '3' => '已发货',
+        '4' => '已完成',
+    );
+    return $list[$type];
+}
+
 function get_pay_no(){
 
     $time = strtotime(date('Y-m-d'));

@@ -1,0 +1,73 @@
+
+<style>
+    .box{
+        width: 700px;
+        height: 300px;
+        margin: 0 auto;
+    }
+    .box table{
+        border-collapse: collapse;
+        border-spacing: 0;
+        border:1px solid #cccccc;
+    }
+    .box td,tr{
+        padding: 0;
+        border:1px solid #cccccc;
+        width:65px;
+        height: 30px;
+        text-align: center;
+    }
+    .box td,tr h1{
+        font-size: 15px;
+        color: #000000;
+    }
+    .bg{
+        background: #e5e5e5;
+        padding: 0;
+        border:1px solid #cccccc;
+        width:65px;
+        height: 30px;
+        text-align: center;
+    }
+</style>
+
+<div class="box" style="padding-top: 15px;">
+    <table>
+        <tr>
+            <td><h1>id</h1></td>
+            <td><h1>会员昵称</h1></td>
+            <td><h1>收货人</h1></td>
+            <td><h1>联系电话</h1></td>
+            <td><h1>省份</h1></td>
+            <td><h1>城市</h1></td>
+            <td><h1>区域</h1></td>
+            <td><h1>地址</h1></td>
+            <td><h1>金额</h1></td>
+            <td><h1>付款时间</h1></td>
+            <td><h1>状态</h1></td>
+
+
+
+        </tr>
+
+        <tr class="bg">
+            <volist name="info" id="vo">
+
+              <td>{$vo.id}</td>
+              <td>{$vo.nick_name}</td>
+              <td>{$vo.name}</td>
+              <td>{$vo.phone}</td>
+              <td>{$vo.province}</td>
+              <td>{$vo.city}</td>
+              <td>{$vo.area}</td>
+              <td>{$vo.address}</td>
+              <td>{$vo.pay_amount}</td>
+              <td>{$vo.pay_time}</td>
+              <td>{$vo.status}</td>
+
+            </volist>
+
+        </tr>
+
+    </table>
+</div>

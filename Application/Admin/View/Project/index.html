@@ -48,6 +48,10 @@
                             项目打款
                         </button>
 
+                        <button id="orders" class="btn btn-primary" disabled>
+                            项目订单
+                        </button>
+
                         <select id="status" class="form-control select-huge">
                             <option value="0">项目状态</option>
                             <option value="1">待审核</option>
@@ -103,6 +107,7 @@
         var $table = $('#table'), $edit=$('#edit');$remove = $('#remove'), selections = [];
         var $addBalance = $('#addBalance');
         var $add = $('#addform');
+        var $orders = $('#orders');
         function initTable() {
             $table.bootstrapTable({
                 formatSearch:function(){return '请输入用户昵称或者项目标题'},
@@ -150,11 +155,13 @@
                 if(checkLen == 1){
                     //$edit.attr("data-remote",""+getIdSelections()+'&t=' + Math.random(1000) );
                     $edit.prop('disabled',false);
+                    $orders.prop('disabled',false);
                     $addBalance.prop('disabled',false);
 
                 }else{
                     //$edit.attr("data-remote","javascript:void(0);");
                     $edit.prop('disabled',true);
+                    $orders.prop('disabled',true);
                     $addBalance.prop('disabled',true);
                 }
                 selections = getIdSelections();
@@ -174,6 +181,13 @@
             $edit.click(function(){
                 $("#addCustomer").modal({
                     remote: "/index.php/admin/Project/editProject?id=" + getIdSelections()+'&t=' + Math.random(1000)
+                    ,backdrop: 'static'
+                    ,keyboard: false
+                });
+            });
+            $orders.click(function(){
+                $("#addCustomer").modal({
+                    remote: "/index.php/admin/Project/orders?id=" + getIdSelections()+'&t=' + Math.random(1000)
                     ,backdrop: 'static'
                     ,keyboard: false
                 });
@@ -206,6 +220,7 @@
                 location.reload();
                 $(this).removeData("bs.modal");
                 $edit.prop('disabled',true);
+                $orders.prop('disabled',true);
                 $addBalance.prop('disabled',true);
                 $table.bootstrapTable('refresh', {silent: true});
             });
