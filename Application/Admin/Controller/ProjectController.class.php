@@ -247,7 +247,80 @@ class ProjectController extends AdminController
         $this -> success('删除成功！');
     }
 
+//广告
+    public function ad(){
+        $this -> display();
+    }
+    //加载广告
+    public function loadAd(){
+        $offset = i("offset");
+        $limit = i("limit");
+        $search_key = i('search_key');
+        $search_value = i('search');
+        if($search_value){
+            $where['title'] = array('LIKE',"%$search_value%");;
+        }
+        $sort = i('sort');
+        $order = i('order');
+        if(!empty($sort)){
+            $reorder = $sort." ".$order;
+        }else{
+            $reorder = 'id asc';
+        }
+        $list =  M('ad')-> where($where) -> order($reorder) ->limit($offset,$limit) -> select();
 
+        foreach ($list as &$v){
+            $v['pic'] = "<img src='{$v['pic']}' width='250' alt='广告图'>";
+            $v['status'] = $v['status']==1?'下线':'上线';
+        }
+        //dump($list);
+        $count =   M('ad')-> where($where) -> order($reorder) -> count();
+        $list_array= array("total"=>$count,"rows"=>$list?$list:array());
+        echo json_encode($list_array);
+    }
+    //增加广告
+    public function addAd(){
+        if(IS_POST){
+            $data = i('post.');
+            M('ad') -> add($data);
+            $this->success('增加成功！');
+        }else{
+
+            $this-> display('editAd');
+        }
+    }
+    //修改广告
+    public function editAd(){
+        $id = i('id');
+        $where['id'] = $id;
+        $res = M('ad') -> where($where)-> find();
+        if(IS_POST){
+            $data = i('post.');
+
+            if($data['pic'] != $res['pic']){
+                unlink(ROOT_PATH.$res['pic']);
+            }
+            M('ad') -> where($where) -> save($data);
+            $this->success('修改成功！');
+        }else{
+            $this->assign('info',$res);
+            $this-> display();
+        }
+    }
+    //删除广告
+    public function delAd(){
+        $array_id['id'] = array('in',$_POST['ids']);
+        $pic = M('ad') -> where($array_id) -> field('pic') -> select();
+        $res = M('ad') -> where($array_id) -> delete();
+        if($res){
+            foreach($pic as $p){
+                unlink(ROOT_PATH.$p['pic']);
+            }
+            $this -> success('删除成功！');
+        }else{
+            $this -> error('删除失败！');
+        }
+    }
 
 
 
