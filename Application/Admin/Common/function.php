@@ -11,7 +11,7 @@
  * @return int
  */
 function get_user () {
-    $user = session("CurrentUser");
+    $user = session("current_user");
     if (empty($user)){
         $user = 0;
     }
@@ -541,22 +541,41 @@ function kicsort($arr){
     }
     return $d;
 }
-//售前状态
-function getSupportStatus($type) {
+
+//项目状态
+function getProjectStatus($type) {
     $list = array(
-        '0' => '申请' ,
-        '1' => '批准' ,
-        '2' => '驳回' ,
-        '3' => '已指派' ,
-        '5' => '签订合同' ,
-        '6' => '未签合同' ,
-        '7' => '关闭' ,
-        '8' => '签约' ,
+        '1' => '待审核' ,
+        '2' => '进行中' ,
+        '3' => '审核不通过' ,
+        '4' => '未完成' ,
+        '5' => '众筹成功' ,
+        '6' => '众筹完成' ,
+        '7' => '项目结束' ,
+    );
+    return $list[$type];
+}
+//项目状态
+function getProjectPayStatus($type) {
+    $list = array(
+        '1' => '未付' ,
+        '2' => '未完成' ,
+        '3' => '完成',
     );
     return $list[$type];
 }
 
+function get_pay_no(){
 
+    $time = strtotime(date('Y-m-d'));
+    $res = M('user_account') -> where(['pay_time'=>['GT',$time]]) -> order('id desc') -> find();
+    if($res){
+        $no = $res['pay_no'] + 1;
+    }else{
+        $no = date('Ymd').'00001';
+    }
+    return $no;
+}
 
 
 

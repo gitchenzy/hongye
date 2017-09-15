@@ -2,7 +2,7 @@
 <block name="body">
     <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <h5>项目信息</h5>
+            <h5>员工信息</h5>
             <div class="ibox-tools" style="display:none;">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
@@ -26,38 +26,25 @@
                 <div class="col-sm-12">
                     <div id="toolbar">
 
-                           <!-- <a class="btn btn-success" data-toggle="modal" data-target="#addCustomer" data-remote="/admin/Customer/addCustomer">
-                                新增1
+                            <!--<a class="btn btn-success" data-toggle="modal" data-target="#addCustomer" data-remote="/admin/Employee/addEmployee" >
+                                新增
                             </a>-->
                             <button id="addform" class="btn btn-success">
                                 新增
                             </button>
 
-
-
                             <button id="edit" class="btn btn-primary" disabled>
                                 编辑
                             </button>
-
 
                             <button id="remove" class="btn btn-danger" disabled>
                                 <i class="glyphicon glyphicon-remove"></i> 删除
                             </button>
 
-                        <button id="addBalance" class="btn btn-primary" disabled>
-                            项目打款
-                        </button>
+                            <button id="editPWD" class="btn btn-primary" disabled>
+                                重置密码
+                            </button>
 
-                        <select id="status" class="form-control select-huge">
-                            <option value="0">项目状态</option>
-                            <option value="1">待审核</option>
-                            <option value="2">进行中</option>
-                            <option value="3">审核不通过</option>
-                            <option value="4">未完成</option>
-                            <option value="5">众筹成功</option>
-                            <option value="6">众筹完成</option>
-                            <option value="7">项目结束</option>
-                        </select>
                     </div>
                     <table id="table"
                            data-toolbar="#toolbar"
@@ -67,19 +54,20 @@
                            data-show-export="true"
                            data-minimum-count-columns="5"
                            data-pagination="true"
-                           data-id-field="id"
-                           data-sort-name="id"
+                           data-id-field="employeeID"
+                           data-sort-name="Sort"
                            data-detail-formatter="detailFormatter"
                            data-click-select = true
-                           data-order="desc"
+                           data-order="asc"
                            data-page-size = "10"
                            data-page-number = "1"
                            data-page-list="[10,20,50,100,ALL]"
                            data-show-footer="false"
                            data-side-pagination="server"
-                           data-url="{:U('Project/loadProject')}"
+                           data-url="{:u('Employee/loadEmployee')}"
                            data-response-handler="responseHandler">
                     </table>
+
                 </div>
             </div>
         </div>
@@ -95,17 +83,13 @@
     </div>
 </block>
 <block name="script">
-
-    <script type="text/javascript" src='__PUBLIC__/Static/Ueditor23578/ueditor.config.js'></script>
-    <script type="text/javascript" src='__PUBLIC__/Static/Ueditor23578/ueditor.all.min.js'></script>
-
     <script type="text/javascript">
         var $table = $('#table'), $edit=$('#edit');$remove = $('#remove'), selections = [];
-        var $addBalance = $('#addBalance');
+        var $pwd = $('#editPWD');
         var $add = $('#addform');
         function initTable() {
             $table.bootstrapTable({
-                formatSearch:function(){return '请输入用户昵称或者项目标题'},
+                formatSearch:function(){return '请输入名字或者账号'},
                 height: getHeight(),
                 clickToSelect:true,
                 formatLoadingMessage:function(){
@@ -123,19 +107,17 @@
                         //{field: 'Number', title: 'Number', formatter: function (value, row, index) {return index + 1;}},
                         {checkbox: true, align: 'center', valign: 'middle'},
                         //{field: 'Sort',title: '排序', align: 'center', valign: 'middle', sortable: true,},
-                        {field: 'id',title: '项目id', align: 'center',sortable: true},
-                        {field: 'title',title: '项目标题', align: 'center'},
-                        {field: 'type_name', title: '项目类型', align: 'center'},
-                        {field: 'user_name', title: '发起人', align: 'left', halign:'center'},
-                        {field: 'city', title: '地点', align: 'center'},
-                        {field: 'target_amount', title: '目标金额', align: 'center'},
-                        {field: 'reach_amount', title: '已达金额', align: 'center'},
-                        {field: 'status_name', title: '项目状态', align: 'center'},
-                        {field: 'is_hot', title: '是否最热', align: 'center'},
-                        {field: 'pay_status', title: '打款状态', align: 'center'},
-                        {field: 'start_time', title: '发起时间', align: 'center',sortable: true},
-                        {field: 'end_time', title: '结束时间', align: 'center',sortable: true},
-//                        {field: 'CreateTime', title: '创建时间', align: 'center',sortable: true},
+                        {field: 'employee_num',title: '账号', align: 'center'},
+                        {field: 'name', title: '姓名', align: 'center'},
+                        {field: 'sex_name', title: '性别', align: 'center'},
+                        {field: 'mobile', title: '手机号码', align: 'center'},
+                        {field: 'email', title: '邮箱', align: 'center'},
+//                        {field: 'department_name', title: '所属部门', align: 'center'},
+                        {field: 'position', title: '职务', align: 'center'},
+                        {field: 'priority', title: '是否为部门负责人', align: 'center'},
+                        {field: 'status_name', title: '状态', align: 'center'},
+                        {field: 'register_time', title: '创建时间', align: 'center'},
+
                     ]
                 ]
             });
@@ -149,89 +131,63 @@
                 var checkLen = $table.bootstrapTable('getSelections').length;
                 if(checkLen == 1){
                     //$edit.attr("data-remote",""+getIdSelections()+'&t=' + Math.random(1000) );
+                    $pwd.prop('disabled',false);
                     $edit.prop('disabled',false);
-                    $addBalance.prop('disabled',false);
-
                 }else{
                     //$edit.attr("data-remote","javascript:void(0);");
+                    $pwd.prop('disabled',true);
                     $edit.prop('disabled',true);
-                    $addBalance.prop('disabled',true);
                 }
                 selections = getIdSelections();
             });
             $remove.click(function () {
                 var ids = getIdSelections();
                 var param = {ids:ids};
-                confirmDelete("/index.php/admin/Project/delProject",param,$table,$remove,"id",ids);
+                confirmDelete("/admin/Employee/delEmployee",param,$table,$remove,"employeeID",ids);
             });
             $add.click(function(){
                 $("#addCustomer").modal({
-                    remote: "/index.php/admin/Project/addProject"
+                    remote: "/admin/Employee/addEmployee"
                     ,backdrop: 'static'
                     ,keyboard: false
                 });
             });
             $edit.click(function(){
                 $("#addCustomer").modal({
-                    remote: "/index.php/admin/Project/editProject?id=" + getIdSelections()+'&t=' + Math.random(1000)
+                    remote: "/admin/Employee/editEmployee?id=" + getIdSelections()+'&t=' + Math.random(1000)
                     ,backdrop: 'static'
                     ,keyboard: false
                 });
             });
-            $addBalance.click(function(){
+            $pwd.click(function(){
                 $("#addCustomer").modal({
-                    remote: "/index.php/admin/Project/addBalance?id=" + getIdSelections()+'&t=' + Math.random(1000)
-
+                    remote: "/admin/Employee/editPWD?id=" + getIdSelections()+'&t=' + Math.random(1000)
+                    ,backdrop: 'static'
+                    ,keyboard: false
                 });
             });
-
-
-
             $(window).resize(function () {
                 $table.bootstrapTable('resetView', {
                     height: getHeight()
                 });
             });
-
         }
 
         function getIdSelections(param) {
             return $.map($table.bootstrapTable('getSelections'), function (row) {
-                return row.id;
+                return row.employeeID;
             });
         }
         //$("#model").on("hidden.bs.model",function(e){$(this).removeData();});
         $(function () {
             $("#addCustomer").on("hidden.bs.modal", function() {
-                location.reload();
                 $(this).removeData("bs.modal");
                 $edit.prop('disabled',true);
-                $addBalance.prop('disabled',true);
+                $pwd.prop('disabled',true);
+                $remove.prop('disabled',true);
                 $table.bootstrapTable('refresh', {silent: true});
             });
             eachSeries(getScript, initTable);
         });
-
-        $('#status').change(function(){
-            search();
-        })
-
-        function search(){
-            var status = $('#status').val();
-            var str =  '/index.php/admin/Project/loadProject?status='+status;
-            $table.bootstrapTable('refresh', {url: str});
-        }
-
-//        function search(){
-//            var ctm = $('#Ctm').val();
-//            var ctmName = $('#DeveloperName').val();
-//            var address = $('#address').val();
-//            var ctmR = $('#CtmRankID').val();
-//            var timeA = $('#TimeA').val();
-//            var timeB = $('#TimeB').val();
-//            var ctmS = $('#ctmS').val();
-//            var str =  '/admin/Customer/loadCustomer?ctmState='+ctm+'&ctmName='+ctmName+'&address='+address+'&timeB='+timeB+'&timeA='+timeA+'&ctmR='+ctmR+'&ctmS='+ctmS;
-//            $table.bootstrapTable('refresh', {url: str});
-//        }
     </script>
 </block>

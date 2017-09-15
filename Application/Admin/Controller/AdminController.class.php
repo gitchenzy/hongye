@@ -7,8 +7,9 @@ class AdminController extends Controller {
 
 	protected function _initialize(){
 		$user = get_user();
-		if ($this->admin_authoried && empty($user)) {
-			redirect(U("/account/Login"));
+
+		if ($user == 0) {
+			redirect(U("account/Login"));
 		}
 
 		$this->assign("user" , $user);
