@@ -218,7 +218,7 @@
         </div>
 
     </div>
-    <div onclick="window.location.href='others/original.html'" class="main_bottom_box">
+    <div onclick="window.location.href='others/<?php echo U('List/new');?>'" class="main_bottom_box">
         <div class="main_bottom_box_mid_icon">
 
             <a href="#"><img src="/Public/Home/images/new/go.png"></a>
@@ -229,9 +229,9 @@
     <div class="main_bottom_box">
         <div class="main_bottom_box_mid">
 
-            <a href="others/news.html"><img src="/Public/Home/images/new/news_1.png"></a>
+            <a href="<?php echo U('Massage/massage');?>"><img src="/Public/Home/images/new/news_1.png"></a>
 
-            <a href="">消息</a>
+            <a href="<?php echo U('Massage/massage');?>">消息</a>
         </div>
     </div>
     <div class="main_bottom_box">
