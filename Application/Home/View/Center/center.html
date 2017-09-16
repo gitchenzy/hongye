@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css">
+    <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Home/js/jquery.event.drag-1.5.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Home/js/jquery.touchSlider.js"></script>
+    <script src="__PUBLIC__/Home/js/main.js"></script>
     <title>红叶帮帮忙</title>
     <!--
     <script>
@@ -44,84 +48,93 @@
     </div>
 </div>
 <div class="mine_mid">
-    <div onclick="window.location.href='notes.html'" class="mine_m">
+    <div onclick="window.location.href='order.html'" class="mine_m">
         <div class="mine_go">
-            <img src="__PUBLIC__/Home/images/notes.png">
+            <img src="__PUBLIC__/Home/images/new/notes.png">
         </div>
         <p>我的订单</p>
     </div>
     <div onclick="window.location.href='cash.html'" class="mine_m">
         <div class="mine_go">
-            <img src="__PUBLIC__/Home/images/钱包.png">
+            <img src="__PUBLIC__/Home/images/new/cash.png">
         </div>
         <p>我的钱包</p>
     </div>
     <div class="mine_m">
         <div class="mine_go">
-            <img src="__PUBLIC__/Home/images/社群.png">
+            <img src="__PUBLIC__/Home/images/new/people.png">
         </div>
         <p>我的社群</p>
     </div>
     <div class="mine_m">
         <div class="mine_go">
-            <img src="__PUBLIC__/Home/images/weibo.png">
+            <img src="__PUBLIC__/Home/images/new/weibo.png">
         </div>
         <p>我的微博</p>
     </div>
 
 </div>
+<div onclick="window.location.href='bind.html'" class="cash_bin">
+    <div class="cash_bin25">
+        <img src="__PUBLIC__/Home/images/new/phone.png">
+    </div>
+    <p>绑定手机号</p>
+    <div class="cash_bin2">
+        <img src="__PUBLIC__/Home/images/new/back_r.png">
+    </div>
+</div>
 <div onclick="window.location.href='likes.html'" class="cash_bin">
     <div class="cash_bin25">
-        <img src="__PUBLIC__/Home/images/love1.png">
+        <img src="__PUBLIC__/Home/images/new/focus.png">
     </div>
     <p>我的关注</p>
     <div class="cash_bin2">
-        <img src="__PUBLIC__/Home/images/返回.png">
+        <img src="__PUBLIC__/Home/images/new/back_r.png">
     </div>
 </div>
 <div style="border-bottom:10px solid #F2F2F2" class="cash_bin">
     <div class="cash_bin25">
-        <img src="__PUBLIC__/Home/images/矩形10.png">
+        <img src="__PUBLIC__/Home/images/new/gift.png">
     </div>
     <p>我的活动</p>
     <div class="cash_bin2">
-        <img src="__PUBLIC__/Home/images/返回.png">
+        <img src="__PUBLIC__/Home/images/new/back_r.png">
     </div>
 </div>
 <div class="cash_bin">
     <div class="cash_bin25">
-        <img src="__PUBLIC__/Home/images/help.png">
+        <img src="__PUBLIC__/Home/images/new/helps.png">
     </div>
     <p>帮助中心</p>
     <div class="cash_bin2">
-        <img src="__PUBLIC__/Home/images/返回.png">
+        <img src="__PUBLIC__/Home/images/new/back_r.png">
     </div>
 </div>
 <div class="cash_bin">
     <div class="cash_bin25">
-        <img src="__PUBLIC__/Home/images/关于我们.png">
+        <img src="__PUBLIC__/Home/images/new/about.png">
     </div>
     <p>关于我们</p>
     <div class="cash_bin2">
-        <img src="__PUBLIC__/Home/images/返回.png">
+        <img src="__PUBLIC__/Home/images/new/back_r.png">
     </div>
 </div>
 <div class="cash_bin">
     <div class="cash_bin25">
-        <img src="__PUBLIC__/Home/images/信息反馈.png">
+        <img src="__PUBLIC__/Home/images/new/cook.png">
     </div>
     <p>信息反馈</p>
     <div class="cash_bin2">
-        <img src="__PUBLIC__/Home/images/返回.png">
+        <img src="__PUBLIC__/Home/images/new/back_r.png">
     </div>
 </div>
 <div class="main_botoom">
     <div class="main_bottom_box">
         <div class="main_bottom_box_mid">
 
-            <a href="../index.html"><img src="__PUBLIC__/Home/images/new/home_1.png"></a>
+            <a href="{:U('Index/index')}"><img src="__PUBLIC__/Home/images/new/home_1.png"></a>
 
-            <a href="../index.html">主页</a>
+            <a href="{:U('Index/index')}">主页</a>
         </div>
     </div>
     <div class="main_bottom_box">
@@ -133,7 +146,7 @@
         </div>
 
     </div>
-    <div onclick="window.location.href='{:U('List/new')}'" class="main_bottom_box">
+    <div onclick="window.location.href='original.html'" class="main_bottom_box">
         <div class="main_bottom_box_mid_icon">
 
             <a href="{:U('List/new')}"><img src="__PUBLIC__/Home/images/new/go.png"></a>
