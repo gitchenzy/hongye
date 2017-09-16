@@ -321,6 +321,23 @@ class ProjectController extends AdminController
             $this -> error('删除失败！');
         }
     }
+    //订单
+    public function orders(){
+
+        //echo 1111;
+        $p_id = I('id');
+        $result = M('orders') -> where(['project_id'=> $p_id,'status'=>['GT',1]]) -> select();
+
+        foreach($result as &$v){
+            $v['status'] = getOrderStatus($v['status']);
+            $v['nick_name'] = M('users') -> where(['id'=>$v['user_id']]) -> getField('nick_name');
+            $v['pay_time'] = date('Y-m-d H:i:s',$v['pay_time']);
+        }
+
+        $this->assign('info',$result);
+        $this -> display();
+
+    }
 
 
 
