@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
 
-    <link rel="stylesheet" type="text/css" href="/Public/Home/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/public/Home/css/main.css" />
 
-
+    <style>
+        .active{color:#D33D3E;}
+     </style>
     <title>红叶帮帮忙</title>
 </head>
 
@@ -39,9 +41,9 @@
         </div>
         <div class="main_image">
             <ul>
-                <li><span><img id="b_1" src="/Public/Home/images/new/love.jpg"></span></li>
-                <li><span><img id="b_2" src="/Public/Home/images/new/yuema.jpg"></span></li>
-                <li><span><img id="b_3" src="/Public/Home/images/new/dream.jpg"></span></li>
+                <li><span><img id="b_1" src="/public/Home/images/new/love.jpg"></span></li>
+                <li><span><img id="b_2" src="/public/Home/images/new/yuema.jpg"></span></li>
+                <li><span><img id="b_3" src="/public/Home/images/new/dream.jpg"></span></li>
             </ul>
             <a href="javascript:;" id="btn_prev"></a>
             <a href="javascript:;" id="btn_next"></a>
@@ -51,19 +53,19 @@
     <div class="mid">
         <div class="mid_box">
             <div class="mid_box_bg">
-                <a href="index.html"><img id="img1" src="/Public/Home/images/new/love.png"></a>
+                <a href="index.html"><img id="img1" src="/public/Home/images/new/love.png"></a>
                 <a style="color:#fe3535">公益</a>
             </div>
         </div>
         <div class="mid_box">
             <div class="mid_box_bg">
-                <a href="others/party.html"><img id="img2" src="/Public/Home/images/new/lets.png"></a>
+                <a href="others/party.html"><img id="img2" src="/public/Home/images/new/lets.png"></a>
                 <a href="others/party.html" style="color:#000">约吗</a>
             </div>
         </div>
         <div class="mid_box">
             <div class="mid_box_bg">
-                <a href="others/hopes.html"><img id="img3" src="/Public/Home/images/new/dream.png"></a>
+                <a href="others/hopes.html"><img id="img3" src="/public/Home/images/new/dream.png"></a>
                 <a href="others/hopes.html" style="color:#000" >愿望</a>
             </div>
         </div>
@@ -73,7 +75,7 @@
     <div onClick="window.location.href='others/works.html'" class="midcard">
         <div class="midcard_top">
             <div class="midcard_top_pic">
-                <img src="/Public/Home/images/new/pic.png">
+                <img src="/public/Home/images/new/pic.png">
 
             </div>
             <div class="midcard_top_name">
@@ -84,7 +86,7 @@
 
             </div>
             <div class="midcard_address_icon">
-                <img src="/Public/Home/images/new/local.png">
+                <img src="/public/Home/images/new/local.png">
             </div>
 
         </div>
@@ -93,7 +95,7 @@
         </div>
         <div class="midcard_img">
             <div align="center" class="midcard_img_content">
-                <img src="/Public/Home/images/little_banner.jpg">
+                <img src="/public/Home/images/little_banner.jpg">
             </div>
         </div>
         <div class="midcard_contain">
@@ -114,7 +116,7 @@
     <div onClick="window.location.href='others/works.html'" class="midcard">
         <div class="midcard_top">
             <div class="midcard_top_pic">
-                <img src="/Public/Home/images/new/pic.png">
+                <img src="/public/Home/images/new/pic.png">
 
             </div>
             <div class="midcard_top_name">
@@ -125,7 +127,7 @@
 
             </div>
             <div class="midcard_address_icon">
-                <img src="/Public/Home/images/new/local.png">
+                <img src="/public/Home/images/new/local.png">
             </div>
 
         </div>
@@ -134,7 +136,7 @@
         </div>
         <div class="midcard_img">
             <div align="center" class="midcard_img_content">
-                <img src="/Public/Home/images/little_banner.jpg">
+                <img src="/public/Home/images/little_banner.jpg">
             </div>
         </div>
         <div class="midcard_contain">
@@ -155,7 +157,7 @@
     <div onClick="window.location.href='others/works.html'" class="midcard">
         <div class="midcard_top">
             <div class="midcard_top_pic">
-                <img src="/Public/Home/images/new/pic.png">
+                <img src="/public/Home/images/new/pic.png">
 
             </div>
             <div class="midcard_top_name">
@@ -167,7 +169,7 @@
 
             </div>
             <div class="midcard_address_icon">
-                <img src="/Public/Home/images/new/local.png">
+                <img src="/public/Home/images/new/local.png">
             </div>
 
         </div>
@@ -176,7 +178,7 @@
         </div>
         <div class="midcard_img">
             <div align="center" class="midcard_img_content">
-                <img src="/Public/Home/images/little_banner.jpg">
+                <img src="/public/Home/images/little_banner.jpg">
             </div>
         </div>
         <div class="midcard_contain">
@@ -203,15 +205,15 @@
     <div class="main_bottom_box">
         <div class="main_bottom_box_mid">
 
-            <a href="index.html"><img width="30px" height="30px" src="/Public/Home/images/new/home_2.png"></a>
+            <a href="<?php echo U('index/index');?>"><img width="30px" height="30px" src="/public/Home/images/new/home_2.png"></a>
 
-            <a style="color:#D33D3E" href="index.html">主页</a>
+            <a href="<?php echo U('index/index');?>">主页</a>
         </div>
     </div>
     <div class="main_bottom_box">
         <div class="main_bottom_box_mid">
 
-            <a href="<?php echo U('List/list');?>"><img src="/Public/Home/images/new/find_1.png"></a>
+            <a href="<?php echo U('List/list');?>"><img src="/public/Home/images/new/find_1.png"></a>
 
             <a href="<?php echo U('List/list');?>">发现</a>
         </div>
@@ -220,7 +222,7 @@
     <div onclick="window.location.href='others/<?php echo U('List/new');?>'" class="main_bottom_box">
         <div class="main_bottom_box_mid_icon">
 
-            <a href="#"><img src="/Public/Home/images/new/go.png"></a>
+            <a href="#"><img src="/public/Home/images/new/go.png"></a>
 
 
         </div>
@@ -228,17 +230,17 @@
     <div class="main_bottom_box">
         <div class="main_bottom_box_mid">
 
-            <a href="<?php echo U('Massage/massage');?>"><img src="/Public/Home/images/new/news_1.png"></a>
+            <a href="<?php echo U('Massage/massage');?>"><img src="/public/Home/images/new/news_1.png"></a>
 
-            <a href="<?php echo U('Massage/massage');?>">消息</a>
+            <a href="<?php echo U('Massage/massage');?>"  >消息</a>
         </div>
     </div>
     <div class="main_bottom_box">
         <div class="main_bottom_box_mid">
 
-            <a href="<?php echo U('Center/center');?>"><img src="/Public/Home/images/new/mine_1.png"></a>
+            <a href="<?php echo U('center/index');?>"><img src="/public/Home/images/new/mine_1.png"></a>
 
-            <a href="<?php echo U('Center/center');?>">我的</a>
+            <a  href="<?php echo U('center/index');?>">我的</a>
         </div>
     </div>
 
@@ -247,11 +249,11 @@
 </div>
 
 
-<script tyep="text/javascript" src="/Public/Home/js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="/Public/Home/js/jquery.event.drag-1.5.min.js"></script>
-<script type="text/javascript" src="/Public/Home/js/jquery.touchSlider.js"></script>
-<script type="text/javascript" src="/Public/Home/js/control.js"></script>
-<script type="text/javascript" src="/Public/Home/js/document.js"></script>
+<script tyep="text/javascript" src="/public/Home/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/public/Home/js/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" src="/public/Home/js/jquery.touchSlider.js"></script>
+<script type="text/javascript" src="/public/Home/js/control.js"></script>
+<script type="text/javascript" src="/public/Home/js/document.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
 
