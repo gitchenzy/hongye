@@ -70,7 +70,7 @@ class CustomerController extends AdminController
            //  $arr =$this->dal_cs ->where($where)->order("Sort asc")->getField("CtmStatusID,CtmStatusName");
            $this->assign('grade',$res);
            //dump($res);
-           $this -> display('editCustomer');
+           $this -> display('editcustomer');
        }
     }
     //修改会员
@@ -138,7 +138,7 @@ class CustomerController extends AdminController
             M('user_grade') -> add($data);
             $this->success('增加成功！');
         }else{
-            $this-> display('editGrade');
+            $this-> display('editgrade');
         }
     }
     //修改会员等级
@@ -211,7 +211,7 @@ class CustomerController extends AdminController
             M('address') -> add($data);
             $this->success('增加成功！');
         }else{
-            $this-> display('editAddress');
+            $this-> display('editaddress');
         }
     }
     //修改地址
