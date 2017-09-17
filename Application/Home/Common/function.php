@@ -55,3 +55,16 @@ function get_user_info() {
     }
     return $user;
 }
+
+function getProjectStatus($type) {
+    $list = array(
+        '1' => '待审核' ,
+        '2' => '进行中' ,
+        '3' => '审核不通过' ,
+        '4' => '未完成' ,
+        '5' => '众筹成功' ,
+        '6' => '众筹完成' ,
+        '7' => '项目结束' ,
+    );
+    return $list[$type];
+}
