@@ -1,5 +1,4 @@
 /* CSS Document */
-
 *{
 	margin:0px;
 	padding:0px;
@@ -34,7 +33,42 @@ html body {
 	margin:0px;
 	padding:0px;
 }
-.helftopbox{
+.mine_topbox_1{
+	height:42px;
+	width:40px;
+	margin:0px auto 0px auto;
+	border-bottom:2px solid #d33d3e;
+	display:block;
+
+}
+.mine_topbox_1 a{
+	font-size:20px;
+	color:#d33d3e;
+	text-align:center;
+	text-decoration:none;
+
+	font-weight:lighter;
+
+
+}
+.mine_topbox_2{
+	height:42px;
+	width:40px;
+	margin:0px auto 0px auto;
+	border:none;
+	display:block;
+}
+.mine_topbox_2 a{
+	font-size:20px;
+	color:#ccc;
+	text-align:center;
+	text-decoration:none;
+
+	font-weight:lighter;
+
+
+}
+.helftopbox_1{
 	height:42px;
 	width:80px;
 	margin:0px auto 0px auto;
@@ -44,15 +78,26 @@ html body {
 
 
 }
-.helftopbox a{
+.helftopbox_1 a{
 	font-size:20px;
 	color:#d33d3e;
 	text-align:center;
 	text-decoration:none;
-
 	font-weight:lighter;
-
-
+}
+.helftopbox_2{
+	height:42px;
+	width:80px;
+	margin:0px auto 0px auto;
+	border:none;
+	display:block;
+}
+.helftopbox_2 a{
+	font-size:20px;
+	color:#ccc;
+	text-align:center;
+	text-decoration:none;
+	font-weight:lighter;
 }
 .midtopbox{
 	height:30px;
@@ -376,14 +421,14 @@ html body {
 	border-radius: 3px;
 }
 .stantic_lang_2_icon{
-	background:url(../images/icon_1.png);
+	background:url(../pics/icon_1.png);
 	width:15px;
 	height:15px;
 	margin:10px 5px 0px 0px;
 	float:left;
 }
 .stantic_lang_2_text{
-    margin: 15px 0 0 0;
+	margin: 15px 0 0 0;
 	width:220px;
 	height:59px;
 	padding:0px;
@@ -471,7 +516,7 @@ html body {
 	width:20px;
 	border-radius:10px;
 	float:left;
-	background:url(../images/icon_2.png);
+	background:url(../pics/icon_2.png);
 	margin:0px 10px 0px 0px;
 
 }
@@ -496,11 +541,11 @@ html body {
 
 }
 .midcard_news_cp span{
-    overflow: hidden;
+	overflow: hidden;
 	font-size:14px;
 	color:#000000;
 	text-align:left;
-    line-height: 23px;
+	line-height: 23px;
 
 }
 /*--*/
@@ -546,13 +591,13 @@ html body {
 	height:178px
 }
 .main_image li .img_1{
-	background:url(../images/img_main_1.jpg) center top no-repeat
+	background:url(../pics/img_main_1.jpg) center top no-repeat
 }
 .main_image li .img_4{
-	background:url(../images/img_main_2.jpg) center top no-repeat
+	background:url(../pics/img_main_2.jpg) center top no-repeat
 }
 .main_image li .img_3{
-	background:url(../images/img_main_3.jpg) center top no-repeat
+	background:url(../pics/img_main_3.jpg) center top no-repeat
 }
 
 
@@ -572,7 +617,7 @@ div.flicking_con a{
 	height:21px;
 	margin:0;
 	padding:0;
-	background:url(../images/12.png) 0 0 no-repeat;
+	background:url(../pics/12.png) 0 0 no-repeat;
 	display:block;
 	text-indent:-1000px
 }
@@ -640,7 +685,7 @@ div.flicking_con a.on{
 }
 .top_arrow{
 	display:inline-block;
-	background:url("../images/new/back.png") no-repeat;
+	background:url("../pics/new/back.png") no-repeat;
 	width:50px;
 	height:30px;
 
@@ -784,7 +829,7 @@ div.flicking_con a.on{
 	height:168px;
 	margin:0px;
 	padding:0px;
-	background:url(../images/img_main_1.jpg) no-repeat center;
+	background:url(../pics/img_main_1.jpg) no-repeat center;
 
 
 }
@@ -887,7 +932,7 @@ div.flicking_con a.on{
 	height:195px;
 	overflow:hidden;
 	border-radius: 3px;
-	background:url(../images/img_main_3.jpg) no-repeat center;
+	background:url(../pics/img_main_3.jpg) no-repeat center;
 
 }
 .find_card_black{
@@ -951,7 +996,7 @@ div.flicking_con a.on{
 .mine_banner{
 	width:100%;
 	height:95px;
-	background:url(../images/woolk.jpg) no-repeat center;
+	background:url(../pics/woolk.jpg) no-repeat center;
 	margin:0px;
 	padding-top:73px;
 
@@ -970,6 +1015,10 @@ div.flicking_con a.on{
 	overflow:hidden;
 	float:left;
 	margin-right:15px;
+}
+.mine_img{
+	height: 60px;
+	width: 60px;
 }
 .mine_text{
 	height:50px;
@@ -996,12 +1045,6 @@ div.flicking_con a.on{
 	margin-top: 5px;
 }
 .mine_likes ul li{
-	float:left;
-	list-style:none;
-	padding-right:2px;
-
-}
-.mine_likes ul li img{
 	float:left;
 	list-style:none;
 	padding-right:2px;
@@ -1337,7 +1380,8 @@ div.flicking_con a.on{
 /*-content-*/
 .page{
 	width:100%;
-    background:#f2f2f2;
+	height:700px;
+	background:#f2f2f2;
 
 }
 .content{
@@ -1390,19 +1434,19 @@ div.flicking_con a.on{
 	border-bottom:1px #CCCCCC solid;
 	padding:16px 5px 0px 10px;
 	overflow:hidden;
-	}
+}
 .content_bin p{
 	font-size:15px;
 	color:#000000;
 	float:left;
 
-	top:-4px;
+	top:-5px;
 	position:relative;
 	margin-right:10px;
-	line-height: 23px;
+	line-height: 18px;
 }
 .content_bl{
-	width:130px;
+	width:150px;
 	height: 22px;
 	float: left;
 	overflow: hidden;
@@ -1412,7 +1456,7 @@ div.flicking_con a.on{
 .content_bl p{
 	font-size:15px;
 	color:#000000;
-    line-height: 23px;
+	line-height: 23px;
 }
 .content_litile{
 	width:11px;
@@ -1477,7 +1521,7 @@ div.flicking_con a.on{
 /*-works-*/
 .top_share{
 	display:inline-block;
-	background:url(../images/%E5%88%86%E4%BA%AB2.png);
+	background:url(../pics/%E5%88%86%E4%BA%AB2.png);
 	width:30px;
 	height:30px;
 	float:right;
@@ -1503,7 +1547,7 @@ div.flicking_con a.on{
 .top_newarrow{
 
 	display:inline-block;
-	background:url(../images/return_1.png);
+	background:url(../pics/return_1.png);
 	width:30px;
 	height:30px;
 	float:left;
@@ -1513,7 +1557,7 @@ div.flicking_con a.on{
 .work_banner{
 	width:100%;
 	height:170px;
-	background:url(../images/img_main_1.jpg) center no-repeat;
+	background:url(../pics/img_main_1.jpg) center no-repeat;
 
 }
 .work_card{
@@ -1533,7 +1577,7 @@ div.flicking_con a.on{
 	height:35px;
 	border-radius:17.5px;
 	margin:0px 5px 0px 0px;
-	background:url(../images/img_1.jpg) no-repeat center;
+	background:url(../pics/img_1.jpg) no-repeat center;
 	float:left;
 }
 .work_r span{
@@ -1603,7 +1647,7 @@ div.flicking_con a.on{
 	left:50%;
 	width:45px;
 	height:45px;
-	background:url(../images/%C3%97%20%E5%88%A0%E9%99%A4.png);
+	background:url(../pics/%C3%97%20%E5%88%A0%E9%99%A4.png);
 }
 /*-get-*/
 .get_bg{
@@ -1675,13 +1719,13 @@ div.flicking_con a.on{
 	height:35px;
 	border-radius:17.5px;
 	float:left;
-	background:url(../images/img_1.jpg) no-repeat;
+	background:url(../pics/img_1.jpg) no-repeat;
 	margin:2px 5px 0px 15px ;
 }
 
 .first_pic{
 	float:right;
-	background:url(../images/dian.png) no-repeat ;
+	background:url(../pics/%E7%9F%A9%E5%BD%A29.png) no-repeat ;
 	height:20px;
 	width:20px;
 	position:relative;
@@ -1829,7 +1873,7 @@ div.flicking_con a.on{
 	height:20px;
 	width:20px;
 	float:right;
-	background:url(../images/%E8%BF%94%E5%9B%9E.png);
+	background:url(../pics/%E8%BF%94%E5%9B%9E.png);
 
 }
 .buildl{
@@ -2007,7 +2051,7 @@ div.flicking_con a.on{
 	margin: 0px;
 	padding-left:13px;
 	float: left;
-	
+
 }
 .original_little_2 p{
 	font-size:12px;
@@ -2106,10 +2150,10 @@ div.flicking_con a.on{
 }
 .original_bottomtext input{
 	display: block;
-    float: left;
+	float: left;
 	width: 13px;
 	height: 13px;
-	margin:1.5px; 
+	margin:1.5px;
 }
 /*-bind-*/
 .bind{
@@ -2125,13 +2169,13 @@ div.flicking_con a.on{
 .bind_box_in{
 	height: 44px;
 	margin: 0px 10px 0px 10px;
-    padding: 10px 0 0 0;
+	padding: 10px 0 0 0;
 }
 .bind_box_in_l{
 	width: 22px;
 	height: 22px;
 	float: left;
- }
+}
 .bind_box_in_l img{
 	width: 22px;
 	height: 22px;
@@ -2150,7 +2194,7 @@ div.flicking_con a.on{
 	background: #fff;
 	float: right;
 	display: block;
-	border-radius:3px; 
+	border-radius:3px;
 	color: #D33d3e;
 	font-size: 12px;
 }
@@ -2169,27 +2213,131 @@ div.flicking_con a.on{
 	padding: 0 auto 0 auto;
 }
 .bind_b button{
-		width:100px;
-		height: 32px;
-		text-decoration: none;
-		border:2px solid #d33d3e;
-		background: #d33d3e;
-		float: left;
-		display: block;
-		border-radius:3px; 
-		color: #fff;
-		font-size: 16px;
-		margin: 35px auto 0px auto;
+	width:100px;
+	height: 32px;
+	text-decoration: none;
+	border:2px solid #d33d3e;
+	background: #d33d3e;
+	float: left;
+	display: block;
+	border-radius:3px;
+	color: #fff;
+	font-size: 16px;
+	margin: 35px auto 0px auto;
 }
 /*-information-*/
 .inf_b{
 	width:100%;
-	height:80px;
-	}
+	height:60px;
+}
 .inf_bin{
 	margin:0px 15px 0px 15px;
-	height:80px;
+	height:60px;
 	border-bottom: 1px solid #f2f2f2;
+}
+.inf_bin p{
+	font-size: 16px;
+	color: #000000;
+	line-height:60px;
+	float: left;
+}
+.inf_bin_img{
+	width:45px;
+	height: 45px;
+	background: #cccccc;
+	border-radius:22.5px;
+	float: right;
+	margin:8px 0px 0px 0px;
+}
+.inf_l{
+	width:100%;
+	height: 40px;
+}
+.inf_lin{
+	margin:0px 15px 0px 15px;
+	height: 40px;
+	border-bottom: 1px solid #f2f2f2;
+}
+.inf_lin p{
+	font-size: 16px;
+	color:#000000;
+	line-height: 40px;
+	float: left;
+}
+.inf_lin input{
+	text-decoration: none;
+	border: none;
+	color: #cccccc;
+	font-size:14px;
+	height:20px;
+	width:100px;
+	float: right;
+	margin: 10px 0 0 0;
+}
+.inf_lin_img{
+	width: 20px;
+	height: 20px;
+	float: right;
+	margin: 11px 0px 0px 0px;
+}
+.inf_lin_img img{
+	width: 20px;
+	height: 20px;
+}
+/*-imgset-*/
+.imgset{
+	width: 100%;
+	height: 40px;
+	margin-top:20px;
+}
+.imgset_in{
+	margin: 0px 15px 0px 15px;
+	height: 40px;
+}
+.imgset_a{
+	text-decoration: none;
+	border: none;
+	background: #d33d3e;
+	width:70px;
+	height: 30px;
+	color: #f2f2f2;
+	font-size: 14px;
+	text-align: center;
+	display: block;
+	line-height: 30px;
+	border-radius: 3px;
+	float: left;
+}
+.imgset_i{
+	opacity:0;
+	position: absolute;
+	left:14px;
+
+}
+.imgset_b{
+	text-decoration: none;
+	border: none;
+	background: #d33d3e;
+	width:70px;
+	height: 30px;
+	color: #f2f2f2;
+	font-size: 14px;
+	text-align: center;
+	display: block;
+	line-height: 30px;
+	border-radius: 3px;
+	float: right;
+	position: relative;
+	top: -40px;
+	left:-15px;
+}
+
+.imgbox{
+	width: 120px;
+	height: 120px;
+	margin: 20px auto 0px auto;
+	border-radius: 3px;
+	border: 1px #d33d3e solid;
 }
 /*-for iphone 5s-*/
 @media screen and (max-width:321px) {
@@ -2198,9 +2346,9 @@ div.flicking_con a.on{
 		font-size:11px;
 		display:inline-block;
 		margin-right:1px;
-	    letter-spacing:-1px;
-	
-	}	
+		letter-spacing:-1px;
+
+	}
 	.stantic_lang_2_text{
 		margin: 15px 0 0 0;
 		width:180px;
@@ -2208,7 +2356,7 @@ div.flicking_con a.on{
 		padding:0px;
 		float:left;
 		overflow:hidden;
-	
+
 	}
 	.content_r{
 		width:220px;
@@ -2216,7 +2364,7 @@ div.flicking_con a.on{
 		float:right;
 		margin:0;
 		background:#FFFFFF;
-	
+
 	}
 	.content_bl{
 		width:100px;
@@ -2231,8 +2379,8 @@ div.flicking_con a.on{
 		width:195px;
 		margin:0px;
 		border-bottom:1px solid #CCCCCC;
-	
-	
+
+
 	}
 	.police_text p{
 		line-height:42px;
@@ -2250,8 +2398,8 @@ div.flicking_con a.on{
 		height:18px;
 		border:none;
 		color:#CCCCCC;
-	    font-size: 12px;
-	
+		font-size: 12px;
+
 	}
 	.original_little_1{
 		width: 50px;
@@ -2266,7 +2414,7 @@ div.flicking_con a.on{
 		color: #000000;
 		float: left;
 		margin: 0px;
-	
+
 	}
 	.original_little_1 input{
 		display: block;
@@ -2283,14 +2431,14 @@ div.flicking_con a.on{
 		margin-right: 8px;
 		padding-left:16px;
 		float: left;
-		
+
 	}
 	.original_little_2 p{
 		font-size:12px;
 		color: #000000;
 		float: left;
 		margin: 0px;
-	
+
 	}
 	.original_little_2 input{
 		display: block;
@@ -2308,7 +2456,7 @@ div.flicking_con a.on{
 		float: left;
 		margin:0px 9px 15px 9px;
 		border-radius: 3px;
-	
+
 	}
 	.main_image li span img{
 		width: 320px;
