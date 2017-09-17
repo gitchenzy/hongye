@@ -4,6 +4,9 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
+
+        session('index',1);
+
         $this -> display();
     }
 }

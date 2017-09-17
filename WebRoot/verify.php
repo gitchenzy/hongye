@@ -43,7 +43,7 @@ function vCode($num = 4, $size = 20, $width = 0, $height = 0) {
 	//setcookie('VerifyCode',$code,0,'/');
     $_SESSION['VerifyCode'] = $code;
 	header("Cache-Control: max-age=1, s-maxage=1, no-cache, must-revalidate");
-	header("Content-type: image/png;charset=gb2312");
+	header("Content-type: image/png;charset=utf-8");
 	imagepng($im);
 	imagedestroy($im);
 } 

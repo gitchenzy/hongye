@@ -6,7 +6,9 @@
 
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css" />
 
-
+    <style>
+        .active{color:#D33D3E;}
+     </style>
     <title>红叶帮帮忙</title>
 </head>
 
@@ -22,9 +24,9 @@
     <div class="main_bottom_box">
         <div class="main_bottom_box_mid">
 
-            <a href="index.html"><img width="30px" height="30px" src="__PUBLIC__/Home/images/new/home_2.png"></a>
+            <a href="{:U('index/index')}"><img width="30px" height="30px" src="__PUBLIC__/Home/images/new/home_2.png"></a>
 
-            <a style="color:#D33D3E" href="index.html">主页</a>
+            <a href="{:U('index/index')}">主页</a>
         </div>
     </div>
     <div class="main_bottom_box">
@@ -49,15 +51,15 @@
 
             <a href="{:U('Massage/massage')}"><img src="__PUBLIC__/Home/images/new/news_1.png"></a>
 
-            <a href="{:U('Massage/massage')}">消息</a>
+            <a href="{:U('Massage/massage')}"  >消息</a>
         </div>
     </div>
     <div class="main_bottom_box">
         <div class="main_bottom_box_mid">
 
-            <a href="{:U('Center/center')}"><img src="__PUBLIC__/Home/images/new/mine_1.png"></a>
+            <a href="{:U('center/index')}"><img src="__PUBLIC__/Home/images/new/mine_1.png"></a>
 
-            <a href="{:U('Center/center')}">我的</a>
+            <a  href="{:U('center/index')}">我的</a>
         </div>
     </div>
 
