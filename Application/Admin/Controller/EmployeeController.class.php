@@ -93,7 +93,7 @@ class EmployeeController extends AdminController
             //$result = $this->duty  -> order('Sort desc') -> getField('ID,DutyName');
         //    $this->assign('dr',$res);
         //    $this->assign('pr',$result);
-            $this-> display('editEmployee');
+            $this-> display('editemployee');
         }
     }
     //修改员工信息

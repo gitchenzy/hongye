@@ -89,7 +89,7 @@ class ProjectController extends AdminController
            //  $arr =$this->dal_cs ->where($where)->order("Sort asc")->getField("CtmStatusID,CtmStatusName");
            $this->assign('menu',$res);
            //dump($res);
-           $this -> display('editProject');
+           $this -> display('editproject');
        }
     }
     //修改项目

@@ -143,25 +143,25 @@
             $remove.click(function () {
                 var ids = getIdSelections();
                 var param = {ids:ids};
-                confirmDelete("/admin/Employee/delEmployee",param,$table,$remove,"employeeID",ids);
+                confirmDelete("/index.php/admin/Employee/delEmployee",param,$table,$remove,"employeeID",ids);
             });
             $add.click(function(){
                 $("#addCustomer").modal({
-                    remote: "/admin/Employee/addEmployee"
+                    remote: "/index.php/admin/Employee/addEmployee"
                     ,backdrop: 'static'
                     ,keyboard: false
                 });
             });
             $edit.click(function(){
                 $("#addCustomer").modal({
-                    remote: "/admin/Employee/editEmployee?id=" + getIdSelections()+'&t=' + Math.random(1000)
+                    remote: "/index.php/admin/Employee/editEmployee?id=" + getIdSelections()+'&t=' + Math.random(1000)
                     ,backdrop: 'static'
                     ,keyboard: false
                 });
             });
             $pwd.click(function(){
                 $("#addCustomer").modal({
-                    remote: "/admin/Employee/editPWD?id=" + getIdSelections()+'&t=' + Math.random(1000)
+                    remote: "/index.php/admin/Employee/editPWD?id=" + getIdSelections()+'&t=' + Math.random(1000)
                     ,backdrop: 'static'
                     ,keyboard: false
                 });
