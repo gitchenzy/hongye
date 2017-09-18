@@ -1,65 +1,31 @@
 <extend name="Public:main"/>
 <block name="content">
 
-    <div style="border-bottom:1px solid #cccccc" class="top">
-        <div class="top_arrow"></div>
-        <h4>我的关注</h4>
-    </div>
-    <div class="stantic_3">
+    <!--<div style="border-bottom:1px solid #cccccc" class="top">-->
+        <!--<div class="top_arrow"></div>-->
+        <!--<h4>我的关注</h4>-->
+    <!--</div>-->
+    <volist name="info" id="vo">
+        <div class="stantic_3">
         <div class="stantic_3_in">
             <div class="stantic_3_in_text">
-                <p>2017.09.09</p>
-                <p>09:09</p>
+                <p>{$vo.time}</p>
+                <!--<p>09:09</p>-->
             </div>
             <div class="stantic_lang_2_img">
                 <img src="__PUBLIC__/Home/images/img_1.jpg">
             </div>
             <div class="stantic_lang_2_text">
 
-                <h3>中国人的萌</h3>
+                <h3>{$vo.title}</h3>
 
                 <div class="stantic_lang_2_icon">
                 </div>
-                <span>中国人的笛煽风点火的方式 </span>
+                <span>{$vo.des} </span>
             </div>
         </div>
     </div>
-    <div class="stantic_3">
-        <div class="stantic_3_in">
-            <div class="stantic_3_in_text">
-                <p>2017.09.09</p>
-                <p>09:09</p>
-            </div>
-            <div class="stantic_lang_2_img">
-                <img src="__PUBLIC__/Home/images/img_1.jpg">
-            </div>
-            <div class="stantic_lang_2_text">
+    </volist>
 
-                <h3>中国人的萌</h3>
 
-                <div class="stantic_lang_2_icon">
-                </div>
-                <span>中国人的笛煽风点火的方式</span>
-            </div>
-        </div>
-    </div>
-    <div class="stantic_3">
-        <div class="stantic_3_in">
-            <div class="stantic_3_in_text">
-                <p>2017.09.09</p>
-                <p>09:09</p>
-            </div>
-            <div class="stantic_lang_2_img">
-                <img src="__PUBLIC__/Home/images/img_1.jpg">
-            </div>
-            <div class="stantic_lang_2_text">
-
-                <h3>中国人的萌</h3>
-
-                <div class="stantic_lang_2_icon">
-                </div>
-                <span>中国人的笛煽风点火的方式</span>
-            </div>
-        </div>
-    </div>
     </block>
