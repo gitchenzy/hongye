@@ -1050,6 +1050,10 @@ div.flicking_con a.on{
 	padding-right:2px;
 
 }
+.mine_likes ul li img{
+	width: 16px;
+	height: 16px;
+}
 .mine_l{
 	float:left;
 	margin:2px 0px 10px 10px;
