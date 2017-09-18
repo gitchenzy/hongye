@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css">
     <script type="text/javascript" src="__PUBLIC__/Home/js/o_1.js"></script>
+
     <title>我的订单</title>
     <!--
     <script>
@@ -24,8 +25,7 @@
         <!--<h4>我的订单</h4>-->
     <!--</div>-->
     <volist name="info" id="vo">
-
-        <div class="content">
+     <div class="content">
         <div class="content_in">
             <p> {$vo.pay_time}</p>
             <!--<p>(一个)</p>-->
@@ -66,4 +66,36 @@
 </div>
 
 </body>
+<script tyep="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
+<script>
+
+    var current_loading = false;
+    var page_container_object =  $("body").get(0);
+    var time=1;
+    $(window).scroll(function(){
+        var scroll_interval = page_container_object.scrollHeight - page_container_object.scrollTop - page_container_object.clientHeight;
+        if (scroll_interval <= 100 && !current_loading) {
+            current_loading = true;
+
+            loadMore(time);
+
+        }
+
+    });
+
+    //"向服务器请求数据"
+    function loadMore(te) {
+
+        $.get("{:U('Center/loadOrders')}",{ time : te} , function(data) {
+            if(data.status==0){
+               // $(".loadingA").add(".loadingB").add(".loadingC").hide();
+            }else{
+                $(".content").last().append(data.info);
+                current_loading =false;
+                time++;
+            }
+        });
+    }
+
+</script>
 </html>

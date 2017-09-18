@@ -1,0 +1,28 @@
+<volist name="info" id="vo">
+    <div class="main_note">
+        <div class="note">
+            <div class="notes">
+                <p>
+                    <eq name="type" value="2">
+                        收入金额
+                        <else />
+                        支出金额
+                    </eq>
+                </p>
+                <span>{$vo.amount}元</span>
+            </div>
+        </div>
+        <div class="note">
+            <div class="notes">
+                <p>交易时间</p>
+                <span>{$vo['pay_time']|date="Y-m-d",###}</span>
+            </div>
+        </div>
+        <div class="note">
+            <div style="border-bottom:5px solid #CCCCCC" class="notes">
+                <p>交易单号</p>
+                <span>{$vo.pay_no}</span>
+            </div>
+        </div>
+    </div>
+</volist>

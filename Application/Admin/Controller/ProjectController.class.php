@@ -138,15 +138,20 @@ class ProjectController extends AdminController
             $res_node = $tranDb -> table('project') -> where(['id'=>$project_id]) -> save($info);
             $res_balance = $tranDb -> table('users') -> where(['id'=>$user_id]) -> setInc('balance',$balance);
 
-            $add['user_id'] = $user_id;
+            $add_user['user_id'] = $add['user_id'] = $user_id;
             $add['project_id'] = $project_id;
-            $add['pay_time'] = time();
-            $add['amount'] = $balance;
+            $add_user['pay_time'] = $add['pay_time'] = time();
+            $add_user['amount'] =  $add['amount'] = $balance;
             $add['pay_type'] = 3;
-            $add['pay_no'] = get_pay_no();
+            $add_user['pay_no'] = $add['pay_no'] = get_pay_no();
+            $add_user['pay_type'] = 2;
+            $add_user['pay_name'] = '项目打款';
+
             $res_pay = $tranDb -> table('user_account')->add($add);
 
-            if($res_node && $res_balance && $res_pay){
+            $user_pay = $tranDb -> table('user_pay')->add($add_user);
+
+            if($res_node && $res_balance && $res_pay && $user_pay){
                 $tranDb -> commit();
                 $this -> success('打款成功！');
             }else{
