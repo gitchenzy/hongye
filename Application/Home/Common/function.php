@@ -55,3 +55,33 @@ function get_user_info() {
     }
     return $user;
 }
+
+function getProjectStatus($type) {
+    $list = array(
+        '1' => '待审核' ,
+        '2' => '进行中' ,
+        '3' => '审核不通过' ,
+        '4' => '未完成' ,
+        '5' => '众筹成功' ,
+        '6' => '众筹完成' ,
+        '7' => '项目结束' ,
+    );
+    return $list[$type];
+}
+function send_sms($code,$phone){
+
+    Vendor('sendapi.TopSdk');
+    $c = new \TopClient;
+    $c->appkey = '23617189';
+    $c->secretKey = '8ecdfa52b01ac953faf54f4c6c9d427c';
+    $req = new AlibabaAliqinFcSmsNumSendRequest;
+    $req->setExtend("123456");
+    $req->setSmsType("normal");
+    $req->setSmsFreeSignName("身份验证");
+    $req->setSmsParam("{\"code\":\"$code\",\"product\":\"手机\"}");
+    $req->setRecNum($phone);
+    $req->setSmsTemplateCode("SMS_44435271");
+    $resp = $c->execute($req);
+    DUMP($resp);
+    ECHO $phone;
+}

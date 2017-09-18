@@ -14,7 +14,7 @@ html body {
 .all{
 	display: block;
 	width:100%;
-	height:100%;
+	/*height:100%;*/
 	background: #f2f2f2;;
 }
 .top{
@@ -37,7 +37,7 @@ html body {
 	height:42px;
 	width:40px;
 	margin:0px auto 0px auto;
-	border-bottom:2px solid #d33d3e;
+
 	display:block;
 
 }
@@ -63,11 +63,19 @@ html body {
 	color:#ccc;
 	text-align:center;
 	text-decoration:none;
-
 	font-weight:lighter;
 
+}
+.all .color{
+	color:#d33d3e;
 
 }
+
+.all .active{
+	border-bottom:2px solid #d33d3e;
+}
+
+
 .helftopbox_1{
 	height:42px;
 	width:80px;
@@ -99,6 +107,7 @@ html body {
 	text-decoration:none;
 	font-weight:lighter;
 }
+
 .midtopbox{
 	height:30px;
 	width:1%;
@@ -146,10 +155,6 @@ html body {
 	color:#000000;
 	display:block;
 	text-decoration:none;
-
-
-
-
 }
 .midcard{
 	height:290px;
@@ -220,10 +225,6 @@ html body {
 	font-size:12px;
 	color:#666666;
 	line-height:32px;
-
-
-
-
 }
 .midcard_content{
 	width:100%;
@@ -242,8 +243,6 @@ html body {
 	text-align:center;
 	color:black;
 	font-weight:500;
-
-
 }
 .midcard_contain{
 	width:100%;
@@ -366,10 +365,6 @@ html body {
 	margin:0px 0px -4px 0px;
 	line-height: 15px;
 	text-decoration:none;
-
-
-
-
 }
 .blank{
 	width:100%;
@@ -378,9 +373,6 @@ html body {
 
 
 }
-
-
-
 
 
 
@@ -700,7 +692,7 @@ div.flicking_con a.on{
 	width:100%;
 	height:196px;
 	background:#FFFFFF;
-	border-top:10px solid #e5e5e5;
+	/*border-top:10px solid #e5e5e5;*/
 	border-bottom:10px solid #e5e5e5;
 
 }
@@ -1517,7 +1509,7 @@ div.flicking_con a.on{
 
 }
 .notes_b{
-	height:500px;
+	/*height:500px;*/
 	width:100%;
 	background:#CCCCCC;
 

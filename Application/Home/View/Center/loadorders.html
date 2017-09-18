@@ -1,0 +1,41 @@
+
+<volist name="info" id="vo">
+
+    <div class="content">
+        <div class="content_in">
+            <p> {$vo.pay_time}</p>
+            <!--<p>(一个)</p>-->
+        </div>
+        <div class="content_card">
+            <div class="content_r">
+                <div class="content_bin">
+                    <div class="content_litile">
+                    </div>
+                    <p>项目状态</p>
+                    <p style="float:right;">{$vo.status_name}</p>
+                </div>
+                <div class="content_bin">
+                    <div class="content_litile">
+                    </div>
+                    <p>项目名称</p>
+                    <div class="content_bl">
+                        <p style="color:#CCCCCC;">{$vo.project_name}</p>
+                    </div>
+                    <img style="position:relative;top:-5px;float:right" src="__PUBLIC__/Home/images/back.png">
+                </div>
+                <div class="content_bin">
+                    <div class="content_litile">
+                    </div>
+                    <p>项目时间</p>
+                    <p style="float:right;">{$vo.start_time}</p>
+                </div>
+            </div>
+            <div class="content_l" style="position: relative;">
+                <img src="__PUBLIC__/Home/images/new/box_2.png">
+                <span style="display:block;width:23px;text-align:center;position: absolute;left:20px;top:35px;margin-left:-8px;">{$vo.pay_amount}</span>
+            </div>
+        </div>
+    </div>
+
+</volist>
+

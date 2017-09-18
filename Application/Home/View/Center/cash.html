@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css">
-    <title>红叶帮帮忙</title>
+    <title>我的钱包</title>
 </head>
 <body>
 
-<div style="border-bottom:1px solid #cccccc" class="top">
-    <div onclick="window.location.href='{:U('List/new')}'" class="top_arrow"></div>
-    <h4>我的钱包</h4>
-</div>
+<!--<div style="border-bottom:1px solid #cccccc" class="top">-->
+    <!--<div onclick="window.location.href='{:U('List/new')}'" class="top_arrow"></div>-->
+    <!--<h4>我的钱包</h4>-->
+<!--</div>-->
 <div class="cash_card">
     <div class="cash_card_1">
         <h1>账户余额</h1>
     </div>
     <div class="cash_card_2">
-        <h2>¥&nbsp;10</h2>
+        <h2>¥&nbsp;{$balance}</h2>
 
     </div>
     <div class="cash_card_3">
@@ -32,22 +32,24 @@
     </div>
 </div>
 <div class="cash_b">
-    <div onclick="window.location.href='notes.html'" class="cash_bin">
-        <div class="cash_bin25">
-            <img src="__PUBLIC__/Home/images/交易明细.png">
-        </div>
-        <p>交易明细</p>
-        <div class="cash_bin2">
-            <img src="__PUBLIC__/Home/images/返回.png">
-        </div>
+    <div class="cash_bin">
+        <a href="{:U('Center/notes')}">
+            <div class="cash_bin25">
+                <img src="__PUBLIC__/Home/images/account.png">
+            </div>
+            <p>交易明细</p>
+            <div class="cash_bin2">
+                <img src="__PUBLIC__/Home/images/back.png">
+            </div>
+        </a>
     </div>
     <div  onclick="window.location.href='notes.html'" class="cash_bin">
         <div class="cash_bin25">
-            <img src="__PUBLIC__/Home/images/银行卡.png">
+            <img src="__PUBLIC__/Home/images/blank.png">
         </div>
         <p>我的银行卡</p>
         <div class="cash_bin2">
-            <img src="__PUBLIC__/Home/images/返回.png">
+            <img src="__PUBLIC__/Home/images/back.png">
         </div>
     </div>
 </div>

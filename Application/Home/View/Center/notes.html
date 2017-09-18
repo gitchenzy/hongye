@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css">
-    <title>红叶帮帮忙</title>
+    <title>交易明细</title>
     <!--
     <script>
       var sch=window.availHeight;
@@ -15,71 +15,97 @@
     window.onload=function();
     </script>
     -->
-
-
 </head>
+
 <body>
 <div class="all">
-    <div style="border-bottom:1px solid #cccccc" class="top">
-        <div onclick="window.location.href='cash.html'" class="top_arrow"></div>
-        <h4>交易明细</h4>
-    </div>
+    <!--<div style="border-bottom:1px solid #cccccc" class="top">-->
+        <!--<div onclick="window.location.href='cash.html'" class="top_arrow"></div>-->
+        <!--<h4>交易明细</h4>-->
+    <!--</div>-->
     <div style="border-bottom:1px #CCCCCC solid;" class="top">
         <div class="top">
             <div class="helftop">
                 <div class="midtopbox">
                 </div>
-                <div  class="helftopbox">
-                    <h1><a href="#">收入</a></h1>
+
+                <div style="width:40px" class="helftopbox <if condition='$type eq 2'> active </if>">
+                    <h1><a class="<if condition='$type eq 2'> color </if>" href="{:U('Center/notes',array('type'=>2))}">收入</a></h1>
                 </div>
             </div>
             <div class="helftop">
-                <div style="border:none;width:40px" class="helftopbox">
-                    <h1 id="activa"><a  style="color:#CCCCCC" href="#">支出</a></h1>
+                <div style="width:40px" class="helftopbox <if condition='$type eq 1'> active </if>">
+                    <h1 id="activa"><a class="<if condition='$type eq 1'> color </if>" href="{:U('Center/notes',array('type'=>1))}">支出</a></h1>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="note">
-    <div class="notes">
-        <p>收款金额</p>
-        <span>888元</span>
-    </div>
-</div>
-<div class="note">
-    <div class="notes">
-        <p>交易时间</p>
-        <span>2017.09.09</span>
-    </div>
-</div>
-<div class="note">
-    <div style="border-bottom:5px solid #CCCCCC" class="notes">
-        <p>交易单号</p>
-        <span>898989898</span>
-    </div>
-</div>
-<div class="note">
-    <div class="notes">
-        <p>收款金额</p>
-        <span>888元</span>
-    </div>
-</div>
-<div class="note">
-    <div class="notes">
-        <p>收款金额</p>
-        <span>888元</span>
-    </div>
-</div>
-<div class="note">
-    <div class="notes">
-        <p>收款金额</p>
-        <span>888元</span>
-    </div>
-</div>
+
+    <volist name="info" id="vo">
+        <div class="main_note">
+            <div class="note">
+                <div class="notes">
+                    <p>
+                        <eq name="type" value="2">
+                            收入金额
+                                <else />
+                            支出金额
+                        </eq>
+                    </p>
+                    <span>{$vo.amount}元</span>
+                </div>
+            </div>
+            <div class="note">
+                <div class="notes">
+                    <p>交易时间</p>
+                    <span>{$vo['pay_time']|date="Y-m-d",###}</span>
+                </div>
+            </div>
+            <div class="note">
+                <div style="border-bottom:5px solid #CCCCCC" class="notes">
+                    <p>交易单号</p>
+                    <span>{$vo.pay_no}</span>
+                </div>
+            </div>
+        </div>
+    </volist>
+
 <div class="notes_b">
 </div>
 
 
 </body>
+<script tyep="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
+
+<script>
+
+    var current_loading = false;
+    var page_container_object =  $("body").get(0);
+    var time=1;
+    $(window).scroll(function(){
+        var scroll_interval = page_container_object.scrollHeight - page_container_object.scrollTop - page_container_object.clientHeight;
+        if (scroll_interval <= 100 && !current_loading) {
+            current_loading = true;
+            loadMore(time);
+        }
+
+    });
+
+    //"向服务器请求数据"
+    function loadMore(te) {
+        var type = "{$Think.get.type}";
+        $.get("{:U('Center/loadNotes')}",{ time : te,type:type} , function(data) {
+            if(data.status==0){
+                // $(".loadingA").add(".loadingB").add(".loadingC").hide();
+            }else{
+                $(".main_note").last().append(data.info);
+                current_loading =false;
+                time++;
+            }
+        });
+    }
+
+</script>
+
 </html>
