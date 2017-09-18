@@ -82,6 +82,15 @@ function send_sms($code,$phone){
     $req->setRecNum($phone);
     $req->setSmsTemplateCode("SMS_44435271");
     $resp = $c->execute($req);
-    DUMP($resp);
-    ECHO $phone;
+    if($resp->result->success){
+        return true;
+    }else{
+        return false;
+    }
+
+
+}
+function get_string() {
+    Vendor("Wifisoft.Strings");
+    return new Strings;
 }
