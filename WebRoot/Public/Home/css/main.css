@@ -76,31 +76,17 @@ html body {
 }
 
 
-.helftopbox_1{
+.helftopbox{
 	height:42px;
 	width:80px;
 	margin:0px auto 0px auto;
-	border-bottom:2px solid #d33d3e;
+	/*border-bottom:2px solid #d33d3e;*/
 	display:block;
 
 
 
 }
-.helftopbox_1 a{
-	font-size:20px;
-	color:#d33d3e;
-	text-align:center;
-	text-decoration:none;
-	font-weight:lighter;
-}
-.helftopbox_2{
-	height:42px;
-	width:80px;
-	margin:0px auto 0px auto;
-	border:none;
-	display:block;
-}
-.helftopbox_2 a{
+.helftopbox a{
 	font-size:20px;
 	color:#ccc;
 	text-align:center;
@@ -413,7 +399,7 @@ html body {
 	border-radius: 3px;
 }
 .stantic_lang_2_icon{
-	background:url(../pics/icon_1.png);
+	background:url(../images/icon_1.png);
 	width:15px;
 	height:15px;
 	margin:10px 5px 0px 0px;
@@ -508,7 +494,7 @@ html body {
 	width:20px;
 	border-radius:10px;
 	float:left;
-	background:url(../pics/icon_2.png);
+	background:url(../images/icon_2.png);
 	margin:0px 10px 0px 0px;
 
 }
@@ -583,13 +569,13 @@ html body {
 	height:178px
 }
 .main_image li .img_1{
-	background:url(../pics/img_main_1.jpg) center top no-repeat
+	background:url(../images/img_main_1.jpg) center top no-repeat
 }
 .main_image li .img_4{
-	background:url(../pics/img_main_2.jpg) center top no-repeat
+	background:url(../images/img_main_2.jpg) center top no-repeat
 }
 .main_image li .img_3{
-	background:url(../pics/img_main_3.jpg) center top no-repeat
+	background:url(../images/img_main_3.jpg) center top no-repeat
 }
 
 
@@ -609,7 +595,7 @@ div.flicking_con a{
 	height:21px;
 	margin:0;
 	padding:0;
-	background:url(../pics/12.png) 0 0 no-repeat;
+	background:url(../images/12.png) 0 0 no-repeat;
 	display:block;
 	text-indent:-1000px
 }
@@ -677,7 +663,7 @@ div.flicking_con a.on{
 }
 .top_arrow{
 	display:inline-block;
-	background:url("../pics/new/back.png") no-repeat;
+	background:url("../images/new/back.png") no-repeat;
 	width:50px;
 	height:30px;
 
@@ -821,7 +807,7 @@ div.flicking_con a.on{
 	height:168px;
 	margin:0px;
 	padding:0px;
-	background:url(../pics/img_main_1.jpg) no-repeat center;
+	background:url(../images/img_main_1.jpg) no-repeat center;
 
 
 }
@@ -924,7 +910,7 @@ div.flicking_con a.on{
 	height:195px;
 	overflow:hidden;
 	border-radius: 3px;
-	background:url(../pics/img_main_3.jpg) no-repeat center;
+	background:url(../images/img_main_3.jpg) no-repeat center;
 
 }
 .find_card_black{
@@ -988,7 +974,7 @@ div.flicking_con a.on{
 .mine_banner{
 	width:100%;
 	height:95px;
-	background:url(../pics/woolk.jpg) no-repeat center;
+	background:url(../images/woolk.jpg) no-repeat center;
 	margin:0px;
 	padding-top:73px;
 
@@ -1040,7 +1026,10 @@ div.flicking_con a.on{
 	float:left;
 	list-style:none;
 	padding-right:2px;
-
+}
+.mine_likes ul li img{
+	width:16px;
+	height:16px;
 }
 .mine_l{
 	float:left;
@@ -1513,7 +1502,7 @@ div.flicking_con a.on{
 /*-works-*/
 .top_share{
 	display:inline-block;
-	background:url(../pics/%E5%88%86%E4%BA%AB2.png);
+	background:url(../images/%E5%88%86%E4%BA%AB2.png);
 	width:30px;
 	height:30px;
 	float:right;
@@ -1539,7 +1528,7 @@ div.flicking_con a.on{
 .top_newarrow{
 
 	display:inline-block;
-	background:url(../pics/return_1.png);
+	background:url(../images/return_1.png);
 	width:30px;
 	height:30px;
 	float:left;
@@ -1549,7 +1538,7 @@ div.flicking_con a.on{
 .work_banner{
 	width:100%;
 	height:170px;
-	background:url(../pics/img_main_1.jpg) center no-repeat;
+	background:url(../images/img_main_1.jpg) center no-repeat;
 
 }
 .work_card{
@@ -1569,7 +1558,7 @@ div.flicking_con a.on{
 	height:35px;
 	border-radius:17.5px;
 	margin:0px 5px 0px 0px;
-	background:url(../pics/img_1.jpg) no-repeat center;
+	background:url(../images/img_1.jpg) no-repeat center;
 	float:left;
 }
 .work_r span{
@@ -1639,7 +1628,7 @@ div.flicking_con a.on{
 	left:50%;
 	width:45px;
 	height:45px;
-	background:url(../pics/%C3%97%20%E5%88%A0%E9%99%A4.png);
+	background:url(../images/%C3%97%20%E5%88%A0%E9%99%A4.png);
 }
 /*-get-*/
 .get_bg{
@@ -1711,13 +1700,13 @@ div.flicking_con a.on{
 	height:35px;
 	border-radius:17.5px;
 	float:left;
-	background:url(../pics/img_1.jpg) no-repeat;
+	background:url(../images/img_1.jpg) no-repeat;
 	margin:2px 5px 0px 15px ;
 }
 
 .first_pic{
 	float:right;
-	background:url(../pics/%E7%9F%A9%E5%BD%A29.png) no-repeat ;
+	background:url(../images/%E7%9F%A9%E5%BD%A29.png) no-repeat ;
 	height:20px;
 	width:20px;
 	position:relative;
@@ -1865,7 +1854,7 @@ div.flicking_con a.on{
 	height:20px;
 	width:20px;
 	float:right;
-	background:url(../pics/%E8%BF%94%E5%9B%9E.png);
+	background:url(../images/%E8%BF%94%E5%9B%9E.png);
 
 }
 .buildl{
