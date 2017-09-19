@@ -234,7 +234,7 @@ html body {
 	margin:0px 15px 0px 15px;
 	overflow:hidden;
 	font-size:18px;
-	text-align:center;
+	text-align:left;
 	color:black;
 	font-weight:500;
 }
@@ -299,7 +299,7 @@ html body {
 	color:#0e0e0e;
 	font-size:12px;
 	display:inline-block;
-	margin-right:10px;
+	margin-right:2px;
 
 
 }
