@@ -1,30 +1,12 @@
 <?php
 //header('Access-Control-Allow-Origin: http://www.baidu.com'); //设置http://www.baidu.com允许跨域访问
 //header('Access-Control-Allow-Headers: X-Requested-With,X_Requested_With'); //设置允许的跨域header
-date_default_timezone_set("Asia/Chongqing");
+date_default_timezone_set("Asia/chongqing");
 error_reporting(E_ERROR);
 header("Content-Type: text/html; charset=utf-8");
 
-//系统需要在登录情况下使用文件上传功能
-session_start();
-
-
+$CONFIG = json_decode(preg_replace("/\/\*[\s\S]+?\*\//", "", file_get_contents("config.json")), true);
 $action = $_GET['action'];
-//读取用户id
-$userInfo = $_SESSION["GYCrm_"]["CurrentUser"];
-$customerID = $userInfo['EmployeeID'];
-$CONFIG = array();
-if (empty($customerID)) {
-    echo json_encode(array(
-        'state'=> 'login to upload picture'
-    ));
-    exit;
-}
-else {
-    $config_string = preg_replace("/\/\*[\s\S]+?\*\//", "", file_get_contents("config.json"));
-    $config_string = str_replace('{user_id}', $customerID , $config_string);
-    $CONFIG = json_decode($config_string, true);
-}
 
 switch ($action) {
     case 'config':
