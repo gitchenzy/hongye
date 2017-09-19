@@ -291,7 +291,7 @@ class ProjectController extends AdminController
             $this->success('增加成功！');
         }else{
 
-            $this-> display('editAd');
+            $this-> display('editad');
         }
     }
     //修改广告

@@ -80,11 +80,9 @@ html body {
 	height:42px;
 	width:80px;
 	margin:0px auto 0px auto;
-<<<<<<< HEAD
+
 	border-bottom:2px solid #CCCCCC;
-=======
 	/*border-bottom:2px solid #d33d3e;*/
->>>>>>> 75e26229c431a905fe8539844c8c618b4de0d450
 	display:block;
 
 
@@ -92,11 +90,11 @@ html body {
 }
 .helftopbox a{
 	font-size:20px;
-<<<<<<< HEAD
-	color:#d33d3e;
-=======
+
+	/*color:#d33d3e;*/
+
 	color:#ccc;
->>>>>>> 75e26229c431a905fe8539844c8c618b4de0d450
+
 	text-align:center;
 	text-decoration:none;
 	font-weight:lighter;
