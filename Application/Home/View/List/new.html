@@ -5,34 +5,39 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css">
     <script src="__PUBLIC__/Home/js/main.js"></script>
-    <title>红叶帮帮忙</title>
+    <title>发起项目</title>
 </head>
 <body>
 
-<div style="border-bottom:1px solid #cccccc" class="top">
-    <div onclick="window.location.href='../index.html'" class="top_arrow"></div>
-    <h4>发起项目</h4>
-</div>
+<!--<div style="border-bottom:1px solid #cccccc" class="top">-->
+    <!--<div onclick="window.location.href='../index.html'" class="top_arrow"></div>-->
+    <!--<h4>发起项目</h4>-->
+<!--</div>-->
+
 <div class="original">
     <div class="original_in">
         <p>项目名称</p>
-        <input type="text" placeholder="中华民大一统族">
+
+        <input type="text" value="" placeholder="请输入项目名称" >
     </div>
     <div class="original_in">
         <p>筹款金额</p>
-        <input type="text" placeholder="￥2000">
+        <input type="text" value="" placeholder="请输入筹款金额">
+        
     </div>
     <div class="original_in">
         <p>项目地点</p>
         <img src="__PUBLIC__/Home/images/new/local.png">
-        <img src="__PUBLIC__/Home/images/new/local.png">
-        <p style="margin-left:3px;">厦门</p>
+        <p style="margin-left:3px;"><input type="text" value="" placeholder="请输入项目所在城市"></p>
     </div>
     <div class="original_in">
+
         <div class="original_little_1">
             <input type="checkbox">
-            <p>公益</p>
+            <p>{$vo.name}</p>
         </div>
+
+
         <div class="original_little_2">
             <input type="checkbox">
             <p>拼团</p>
@@ -45,8 +50,6 @@
             <p style="float:right">农业</p>
             <input style="float:right" type="checkbox">
         </div>
-    </div>
-    <div class="original_in">
         <div class="original_little_1">
             <input type="checkbox">
             <p>创意</p>
@@ -56,6 +59,11 @@
             <p>生活</p>
         </div>
     </div>
+
+    <div class="original_in">
+    </div>
+
+
     <div class="original_box">
         <p>描述内容</p>
         <textarea>中华人民共和国是世界上最好的国家我们的习大大也是</textarea>

@@ -68,11 +68,11 @@ function get_user_name(){
     }
 }
 function get_user_id(){
-    $usr = session("CurrentUser");
-    if(empty($usr["EmployeeID"])){
+    $usr = session("current_user");
+    if(empty($usr["employeeID"])){
         $user = 0;
     }else{
-        $user = $usr["EmployeeID"];
+        $user = $usr["employeeID"];
     }
     return $user;
 }
