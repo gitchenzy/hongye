@@ -80,7 +80,11 @@ html body {
 	height:42px;
 	width:80px;
 	margin:0px auto 0px auto;
+<<<<<<< HEAD
+	border-bottom:2px solid #CCCCCC;
+=======
 	/*border-bottom:2px solid #d33d3e;*/
+>>>>>>> 75e26229c431a905fe8539844c8c618b4de0d450
 	display:block;
 
 
@@ -88,7 +92,11 @@ html body {
 }
 .helftopbox a{
 	font-size:20px;
+<<<<<<< HEAD
+	color:#d33d3e;
+=======
 	color:#ccc;
+>>>>>>> 75e26229c431a905fe8539844c8c618b4de0d450
 	text-align:center;
 	text-decoration:none;
 	font-weight:lighter;
@@ -1030,6 +1038,10 @@ div.flicking_con a.on{
 .mine_likes ul li img{
 	width:16px;
 	height:16px;
+}
+.mine_likes ul li img{
+	width: 16px;
+	height: 16px;
 }
 .mine_l{
 	float:left;
@@ -2139,7 +2151,7 @@ div.flicking_con a.on{
 /*-bind-*/
 .bind{
 	margin:10px 15px 0px 15px;
-	height:8 8px;
+	height:88px;
 	background: #fff;
 }
 .bind_box{
