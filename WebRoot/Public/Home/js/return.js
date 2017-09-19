@@ -32,6 +32,13 @@ $(function(){
         }
 
     }
+    var t=$('.return_re>ul li:eq(3)');
+    function plus_little(){
+        var t=$('.return_re>ul li:eq(3)');
+        var cont=$('<li><p style="float:left">规则设置</p><input style="width:150px;float:left;position:relative;top:5px;"value="" type="text" placeholder="设置回报规则"></li>')
+        t.after(cont);
+    }
+    $('.return_add').bind('click',plus_little);
     $('#upload').click(plus);
     $('#add').bind('click',open_box);
     $('.in_return_r').bind('click',close_box)
