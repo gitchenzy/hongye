@@ -52,6 +52,25 @@ class ListController extends Controller {
             $this -> error('没有更多数据！');
         }
     }
+    //项目详情
+
+    public function content(){
+
+        $id = I('id');
+        $where['id'] = $id;
+        $where['del'] = 0;
+
+        $project = M('project') -> where($where) -> find();
+
+        $info = M('users') -> where(['id'=>$project['user_id']]) -> find();
+        $project['name'] = $info['nick_name'];
+        $project['head_pic'] = $info['pic'];
+
+
+        $this -> assign('info',$project);
+        $this -> display();
+    }
+
 
 
 }
