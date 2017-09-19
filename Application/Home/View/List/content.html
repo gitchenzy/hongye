@@ -31,18 +31,19 @@
 <!--</div>-->
 
 <div class="work_banner">
-    <img src="__PUBLIC__/Home/images/img_main_1.jpg">
+    <img src="{$info.pic}">
 </div>
 <div class="work_card">
     <div class="work_r">
         <div class="work_img">
+            <img style="width:35px;margin-top: -5px;border-radius: 17.5px;" src="{$info.head_pic}">
         </div>
-        <span>小龙王今年</span>
+        <span>{$info.name}</span>
         <div class="work_bb">
-            <p>2017年9月4日</p>
-            <p>9时12分</p>
+            <p>{$info.start_time|date="y年m月d日",###}</p>
+            <p>{$info.start_time|date="H时i分",###}</p>
             <img style="float:left" src="__PUBLIC__/Home/images/address.png">
-            <p>厦门</p>
+            <p>{$info.city}</p>
         </div>
     </div>
     <div class="midcard_tip">
@@ -51,9 +52,9 @@
     </div>
     <div class="midcard_bottom">
         <div class="midcard_bottom_text">
-            <p>目标金额（¥）30000</p>
-            <p>已筹款（¥）3000</p>
-            <p style="float:right;line-height:26px;">支持人数：22</p>
+            <p>目标金额:{$info.target_amount}</p>
+            <p>已筹金额:{$info.reach_amount}</p>
+            <p style="float:right;line-height:26px;">支持人数:{$info.people_num}</p>
         </div>
     </div>
 
@@ -74,14 +75,7 @@
 </div>
 <div class="work_bg">
     <div class="work_bgs">
-        <span>中国华丰华东师范不好</span>
-        <span>都是发生的合法登记发多少</span>
-        <span>中国华丰华东师范不好</span>
-        <span>都是发生的合法登记发多少</span>
-        <span>中国华丰华东师范不好</span>
-        <span>都是发生的合法登记发多少</span>
-        <span>中国华丰华东师范不好</span>
-        <span>都是发生的合法登记发多少</span>
+       {$info.des|htmlspecialchars_decode}
     </div>
 </div>
 <div class="pay_b">
@@ -93,6 +87,7 @@
         <img src="__PUBLIC__/Home/images/new/stars.png">
     </div>
     <span>关注</span>
+    
     <button type="submit" onclick="window.location.href='pay.html'">我要支持</button>
 
 </div>

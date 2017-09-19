@@ -62,6 +62,11 @@ class ListController extends Controller {
 
         $project = M('project') -> where($where) -> find();
 
+        $info = M('users') -> where(['id'=>$project['user_id']]) -> find();
+        $project['name'] = $info['nick_name'];
+        $project['head_pic'] = $info['pic'];
+
+
         $this -> assign('info',$project);
         $this -> display();
     }
