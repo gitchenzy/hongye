@@ -892,9 +892,9 @@ div.flicking_con a.on{
 	width:64px;
 	margin:0px auto 0px auto;
 	height:100%;
-
-
-
+}
+.find_inbox_3 a{
+	color: #CCCCCC;
 }
 .find_inbox_3 h1{
 	font-size:16px;
@@ -2112,7 +2112,11 @@ div.flicking_con a.on{
 	float: left;
 	margin:0px 9px 15px 9px;
 	border-radius: 3px;
-
+}
+.original_inbox img{
+	width:30px;
+	height: 30px;
+	margin:auto;
 }
 .original_blow{
 	margin: 0px 15px 0px 15px;
