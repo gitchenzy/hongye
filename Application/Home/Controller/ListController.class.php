@@ -4,6 +4,8 @@ namespace Home\Controller;
 use Think\Controller;
 class ListController extends Controller {
     public function index(){
+
+        session('index',2);
         $where['del'] = 0;
         $type = I('type')?I('type'):'start';
         switch ($type){
