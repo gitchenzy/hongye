@@ -3,6 +3,7 @@
 	margin:0px;
 	padding:0px;
 	list-style:none;
+	text-decoration: none;
 }
 html body {
 	margin:0px;
@@ -168,12 +169,12 @@ html body {
 
 }
 .midcard_top_pic{
-	width:35px;
-	height:35px;
+	width:36px;
+	height:36px;
 	float:left;
 	margin:1px 5px 0px 15px;
 	padding:0px;
-
+    border-radius: 18px;
 
 }
 .midcard_top_pic img{
@@ -1346,6 +1347,10 @@ div.flicking_con a.on{
 	height:25px;
 	margin:12px 5px 12px 15px;
 	float:left;
+}
+.pay_pic img{
+	width:25px;
+	height: 25px;
 }
 .pay_b span{
 	font-size:13px;
