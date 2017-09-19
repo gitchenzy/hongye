@@ -1,0 +1,12 @@
+<volist name="info" id="vo">
+    <div class="find_card">
+        <a href = "{:U('List/content',array('id'=>$vo['id']))}">
+            <div class="find_card_in" style="background: url({$vo.pic});">
+
+                <div class="find_card_black">
+                    <p>{$vo.title}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</volist>

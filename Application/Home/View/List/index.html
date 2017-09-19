@@ -1,0 +1,104 @@
+<extend name="Public:main" />
+
+<block name="css">
+
+</block>
+<block name="content">
+
+    <div  class="find_banner">
+
+    </div>
+    <div class="find_titile">
+        <div class="find_titile_text">
+            <div class="find_box_1">
+                <eq name="type" value="start">
+
+                    <div class="find_inbox_1" style="border-bottom:2px solid #D33D3E;">
+                        <h1><a style="color:#D33D3E;" href="{:U('List/index',array('type'=>'start'))}">最新上线</a></h1>
+                    </div>
+                <else />
+                    <div class="find_inbox_1">
+                        <h1><a href="{:U('List/index',array('type'=>'start'))}">最新上线</a></h1>
+                    </div>
+                </eq>
+
+            </div>
+            <div class="find_box_2">
+                <eq name="type" value="hot">
+
+                    <div class="find_inbox_1" style="border-bottom:2px solid #D33D3E;">
+                        <h1><a style="color:#D33D3E;" href="{:U('List/index',array('type'=>'hot'))}">热门推荐</a></h1>
+                    </div>
+                    <else />
+                    <div class="find_inbox_3">
+                        <h1><a href="{:U('List/index',array('type'=>'hot'))}">热门推荐</a></h1>
+                    </div>
+                </eq>
+
+            </div>
+            <div class="find_box_3">
+                <eq name="type" value="end">
+
+                    <div class="find_inbox_1" style="border-bottom:2px solid #D33D3E;">
+                        <h1><a style="color:#D33D3E;" href="{:U('List/index',array('type'=>'end'))}">即将结束</a></h1>
+                    </div>
+                <else />
+                    <div class="find_inbox_2">
+                        <h1><a href="{:U('List/index',array('type'=>'end'))}">即将结束</a></h1>
+                    </div>
+
+                </eq>
+            </div>
+        </div>
+    </div>
+
+    <volist name="info" id="vo">
+        <div class="find_card">
+            <a href = "{:U('List/content',array('id'=>$vo['id']))}">
+                <div class="find_card_in" style="background: url({$vo.pic});">
+
+                    <div class="find_card_black">
+                        <p>{$vo.title}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </volist>
+
+</block>
+<block name="js">
+
+    <script>
+        var current_loading = false;
+        var page_container_object =  $("body").get(0);
+
+
+        var time=1;
+        $(window).scroll(function(){
+            var scroll_interval = page_container_object.scrollHeight - page_container_object.scrollTop-page_container_object.clientHeight;
+            if (scroll_interval <= 100 && !current_loading) {
+                current_loading = true;
+
+                loadMore(time);
+            }
+
+        });
+
+        //"向服务器请求数据"
+        function loadMore(te) {
+            var type = '{$type}';
+            $.get("{:U('List/loadProject')}",{ time : te,type:type} , function(data) {
+                if(data.status==0){
+                    // $(".loadingA").add(".loadingB").add(".loadingC").hide();
+                }else{
+                    $(".find_card").last().append(data.info);
+                    current_loading =false;
+                    time++;
+                }
+            });
+        }
+
+    </script>
+
+
+</block>

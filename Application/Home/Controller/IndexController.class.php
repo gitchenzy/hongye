@@ -6,7 +6,6 @@ class IndexController extends Controller {
     public function index(){
 
         session('index',1);
-
         //便利,默认为梦想清单
         $fid = I("fid")?I("fid"):1;
         $father_type = M('project_type') -> where(['pid'=> 0,'del'=>0]) -> select();
@@ -33,4 +32,30 @@ class IndexController extends Controller {
         $this -> assign('project',$project);
         $this -> display();
     }
+    //首页加载更多项目
+    public function loadProject(){
+        $type = I('type');
+        $id = I('id');
+        $where[$type] = $id;
+        $where['del'] = 0;
+        $count = I('time');
+        $project = M('project') -> where($where) -> order('id asc') ->limit(5*$count,5*($count+1)) -> select();
+
+        if($project){
+            foreach($project as &$v){
+                $info = M('users') -> where(['id'=>$v['user_id']]) -> find();
+                $v['name'] = $info['nick_name'];
+                $v['head_pic'] = $info['pic'];
+            }
+            $this -> assign('project',$project);
+            $this->success($this->fetch(),"",true);
+        }else{
+            $this -> error('没有更多数据！');
+        }
+    }
+    //list
+
+
+
+
 }

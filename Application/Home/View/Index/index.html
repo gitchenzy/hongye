@@ -37,6 +37,7 @@
         </div>
     </div>
     <div class="mid">
+
         <volist name="son_type" id="sty" key="k">
             <div class="mid_box">
                 <div class="mid_box_bg">
@@ -49,7 +50,7 @@
 
     </div>
     <volist name="project" id="vo">
-        <div onClick="window.location.href='others/works.html'" class="midcard">
+        <div class="midcard">
         <div class="midcard_top">
             <div class="midcard_top_pic">
                 <img src="{$vo.head_pic}">
@@ -83,13 +84,47 @@
         </div>
         <div class="midcard_bottom">
             <div class="midcard_bottom_text">
-                <p>目标金额（¥）{$vo.target_amount}</p>
-                <p>已筹款（¥）{$vo.reach_amount}</p>
-                <p style="float:right;line-height:24px">支持人数：{$vo.people_num}</p>
+                <p style="margin-right:20px;">目标金额:{$vo.target_amount}</p>
+                <p >已筹金额:{$vo.reach_amount}</p>
+                <p style="float:right;line-height:24px">支持人数:{$vo.people_num}</p>
             </div>
         </div>
     </div>
     </volist>
 
 </block>
+<block name="js">
 
+    <script>
+        var current_loading = false;
+        var page_container_object =  $("body").get(0);
+        var time=1;
+        $(window).scroll(function(){
+            var scroll_interval = page_container_object.scrollHeight - page_container_object.scrollTop - page_container_object.clientHeight;
+            if (scroll_interval <= 100 && !current_loading) {
+                current_loading = true;
+
+                loadMore(time);
+            }
+
+        });
+
+        //"向服务器请求数据"
+        function loadMore(te) {
+            var type = 'type_id';
+            var id = "{$s_type}";
+            $.get("{:U('Index/loadProject')}",{ time : te,type:type,id:id} , function(data) {
+                if(data.status==0){
+                    // $(".loadingA").add(".loadingB").add(".loadingC").hide();
+                }else{
+                    $(".midcard").last().append(data.info);
+                    current_loading =false;
+                    time++;
+                }
+            });
+        }
+
+    </script>
+
+
+</block>

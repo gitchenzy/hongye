@@ -1,0 +1,41 @@
+<volist name="project" id="vo">
+    <div class="midcard">
+        <div class="midcard_top">
+            <div class="midcard_top_pic">
+                <img src="{$vo.head_pic}">
+            </div>
+            <div class="midcard_top_name">
+                <a >{$vo.name}</a>
+            </div>
+            <div class="midcard_address">
+                <p>{$vo.city}</p>
+
+            </div>
+            <div class="midcard_address_icon">
+                <img src="__PUBLIC__/Home/images/new/local.png">
+            </div>
+        </div>
+        <div class="midcard_content">
+            <h2>{$vo.title}</h2>
+        </div>
+        <div class="midcard_img">
+            <div align="center" class="midcard_img_content">
+                <img src="{$vo.pic}">
+            </div>
+        </div>
+        <div class="midcard_contain">
+            <!--<span>{$vo.dsc|htmlspecialchars}</span>-->
+        </div>
+        <div class="midcard_tip">
+            <div class="midcard_tip_1">
+            </div>
+        </div>
+        <div class="midcard_bottom">
+            <div class="midcard_bottom_text">
+                <p style="margin-right:20px;">目标金额:{$vo.target_amount}</p>
+                <p >已筹金额:{$vo.reach_amount}</p>
+                <p style="float:right;line-height:24px">支持人数:{$vo.people_num}</p>
+            </div>
+        </div>
+    </div>
+</volist>
