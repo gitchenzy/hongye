@@ -891,6 +891,9 @@ div.flicking_con a.on{
 	line-height:40px;
 
 }
+.find_inbox_2 a{
+	color: #CCCCCC;
+}
 .find_inbox_3{
 	width:64px;
 	margin:0px auto 0px auto;
@@ -1813,14 +1816,15 @@ div.flicking_con a.on{
 	
 
 }
-.first_inbox input{
+.first_inbox textarea{
 	width:275px;
 	height:115px;
 	background:#fff;
 	margin:0px auto 0px auto;
+	padding:5px 0 0 0;
 	border:none;
 	color:#CCCCCC;
-
+    resize: none;
 }
 .first_inbox h1{
 	font-size:13px;
@@ -1838,11 +1842,22 @@ div.flicking_con a.on{
 
 }
 .first_lowboxin{
-	width:50%;
+	width:48%;
 	height:24px;
 	margin:11px 0px 12px 0px;
 	border-right:1px solid #CCCCCC;
 	float:left;
+	text-align: center;
+}
+.first_lowboxin p{
+	font-size: 15px;
+	color: #000000;
+
+}
+.first_lowboxin span{
+	font-size: 15px;
+	color: #d33d3e;
+
 }
 .first_lowbox h2{
 	font-size:15px;

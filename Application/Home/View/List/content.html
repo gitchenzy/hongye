@@ -93,7 +93,7 @@
 <div class="first_box">
     <h1>发表评论</h1>
     <div class="first_inbox">
-        <input type="text" value="" placeholder="我也说一句" >
+        <textarea>我也说一句</textarea>
 
     </div>
     <div class="first_lowbox">
@@ -120,12 +120,15 @@
             }
         })
         $('.pay_pic:eq(0)').click(function(){
-            $('.first_pic img').click(function(){
-                $('first_box').css('display','block');
+                $('.first_box').css('display','block');
+                $('.first_lowboxin:eq(0)').click(function(){
+                $('.first_box').css('display','none');
             });
-            $('first_lowboxin:eq(0)').click(function(){
-                $('first_box').css('display','none');
-            });
+        })
+        $('.first_box textarea').focus(function(){
+            if($('.first_box textarea').html()==='我也说一句'){
+                $('.first_box textarea').html('');
+            }
         })
     })
 </script>
