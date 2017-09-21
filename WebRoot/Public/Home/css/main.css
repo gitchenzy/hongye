@@ -869,6 +869,9 @@ div.flicking_con a.on{
 	text-align:center;
 	line-height:40px;
 }
+.find_inbox_1 a{
+	color: #CCCCCC;
+}
 .find_inbox_2{
 
 	width:64px;
