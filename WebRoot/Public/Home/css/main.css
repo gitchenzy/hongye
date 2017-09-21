@@ -1721,13 +1721,16 @@ div.flicking_con a.on{
 	margin:2px 5px 0px 15px ;
 }
 
+
 .first_pic{
 	float:right;
-	background:url(../images/%E7%9F%A9%E5%BD%A29.png) no-repeat ;
 	height:20px;
 	width:20px;
-	position:relative;
-
+	padding-top:5px;
+}
+.first_pic img{
+	height:17px;
+	width:20px;
 
 }
 .first_in h1{
@@ -1791,7 +1794,7 @@ div.flicking_con a.on{
 	right:auto;
 	background:#E4E4E4;
 	border-radius:3px;
-
+	display: none;
 }
 .first_box h1{
 	font-size:15px;
@@ -1804,6 +1807,7 @@ div.flicking_con a.on{
 	height:115px;
 	background:#fff;
 	margin:0px auto 0px auto;
+	
 
 }
 .first_inbox input{
