@@ -18,6 +18,21 @@ html body {
 	/*height:100%;*/
 	background: #f2f2f2;;
 }
+.head{
+	width:100%;
+	margin:0px;
+	height:44px;
+	background:#FFFFFF;
+	border-bottom:1px solid #cccccc;
+}
+.head h1{
+	font-size:20px;
+	color:#000000;
+	text-align:center;
+	position:relative;
+	top:-31px;
+	font-weight:lighter;
+}
 .top{
 	width:100%;
 	margin:0px;
@@ -130,7 +145,7 @@ html body {
 	width:60px;
 	height:60px;
 	margin:10px auto 0 auto;
-
+    border-radius: 30px;
 
 }
 .mid_box_bg img{
@@ -1794,8 +1809,8 @@ div.flicking_con a.on{
 	width:305px;
 	height:219px;
 	position:fixed;
-	top:300px;
-	left:8%;
+	top:100px;
+	left:7%;
 	right:auto;
 	background:#E4E4E4;
 	border-radius:3px;
