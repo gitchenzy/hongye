@@ -29,7 +29,15 @@ class LoginController extends Controller {
         if($res){
             $current_user['user_id'] = $res['id'];
             session("user" , $current_user);
-            $this->redirect( 'Center/index');
+            $back_url = session('back_url');
+            if($back_url){
+                session('back_url',null);
+                $this->redirect($back_url);
+            }else{
+                $this->redirect( 'Center/index');
+            }
+
+
         }else{
             $user['pic'] = $data -> headimgurl;
             $user['nick_name'] = $data -> nickname;

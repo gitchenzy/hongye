@@ -94,3 +94,14 @@ function get_string() {
     Vendor("Wifisoft.Strings");
     return new Strings;
 }
+//评论儿子
+function comments_info($pid=0){
+    $where['fid'] = $pid;
+    $info = M('comments') -> where($where)-> order('time asc') -> select();
+    foreach ($info as &$in){
+        $p_user = M('comments') -> where(['id'=>$in['pid']])  -> getfield('user_id');
+        $in['fname'] = M('users') -> where(['id'=>$p_user]) -> getfield('nick_name');
+        $in['name'] = M('users') -> where(['id'=>$in['user_id']]) -> getfield('nick_name');
+    }
+    return $info;
+}
