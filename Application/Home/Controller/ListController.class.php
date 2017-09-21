@@ -67,7 +67,16 @@ class ListController extends Controller {
         $info = M('users') -> where(['id'=>$project['user_id']]) -> find();
         $project['name'] = $info['nick_name'];
         $project['head_pic'] = $info['pic'];
-
+        $user = get_user_info();
+        //是否有关注
+        if($user){
+            $atten['user_id'] = $user['user_id'];
+            $atten['project_id'] = $id;
+            $res = M('user_attention')-> where($atten) -> find();
+            if($res){
+                $this -> assign('key',1);
+            }
+        }
 
         $this -> assign('info',$project);
         $this -> display();
@@ -82,6 +91,18 @@ class ListController extends Controller {
         }
         $data['time'] = time();
         $data['user_id'] = $user['user_id'];
+
+        if($data['pid'] > 0){
+            //获取pid的fid
+            $fid = M('comments')->where(['id'=>$data['pid']]) -> getfield('fid');
+            if($fid > 0){
+                $data['fid'] = $fid;
+            }else{
+                $data['fid'] = $data['pid'];
+            }
+        }else{
+            $data['fid'] = 0;
+        }
         $rews = M('comments') -> add($data);
         if($rews){
             $this -> success('评价成功！');
@@ -108,6 +129,39 @@ class ListController extends Controller {
         }
         $this -> assign('info',$info);
         $this -> display();
+    }
+    //关注取消项目
+    public function atten(){
+        $user = get_user_info();
+        $data = I('post.');
+        if(!$user){
+            session('back_url','List/content?id='.$data['project_id']);
+            $this -> error('1');
+        }
+        //等一1关注
+        if($data['key'] ==1){
+            $info['time'] = time();
+            $info['user_id'] = $user['user_id'];
+            $info['project_id'] = $data['project_id'];
+            $pro_info = M('project') -> where(['id'=>$data['project_id']])-> field('title,des') -> find();
+            $info['project_title'] = $pro_info['title'];
+            $info['project_des'] = $pro_info['des'];
+            $res = M('user_attention')->add($info);
+            if($res){
+                $this -> success('关注成功！');
+            }else{
+                $this -> error('关注失败！');
+            }
+        }else{
+            $where['user_id'] = $user['user_id'];
+            $where['project_id'] = $data['project_id'];
+            $res = M('user_attention')-> where($where) -> delete();
+            if($res){
+                $this -> success('取消关注成功！');
+            }else{
+                $this -> error('取消关注失败！');
+            }
+        }
     }
 
 

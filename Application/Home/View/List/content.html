@@ -82,9 +82,17 @@
         <img src="__PUBLIC__/Home/images/new/chart.png">
     </div>
     <span>评论</span>
-    <div class="pay_pic" key="1" >
-        <img src="__PUBLIC__/Home/images/new/star_1.png">
-    </div>
+    <empty name="key">
+
+        <div class="pay_pic" key="1" >
+            <img src="__PUBLIC__/Home/images/new/star_1.png">
+        </div>
+        <else />
+        <div class="pay_pic" key="2" >
+            <img src="__PUBLIC__/Home/images/new/stars.png">
+        </div>
+
+    </empty>
     <span>关注</span>
     
     <button type="submit" onclick="window.location.href='pay.html'">我要支持</button>
@@ -100,7 +108,7 @@
         <div class="first_lowboxin">
             <p>取消</p>
         </div>
-        <div style="border:none" class="first_lowboxin">
+        <div style="border:none" class="first_lowboxin sub">
             <span>提交</span>
         </div>
 
@@ -115,16 +123,23 @@
 
             var key = $(this).attr('key');
             var project_id = '{$Think.get.id}';
-            var info = {key:key,project_id:project_id}
-            $.post('/index.php/List/atten',info,function(data){
-
+            var pid = 0;
+            var info = {key:key,project_id:project_id,pid:pid}
+            $.post('/index.php/List/atten',info,function(datas){
+                if(datas.info == 1){
+                    alert('请先登陆！');
+                    location.href = '/index.php/Login/index';
+                }else{
+                    alert(datas.info);
+                    location.reload();
+                }
             })
 
-            if($('.pay_pic:eq(1) img').attr('src')==='/public/Home/images/new/star_1.png'){
-                $('.pay_pic:eq(1) img').attr('src','/public/Home/images/new/stars.png');
-            }else {
-                $('.pay_pic:eq(1) img').attr('src','/public/Home/images/new/star_1.png')
-            }
+//            if($('.pay_pic:eq(1) img').attr('src')==='/public/Home/images/new/star_1.png'){
+//                $('.pay_pic:eq(1) img').attr('src','/public/Home/images/new/stars.png');
+//            }else {
+//                $('.pay_pic:eq(1) img').attr('src','/public/Home/images/new/star_1.png')
+//            }
         })
         $('.pay_pic:eq(0)').click(function(){
                 $('.first_box').css('display','block');
@@ -137,7 +152,7 @@
                 $('.first_box textarea').html('');
             }
         })
-        $('.first_lowboxin').click(function(){
+        $('.sub').click(function(){
             var content = $('#content').val();
             var project_id = '{$Think.get.id}';
             var info = {content:content,project_id:project_id}
@@ -147,6 +162,7 @@
                     location.href = '/index.php/Login/index';
                 }else{
                     alert(datas.info);
+                    $('.first_box').css('display','none');
                 }
             })
         })
