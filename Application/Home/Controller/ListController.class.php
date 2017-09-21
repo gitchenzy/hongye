@@ -71,6 +71,14 @@ class ListController extends Controller {
         $this -> display();
     }
 
+    //筹款动态
+    public function active(){
+
+
+
+        $this -> display();
+    }
+
 
 
 }
