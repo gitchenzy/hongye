@@ -82,7 +82,7 @@
         <img src="__PUBLIC__/Home/images/new/chart.png">
     </div>
     <span>评论</span>
-    <div class="pay_pic">
+    <div class="pay_pic" key="1" >
         <img src="__PUBLIC__/Home/images/new/star_1.png">
     </div>
     <span>关注</span>
@@ -112,6 +112,13 @@
 
     $(function(){
         $('.pay_pic:eq(1)').click(function(){
+
+            var key = $(this).attr('key');
+            var project_id = '{$Think.get.id}';
+            var info = {key:key,project_id:project_id}
+            $.post('/index.php/List/atten',info,function(data){
+
+            })
 
             if($('.pay_pic:eq(1) img').attr('src')==='/public/Home/images/new/star_1.png'){
                 $('.pay_pic:eq(1) img').attr('src','/public/Home/images/new/stars.png');
