@@ -1378,9 +1378,27 @@ div.flicking_con a.on{
 	line-height:50px;
 	float:left;
 }
+.pay_b a{
+
+	text-align: center;
+	padding: 10px 15px;
+	text-decoration:none;
+
+	border:none;
+	background:#D33D3E;
+	border-radius:4px;
+	float:right;
+	margin:8px 15px 8px 15px;
+	font-size:12px;
+	color:#FFFFFF;
+	display:block;
+
+
+}
 .pay_b button{
+
 	width:75px;
-	height:33px;
+	heigh:33px;
 	text-decoration:none;
 
 	border:none;
