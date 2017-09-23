@@ -68,6 +68,18 @@
                 </empty>
             </div>
 
+            <div class="form-group">
+
+                <label  class="col-sm-2 control-label">主图</label>
+
+                <div class="col-sm-4">
+                    <input type="hidden" id="pic" name="pic" value="{$info.pic}" />
+                    <img src="{$info.pic|default='/public/no_photo.png'}" width="100" id="photo_preview" />
+                    <input class="upload-btn" type="file" id="btn-upload">
+                </div>
+
+
+            </div>
 
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="amount">&nbsp;项目详情</label>
@@ -84,9 +96,31 @@
     <button type="button" class="btn btn-default" data-dismiss="modal" id="close">关闭</button>
     <button type="button" class="btn btn-primary" id="submit">保存</button>
 </div>
-
+<script type="text/javascript" src='__PUBLIC__/Static/uploadifive/Sample/jquery.uploadifive.min.js'></script>
 
 <script type="text/javascript">
+
+    //设置图片上传插件
+    $(function () {
+        $("#btn-upload").uploadifive({
+            height: 25,
+            swf: '/Public/Static/uploadify/uploadify.swf',
+            uploadScript: "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+            width: 80,
+            buttonClass: "l-btn",
+            buttonText: '上传',
+            onUploadComplete: function (file, data) {
+                data = $.parseJSON(data);
+                if (data.status) {
+                    $("#photo_preview").attr("src", data.data);
+                    $("#pic").val(data.data);
+                }
+                else {
+                    (data.info);
+                }
+            }
+        });
+    });
 
     var ue = UE.getEditor('des');
     laydate({elem: '#start_time', format: 'YYYY-MM-DD hh:mm:ss', event: 'focus'});
