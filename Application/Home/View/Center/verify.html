@@ -31,26 +31,54 @@
         </div>
     </div>
 </div>
-<div class="police">
-    <div class="police_in">
-        <div class="police_left">
-            <div class="police_text">
-                <p>真实姓名:</p>
-                <input type="text" placeholder="请输入姓名" value="">
+<eq name='active' value='1'>
+    <div class="police">
+        <div class="police_in">
+            <div class="police_left">
+                <div class="police_text">
+                    <p>真实姓名:</p>
+                    <input type="text" placeholder="请输入姓名" value="">
+                </div>
+                <div class="police_text">
+                    <p>身份证号码:</p>
+                    <input type="text" placeholder="请输入身份证号" value="">
+                </div>
+                <div style="border:none;" class="police_text">
+                    <p>手机号：</p>
+                    <input type="text" placeholder="请输入手机号" value="">
+                </div>
             </div>
-            <div class="police_text">
-                <p>身份证号码:</p>
-                <input type="text" placeholder="请输入身份证号" value="">
+            <div class="police_img">
             </div>
-            <div style="border:none;" class="police_text">
-                <p>手机号：</p>
-                <input type="text" placeholder="请输入手机号" value="">
-            </div>
-        </div>
-        <div class="police_img">
         </div>
     </div>
-</div>
+<else />
+
+    <div class="police">
+        <div class="police_in">
+            <div class="police_left">
+                <div class="police_text">
+                    <p>机构名称:</p>
+                    <input type="text" placeholder="机构名称" value="">
+                </div>
+                <div class="police_text">
+                    <p>身份证号码:</p>
+                    <input type="text" placeholder="请输入身份证号" value="">
+                </div>
+                <div style="border:none;" class="police_text">
+                    <p>手机号：</p>
+                    <input type="text" placeholder="请输入手机号" value="">
+                </div>
+            </div>
+            <div class="police_img">
+            </div>
+        </div>
+    </div>
+
+</eq>
+
+
+
 <div class="police_blow">
     <div class="police_bin">
         <p>验证码：</p>
