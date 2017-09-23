@@ -1129,6 +1129,8 @@ div.flicking_con a.on{
 	margin:15px 0px 10px 10px;
 }
 .police_img img{
+	width:120px;
+	height:90px;
 
 }
 .police_left{
@@ -2054,8 +2056,8 @@ div.flicking_con a.on{
 	margin-top:12px;
 }
 .original_inbox img{
-	width: 41px;
-	height: 41px;
+	width: 345px;
+	height: 225px;
 	margin:19px;
 }
 .original_box{
