@@ -164,6 +164,13 @@ class ListController extends Controller {
         }
     }
 
+    //我要去支持
+    public function pay(){
+
+
+        $this -> display();
+
+    }
 
 
 }
