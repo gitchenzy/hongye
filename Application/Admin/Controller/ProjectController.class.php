@@ -99,7 +99,10 @@ class ProjectController extends AdminController
         $info = M('project') -> where($where) -> find();
         if(IS_POST){
             $data = i('post.');
-
+            if($data['pic'] != $info['pic']){
+                $file = ROOT_PATH.$info['pic'];
+                unlink($file);
+            }
             M('project') -> where($where) -> save($data);
             $this -> success('修改成功！');
         }else{
@@ -328,33 +331,15 @@ class ProjectController extends AdminController
     }
     //订单
     public function orders(){
-
         //echo 1111;
         $p_id = I('id');
         $result = M('orders') -> where(['project_id'=> $p_id,'status'=>['GT',1]]) -> select();
-
         foreach($result as &$v){
             $v['status'] = getOrderStatus($v['status']);
             $v['nick_name'] = M('users') -> where(['id'=>$v['user_id']]) -> getField('nick_name');
             $v['pay_time'] = date('Y-m-d H:i:s',$v['pay_time']);
         }
-
         $this->assign('info',$result);
         $this -> display();
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
