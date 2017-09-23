@@ -2053,6 +2053,11 @@ div.flicking_con a.on{
 	font-size:15px;
 	margin-top:12px;
 }
+.original_inbox img{
+	width: 41px;
+	height: 41px;
+	margin:19px;
+}
 .original_box{
 	width:100%;
 	height:56px;
