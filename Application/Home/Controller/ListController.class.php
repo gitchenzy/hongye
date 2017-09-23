@@ -163,6 +163,24 @@ class ListController extends Controller {
             }
         }
     }
+    //添加新的项目
+
+    public function news(){
+        //没有登录 要先去登录
+        $user = get_user_info();
+        if(!$user){
+            $this->redirect("Login/index");
+        }
+        $auto = M('users')->where(['id'=>$user['user_id']])->getfield('is_auto');
+        if($auto != 1){
+            $this->redirect("Center/verify");
+        }
+        //类别
+        $info_type = M('project_type')->where(['pid'=>['GT',0]]) -> select();
+
+        $this -> assign('info_type',$info_type);
+        $this -> display();
+    }
 
     //我要去支持
     public function pay(){

@@ -20,7 +20,7 @@
     </div>
     <div class="original_in">
         <p>筹款金额</p>
-        <input type="text" value="￥2000" placeholder="筹款金额">
+        <input type="text" value="" placeholder="筹款金额">
     </div>
     <div class="original_in">
         <p>项目地点</p>
@@ -32,12 +32,14 @@
 
     <div class="original_in">
         <ul>
-            <li><p>公益</p><input type="radio" id="btn_1" name='typeid' class="chk_1"><label for="btn_1"></label></li>
-            <li><p>拼团</p><input type="radio" id="btn_2"  class="chk_1"><label for="btn_2"></label></li>
-            <li><p>愿望</p><input type="radio" name='typeid' id="btn_3"  class="chk_1"><label for="btn_3"></label></li>
-            <li><p>农业</p><input type="radio" name='typeid' id="btn_4"  class="chk_1"><label for="btn_4"></label></li>
-            <li><p>创意</p><input type="radio" name='typeid' id="btn_5"  class="chk_1"><label for="btn_5"></label></li>
-            <li><p>生活</p><input type="radio" name='typeid' id="btn_6"  class="chk_1"><label for="btn_6"></label></li>
+            <volist name="info_type" id="vo" key="k">
+                <li>
+                    <p>{$vo.title}</p>
+                    <input type="radio" name='type_id' id="btn_{$k+1}"  value="{$vo.id}" class="chk_1">
+                    <label for="btn_{$k+1}"></label>
+                </li>
+            </volist>
+
         </ul>
     </div>
     <div class="original_in">
@@ -55,7 +57,7 @@
             <div class="original_inbox">
 
                 <img src="__PUBLIC__/Home/images/new/addimg.png">
-
+                <span id="btn-upload"></span>
             </div>
      </div>
     </div>
@@ -70,7 +72,30 @@
     </div>
 
 </div>
-<script type="text/javascript" src="__PUBLIC__/Home/js/o_1.js"></script>
+<script type="text/javascript" src='__PUBLIC__/Static/uploadifive/Sample/jquery.uploadifive.min.js'></script>
+<script>
+    //设置图片上传插件
+    $(function () {
+        $("#btn-upload").uploadifive({
+            height: 25,
+            swf: '/Public/Static/uploadify/uploadify.swf',
+            uploadScript: "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+            width: 80,
+            buttonClass: "btn",
+            buttonText: '上传封面图片',
+            onUploadComplete: function (file, data) {
+                data = $.parseJSON(data);
+                if (data.status) {
+                    $("#photo_preview").attr("src", data.data);
+                    $("#pic").val(data.data);
+                }
+                else {
+                    (data.info);
+                }
+            }
+        });
+    });
 
+</script>
 </body>
 </html>

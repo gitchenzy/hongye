@@ -2056,15 +2056,18 @@ div.flicking_con a.on{
 	margin-top:12px;
 }
 .original_inbox img{
-	width: 345px;
-	height: 225px;
-	margin:19px;
+	width: 240px;
+	height:136px;
+	margin:auto;
 }
 .original_box{
 	width:100%;
 	height:56px;
 	border-bottom:1px solid #D9D9D9;
 
+}
+.btn{
+	float:left;
 }
 .original_box p{
 	font-size:15px;
@@ -2178,19 +2181,8 @@ div.flicking_con a.on{
 	height: 98px;
 
 }
-.original_inbox{
-	width: 80px;
-	height: 80px;
-	background: #e3e3e3;
-	float: left;
-	margin:0px 9px 15px 9px;
-	border-radius: 3px;
-}
-.original_inbox img{
-	width:30px;
-	height: 30px;
-	margin:auto;
-}
+
+
 .original_blow{
 	margin: 0px 15px 0px 15px;
 	height: 70px;
