@@ -8,26 +8,25 @@
     <script type="text/javascript" src="__PUBLIC__/Home/js/varify.js"></script>
     <script type="text/javascript" src="__PUBLIC__/Home/js/bounce.js"></script>
 
-    <title>红叶帮帮忙</title>
+    <title>实名认证</title>
 </head>
 <body>
-
-<div style="border-bottom:1px solid #cccccc" class="top">
-    <div onclick="window.location.href='mine.html'" class="top_arrow"></div>
-    <h4>实名认证</h4>
-</div>
+<!--<div style="border-bottom:1px solid #cccccc" class="top">-->
+    <!--<div onclick="window.location.href='mine.html'" class="top_arrow"></div>-->
+    <!--<h4>实名认证</h4>-->
+<!--</div>-->
 <div style="border-bottom:1px #CCCCCC solid;" class="top">
     <div class="top">
         <div class="helftop">
             <div class="midtopbox">
             </div>
-            <div style="width:40px" class="helftopbox">
-                <h1><a href="#">个人</a></h1>
+            <div style="width:40px; <eq name='active' value='1'> border-bottom:2px solid #d33d3e; </eq>"  class="helftopbox">
+                <h1><a href="{:U('Center/verify',array('active'=>1))}" <eq name='active' value='1'> style="color:#d33d3e;" </eq> >个人</a></h1>
             </div>
         </div>
         <div class="helftop">
-            <div style="border:none;width:40px" class="helftopbox">
-                <h1 id="activa"><a  style="color:#CCCCCC" href="#">机构</a></h1>
+            <div style="width:40px; <eq name='active' value='2'> border-bottom:2px solid #d33d3e; </eq>" class="helftopbox">
+                <h1 id="activa"><a  href="{:U('Center/verify',array('active'=>2))}" style="color:#CCCCCC; <eq name='active' value='2'> color:#d33d3e; </eq>">机构</a></h1>
             </div>
         </div>
     </div>

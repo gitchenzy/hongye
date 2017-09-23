@@ -8,23 +8,23 @@
     <div class="mine_banner">
         <div class="mine_in">
             <div class="mine_img">
-                <img src="__PUBLIC__/Home/images/text.png">
+                <img src="{$info.pic|default='/public/Home/images/text.png'}">
             </div>
             <div class="mine_text">
-                <p>填写昵称</p>
+                <p>{$info.nick_name|default='填写昵称'}</p>
                 <div class="mine_likes">
                     <ul>
+                        <for start="0" end="$grade['grade']">
                         <li><img src="__PUBLIC__/Home/images/new/heart_1.png"></li>
-                        <li><img src="__PUBLIC__/Home/images/new/heart_1.png"></li>
-                        <li><img src="__PUBLIC__/Home/images/new/heart_1.png"></li>
-                        <li><img src="__PUBLIC__/Home/images/new/heart_2.png"></li>
-                        <li><img src="__PUBLIC__/Home/images/new/heart_2.png"></li>
+                        </for>
+                        <for start="0" end="$grade['ungrade']">
+                            <li><img src="__PUBLIC__/Home/images/new/heart_2.png"></li>
+                        </for>
                     </ul>
                 </div>
             </div>
-            <div onclick="window.location.href='police.html'"
-                 class="mine_l">
-                <p>申请实名认证</p>
+            <div class="mine_l">
+                <p><a style="color:#fff;" href="{:U('Center/verify')}">申请实名认证</a></p>
             </div>
 
         </div>

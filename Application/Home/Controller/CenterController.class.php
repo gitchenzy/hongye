@@ -17,7 +17,15 @@ class CenterController extends Controller {
     public function index(){
 
         session('index',5);
+        //查出个人信息
+        $where['id'] = $this -> user_id;
 
+        $info = M('users') -> where($where) -> find();
+        //获取会员的等级
+        $grade['grade'] = M('user_grade') -> where(['id'=>$info['grade_id']]) -> getfield('level');
+        $grade['ungrade'] = 5 - $grade['grade'];
+        $this -> assign('info',$info);
+        $this -> assign('grade',$grade);
         $this -> display();
     }
     //我的订单
@@ -155,6 +163,12 @@ class CenterController extends Controller {
         }
         $this -> assign('title','我的关注');
         $this -> assign('info',$res);
+        $this -> display();
+    }
+    public function verify(){
+
+        $active  = I('active')?I('active'):1;
+        $this -> assign('active',$active);
         $this -> display();
     }
 
