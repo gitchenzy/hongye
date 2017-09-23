@@ -1129,8 +1129,8 @@ div.flicking_con a.on{
 	margin:15px 0px 10px 10px;
 }
 .police_img img{
-	width:120px;
-	height:90px;
+	width:75px;
+	height:102px;
 
 }
 .police_left{
@@ -1216,7 +1216,7 @@ div.flicking_con a.on{
 }
 .police_bg{
 	width:100%;
-	height:780px;
+;
 	background:#DDDDDD;
 	padding-top:39px;
 }
