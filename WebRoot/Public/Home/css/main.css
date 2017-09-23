@@ -2011,6 +2011,18 @@ div.flicking_con a.on{
 	float:left;
 	margin-right:20px;
 }
+.original_in ul li{
+	float: left;
+	width:20%;
+	height: 40px;
+	padding-left: 14px;
+
+}
+.original_in ul li p{
+	font-size: 13px;
+	color: #000000;
+	float: right;
+}
 .original img{
 	margin-top:13px;
 	width: 13px;
@@ -2193,6 +2205,41 @@ div.flicking_con a.on{
 	height: 13px;
 	margin:1.5px;
 }
+.chk_1{
+	display:none;
+}
+.chk_1 + label {
+	background-color: #FFF;
+	border: 1px solid #e5e5e5;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+	padding: 5.8px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+	top:10px;
+
+}
+.chk_1 + label:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+.chk_1:checked + label {
+	background-color: #d33d3e;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+	color: #243441;
+}
+
+.chk_1:checked + label:after {
+	content: '\2713';
+	position: absolute;
+	top: -2px;
+	left: 0px;
+	color: #ffffff;
+	width: 100%;
+	text-align: center;
+	font-size: 0.3em;
+	vertical-align: text-top;
+}
+
 /*-bind-*/
 .bind{
 	margin:10px 15px 0px 15px;
