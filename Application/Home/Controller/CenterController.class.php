@@ -171,5 +171,64 @@ class CenterController extends Controller {
         $this -> assign('active',$active);
         $this -> display();
     }
+    //添加认证
+    public function addverify(){
+
+        $data = I('post.');
+
+        $user = $this -> user_id;
+        $where['user_id'] = $user;
+        if($data['v'] == 1){
+            //个人
+            //先查询是否认证过了
+            $sms = session('sms');
+            if('verify'.$data['code'].$data['phone'] != $sms['code']){
+                $this -> error('验证码错误！');
+            }
+            if(time() > $sms['code_time']*5*60){
+                $this -> error('验证码过期，请重新发送！');
+            }
+
+            $where['types'] = $data['v'];
+            $res = M('user_author')->where($where)->find();
+            if($res){
+                $this -> error('您已经提交过，请等待管理员审核！');
+            }
+            $info['add_time'] = time();
+            $info['types'] = $data['v'];
+            $info['name'] = $data['name'];
+            $info['phone'] = $data['phone'];
+            $info['pic'] = $data['pic'];
+            $info['user_id'] = $user;
+
+            $result = M('user_author') -> add($info);
+            if($result){
+                $this -> success('提交成功');
+            }else{
+                $this -> error('资料提交失败，请重新提交！');
+            }
+        }else{
+            //机构
+            $where['types'] = $data['v'];
+            $res = M('user_author')->where($where)->find();
+            if($res){
+                $this -> error('您已经提交过，请等待管理员审核！');
+            }
+            $info['add_time'] = time();
+            $info['types'] = $data['v'];
+            $info['name'] = $data['names'];
+            $info['phone'] = $data['phones'];
+            $info['pic'] = $data['pics'];
+            $info['address'] = $data['address'];
+            $info['user_id'] = $user;
+            $result = M('user_author') -> add($info);
+            if($result){
+                $this -> success('提交成功');
+            }else{
+                $this -> error('资料提交失败，请重新提交！');
+            }
+        }
+
+    }
 
 }

@@ -103,10 +103,15 @@ class ProjectController extends AdminController
                 $file = ROOT_PATH.$info['pic'];
                 unlink($file);
             }
+            $data['start_time'] = strtotime($data['start_time']);
+            $data['end_time'] = strtotime($data['end_time']);
+
             M('project') -> where($where) -> save($data);
             $this -> success('修改成功！');
         }else{
             $res = M('project_type') ->  where(['pid'=>['GT',0]]) -> getField("id,title");
+            $info['start_time'] = date('Y-m-d',$info['start_time']);
+            $info['end_time'] =  date('Y-m-d',$info['end_time']);
             $this->assign('menu',$res);
             $this->assign('info',$info);
             $this -> display();
