@@ -193,6 +193,7 @@ html body {
 .midcard_top_pic img{
 	width: 30px;
 	height: 30px;
+	border-radius: 15px;
 }
 .midcard_top_name{
 	width:auto;
