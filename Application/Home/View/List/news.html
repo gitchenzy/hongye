@@ -16,16 +16,16 @@
 <div class="original">
     <div class="original_in">
         <p>项目名称</p>
-        <input type="text" value="" placeholder="项目名称">
+        <input type="text" value="" id="title" placeholder="项目名称">
     </div>
     <div class="original_in">
         <p>筹款金额</p>
-        <input type="text" value="" placeholder="筹款金额">
+        <input type="text" value="" id="target_amount" placeholder="筹款金额">
     </div>
     <div class="original_in">
         <p>项目地点</p>
         <img src="__PUBLIC__/Home/images/new/local.png">
-        <input type="text" value="" placeholder="厦门" >
+        <input type="text" value="" id="city" placeholder="厦门" >
     </div>
 
 
@@ -47,7 +47,7 @@
     </div>
     <div class="original_box">
         <p>描述内容</p>
-        <textarea placeholder="描述内容"></textarea>
+        <textarea style="color:#000;width:225px;" id="des" placeholder="描述内容"></textarea>
     </div>
     <div class="original_ftop">
         <p>添加图片</p>
@@ -55,17 +55,17 @@
     <div class="original_b">
         <div class="original_btop">
             <div class="original_inbox">
-
-                <img src="__PUBLIC__/Home/images/new/addimg.png">
+                <input id="pic" type="hidden" value="">
+                <img id="photo_preview" src="__PUBLIC__/Home/images/new/addimg.png">
                 <span id="btn-upload"></span>
             </div>
      </div>
     </div>
     <div align="center" class="original_blow">
-        <button type="submit" value="提交">下一步</button>
+        <button id="sub" type="submit" value="提交">下一步</button>
         <div class="original_bottomtext">
             <div class="original_bottomtext_in">
-                <input type="checkbox">
+                <input type="checkbox" checked="checked">
                 <p>我已阅读并同意《红叶帮帮忙服务协议》</p>
             </div>
         </div>
@@ -78,11 +78,11 @@
     $(function () {
         $("#btn-upload").uploadifive({
             height: 25,
-            swf: '/Public/Static/uploadify/uploadify.swf',
-            uploadScript: "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+            swf: '/public/Static/uploadify/uploadify.swf',
+            uploadScript: "{:U('File/uploadProject')}",
             width: 80,
             buttonClass: "btn",
-            buttonText: '上传封面图片',
+            buttonText: '点击上传',
             onUploadComplete: function (file, data) {
                 data = $.parseJSON(data);
                 if (data.status) {
@@ -94,6 +94,34 @@
                 }
             }
         });
+
+        $('#sub').click(function(){
+            var title = $('#title').val();
+            var city = $('#city').val();
+            var pic = $('#pic').val();
+            var des = $('#des').val();
+            var type_id = $('input[name=type_id]:checked').val();
+            var target_amount = $('#target_amount').val();
+
+            var info = {'title':title,city:city,pic:pic,des:des,type_id:type_id,target_amount:target_amount};
+
+            $.post("{:U('List/addProject')}",info,function(data){
+
+                if(data.status ==1){
+                    alert('添加成功！');
+                    location.href=data.info;
+                }else{
+                    alert(data.info)
+                }
+
+
+            })
+
+
+
+        })
+
+
     });
 
 </script>
