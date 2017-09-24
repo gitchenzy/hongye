@@ -33,7 +33,7 @@
 </div>
 <eq name='active' value='1'>
     <div class="police">
-<!--        <div class="police_in">
+       <div class="police_in">
             <div class="police_left">
                 <div class="police_text">
                     <p>真实姓名:</p>
@@ -52,16 +52,17 @@
                 <!--<span style="background: url('/public/Home/images/new/person.png')"></span>-->
                 <!--<img  src="__PUBLIC__/Home/images/new/person.png">-->
             </div>
-        </div>-->
+        </div>
     </div>
 
     <div class="police_blow">
         <div class="police_bin">
             <p>验证码：</p>
-            <input type="text" id="code" value="请输入验证码">
+            <input type="text" id="code" value="" placeholder="请输入验证码">
             <button class="police_lbtn" id="send_code" type="submit">获取验证码</button>
         </div>
     </div>
+
 <else />
 
     <div class="police">
@@ -82,8 +83,8 @@
 
             </div>
 
-            <div class="police_img">
-                <img src="__PUBLIC__/Home/images/new/company.png">
+            <div id="btn-uploads">
+                <!--<img src="__PUBLIC__/Home/images/new/company.png">-->
             </div>
         </div>
 
@@ -93,7 +94,7 @@
     <div class="police_blow">
         <div class="police_bin">
             <p>机构地址：</p>
-            <input type="text" id="address" value="请输入机构地址">
+            <input type="text" id="address" value="" placeholder="请输入机构地址">
         </div>
     </div>
 
@@ -114,6 +115,26 @@
         swf: '/public/Static/uploadify/uploadify.swf',
         uploadScript: "{:U('File/uploadProject')}",
         width: 75,
+        buttonClass: "police_pe_img",
+        buttonText: '',
+        onUploadComplete: function (file, data) {
+            data = $.parseJSON(data);
+            if (data.status) {
+                $(".police_pe_img").css('background-image','url('+data.data+')');
+                $('.complete').css('display','none');
+                $("#pic").val(data.data);
+            }
+            else {
+                (data.info);
+            }
+        }
+    });
+
+    $("#btn-uploads").uploadifive({
+        height: 102,
+        swf: '/public/Static/uploadify/uploadify.swf',
+        uploadScript: "{:U('File/uploadProject')}",
+        width: 75,
         buttonClass: "police_img",
         buttonText: '',
         onUploadComplete: function (file, data) {
@@ -129,10 +150,31 @@
         }
     });
 
+    function verify_button(time){
+        var second = time;
+        var sender = $("#send_code").addClass("sending").text( second + "s");
+        var window_internal = window.setInterval( function() {
+            sender.text( (second--) + "s");
+            if (second<0) {
+                $("#send_code").removeClass("sending").text('获取验证码');
+                window.clearInterval(window_internal);
+            }
+        } , 1000);
+    }
 
     $('#send_code').click(function(){
 
-        var phone = $('#phone').val();
+        if ($(this).hasClass('sending')) {
+            return;
+        }
+
+        var v = '{$active}';
+        if(1 == v){
+            var phone = $('#phone').val();
+        }else{
+            var phone = $('#phones').val();
+        }
+
         if(!phone){
             alert('手机不能为空！');
             return false;
@@ -141,6 +183,10 @@
         if(myreg.test(phone)) {
             $.post("{:U('Center/send_sms')}",{'phone':phone,type:'verify'},function(datas){
                 alert(datas.info)
+                if(datas.status==1){
+                    verify_button(60)
+                }
+
             });
         }else{
             alert('手机格式错误！');
@@ -162,6 +208,7 @@
 
                 if(data.status ==1){
                     alert('提交成功，请等待管理员审核！');
+                    location.reload();
                 }else{
                     alert(data.info);
                 }
@@ -177,6 +224,7 @@
             $.post("{:U('Center/addverify')}",info,function(data){
                 if(data.status ==1){
                     alert('提交成功，请等待管理员审核！');
+                    location.reload();
                 }else{
                     alert(data.info);
                 }

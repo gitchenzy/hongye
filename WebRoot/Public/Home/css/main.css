@@ -1122,12 +1122,26 @@ div.flicking_con a.on{
 	height:132px;
 	border-bottom:1px #CCCCCC solid;
 }
+.police_pe_img{
+	width:75px;
+	height:102px;
+	float:right;
+	margin:15px 0px 10px 10px;
+	background-image:url('../images/new/persons.png');
+}
 .police_img{
 	width:75px;
 	height:102px;
 	float:right;
-	/*margin:15px 0px 10px 10px;*/
-	background-image:url('../images/new/person.png');
+	margin:15px 0px 10px 10px;
+	background-image:url('../images/new/companys.png');
+}
+
+.police_img{
+	width:75px;
+	height:102px;
+	float:right;
+	margin:15px 0px 10px 10px;
 }
 .police_img img{
 	width:75px;
