@@ -224,9 +224,15 @@ class ListController extends Controller {
         }
     }
     //我要去支持
-    public function pay(){
+    public function getmonney(){
+        $project_id = I('id');
+        $info = M('project_return') -> where(['project_id'=>$project_id]) -> select();
 
-
+        foreach($info as &$v){
+            $v['rule'] = trim($v['rule'],';');
+            $v['rule'] = explode(';',$v['rule']);
+        }
+        $this -> assign('info',$info);
         $this -> display();
 
     }
