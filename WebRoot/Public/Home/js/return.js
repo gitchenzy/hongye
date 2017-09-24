@@ -14,9 +14,11 @@ $(function(){
     }
     function open_box(){
         $('.background').css('display','block')
+        $('.tan').css('display','block')
     }
     function close_box(){
         $('.background').css('display','none')
+        $('.tan').css('display','none')
     }
 
     function plus(){
@@ -25,18 +27,23 @@ $(function(){
         if(!arr[0]||!arr[1]||!arr[2]||!arr[3]){
             _popup('请输入正确的信息','')
 
-        }else{
+        }/*else{
             var conts=$('<div class="return_all"><div class="return_in"><p>支持金额</p>'+arr[0]+'</div><div class="return_in"><p>回报标题</p>'+arr[1]+'</div><div class="return_bin"><p>回报简介</p><div class="return_b">'+arr[2]+'</div></div><div style="border:none" class="return_bin"><p>回报简介</p><div class="return_b">'+arr[3]+'</div></div>')
             $('.page').append(conts);
             close_box();
-        }
+        }*/
 
     }
     var t=$('.return_re>ul li:eq(3)');
     function plus_little(){
+        var time = $('#time').val();
+        var str = 'rule_'+time;
+
+        // console.log(time);
         var t=$('.return_re>ul li:eq(3)');
-        var cont=$('<li><p style="float:left">规则设置</p><input style="width:150px;float:left;position:relative;top:5px;"value="" type="text" placeholder="设置回报规则"></li>')
+        var cont=$('<li><p style="float:left">规则设置</p><input style="width:150px;float:left;position:relative;top:5px;"value="" id='+ str +' type="text" placeholder="设置回报规则"></li>')
         t.after(cont);
+        $('#time').val(parseInt(time) + 1)
     }
     $('.return_add').bind('click',plus_little);
     $('#upload').click(plus);

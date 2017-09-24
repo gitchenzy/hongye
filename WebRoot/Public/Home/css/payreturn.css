@@ -24,8 +24,9 @@ body{
 }
 .return_in{
     overflow: hidden;
+    width: auto;
     height: 35px;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid #e5e5e5;
 }
 .return_in p{
     font-size: 15px;
@@ -36,8 +37,8 @@ body{
 }
 .return_bin{
     overflow: hidden;
-    height: 55px;
-    border-bottom: 1px solid #f2f2f2;
+    height: auto;
+    border-bottom: 1px solid #e5e5e5;
 }
 .return_bin p{
     font-size: 15px;
@@ -49,10 +50,10 @@ body{
 }
 .return_b{
     width:180px;
-    height: 40px;
-    float: left;
+    height: 32px;
+    float: right;
     overflow: hidden;
-
+    margin-right: 55px;
     padding:10px 0px 0px 2px;
 }
 .return_b span{
@@ -71,15 +72,7 @@ body{
     width:41px;
     height: 41px;
 }
-.return_re{
 
-    width: 70%;
-    padding:0px 15px 0px 15px;
-    background: #ffffff;
-    border-radius: 3px;
-    height: auto;
-    display: block;
-}
 .return_re ul li{
     height: 35px;
     border-bottom: 1px solid #f2f2f2;
@@ -107,19 +100,23 @@ body{
     font-size: 16px;
 }
 .background{
+    position: absolute;
     width: 100%;
     height: 100%;
     display: none;
-    background: rgba(0, 0, 0);
-    filter:alpha(opacity=80);
+    background: rgba(0, 0, 0, 0.7);
+    /*background: #000000;*/
+    /*opacity: 0.9;*/
 }
 .in_return{
     position: fixed;
     top:20%;
     left: 10%;
-    padding: 20px 0 0 0;
-    width: 100%;
+    padding: 20px 15px 0px 15px;
+    width: 70%;
     height: auto;
+    opacity:1;
+    background-color:#fff;
 }
 .in_return_top{
 
@@ -129,7 +126,7 @@ body{
 .in_return_r{
     position: fixed;
     top:20%;
-    right:10%;
+    right:5%;
     width:17px;
     height: 17px;
     float: right;

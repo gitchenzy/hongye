@@ -105,3 +105,20 @@ function comments_info($pid=0){
     }
     return $info;
 }
+
+/**
+ * 连续创建目录
+ *
+ * @param string $dir 目录字符串
+ * @param int $mode 权限数字
+ * @return boolean
+ */
+function makeDir($dir, $mode = "0777") {
+    if (!$dir) return false;
+    if(!file_exists($dir)) {
+        return mkdir($dir,$mode,true);
+    } else {
+        return true;
+    }
+
+}

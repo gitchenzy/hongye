@@ -181,7 +181,48 @@ class ListController extends Controller {
         $this -> assign('info_type',$info_type);
         $this -> display();
     }
+    //添加项目
+    public function addProject(){
+        $user = get_user_info();
+        $data = I('post.');
+        $data['user_id'] = $user['user_id'];
+        $info = M('project_type') -> where(['id'=>$data['type_id']])-> field('pid,is_return') -> find();
+        $data['father_type_id'] = $info['pid'];
+        $data['is_return'] = $info['is_return'];
+        $res = M('project') -> add($data);
+        if($res){
+            $url = U('List/payreturn',array('project_id'=>$res));
+            $this -> success($url);
+        }else{
+            $this -> error('添加失败！');
+        }
+    }
+    //项目回报
+    public function payreturn(){
 
+        $project_id = I('project_id');
+
+        $info = M('project_return') -> where(['project_id'=>$project_id]) -> select();
+        
+        foreach($info as &$v){
+            $v['rule'] = trim($v['rule'],';');
+            $v['rule'] = explode(';',$v['rule']);
+        }
+        $this -> assign('info',$info);
+        $this -> display();
+    }
+    //添加项目汇报
+    public function addReturn(){
+        $data = I('post.');
+        $data['time'] = time();
+        $user = get_user_info();
+        $info = M('project_return') -> add($data);
+        if($info){
+            $this -> success('添加成功！');
+        }else{
+            $this -> error('添加失败！');
+        }
+    }
     //我要去支持
     public function pay(){
 
