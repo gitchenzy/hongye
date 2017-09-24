@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css">
     <script type="text/javascript" src="__PUBLIC__/Home/js//jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/Home/js/varify.js"></script>
+    <!--<script type="text/javascript" src="__PUBLIC__/Home/js/varify.js"></script>-->
     <script type="text/javascript" src="__PUBLIC__/Home/js/bounce.js"></script>
 
     <title>实名认证</title>
@@ -37,20 +37,29 @@
             <div class="police_left">
                 <div class="police_text">
                     <p>真实姓名:</p>
-                    <input type="text" placeholder="请输入姓名" value="">
+                    <input type="text" id="name" placeholder="请输入姓名" value="">
                 </div>
                 <div class="police_text">
                     <p>身份证号码:</p>
-                    <input type="text" placeholder="请输入身份证号" value="">
+                    <input type="text" id="num" placeholder="请输入身份证号" value="">
                 </div>
                 <div style="border:none;" class="police_text">
                     <p>手机号：</p>
-                    <input type="text" placeholder="请输入手机号" value="">
+                    <input type="text" id="phone" placeholder="请输入手机号" value="">
                 </div>
             </div>
-            <div class="police_img">
-                <img src="__PUBLIC__/Home/images/new/person.png">
+            <div id="btn-upload" class="">
+                <!--<span style="background: url('/public/Home/images/new/person.png')"></span>-->
+                <!--<img  src="__PUBLIC__/Home/images/new/person.png">-->
             </div>
+        </div>
+    </div>
+
+    <div class="police_blow">
+        <div class="police_bin">
+            <p>验证码：</p>
+            <input type="text" id="code" value="请输入验证码">
+            <button class="police_lbtn" id="send_code" type="submit">获取验证码</button>
         </div>
     </div>
 <else />
@@ -60,40 +69,124 @@
             <div class="police_left">
                 <div class="police_text">
                     <p>机构名称:</p>
-                    <input type="text" placeholder="机构名称" value="">
+                    <input type="text" id="names" placeholder="机构名称" value="">
                 </div>
                 <div class="police_text">
                     <p>组织代码:</p>
-                    <input type="text" placeholder="请输入身份证号" value="">
+                    <input type="text" id="nums" placeholder="请输入组织代码" value="">
                 </div>
-                <div  class="police_text">
+                <div  class="police_text"  style="border: none;">
                     <p>联系方式：</p>
-                    <input type="text" placeholder="请输入手机号" value="">
+                    <input type="text" id="phones" placeholder="请输入联系方式" value="">
                 </div>
-                <div style="border:none;" class="police_text">
-                    <p>机构地址：</p>
-                    <input type="text" placeholder="请输入地址" value="">
-                </div>
+
             </div>
+
             <div class="police_img">
                 <img src="__PUBLIC__/Home/images/new/company.png">
             </div>
+        </div>
+
+
+    </div>
+
+    <div class="police_blow">
+        <div class="police_bin">
+            <p>机构地址：</p>
+            <input type="text" id="address" value="请输入机构地址">
         </div>
     </div>
 
 </eq>
 
+<input type="hidden" id="pic">
 
 
-<div class="police_blow">
-    <div class="police_bin">
-        <p>验证码：</p>
-        <input type="text" value="请输入验证码">
-        <button class="police_lbtn" type="submit">获取验证码</button>
-    </div>
-</div>
 <div class="police_bg">
-    <button type="submit" class="police_bbtn">提交</button>
+    <button type="submit" id="sub" class="police_bbtn">提交</button>
 </div>
 </body>
+<script type="text/javascript" src='__PUBLIC__/Static/uploadifive/Sample/jquery.uploadifive.min.js'></script>
+<script>
+
+    $("#btn-upload").uploadifive({
+        height: 102,
+        swf: '/public/Static/uploadify/uploadify.swf',
+        uploadScript: "{:U('File/uploadProject')}",
+        width: 75,
+        buttonClass: "police_img",
+        buttonText: '',
+        onUploadComplete: function (file, data) {
+            data = $.parseJSON(data);
+            if (data.status) {
+                $(".police_img").css('background-image','url('+data.data+')');
+                $('.complete').css('display','none');
+                $("#pic").val(data.data);
+            }
+            else {
+                (data.info);
+            }
+        }
+    });
+
+
+    $('#send_code').click(function(){
+
+        var phone = $('#phone').val();
+        if(!phone){
+            alert('手机不能为空！');
+            return false;
+        }
+        var myreg = /^(1+\d{10})$/;
+        if(myreg.test(phone)) {
+            $.post("{:U('Center/send_sms')}",{'phone':phone,type:'verify'},function(datas){
+                alert(datas.info)
+            });
+        }else{
+            alert('手机格式错误！');
+            return false;
+        }
+    })
+
+
+    $('#sub').click(function(){
+        var v = '{$active}';
+        if(2 == v){
+            var names = $('#names').val()
+            var phones = $('#phones').val()
+            var pics = $('#pics').val()
+            var nums = $('#nums').val()
+            var address = $('#address').val()
+            var info = {v:v,name:name,address:address,num:num,pic:pic,phone:phone}
+            $.post("{:U('Center/addverify')}",info,function(data){
+
+                if(data.status ==1){
+                    alert('提交成功，请等待管理员审核！');
+                }else{
+                    alert(data.info);
+                }
+            })
+        }else{
+            var name = $('#name').val()
+            var phone = $('#phone').val()
+            var pic = $('#pic').val()
+            var num = $('#num').val()
+            var code = $('#code').val()
+            var info = {v:v,name:name,code:code,num:num,pic:pic,phone:phone}
+
+            $.post("{:U('Center/addverify')}",info,function(data){
+                if(data.status ==1){
+                    alert('提交成功，请等待管理员审核！');
+                }else{
+                    alert(data.info);
+                }
+
+            })
+
+        }
+
+    })
+
+
+</script>
 </html>

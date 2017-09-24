@@ -1126,7 +1126,8 @@ div.flicking_con a.on{
 	width:75px;
 	height:102px;
 	float:right;
-	margin:15px 0px 10px 10px;
+	/*margin:15px 0px 10px 10px;*/
+	background-image:url('../images/new/person.png');
 }
 .police_img img{
 	width:75px;
