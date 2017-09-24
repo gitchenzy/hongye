@@ -15,6 +15,7 @@
     margin: 0px 15px 20px 15px;
     background: #ffffff;
     border: 1px solid #ffffff;
+    padding: 0 0 20px 0;
 }
 .get_in{
     margin:0 15px 15px 15px;
@@ -47,10 +48,17 @@
     margin-bottom: 10px;
 }
 .get_blow span{
+    display: block;
     font-size: 13px;
     color: #cccccc;
-    line-height:10px;
+    line-height:20px;
     margin-bottom: 30px;
+}
+.get_blow p{
+    display: block;
+    font-size: 13px;
+    color: #cccccc;
+    line-height:20px;
 }
 .get_blow button{
     width:65px;
