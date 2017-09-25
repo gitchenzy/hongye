@@ -6,7 +6,7 @@
 
 }
 .page{
-    background: #f1f1f1;
+    background: #f2f2f2;
     width:100%;
     height: 100%;
 }
@@ -33,7 +33,7 @@
 }
 .get_top p{
     font-size: 12px;
-    color: #cccccc;
+    color: #616161;
     line-height:40px;
     float:right;
 }
@@ -50,14 +50,14 @@
 .get_blow span{
     display: block;
     font-size: 13px;
-    color: #cccccc;
+    color: #616161;
     line-height:20px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 .get_blow p{
     display: block;
     font-size: 13px;
-    color: #cccccc;
+    color: #616161;
     line-height:20px;
 }
 .get_blow button{
