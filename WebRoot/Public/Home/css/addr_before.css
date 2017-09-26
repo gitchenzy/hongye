@@ -1,0 +1,123 @@
+*{
+    margin:0px;
+    padding:0px;
+    list-style:none;
+    text-decoration: none;
+
+}
+body{
+    padding: 0;
+    background-color:#f2f2f2;
+}
+.page{
+    width:auto;
+    height: auto;
+    background: #f2f2f2
+}
+.addr{
+    margin:0 0 10px 0;
+
+}
+.address{
+    width:100%;
+    height: 80px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0 0 15px 0 ;
+}
+.add_in{
+    margin: 0px 15px 0px 15px;
+    height: 80px;
+}
+.add_l{
+    width:100%;
+    height: 35px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.add_l p{
+    font-size: 15px;
+    display: inline-block;
+    color: #484848;
+    line-height: 35px;
+}
+.add_b{
+    width:100%;
+    height: 50px;
+}
+.add_b p{
+    font-size: 13px;
+    display: inline-block;
+    color: #484848;
+    line-height: 40px;
+}
+.add_f{
+    width:100%;
+    height: 40px;
+    background: #ffffff;
+}
+.add_fin{
+    margin: 0 15px 0 15px;
+    height: 40px;
+
+}
+.add_fin p{
+    font-size: 14px;
+    color: #484848;
+    display: inline-block;
+    position: absolute;
+    margin:10px 0 0 11px;;
+}
+.add_fin span{
+    float: right;
+    font-size: 14px;
+    color: #484848;
+    margin-right: 5px;
+    line-height: 35px;
+}
+.chk_1{
+    display:none;
+}
+.chk_1 + label {
+    background-color: #FFF;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 5.8px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    top:10px;
+
+}
+.chk_1 + label:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+.chk_1:checked + label {
+    background-color: #d33d3e;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+    color: #243441;
+}
+
+.chk_1:checked + label:after {
+    content: '\2713';
+    position: absolute;
+    top: -2px;
+    left: 0px;
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+    font-size: 0.3em;
+    vertical-align: text-top;
+}
+.bottom{
+    width: 100%;
+    height: 45px;
+    background: #d33d3e;
+    position: fixed;
+    bottom: 0%;
+    text-align: center;
+}
+.bottom p{
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 45px;
+}

@@ -34,16 +34,24 @@ $(function(){
         }*/
 
     }
-    var t=$('.return_re>ul li:eq(3)');
+    var n=3;
     function plus_little(){
+        var t=$('.return_re>ul li:eq(3)');
         var time = $('#time').val();
         var str = 'rule_'+time;
-
         // console.log(time);
         var t=$('.return_re>ul li:eq(3)');
         var cont=$('<li><p style="float:left">规则设置</p><input style="width:150px;float:left;position:relative;top:5px;"value="" id='+ str +' type="text" placeholder="设置回报规则"></li>')
-        t.after(cont);
+
         $('#time').val(parseInt(time) + 1)
+        n+=1;
+        if(n===7){
+            $('.return_add').unbind('click');
+        }
+        var x=n-1;
+        t=$('.return_re>ul li:eq('+x+')');
+        y=$('.return_re>ul li:eq('+n+')');
+        t.after(cont);
     }
     $('.return_add').bind('click',plus_little);
     $('#upload').click(plus);

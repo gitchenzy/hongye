@@ -1,0 +1,110 @@
+*{
+    margin:0px;
+    padding:0px;
+    list-style:none;
+    text-decoration: none;
+    font-family: "Microsoft YaHei UI Light";
+}
+body{
+    padding: 0;
+    background-color:#f2f2f2;
+}
+.addr{
+    width: 100%;
+    height: auto;
+    margin-bottom:10px;
+    background: #ffffff
+}
+.addr_in{
+    margin: 0 15px 0 15px;
+    height: auto;
+    padding-bottom: 15px;
+}
+.addr_l{
+    padding:0.5px 0 0.5px 0;
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #e5e5e5;
+}
+.addr_l p{
+    font-size: 15px;
+    color: #000000;
+    line-height: 40px;
+    display: inline-block;
+}
+.addr_l span{
+    font-size: 15px;
+    color: #c2c2c2;
+    float: right;
+    line-height: 40px;
+}
+.addr_l_pic{
+    margin:12px 0 0 10px;
+    float: right;
+}
+.addr_l_pic img{
+    width: 16px;
+    height: 16px;
+}
+.addr_lin{
+    margin:10px 10px 0 0 ;
+    width: 60px;
+    height: 15px;
+    float: left;
+    border-right: 1px solid #000000;
+    padding-bottom: 5px;
+}
+
+.addr_lin p{
+    font-size: 15px;
+    color: #000000;
+    line-height: 0px;
+
+}
+.addr_l input{
+    border: none;
+    float: left;
+    margin-top:10px;
+    font-size: 15px;
+    width: 160px;
+}
+.addr_b{
+    height: 55px;
+    width: 100%;
+}
+.addr_b input{
+    color: #c2c2c2;
+    font-size: 15px;
+    border: none;
+    width:90%;
+    height: 50px;
+}
+.addr_o{
+    height: 40px;
+    width: 100%;
+    background: #d33d3e;
+    text-align: center;
+    margin:8px 0 0 0;
+
+}
+.addr_o p{
+    font-size: 15px;
+    color: #ffffff;
+    line-height: 40px;
+}
+.addr_s{
+    height:20px;
+    width: 100%;
+    padding-left:25px;
+
+}
+.addr_s p{
+    font-size: 15px;
+    color: #1f1f1f;
+    line-height: 40px;
+    display:inline-block;
+}
+.addr_s input{
+    float: right;
+    display: block;
+}
