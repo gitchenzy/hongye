@@ -1,0 +1,68 @@
+*{
+    margin:0px;
+    padding:0px;
+    list-style:none;
+    text-decoration: none;
+
+}
+body{
+    background: #f2f2f2;
+}
+.page{
+    height: auto;
+}
+.tran{
+    width:100%;;
+    height: 70px;
+    margin-bottom: 25px;
+}
+.tran_in{
+    width:auto;
+    height: 70px;
+    margin: 25px auto 10px auto;
+    text-align: center;
+}
+.tran_in p{
+    font-size: 15px;
+    color: #181818;
+    line-height: 25px;
+}
+.tran_in h1{
+    font-size: 36px;
+    color: #000000;
+}
+.tran_b{
+    width:100%;
+    height: 89px;
+    background: #ffffff;
+}
+.tran_bin{
+    background: #ffffff;
+    margin: 0 15px 0 15px;
+    height: 44px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.tran_bin p{
+    font-size: 14px;
+    color: #a9a9a9;
+    display: inline-block;
+    line-height: 45px;
+}
+.tran_bin span{
+    font-size: 14px;
+    color: #000000;
+    float:right;
+    line-height: 45px;
+}
+.tran_last{
+    margin:25px 15px 0 15px;
+    height: 45px;
+    border-radius: 3px;
+    background: #d33d3e;
+    text-align: center
+}
+.tran_last p{
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 45px;
+}
