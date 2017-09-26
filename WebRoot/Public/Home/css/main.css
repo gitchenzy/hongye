@@ -1285,7 +1285,7 @@ div.flicking_con a.on{
 	color:#000000;
 	line-height:32px;
 	font-weight:lighter;
-
+	display: inline-block;
 }
 .pay_4 input{
 	text-decoration:none;
