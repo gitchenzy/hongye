@@ -8,26 +8,40 @@
     <script type="text/javascript" src="__PUBLIC__/Home/js/jquery.event.drag-1.5.min.js"></script>
     <script type="text/javascript" src="__PUBLIC__/Home/js/jquery.touchSlider.js"></script>
     <script src="__PUBLIC__/Home/js/getmonney.js"></script>
-    <title>红叶帮帮忙</title>
+    <title>我要支持</title>
 </head>
 <body>
 <div class="page">
-    <div class="get">
-        <div class="get_in">
-            <div class="get_top">
-                <h1>免费抽奖活动</h1>
-                <p>翻山倒海</p>
+
+    <volist name="info" id="vo">
+        <div class="get">
+            <div class="get_in">
+                <div class="get_top">
+                    <h1><if condition="$vo['amount'] eq 0"> 免费抽奖活动  <else /> ￥{$vo['amount']} </if></h1>
+                    <p>66人支持/无限制</p>
+                </div>
+            </div>
+            <div class="get_blow">
+                <h1>{$vo.title}</h1>
+                <span>{$vo.des}</span>
+                <p>抽奖规则：</p>
+                <volist name="vo.rule" id="rvo">
+                    <p>{$rvo}</p>
+                </volist>
+                <button type="button">
+                    <if condition="$vo['amount'] eq 0">
+
+                        <a>获取福利</a>
+                    <else />
+
+                        <a href="{:U('List/pay',array('id'=>$vo['id
+                        ']))}">我要支持</a>
+                    </if>
+                </button>
             </div>
         </div>
-        <div class="get_blow">
-            <h1>项目回报名称</h1>
-            <span>粉丝带进来哈师范大大大是的范德萨发斯蒂芬斯蒂芬斯蒂芬大发生的黄金卡拉拉山东分行</span>
-            <p>抽奖规则：</p>
-            <p>1，得到奖品收费房价多少空间大家佛</p>
-            <p>1，得到奖品收费房价多少空间大家佛</p>
-            <button type="button"><a>获取福利</a></button>
-        </div>
-    </div>
+    </volist>
+
 </div>
 </body>
 </html>
