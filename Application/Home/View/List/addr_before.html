@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/addr_before.css">
-    <title>红叶帮帮忙</title>
+    <title>地址管理</title>
 </head>
 <body>
 <div class="page">
@@ -17,17 +17,17 @@
                     <p>姓名</p>
                     <p style="float:right">{$vo.name}</p>
                 </div>
-                <div class="add_b">
+                <div class="add_b" key="{$vo.id}">
                     <p>{$vo.province}{$vo.city}{$vo.area}{$vo.address}</p>
                 </div>
             </div>
         </div>
         <div class="add_f">
             <div class="add_fin">
-                <input type="checkbox" id="btn_1" name=typeid class="chk_1"><label for="btn_1"></label>
+                <input type="checkbox" id="btn_1" <eq name="vo.is_default" value="2"> checked </eq> name=typeid class="chk_1"><label key="{$vo.id}" class="check" for="btn_1"></label>
                 <p>设为默认</p>
-                <span>编辑</span>
-                <span>删除</span>
+                <span> <a style="color:#484848;" href="{:U('List/editaddr',array('id'=>$_GET['id'],'aid'=>$vo['id']))}">编辑</a> </span>
+                <span class="del" key="{$vo.id}">删除</span>
             </div>
         </div>
     </div>
@@ -40,4 +40,39 @@
     </div>
 </div>
 </body>
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+    $('.del').click(function(){
+        var aid = $(this).attr('key');
+        $.post("{:U('List/deladdr')}",{aid:aid},function (data) {
+            if(data.status == 1){
+                alert('删除成功！')
+                location.reload();
+            }else{
+                alert(data.info)
+            }
+        })
+    })
+    $('.check').click(function (data) {
+        var aid = $(this).attr('key');
+        $.post("{:U('List/is_default')}",{aid:aid},function (data) {
+            if(data.status == 1){
+                alert('设置成功！')
+                location.reload();
+            }else if(3 == data){
+                location.reload();
+            }else{
+                alert(data.info)
+            }
+        })
+    })
+
+    $('.add_b').click(function () {
+
+        var aid = $(this).attr('key');
+        var id = '{$Think.get.id}';
+        location.href="/index.php/List/pay?id="+id+"&aid="+aid;
+    })
+
+</script>
 </html>

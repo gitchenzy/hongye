@@ -41,17 +41,17 @@
                 </div>
             </a>
         </div>
-        <div class="pay_1">
-            <div class="pay_2">
-                <p>微信号</p>
-            </div>
+        <!--<div class="pay_1">-->
+            <!--<div class="pay_2">-->
+                <!--<p>微信号</p>-->
+            <!--</div>-->
 
-        </div>
-        <div class="pay_3">
-            <div class="pay_4">
-                <input type="text" placeholder="必填">
-            </div>
-        </div>
+        <!--</div>-->
+        <!--<div class="pay_3">-->
+            <!--<div class="pay_4">-->
+                <!--<input type="text" placeholder="必填">-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="pay_1">
             <div class="pay_2">
                 <p>备注信息</p>
@@ -60,7 +60,7 @@
         </div>
         <div class="pay_3">
             <div class="pay_4">
-                <input type="text" placeholder="选填">
+                <input id="node" type="text" placeholder="选填">
             </div>
         </div>
         <div class="pay_1">
@@ -119,8 +119,9 @@
     $('#sub').click(function(){
 
         var return_id = '{$Think.get.id}';
-        var address_id = 4;
-        var info = {address_id:address_id,return_id:return_id};
+        var address_id = '{$aid}';
+        var node = node;
+        var info = {address_id:address_id,return_id:return_id,node:node};
         $.post("{:U('List/orders')}",info,function(data){
             if(data.status == 1){
                 //生成订单成功发起支付
