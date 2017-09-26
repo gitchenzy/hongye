@@ -1319,6 +1319,10 @@ div.flicking_con a.on{
 
 
 }
+.pay_box img{
+	width: 26px;
+	height: 26px;
+}
 .pay_6 p{
 	font-size:13px;
 	color:#000000;
