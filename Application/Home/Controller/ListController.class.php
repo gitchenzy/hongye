@@ -245,11 +245,23 @@ class ListController extends Controller {
     }
     //添加地址列表
     public function insert_address(){
-
-
-
         $this -> display('addr');
 
+    }
+    public function addaddr(){
+        $data = I('post.');
+        $user = get_user_info();
+        $data['user_id'] = $user['user_id'];
+        if($data['is_default'] == 2){
+            $info = M('address') -> where(['user_id'=>$user['user_id'],'is_default'=>2]) -> find();
+            M('address') -> where(['id'=>$info['id']]) -> save(['is_default'=>1]);
+        }
+        $address = M('address') -> add($data);
+        if($address){
+            $this -> success($address);
+        }else{
+            $this -> error('添加失败！');
+        }
     }
 
     public function pay(){
