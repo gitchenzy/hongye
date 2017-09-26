@@ -31,14 +31,15 @@
 
         </div>
         <div class="pay_3">
-            <div class="pay_4" style="position: relative;">
-                
-                <h1>{$addressinfo|default=请选择地址}</h1>
-                <div class="pay_4_pic" style="position: absolute;right:-5px;top:0px;">
-                    <img src="__PUBLIC__/Home/images/new/back_r.png">
-                </div>
+            <a href="{:U('List/addr_before',array('id'=>$_GET['id']))}">
+                <div class="pay_4" style="position: relative;">
+                    <h1>{$addressinfo|default=请选择地址}</h1>
+                    <div class="pay_4_pic" style="position: absolute;right:-5px;top:0px;">
+                        <img src="__PUBLIC__/Home/images/new/back_r.png">
+                    </div>
 
-            </div>
+                </div>
+            </a>
         </div>
         <div class="pay_1">
             <div class="pay_2">

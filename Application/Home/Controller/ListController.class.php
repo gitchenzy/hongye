@@ -236,6 +236,21 @@ class ListController extends Controller {
         $this -> display();
 
     }
+    //地址列表
+    public function addr_before(){
+        $user = get_user_info();
+        $address = M('address') -> where(['user_id'=>$user['user_id']]) -> select();
+        $this -> assign('address',$address);
+        $this -> display();
+    }
+    //添加地址列表
+    public function insert_address(){
+
+
+
+        $this -> display('addr');
+
+    }
 
     public function pay(){
         $id = I('id');
@@ -250,7 +265,8 @@ class ListController extends Controller {
         //查出这个会员的默认地址
         $address = M('address') -> where(['user_id'=>$user['user_id'],'is_default'=>2]) -> find();
         if($address){
-            $addressinfo = $address['province'].$address['city'].$address['area'].' '.$address['address'].' '.$address['name'].' '.$address['phone'];
+           // $addressinfo = $address['province'].$address['city'].$address['area'].' '.$address['address'].' '.$address['name'].' '.$address['phone'];
+            $addressinfo = $address['province'].$address['city'].$address['area'].' '.$address['address'];
         }else{
             $addressinfo = null;
         }
