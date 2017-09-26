@@ -247,7 +247,15 @@ class ListController extends Controller {
         //
         //查询出回报信息
         $info = M('project_return')-> field('title,amount') -> where(['id'=>$id]) -> find();
+        //查出这个会员的默认地址
+        $address = M('address') -> where(['user_id'=>$user['user_id'],'is_default'=>2]) -> find();
+        if($address){
+            $addressinfo = $address['province'].$address['city'].$address['area'].' '.$address['address'].' '.$address['name'].' '.$address['phone'];
+        }else{
+            $addressinfo = null;
+        }
         $this -> assign('return',$info);
+        $this -> assign('addressinfo',$addressinfo);
         $this -> display();
     }
     public function printf_info($data)

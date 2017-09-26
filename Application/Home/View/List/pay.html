@@ -21,7 +21,7 @@
         <div class="pay_3">
             <div class="pay_4">
                 <h1>{$return.title}</h1>
-                <h1 style="float:right">¥88</h1>
+                <h1 style="float:right">¥{$return.amount}</h1>
             </div>
         </div>
         <div class="pay_1">
@@ -31,11 +31,13 @@
 
         </div>
         <div class="pay_3">
-            <div class="pay_4">
-                <h1>请选择收货地址</h1>
-                <div class="pay_4_pic">
-                    <img src="../pics/new/back_r.png">
+            <div class="pay_4" style="position: relative;">
+                
+                <h1>{$addressinfo|default=请选择地址}</h1>
+                <div class="pay_4_pic" style="position: absolute;right:-5px;top:0px;">
+                    <img src="__PUBLIC__/Home/images/new/back_r.png">
                 </div>
+
             </div>
         </div>
         <div class="pay_1">
@@ -79,7 +81,7 @@
         <div class="pay_5">
             <div class="pay_6">
                 <div class="pay_box">
-                    <img src="__PUBLIC__/Home/images/微信.png">
+                    <img src="__PUBLIC__/Home/images/weixin.png">
                 </div>
                 <p>微信支付</p>
                 <div class="pay_imgs">
@@ -90,7 +92,7 @@
         <div class="pay_5">
             <div class="pay_6">
                 <div class="pay_box">
-                    <img src="__PUBLIC__/Home/images/银行卡.png">
+                    <img src="__PUBLIC__/Home/images/bank.png">
                 </div>
                 <p>余额支付</p>
                 <p>¥88</p>

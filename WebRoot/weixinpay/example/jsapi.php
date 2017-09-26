@@ -40,6 +40,7 @@ $order = WxPayApi::unifiedOrder($input);
 //printf_info($order);
 $jsApiParameters = $tools->GetJsApiParameters($order);
 
+//echo $jsApiParameters;
 //获取共享收货地址js函数参数
 $editAddress = $tools->GetEditAddressParameters();
 
@@ -66,7 +67,7 @@ $editAddress = $tools->GetEditAddressParameters();
 			<?php echo $jsApiParameters; ?>,
 			function(res){
 				WeixinJSBridge.log(res.err_msg);
-				alert(res.err_code+res.err_desc+res.err_msg);
+				//alert(res.err_code+res.err_desc+res.err_msg);
 			}
 		);
 	}
