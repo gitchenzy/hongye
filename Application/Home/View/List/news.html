@@ -74,6 +74,66 @@
 </div>
 <script type="text/javascript" src='__PUBLIC__/Static/uploadifive/Sample/jquery.uploadifive.min.js'></script>
 <script>
+    var text_a=$('.original_box textarea');
+    text_a.bind('click',sd)
+    function sd(){
+        text_a.html('')
+    }
+    function varify(){
+        var boo;
+        var reg = new RegExp("[\\u4E00-\\u9FFF]+","g");
+        var text_name=$('.original_in:eq(0) input').val();
+        var text_money=$('.original_in:eq(1) input').val();
+        var text_address=$('.original_in:eq(2) input').val();
+        var money_num=Number($('.original_in:eq(1) input').val());
+        var select=$('.original_in>ul li>input:checked');
+
+        function v_1(){
+            if(text_name===''){
+                alert('项目名称不能为空')
+            }else if(text_name.length>=10){
+                alert('名称长度不能超过10字')
+            }else{
+                return 1;
+            }
+        }
+        function v_2(){
+            if(text_money===''){
+                alert('项目金额不能为空')
+            }else if(typeof(money_num)!=='number'){
+                alert('请输入正确的金额')
+            }else if(Math.floor(money_num)<1){
+                alert('金额必须大于1元')
+            }else{
+                return 1;
+            }
+        }
+        function v_3(){
+            if(!reg.test(text_address)||text_address===''){
+                alert('请输入正确的地址')
+            }else{
+                return 1;
+            }
+        }
+        function v_4(){
+            if(select.length!==1){
+                alert('请选择项目分类')
+            }else{
+                return 1;
+            }
+        }
+        if(v_4()*v_3()*v_2()*v_1()===1){
+            //上述条件判定通过后执行提交功能
+        }
+
+        v_1();
+        v_2();
+        v_3();
+        v_4();
+    }
+    $('#sub').click(varify);//以上为验证用户输入信息
+
+
     //设置图片上传插件
     $(function () {
         $("#btn-upload").uploadifive({

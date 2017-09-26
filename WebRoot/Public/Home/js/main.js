@@ -1,8 +1,8 @@
 
 $(function(){
 	$("#c2").click(function(){
-	  $("#c2>.helftopbox").css("border-bottom","2px solid #d33d3e");
-	  $("#ac").css({"border":"none","color":"#D33D3E"});
+	  $("#c2>.helftopbox").css("border-bottom","2px solid #f45353");
+	  $("#ac").css({"border":"none","color":"#f45353"});
 	  $("#c1").css("border","none");
 	  $("#c1 a").css("color","#CCCCCC");	
 	  $("#img1").attr("src","__PUBLIC__/Home/imagesnew/farm.png");
@@ -21,9 +21,9 @@ $(function(){
 	  
 	})
 	$("#c4").click(function(){
-	  $("#c1").css("border-bottom","2px solid #d33d3e");
+	  $("#c1").css("border-bottom","2px solid #f45353");
 	  $("#ac").css({"border":"none","color":"#CCCCCC"});
-	  $("#c1 a").css("color","#D33D3E");
+	  $("#c1 a").css("color","#f45353");
 	  $("#c2 :first-child").css("border","none");
 	  $("#img1").attr("src","__PUBLIC__/Home/imagesnew/love.png")
 	  $("#img2").attr("src","__PUBLIC__/Home/imagesnew/togather.png");
