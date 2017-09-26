@@ -237,5 +237,54 @@ class ListController extends Controller {
 
     }
 
+    public function pay(){
+        $id = I('id');
+        $user = get_user_info();
+        if(!$user){
+            session('back_url','List/pay?id='.$id);
+            $this->redirect("Login/index");
+        }
+        //
+        //查询出回报信息
+        $info = M('project_return')-> field('title,amount') -> where(['id'=>$id]) -> find();
+        $this -> assign('return',$info);
+        $this -> display();
+    }
+    public function printf_info($data)
+    {
+        foreach($data as $key=>$value){
+            echo "<font color='#00ff55;'>$key</font> : $value <br/>";
+        }
+    }
+    public function notify(){
+        echo 'chenggong';
+    }
+    public function orders(){
+        //
+        $return_id = I('return_id');
+        $address_id = I('address_id');
+        $address = M('address') -> where(['id'=>$address_id]) -> find();
+        $return = M('project_return') -> where(['id'=>$return_id]) -> find();
+        $orders['name'] = $address['name'];
+        $orders['phone'] = $address['phone'];
+        $orders['province'] = $address['province'];
+        $orders['city'] = $address['city'];
+        $orders['area'] = $address['area'];
+        $orders['address'] = $address['address'];
+        $orders['time'] = time();
+        $orders['pay_amount'] = $return['amount'];
+        $orders['order_no'] = get_pay_no();
+        $user = get_user_info();
+        $orders['user_id'] = $user['user_id'];
+        $orders['project_id'] = $return['project_id'];
+        $orders['return_id'] = $return['id'];
+        $res = M('orders') -> add($orders);
+        if($res){
+            $this -> success($res,$orders['order_no']);
+        }else{
+            $this -> error('订单添加失败！');
+        }
+    }
+
 
 }

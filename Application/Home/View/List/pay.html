@@ -4,14 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css">
-    <title>红叶帮帮忙</title>
+    <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
+    <title>确认支付</title>
 </head>
 <body>
 <div class="all">
-    <div style="border-bottom:1px solid #cccccc" class="top">
-        <div class="top_arrow"></div>
-        <h4>确认支付</h4>
-    </div>
+    <!--<div style="border-bottom:1px solid #cccccc" class="top">-->
+        <!--<div class="top_arrow"></div>-->
+        <!--<h4>确认支付</h4>-->
+    <!--</div>-->
     <div class="pay_1">
         <div class="pay_2">
             <p>选择回报</p>
@@ -19,7 +20,7 @@
 
         <div class="pay_3">
             <div class="pay_4">
-                <h1>那就看看航空局</h1>
+                <h1>{$return.title}</h1>
             </div>
         </div>
         <div class="pay_1">
@@ -61,16 +62,16 @@
             </div>
 
         </div>
-        <div class="pay_5">
-            <div class="pay_6">
-                <div class="pay_box">
-                    <img src="             __PUBLIC__/Home/images/支付宝.png">
-                </div>
-                <p>支付宝</p>
-                <div class="pay_img">
-                </div>
-            </div>
-        </div>
+        <!--<div class="pay_5">-->
+            <!--<div class="pay_6">-->
+                <!--<div class="pay_box">-->
+                    <!--<img src="             __PUBLIC__/Home/images/支付宝.png">-->
+                <!--</div>-->
+                <!--<p>支付宝</p>-->
+                <!--<div class="pay_img">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="pay_5">
             <div class="pay_6">
                 <div class="pay_box">
@@ -96,9 +97,36 @@
         <div class="pay_bottom">
         </div>
         <div class="pay_b">
-            <button type="submit">确认支付</button>
-            <p>¥88</p>
+            <button id="sub" type="submit">确认支付</button>
+            <p>¥ {$return.amount}</p>
             <p>合计</p>
         </div>
+
+    </div>
+</div>
 </body>
+<script>
+    $('#sub').click(function(){
+
+        var return_id = '{$Think.get.id}';
+        var address_id = 4;
+        var info = {address_id:address_id,return_id:return_id};
+        $.post("{:U('List/orders')}",info,function(data){
+            if(data.status == 1){
+                //生成订单成功发起支付
+                var id= data.info;
+                var no= data.url;
+                location.href='http://test.hybbms.com/weixinpay/example/jsapi.php?id='+id+'&no='+no;
+
+
+            }else{
+                alert('订单发起支付失败，请重新确认！');
+            }
+
+        });
+
+    })
+
+
+</script>
 </html>

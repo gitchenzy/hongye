@@ -5,15 +5,16 @@ class LoginController extends Controller {
     public function index(){
 
         $this -> assign('title','登录');
+        $this -> assign('url',C('WX_LOGIN_URL'));
+        $this -> assign('appid',C('WX_APP_ID'));
         $this -> display();
     }
-
     //微信
     public function w_login(){
         //获取到code然后进行交换access_token
         $code = I('code');
-        $appid= 'wx0b85d7f8a7e30ede';
-        $secret= 'beeaabb1f061ca13ef73acbc74b4d028';
+        $appid= C('WX_APP_ID');
+        $secret=  C('WX_APP_SECRET');
 
         $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid={$appid}&secret={$secret}&code={$code}&grant_type=authorization_code";
         $info = curl_request($url);
