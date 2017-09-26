@@ -108,6 +108,23 @@ body{
     float: right;
     display: block;
 }
-.info select{ margin-right:10px;border:2px #f45353 solid; background:#FFFFFF;width:68px;height: 25px;font-size: 14px;border-radius: 3px;float: left}
-.info{position: relative;top: -23px;left:90px;  text-align:center;width:300px;height:30px;font-size: 30px;}
-.info #show{ color:#f45353; }
+
+.info select{ margin-right:10px;
+    border:2px #d33d3e solid;
+    background:#FFFFFF;
+    width:68px;
+    height: 25px;
+    font-size: 14px;
+    border-radius: 3px;
+    float: left
+}
+.info{position: relative;
+    top: -23px;
+    left:90px;
+    text-align:center;
+    width:300px;
+    height:30px;
+    font-size: 30px;
+}
+.info #show{ color:#d33d3e; }
+

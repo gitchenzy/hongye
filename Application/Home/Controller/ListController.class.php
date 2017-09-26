@@ -245,15 +245,71 @@ class ListController extends Controller {
     }
     //添加地址列表
     public function insert_address(){
-
-
-
         $this -> display('addr');
 
     }
+    public function addaddr(){
+        $data = I('post.');
+        $user = get_user_info();
+        $data['user_id'] = $user['user_id'];
+        if($data['is_default'] == 2){
+            $info = M('address') -> where(['user_id'=>$user['user_id'],'is_default'=>2]) -> find();
+            M('address') -> where(['id'=>$info['id']]) -> save(['is_default'=>1]);
+        }
+        $aid = $data['aid'];
+        unset($data['aid']);
+        if($aid > 0){
+            $address = M('address') -> where(['id'=>$aid]) ->save($data);
+        }else{
+            $count = M('address') -> where(['user_id'=>$user['user_id']]) -> count();
+            if($count > 20){
+                $this -> error('每个人最多添加20条地址！');
+            }
+            $address = M('address') -> add($data);
+        }
 
+        if($address){
+            $this -> success($address);
+        }else{
+            $this -> error('添加失败！');
+        }
+    }
+    public function editaddr(){
+        $aid = I('aid');
+        $address = M('address') -> where(['id'=>$aid]) -> find();
+        $this -> assign('address',$address);
+        $this -> display('addr');
+    }
+    public function deladdr(){
+        $aid = I('aid');
+        $address = M('address') -> where(['id'=>$aid]) -> delete();
+        if($address){
+            $this -> success('删除成功！');
+        }else{
+            $this -> error('删除失败！');
+        }
+    }
+    public function is_default(){
+        $user = get_user_info();
+        $aid = I('aid');
+        $info = M('address') -> where(['user_id'=>$user['user_id'],'is_default'=>2]) -> find();
+        if($info['id'] != $aid){
+            M('address') -> where(['id'=>$info['id']]) -> save(['is_default'=>1]);
+            $res = M('address') -> where(['id'=>$aid]) -> save(['is_default'=>2]);
+            if($res){
+                $this -> success('设置成功！');
+            }else{
+                $this -> error('设置失败！');
+            }
+        }else{
+            echo 3;
+        }
+
+
+    }
     public function pay(){
         $id = I('id');
+        $aid = I('aid');
         $user = get_user_info();
         if(!$user){
             session('back_url','List/pay?id='.$id);
@@ -263,7 +319,13 @@ class ListController extends Controller {
         //查询出回报信息
         $info = M('project_return')-> field('title,amount') -> where(['id'=>$id]) -> find();
         //查出这个会员的默认地址
-        $address = M('address') -> where(['user_id'=>$user['user_id'],'is_default'=>2]) -> find();
+        if($aid){
+            $address = M('address') -> where(['id'=>$aid]) -> find();
+        }else{
+            $address = M('address') -> where(['user_id'=>$user['user_id'],'is_default'=>2]) -> find();
+            $aid = $address['id'];
+        }
+
         if($address){
            // $addressinfo = $address['province'].$address['city'].$address['area'].' '.$address['address'].' '.$address['name'].' '.$address['phone'];
             $addressinfo = $address['province'].$address['city'].$address['area'].' '.$address['address'];
@@ -271,22 +333,15 @@ class ListController extends Controller {
             $addressinfo = null;
         }
         $this -> assign('return',$info);
+        $this -> assign('aid',$aid);
         $this -> assign('addressinfo',$addressinfo);
         $this -> display();
-    }
-    public function printf_info($data)
-    {
-        foreach($data as $key=>$value){
-            echo "<font color='#00ff55;'>$key</font> : $value <br/>";
-        }
-    }
-    public function notify(){
-        echo 'chenggong';
     }
     public function orders(){
         //
         $return_id = I('return_id');
         $address_id = I('address_id');
+        $node = I('node');
         $address = M('address') -> where(['id'=>$address_id]) -> find();
         $return = M('project_return') -> where(['id'=>$return_id]) -> find();
         $orders['name'] = $address['name'];
@@ -302,6 +357,7 @@ class ListController extends Controller {
         $orders['user_id'] = $user['user_id'];
         $orders['project_id'] = $return['project_id'];
         $orders['return_id'] = $return['id'];
+        $orders['node'] = $node;
         $res = M('orders') -> add($orders);
         if($res){
             $this -> success($res,$orders['order_no']);
