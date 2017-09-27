@@ -1,30 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css">
+
+
+<extend name="Public:main" />
+
+<block name="css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/blank.css">
-    <script type="text/javascript" src="__PUBLIC__/Home/js//jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/Home/js//jquery.event.drag-1.5.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/Home/js//jquery.touchSlider.js"></script>
+</block>
+<block name="content">
 
-    <title>红叶筹</title>
-    <!--
-    <script>
-      var sch=window.availHeight;
-      var allsch=document.getElementsByClassName("all");
-      function(){
-         allsch.style.height=sch+"px" ;
-      }
-    window.onload=function();
-    </script>
-    -->
-
-
-</head>
-
-<body>
 <div style="background:#FFFFFF" class="all">
     <div style="border-bottom:1px #e5e5e5 solid;" class="top">
         <div class="top">
@@ -32,7 +14,7 @@
                 <div class="midtopbox">
                 </div>
                 <div style="border:none;width:40px" class="helftopbox">
-                    <h1><a href="news.html" style="color:#e5e5e5">动态</a></h1>
+                    <h1><a href="" style="color:#e5e5e5">动态</a></h1>
                 </div>
             </div>
             <div id="r_1" class="helftop">
@@ -114,54 +96,4 @@
 
 
 
-
-
-
-
-
-        <div class="main_botoom">
-            <div class="main_bottom_box">
-                <div class="main_bottom_box_mid">
-
-                    <a href="{:U('Index/index')}"><img src="__PUBLIC__/Home/images/new/home_1.png"></a>
-
-                    <a href="{:U('Index/index')}">主页</a>
-                </div>
-            </div>
-            <div class="main_bottom_box">
-                <div class="main_bottom_box_mid">
-
-                    <a href="{:U('List/index')}"><img src="__PUBLIC__/Home/images/new/find_1.png"></a>
-
-                    <a href="{:U('List/index')}">发现</a>
-                </div>
-
-            </div>
-            <div onclick="window.location.href='original.html'" class="main_bottom_box">
-                <div class="main_bottom_box_mid_icon">
-
-                    <a href="{:U('List/news')}"><img src="__PUBLIC__/Home/images/new/go.png"></a>
-
-
-                </div>
-            </div>
-            <div class="main_bottom_box">
-                <div class="main_bottom_box_mid">
-
-                    <a href="{:U('Massage/massage')}"><img src="__PUBLIC__/Home/images/new/news_2.png"></a>
-
-                    <a  style="color:#f45353" href="{:U('Massage/massage')}">消息</a>
-                </div>
-            </div>
-            <div class="main_bottom_box">
-                <div class="main_bottom_box_mid">
-
-                    <a href="{:U('Center/index')}"><img src="__PUBLIC__/Home/images/new/mine_1.png"></a>
-
-                    <a href="{:U('Center/index')}">我的</a>
-                </div>
-            </div>
-
-        </div>
-</body>
-</html>
+</block>

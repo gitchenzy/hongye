@@ -67,14 +67,16 @@
             </div>
 
         </div>
-        <div class="midcard_content">
-            <h2>{$vo.title}</h2>
-        </div>
-        <div class="midcard_img">
-            <div align="center" class="midcard_img_content">
-                <img src="{$vo.pic}">
+        <a href="{:U('List/content',array('id'=>$vo['id']))}">
+            <div class="midcard_content">
+                <h2>{$vo.title}</h2>
             </div>
-        </div>
+            <div class="midcard_img">
+                <div align="center" class="midcard_img_content">
+                    <img src="{$vo.pic}">
+                </div>
+            </div>
+        </a>
         <!--<div class="midcard_contain">-->
             <!--<span>{$vo.dsc|htmlspecialchars}</span>-->
         <!--</div>-->
