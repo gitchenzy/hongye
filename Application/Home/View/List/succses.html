@@ -10,10 +10,16 @@
 <body>
 <div class="page">
     <div class="scc">
-        <img src="../pics/new/cir.png">
+        <img src="__PUBLIC__/Home/images/new/cir.png">
     </div>
     <div class="suc">
-        <h1>支付成功</h1>
+        <h1>
+            <eq name="id" value="1">
+            支付成功
+                <else />
+            支付失败
+            </eq>
+        </h1>
         <p>将在</p>
         <p>5s</p>
         <p>后跳转</p>

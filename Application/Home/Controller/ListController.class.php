@@ -365,6 +365,12 @@ class ListController extends Controller {
             $this -> error('订单添加失败！');
         }
     }
+    //支付成功跳转的页面
+    public function succ(){
 
+        $id=I('id');
+        $this -> assign('id',$id);
+        $this -> display('succses');
+    }
 
 }

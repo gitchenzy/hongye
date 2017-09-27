@@ -126,6 +126,7 @@
             if(data.status == 1){
                 //生成订单成功发起支付
                 var id= data.info;
+                console.log(data.url);
                 var no= data.url;
                 location.href='http://test.hybbms.com/weixinpay/example/jsapi.php?id='+id+'&no='+no;
 

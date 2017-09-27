@@ -23,7 +23,7 @@ return array(
     'TMPL_PARSE_STRING' => array(
         '__PUBLIC__' => __ROOT__ . '/public',
     ),
-
+    'URL_CASE_INSENSITIVE' =>true,
     'LOG_RECORD' => true, // 开启日志记录
     'LOG_LEVEL'  =>'EMERG,ALERT,CRIT,ERR',
     'LOG_FILE_SIZE' => 1024 * 1024 * 256 ,

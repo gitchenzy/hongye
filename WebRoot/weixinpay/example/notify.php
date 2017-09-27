@@ -33,6 +33,8 @@ class PayNotifyCallBack extends WxPayNotify
 	public function NotifyProcess($data, &$msg)
 	{
 		Log::DEBUG("call back:" . json_encode($data));
+
+		//var_dump($data);
 		$notfiyOutput = array();
 		
 		if(!array_key_exists("transaction_id", $data)){
@@ -44,7 +46,39 @@ class PayNotifyCallBack extends WxPayNotify
 			$msg = "订单查询失败";
 			return false;
 		}
-		return true;
+		//有产生订单就是已经支付成功 则生成一定支付记录，并且修改订单的支出状态
+        $order_id = $data['attach'];
+        $mysql = new mysqli('localhost','root','2017hybbms.com','hongye');
+        $mysql -> autocommit(FALSE);
+        $time = time();
+        Log::DEBUG("call sql:" . $order_id);
+        $sql = 'update orders set pay_time = '.$time.',status = 2 where id ='.$order_id;
+        Log::DEBUG("call sql:" . $sql);
+        $res = $mysql -> query($sql);
+        if($res){
+            $sql = "select  * from orders WHERE id = {$order_id}";
+            Log::DEBUG("call sql:" . $sql);
+            $res = $mysql -> query($sql);
+            $list  = $res->fetch_assoc();
+            $mysql -> set_charset("utf8");
+            $sql = "insert into user_pay(user_id,pay_no,amount,pay_time,pay_name) value({$list['user_id']},{$list['order_no']},{$list['pay_amount']},{$time},'付款')";
+            Log::DEBUG("call sql:" . $sql);
+            $res = $mysql -> query($sql);
+            if($res){
+                $mysql->commit(); //提交事务
+                $mysql->autocommit(TRUE); //开启自动提交功能
+                return true;
+            }else{
+                $msg = "订单流水添加失败";
+                $mysql -> rollback();
+                return false;
+            }
+        }else{
+            $msg = "订单更新失败";
+            $mysql -> rollback();
+            return false;
+        }
+
 	}
 }
 
