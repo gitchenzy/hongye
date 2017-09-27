@@ -23,7 +23,7 @@ html body {
 	margin:0px;
 	height:44px;
 	background:#FFFFFF;
-	border-bottom:1px solid #cccccc;
+	border-bottom:1px solid #e5e5e5;
 }
 .head h1{
 	font-size:20px;
@@ -97,7 +97,7 @@ html body {
 	width:80px;
 	margin:0px auto 0px auto;
 
-	/*border-bottom:2px solid #CCCCCC;*/
+	/*border-bottom:2px solid #e5e5e5;*/
 	/*border-bottom:2px solid #f45353;*/
 	display:block;
 
@@ -106,7 +106,7 @@ html body {
 }
 .helftopbox a{
 	font-size:20px;
-	top:-4px;
+	top:-2px;
 	/*color:#f45353;*/
     position: relative;
 	color:#ccc;
@@ -130,7 +130,7 @@ html body {
 	margin:0px;
 	padding:0;
 	background:#FFFFFF;
-	border-bottom: 1px solid #cccccc;
+	border-bottom: 1px solid #e5e5e5;
 
 }
 .mid_box {
@@ -169,7 +169,7 @@ html body {
 	margin:1px 0px 0px 0px;
 	padding-top: 2px;
 	background:#FFFFFF;
-	border-bottom: 1px solid #cccccc;
+	border-bottom: 1px solid #e5e5e5;
 
 
 }
@@ -232,7 +232,7 @@ html body {
 .midcard_address p{
 	font-size:12px;
 	color:#666666;
-	line-height:32px;
+	line-height:28px;
 }
 .midcard_content{
 	width:100%;
@@ -273,7 +273,7 @@ html body {
 	width:100%;
 	padding:0px;
 	height:3px;
-	margin:0;
+	margin-top:40px;
 
 }
 .midcard_tip_1{
@@ -297,15 +297,18 @@ html body {
 	overflow:hidden;
 	border-radius: 3px;
 
-	height:134px;
+	height:164px;
 
 
 }
-
+.midcard_img_content img{
+	width:330px;
+	height:164px;
+}
 .midcard_bottom{
 	width:100%;
 	height:20px;
-	margin-top:2px;
+	margin-top:10px;
 	padding:0px;
 
 }
@@ -328,7 +331,7 @@ html body {
 	position:fixed;
 	bottom:0%;
 	background:#FFFFFF;
-	border-top:1px solid #CCCCCC;
+	border-top:1px solid #e5e5e5;
 
 }
 .main_bottom_box{
@@ -398,7 +401,7 @@ html body {
 	margin:0px 15px 0px 15px;
 	padding:0px;
 	height:78px;
-	border-bottom:1px #CCCCCC solid;
+	border-bottom:1px #e5e5e5 solid;
 	color: #343434;
 }
 .stantic_lang_2 p{
@@ -464,7 +467,7 @@ html body {
 }
 .end span{
 	font-size:12px;
-	color:#CCCCCC;
+	color:#e5e5e5;
 
 
 }
@@ -534,7 +537,7 @@ html body {
 }
 .midcard_news_cp p{
 	font-size:14px;
-	color:#CCCCCC;
+	color:#e5e5e5;
 	display:inline-block;
 
 	margin-right:5px;
@@ -654,7 +657,7 @@ div.flicking_con a.on{
 	margin:0px 15px 0px 15px;
 	padding-top:10px;
 	height:92px;
-	border-bottom:1px #CCCCCC solid;
+	border-bottom:1px #e5e5e5 solid;
 
 
 }
@@ -739,7 +742,7 @@ div.flicking_con a.on{
 	width:130px;
 	height:32px;
 	border-radius:16px;
-	border:1px solid #CCCCCC;
+	border:1px solid #e5e5e5;
 	background:#FFFFFF;
 	float:left;
 	text-align:center;
@@ -780,7 +783,7 @@ div.flicking_con a.on{
 	margin:0px 15px 0px 15px;
 	height:46px;
 
-	border-bottom:1px solid #CCCCCC;
+	border-bottom:1px solid #e5e5e5;
 
 	padding: 0;
 
@@ -817,7 +820,7 @@ div.flicking_con a.on{
 .cash_black{
 	width:100%;
 	height:100%;
-	background:#CCCCCC
+	background:#e5e5e5
 
 }
 /*--find--*/
@@ -833,7 +836,7 @@ div.flicking_con a.on{
 .find_titile{
 	width:100%;
 	height:41px;
-	border-bottom:1px solid #CCCCCC;
+	border-bottom:1px solid #e5e5e5;
 	margin:0px;
 	padding:0px;
 
@@ -1129,7 +1132,7 @@ div.flicking_con a.on{
 .police_in{
 	margin:0px 15px 0px 15px;
 	height:132px;
-	border-bottom:1px #CCCCCC solid;
+	border-bottom:1px #e5e5e5 solid;
 }
 .police_pe_img{
 	width:75px;
@@ -1169,7 +1172,7 @@ div.flicking_con a.on{
 	height:44px;
 	width:220px;
 	margin:0px;
-	border-bottom:1px solid #CCCCCC;
+	border-bottom:1px solid #e5e5e5;
 
 
 }
@@ -1188,7 +1191,7 @@ div.flicking_con a.on{
 	width:100px;
 	height:18px;
 	border:none;
-	color:#CCCCCC;
+	color:#e5e5e5;
 
 
 }
@@ -1219,7 +1222,7 @@ div.flicking_con a.on{
 	width:100px;
 	height:18px;
 	border:none;
-	color:#CCCCCC;
+	color:#e5e5e5;
 
 
 
@@ -1264,7 +1267,7 @@ div.flicking_con a.on{
 .pay_1{
 	width:100%;
 	height:27px;
-	background:#CCCCCC;
+	background:#e5e5e5;
 
 
 }
@@ -1304,7 +1307,7 @@ div.flicking_con a.on{
 	width:100px;
 	height:28px;
 	border:none;
-	color:#CCCCCC;
+	color:#e5e5e5;
 	line-height:35px;
 
 }
@@ -1317,7 +1320,7 @@ div.flicking_con a.on{
 .pay_6{
 	margin:0px 15px 0px 15px;
 	height:43px;
-	border-bottom:1px #CCCCCC solid;
+	border-bottom:1px #e5e5e5 solid;
 
 }
 .pay_box{
@@ -1344,7 +1347,7 @@ div.flicking_con a.on{
 	height:15px;
 	float:right;
 	margin:15px 0px 0px 0px;
-	background:#f45353;
+
 	border-radius:7.5px;
 
 }
@@ -1352,9 +1355,8 @@ div.flicking_con a.on{
 	width:14px;
 	height:14px;
 	float:right;
-	border:1px solid #CCCCCC;
+	border:1px solid #e5e5e5;
 	margin:15px 0px 0px 0px;
-	background:#FFFFFF;
 	border-radius:7.5px;
 
 }
@@ -1379,7 +1381,7 @@ div.flicking_con a.on{
 	width:100%;
 	background:#FFFFFF;
 	bottom:0px;
-	border-top:1px solid #CCcccc;
+	border-top:1px solid #e5e5e5;
 }
 .pay_b p{
 	font-size:13px;
@@ -1496,7 +1498,7 @@ div.flicking_con a.on{
 .content_bin{
 	margin:0px;
 	height:27px;
-	border-bottom:1px #CCCCCC solid;
+	border-bottom:1px #e5e5e5 solid;
 	padding:16px 5px 0px 10px;
 	overflow:hidden;
 }
@@ -1561,7 +1563,7 @@ div.flicking_con a.on{
 .notes{
 	margin:15px 15px 0px 15px;
 	height:45px;
-	border-bottom:1px solid #CCCCCC;
+	border-bottom:1px solid #e5e5e5;
 }
 .notes p{
 	font-size:16px;
@@ -1580,7 +1582,7 @@ div.flicking_con a.on{
 .notes_b{
 	/*height:500px;*/
 	width:100%;
-	background:#CCCCCC;
+	background:#e5e5e5;
 
 }
 /*-works-*/
@@ -1658,6 +1660,10 @@ div.flicking_con a.on{
 
 
 }
+.work_bb img{
+	width:14px;
+	height: 16px;
+}
 .work_bb p{
 	font-size:12px;
 	color:#666666;
@@ -1720,7 +1726,7 @@ div.flicking_con a.on{
 .get_bg{
 	width:100%;
 	height:960px;
-	background:#CCCCCC;
+	background:#e5e5e5;
 	padding-top:10px
 
 }
@@ -1733,7 +1739,7 @@ div.flicking_con a.on{
 .get_text{
 	margin:0px 15px 15px 15px;
 	height:45px;
-	border-bottom:1px #CCCCCC solid;
+	border-bottom:1px #e5e5e5 solid;
 
 }
 .get_text h1{
@@ -1744,7 +1750,7 @@ div.flicking_con a.on{
 }
 .get_text p{
 	font-size:12px;
-	color:#CCCCCC;
+	color:#e5e5e5;
 	float:right;
 	line-height:45px;
 }
@@ -1760,13 +1766,13 @@ div.flicking_con a.on{
 }
 .get_content span{
 	font-size:13px;
-	color:#CCCCCC;
+	color:#e5e5e5;
 	margin-bottom:40px;
 
 }
 .get_content p{
 	font-size:13px;
-	color:#CCCCCC;
+	color:#e5e5e5;
 }
 
 /*-first-*/
@@ -1811,7 +1817,7 @@ div.flicking_con a.on{
 }
 .first_in p{
 	font-size:12px;
-	color:#CCCCCC;
+	color:#e5e5e5;
 	display:block;
 
 
@@ -1835,12 +1841,12 @@ div.flicking_con a.on{
 .first_l{
 	margin:10px 0px 0px 35px;
 	height:10px;
-	border-bottom:1px solid #CCCCCC;
+	border-bottom:1px solid #e5e5e5;
 
 
 }
 .first_blow p{
-	color:#CCCCCC;
+	color:#e5e5e5;
 	font-size:14px;
 	margin:5px 0px 0px 10px;
 
@@ -1885,12 +1891,12 @@ div.flicking_con a.on{
 	margin:0px auto 0px auto;
 	padding:5px 0 0 0;
 	border:none;
-	color:#CCCCCC;
+	color:#e5e5e5;
     resize: none;
 }
 .first_inbox h1{
 	font-size:13px;
-	color:#CCCCCC;
+	color:#e5e5e5;
 
 	margin:10px 0px 0px 5px;
 
@@ -1907,7 +1913,7 @@ div.flicking_con a.on{
 	width:48%;
 	height:24px;
 	margin:11px 0px 12px 0px;
-	border-right:1px solid #CCCCCC;
+	border-right:1px solid #e5e5e5;
 	float:left;
 	text-align: center;
 }
@@ -1936,7 +1942,7 @@ div.flicking_con a.on{
 .build_in{
 	margin:0px 15px 0px 15px;
 	height:30px;
-	border-bottom:1px solid #cccccc;
+	border-bottom:1px solid #e5e5e5;
 	padding-top:10px;
 
 }
@@ -1947,7 +1953,7 @@ div.flicking_con a.on{
 
 }
 .build_rr p{
-	color:#CCCCCC;
+	color:#e5e5e5;
 	float:left;
 	font-size:14px;
 }
@@ -1961,7 +1967,7 @@ div.flicking_con a.on{
 .buildl{
 	width:64px;
 	height:14px;
-	border-right:1px solid #CCCCCC;
+	border-right:1px solid #e5e5e5;
 	float:left;
 }
 .buildl p{
@@ -1974,7 +1980,7 @@ div.flicking_con a.on{
 	height:14px;
 	float:left;
 	border:none;
-	color:#CCCCCC;
+	color:#e5e5e5;
 	margin-left:10px;
 
 }
@@ -1998,7 +2004,7 @@ div.flicking_con a.on{
 .create_in{
 	margin:0px 15px 0px 15px;
 	height:40px;
-	border-bottom:1px solid #CCCCCC;
+	border-bottom:1px solid #e5e5e5;
 }
 .create_in p{
 	font-size:14px;
@@ -2017,7 +2023,7 @@ div.flicking_con a.on{
 .create_ni{
 	margin:0px 15px 0px 15px;
 	height:60px;
-	border-bottom:1px solid #CCCCCC;
+	border-bottom:1px solid #e5e5e5;
 
 }
 .create_ni p{
@@ -2107,7 +2113,7 @@ div.flicking_con a.on{
 }
 .original_box textarea{
 	border:none;
-	color:#CCCCCC;
+	color:#e5e5e5;
 	font-size:15px;
 	margin-top:12px;
 	resize: none;
@@ -2332,7 +2338,7 @@ div.flicking_con a.on{
 	text-decoration: none;
 	border: none;
 	font-size: 15px;
-	color: #cccccc;
+	color: #e5e5e5;
 	width:120px;
 
 }
@@ -2374,7 +2380,7 @@ div.flicking_con a.on{
 .inf_bin_img{
 	width:45px;
 	height: 45px;
-	background: #cccccc;
+	background: #e5e5e5;
 	border-radius:22.5px;
 	float: right;
 	margin:8px 0px 0px 0px;
@@ -2397,7 +2403,7 @@ div.flicking_con a.on{
 .inf_lin input{
 	text-decoration: none;
 	border: none;
-	color: #cccccc;
+	color: #e5e5e5;
 	font-size:14px;
 	height:20px;
 	width:100px;
@@ -2508,7 +2514,7 @@ div.flicking_con a.on{
 		height:44px;
 		width:195px;
 		margin:0px;
-		border-bottom:1px solid #CCCCCC;
+		border-bottom:1px solid #e5e5e5;
 
 
 	}
@@ -2527,7 +2533,7 @@ div.flicking_con a.on{
 		width:100px;
 		height:18px;
 		border:none;
-		color:#CCCCCC;
+		color:#e5e5e5;
 		font-size: 12px;
 
 	}

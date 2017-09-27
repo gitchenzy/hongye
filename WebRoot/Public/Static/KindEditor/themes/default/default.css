@@ -416,7 +416,7 @@
 /* container */
 .ke-container {
 	display: block;
-	border: 1px solid #CCCCCC;
+	border: 1px solid #e5e5e5;
 	background-color: #FFF;
 	overflow: hidden;
 	margin: 0;
@@ -505,7 +505,7 @@
 .ke-statusbar {
 	position: relative;
 	background-color: #F0F0EE;
-	border-top: 1px solid #CCCCCC;
+	border-top: 1px solid #e5e5e5;
 	font-size: 0;
 	line-height: 0;
 	*height: 12px;
@@ -580,7 +580,7 @@
 	margin: 2px 0;
 	height: 0;
 	overflow: hidden;
-	border-top: 1px solid #CCCCCC;
+	border-top: 1px solid #e5e5e5;
 	border-bottom: 1px solid #FFFFFF;
 	border-left: 0;
 	border-right: 0;

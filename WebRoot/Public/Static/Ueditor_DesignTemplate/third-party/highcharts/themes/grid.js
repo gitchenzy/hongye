@@ -93,7 +93,7 @@ Highcharts.theme = {
 	navigation: {
 		buttonOptions: {
 			theme: {
-				stroke: '#CCCCCC'
+				stroke: '#e5e5e5'
 			}
 		}
 	}

@@ -420,11 +420,11 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
 /* Buttons: http://hellohappy.org/css3-buttons/ */
 .sp-container button {
   background-color: #eeeeee;
-  background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
-  background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
-  background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
-  background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
-  background-image: linear-gradient(to bottom, #eeeeee, #cccccc);
+  background-image: -webkit-linear-gradient(top, #eeeeee, #e5e5e5);
+  background-image: -moz-linear-gradient(top, #eeeeee, #e5e5e5);
+  background-image: -ms-linear-gradient(top, #eeeeee, #e5e5e5);
+  background-image: -o-linear-gradient(top, #eeeeee, #e5e5e5);
+  background-image: linear-gradient(to bottom, #eeeeee, #e5e5e5);
   border: 1px solid #ccc;
   border-bottom: 1px solid #bbb;
   border-radius: 3px;

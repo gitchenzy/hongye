@@ -771,7 +771,7 @@
 }
 .layout-split-proxy-h,
 .layout-split-proxy-v {
-  background-color: #cccccc;
+  background-color: #e5e5e5;
 }
 .layout-split-north {
   border-bottom: 5px solid #444;
@@ -1423,7 +1423,7 @@
   color: #fff;
 }
 .datagrid-resize-proxy {
-  background: #cccccc;
+  background: #e5e5e5;
 }
 .datagrid-mask {
   background: #000;
@@ -2388,7 +2388,7 @@
   width: 16px;
   height: 500px;
   border-style: solid;
-  border-color: #cccccc;
+  border-color: #e5e5e5;
   border-width: 0 0 0 1px;
 }
 .m-btn .l-btn-icon-top .m-btn-line,
@@ -2424,7 +2424,7 @@
 .s-btn-active .s-btn-downarrow,
 .s-btn-plain-active .s-btn-downarrow {
   border-style: solid;
-  border-color: #cccccc;
+  border-color: #e5e5e5;
   border-width: 0 0 0 1px;
 }
 .messager-body {
