@@ -302,7 +302,6 @@ html body {
 
 
 
-
 }
 .midcard_img_content img{
 	width:330px;
@@ -1358,10 +1357,18 @@ div.flicking_con a.on{
 	width:14px;
 	height:14px;
 	float:right;
-	border:1px solid #e5e5e5;
+
 	margin:15px 0px 0px 0px;
 	border-radius:7.5px;
 
+}
+.pay_4_pic{
+	margin-top:8px;
+	float: right;
+}
+.pay_4_pic img{
+	width:16px;
+	height: 16px;
 }
 .pay_6 a{
 	font-size:13px;
