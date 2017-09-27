@@ -109,7 +109,7 @@ html body {
 	top:-2px;
 	/*color:#f45353;*/
     position: relative;
-	color:#ccc;
+	color:#a9a9a9;
 	text-align:center;
 	text-decoration:none;
 	font-weight:lighter;
@@ -1007,7 +1007,7 @@ div.flicking_con a.on{
 	background:url(../images/new/mybg.png) no-repeat center;
 	margin:0px;
 	padding-top:73px;
-
+    background-size: 360px 180px;;
 }
 .mine_in{
 	margin:0px 15px 0px 15px;
