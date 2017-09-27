@@ -936,7 +936,7 @@ div.flicking_con a.on{
 	overflow:hidden;
 	border-radius: 3px;
 	background:url(../images/img_main_3.jpg) no-repeat center;
-
+	background-size: 345px 195px;
 }
 .find_card_black{
 	height:33px;
