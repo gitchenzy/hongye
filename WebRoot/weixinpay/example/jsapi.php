@@ -9,17 +9,16 @@ require_once 'log.php';
 $logHandler= new CLogFileHandler("../logs/".date('Y-m-d').'.log');
 $log = Log::Init($logHandler, 15);
 
-//打印输出数组信息
-function printf_info($data)
-{
-    foreach($data as $key=>$value){
-        echo "<font color='#00ff55;'>$key</font> : $value <br/>";
-    }
-}
 //得到要付款的金额
 $order_id = $_GET['id'];
 $order_no = $_GET['no'];
+$mysql = new mysqli('localhost','root','2017hybbms.com','hongye');
+$sql = "select  * from orders WHERE order_no = {$order_no} and id = {$order_id}";
+$res = $mysql -> query($sql);
 
+$list  = $res->fetch_assoc();
+//var_dump($list);
+$jine = $list['pay_amount']*100;
 //①、获取用户openid
 $tools = new JsApiPay();
 $openId = $tools->GetOpenid();
@@ -27,13 +26,13 @@ $openId = $tools->GetOpenid();
 //②、统一下单
 $input = new WxPayUnifiedOrder();
 $input->SetBody("test");
-$input->SetAttach("test");
+$input->SetAttach($list['id']);
 $input->SetOut_trade_no(WxPayConfig::MCHID.date("YmdHis"));
-$input->SetTotal_fee("1");
+$input->SetTotal_fee($jine);
 $input->SetTime_start(date("YmdHis"));
 $input->SetTime_expire(date("YmdHis", time() + 600));
 $input->SetGoods_tag("test");
-$input->SetNotify_url("http://test.hybbms.com/example/notify.php");
+$input->SetNotify_url("http://test.hybbms.com/weixinpay/example/notify.php");
 $input->SetTrade_type("JSAPI");
 $input->SetOpenid($openId);
 $order = WxPayApi::unifiedOrder($input);
@@ -68,6 +67,15 @@ $editAddress = $tools->GetEditAddressParameters();
 			function(res){
 				WeixinJSBridge.log(res.err_msg);
 				//alert(res.err_code+res.err_desc+res.err_msg);
+
+                if(res.err_msg == "get_brand_wcpay_request:ok"){
+                    //alert(res.err_code+res.err_desc+res.err_msg);
+                    window.location.href="/index.php/list/succ?id=1";
+                }else{
+                    //返回跳转到订单详情页面
+                    window.location.href="/index.php/list/succ?id=2";
+
+                }
 			}
 		);
 	}
@@ -100,7 +108,7 @@ $editAddress = $tools->GetEditAddressParameters();
 				var value4 = res.addressDetailInfo;
 				var tel = res.telNumber;
 				
-				alert(value1 + value2 + value3 + value4 + ":" + tel);
+			//	alert(value1 + value2 + value3 + value4 + ":" + tel);
 			}
 		);
 	}
@@ -120,11 +128,105 @@ $editAddress = $tools->GetEditAddressParameters();
 	
 	</script>
 </head>
+<style>
+    *{
+        margin:0px;
+        padding:0px;
+        list-style:none;
+        text-decoration: none;
+
+    }
+    body{
+        background: #f2f2f2;
+    }
+    .page{
+        height: auto;
+    }
+    .tran{
+        width:100%;;
+        height: 70px;
+        margin-bottom: 25px;
+    }
+    .tran_in{
+        width:auto;
+        height: 70px;
+        margin: 25px auto 10px auto;
+        text-align: center;
+    }
+    .tran_in p{
+        font-size: 15px;
+        color: #181818;
+        line-height: 25px;
+    }
+    .tran_in h1{
+        font-size: 36px;
+        color: #000000;
+    }
+    .tran_b{
+        width:100%;
+        height: 89px;
+        background: #ffffff;
+    }
+    .tran_bin{
+        background: #ffffff;
+        margin: 0 15px 0 15px;
+        height: 44px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .tran_bin p{
+        font-size: 14px;
+        color: #a9a9a9;
+        display: inline-block;
+        line-height: 45px;
+    }
+    .tran_bin span{
+        font-size: 14px;
+        color: #000000;
+        float:right;
+        line-height: 45px;
+    }
+    .tran_last{
+        margin:25px 15px 0 15px;
+        height: 45px;
+        border-radius: 3px;
+        background: #d33d3e;
+        text-align: center
+    }
+    .tran_last p{
+        font-size: 16px;
+        color: #ffffff;
+        line-height: 45px;
+    }
+
+</style>
 <body>
     <br/>
-    <font color="#9ACD32"><b>该笔订单支付金额为<span style="color:#f00;font-size:50px">1分</span>钱</b></font><br/><br/>
-	<div align="center">
-		<button style="width:210px; height:50px; border-radius: 15px;background-color:#FE6714; border:0px #FE6714 solid; cursor: pointer;  color:white;  font-size:16px;" type="button" onclick="callpay()" >立即支付</button>
-	</div>
+    <div class="page">
+        <div class="tran">
+            <div class="tran_in">
+                <p>厦门红叶帮帮忙科技有限公司</p>
+                <h1>¥<?php echo $list['pay_amount'] ?></h1>
+            </div>
+        </div>
+        <div class="tran_b">
+            <div class="tran_bin">
+                <p>厦门红叶帮帮忙科技有限公司</p>
+                <span>红叶筹</span>
+            </div>
+            <div style="border:none;"class="tran_bin">
+                <p>订单号</p>
+                <span><?php echo $list['order_no'] ?></span>
+            </div>
+        </div>
+        <div class="tran_last">
+            <p onclick="callpay();">立即支付</p>
+        </div>
+    </div>
+
+<!--    <font color="#9ACD32"><b>该笔订单支付金额为<span style="color:#f00;font-size:50px">1分</span>钱</b></font><br/><br/>-->
+<!--	<div align="center">-->
+<!--		<button style="width:210px; height:50px; border-radius: 15px;background-color:#FE6714; border:0px #FE6714 solid; cursor: pointer;  color:white;  font-size:16px;" type="button" onclick="callpay()" >立即支付</button>-->
+<!--	</div>-->
 </body>
+
 </html>
