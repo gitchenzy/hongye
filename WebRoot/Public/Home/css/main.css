@@ -1007,7 +1007,7 @@ div.flicking_con a.on{
 	background:url(../images/new/mybg.png) no-repeat center;
 	margin:0px;
 	padding-top:73px;
-
+    background-size: 360px 180px;;
 }
 .mine_in{
 	margin:0px 15px 0px 15px;
