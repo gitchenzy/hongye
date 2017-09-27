@@ -3417,7 +3417,7 @@ SVGRenderer.prototype = {
 		// Normal state - prepare the attributes
 		normalState = merge({
 			'stroke-width': 1,
-			stroke: '#CCCCCC',
+			stroke: '#e5e5e5',
 			fill: {
 				linearGradient: verticalGradient,
 				stops: [

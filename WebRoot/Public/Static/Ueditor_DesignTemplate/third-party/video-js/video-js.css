@@ -11,7 +11,7 @@ skin name to your video tag instead of the default skin.
 e.g. <video class="video-js my-skin-name">
 */
 .vjs-default-skin {
-  color: #cccccc;
+  color: #e5e5e5;
 }
 /* Custom Icon Font
 --------------------------------------------------------------------------------

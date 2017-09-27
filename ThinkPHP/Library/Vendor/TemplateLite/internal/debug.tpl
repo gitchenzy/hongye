@@ -2,8 +2,8 @@
 
 {if isset($_templatelite_debug_output) and $_templatelite_debug_output eq "html"}
 	<table border=0 width=100%>
-	<tr bgcolor=#cccccc><th colspan=2>Template Lite Debug Console</th></tr>
-	<tr bgcolor=#cccccc><td colspan=2><b>Included templates & config files (load time in seconds):</b></td></tr>
+	<tr bgcolor=#e5e5e5><th colspan=2>Template Lite Debug Console</th></tr>
+	<tr bgcolor=#e5e5e5><td colspan=2><b>Included templates & config files (load time in seconds):</b></td></tr>
 	{foreach key=key value=templates from=$_debug_tpls}
 		<tr bgcolor={if $key % 2}#eeeeee{else}#fafafa{/if}>
 		<td colspan=2><tt>{for start=0 stop=$_debug_tpls[$key].depth}&nbsp;&nbsp;&nbsp;{/for}
@@ -14,7 +14,7 @@
 	{foreachelse}
 		<tr bgcolor=#eeeeee><td colspan=2><tt><i>No template assigned</i></tt></td></tr>	
 	{/foreach}
-	<tr bgcolor=#cccccc><td colspan=2><b>Assigned template variables:</b></td></tr>
+	<tr bgcolor=#e5e5e5><td colspan=2><b>Assigned template variables:</b></td></tr>
 	{foreach key=key value=vars from=$_debug_keys}
 		<tr bgcolor={if $key % 2}#eeeeee{else}#fafafa{/if}>
 		<td valign=top><tt><font color=blue>{ldelim}${$_debug_keys[$key]}{rdelim}</font></tt></td>
@@ -22,7 +22,7 @@
 	{foreachelse}
 		<tr bgcolor=#eeeeee><td colspan=2><tt><i>No template variables assigned</i></tt></td></tr>	
 	{/foreach}
-	<tr bgcolor=#cccccc><td colspan=2><b>Assigned config file variables (outer template scope):</b></td></tr>
+	<tr bgcolor=#e5e5e5><td colspan=2><b>Assigned config file variables (outer template scope):</b></td></tr>
 	{foreach key=key value=config_vars from=$_debug_config_keys}
 		<tr bgcolor={if $key % 2}#eeeeee{else}#fafafa{/if}>
 		<td valign=top><tt><font color=maroon>{ldelim}#{$_debug_config_keys[$key]}#{rdelim}</font></tt></td>
@@ -42,8 +42,8 @@
 	_templatelite_console = window.open("",title.value,"width=680,height=600,resizable,scrollbars=yes");
 	_templatelite_console.document.write("<HTML><TITLE>Template Lite Debug Console_"+self.name+"</TITLE><BODY bgcolor=#ffffff>");
 	_templatelite_console.document.write("<table border=0 width=100%>");
-	_templatelite_console.document.write("<tr bgcolor=#cccccc><th colspan=2>Template Lite Debug Console</th></tr>");
-	_templatelite_console.document.write("<tr bgcolor=#cccccc><td colspan=2><b>Included templates & config files (load time in seconds):</b></td></tr>");
+	_templatelite_console.document.write("<tr bgcolor=#e5e5e5><th colspan=2>Template Lite Debug Console</th></tr>");
+	_templatelite_console.document.write("<tr bgcolor=#e5e5e5><td colspan=2><b>Included templates & config files (load time in seconds):</b></td></tr>");
 	{foreach key=key value=templates from=$_debug_tpls}
 		_templatelite_console.document.write("<tr bgcolor={if $key % 2}#eeeeee{else}#fafafa{/if}>");
 		_templatelite_console.document.write("<td colspan=2><tt>{for start=0 stop=$_debug_tpls[$key].depth}&nbsp;&nbsp;&nbsp;{/for}");
@@ -54,7 +54,7 @@
 	{foreachelse}
 		_templatelite_console.document.write("<tr bgcolor=#eeeeee><td colspan=2><tt><i>No template assigned</i></tt></td></tr>	");
 	{/foreach}
-	_templatelite_console.document.write("<tr bgcolor=#cccccc><td colspan=2><b>Assigned template variables:</b></td></tr>");
+	_templatelite_console.document.write("<tr bgcolor=#e5e5e5><td colspan=2><b>Assigned template variables:</b></td></tr>");
 	{foreach key=key value=vars from=$_debug_keys}
 		_templatelite_console.document.write("<tr bgcolor={if $key % 2}#eeeeee{else}#fafafa{/if}>");
 		_templatelite_console.document.write("<td valign=top><tt><font color=blue>{ldelim}${$_debug_keys[$key]}{rdelim}</font></tt></td>");
@@ -62,7 +62,7 @@
 	{foreachelse}
 		_templatelite_console.document.write("<tr bgcolor=#eeeeee><td colspan=2><tt><i>No template variables assigned</i></tt></td></tr>");
 	{/foreach}
-	_templatelite_console.document.write("<tr bgcolor=#cccccc><td colspan=2><b>Assigned config file variables (outer template scope):</b></td></tr>");
+	_templatelite_console.document.write("<tr bgcolor=#e5e5e5><td colspan=2><b>Assigned config file variables (outer template scope):</b></td></tr>");
 	{foreach key=key value=config_vars from=$_debug_config_keys}
 		_templatelite_console.document.write("<tr bgcolor={if $key % 2}#eeeeee{else}#fafafa{/if}>");
 		_templatelite_console.document.write("<td valign=top><tt><font color=maroon>{ldelim}#{$_debug_config_keys[$key]}#{rdelim}</font></tt></td>");

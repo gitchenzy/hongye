@@ -23837,10 +23837,10 @@ UE.plugin.register('autoupload', function (){
                     utils.cssRule('loading',
                         '.loadingclass{display:inline-block;cursor:default;background: url(\''
                             + this.options.themePath
-                            + this.options.theme +'/images/loading.gif\') no-repeat center center transparent;border:1px solid #cccccc;margin-left:1px;height: 22px;width: 22px;}\n' +
+                            + this.options.theme +'/images/loading.gif\') no-repeat center center transparent;border:1px solid #e5e5e5;margin-left:1px;height: 22px;width: 22px;}\n' +
                             '.loaderrorclass{display:inline-block;cursor:default;background: url(\''
                             + this.options.themePath
-                            + this.options.theme +'/images/loaderror.png\') no-repeat center center transparent;border:1px solid #cccccc;margin-right:1px;height: 22px;width: 22px;' +
+                            + this.options.theme +'/images/loaderror.png\') no-repeat center center transparent;border:1px solid #e5e5e5;margin-right:1px;height: 22px;width: 22px;' +
                             '}',
                         this.document);
                 }
@@ -24539,10 +24539,10 @@ UE.plugin.register('simpleupload', function (){
                 utils.cssRule('loading',
                     '.loadingclass{display:inline-block;cursor:default;background: url(\''
                     + this.options.themePath
-                    + this.options.theme +'/images/loading.gif\') no-repeat center center transparent;border:1px solid #cccccc;margin-right:1px;height: 22px;width: 22px;}\n' +
+                    + this.options.theme +'/images/loading.gif\') no-repeat center center transparent;border:1px solid #e5e5e5;margin-right:1px;height: 22px;width: 22px;}\n' +
                     '.loaderrorclass{display:inline-block;cursor:default;background: url(\''
                     + this.options.themePath
-                    + this.options.theme +'/images/loaderror.png\') no-repeat center center transparent;border:1px solid #cccccc;margin-right:1px;height: 22px;width: 22px;' +
+                    + this.options.theme +'/images/loaderror.png\') no-repeat center center transparent;border:1px solid #e5e5e5;margin-right:1px;height: 22px;width: 22px;' +
                     '}',
                     this.document);
             },

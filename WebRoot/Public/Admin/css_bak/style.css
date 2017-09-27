@@ -418,7 +418,7 @@ i.icon_que {
 }
 .diTable td,.diTable th {
     font-weight:normal;
-    border:1px dotted #CCCCCC;
+    border:1px dotted #e5e5e5;
     padding:4px 8px 4px 8px;
     text-align:center;
 }

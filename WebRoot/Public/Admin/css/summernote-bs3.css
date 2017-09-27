@@ -648,7 +648,7 @@
   word-wrap: break-word;
   color: #333333;
   background-color: #f5f5f5;
-  border: 1px solid #cccccc;
+  border: 1px solid #e5e5e5;
   border-radius: 4px;
 }
 .note-editor pre code {
@@ -1625,7 +1625,7 @@
   vertical-align: middle;
   background-color: #ffffff;
   background-image: none;
-  border: 1px solid #cccccc;
+  border: 1px solid #e5e5e5;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -1916,7 +1916,7 @@ fieldset[disabled] .note-editor .btn {
 .note-editor .btn-default {
   color: #333333;
   background-color: #ffffff;
-  border-color: #cccccc;
+  border-color: #e5e5e5;
 }
 .note-editor .btn-default:hover,
 .note-editor .btn-default:focus,
@@ -1948,7 +1948,7 @@ fieldset[disabled] .note-editor .btn-default:active,
 .note-editor .btn-default[disabled].active,
 fieldset[disabled] .note-editor .btn-default.active {
   background-color: #ffffff;
-  border-color: #cccccc;
+  border-color: #e5e5e5;
 }
 .note-editor .btn-primary {
   color: #ffffff;
@@ -2867,7 +2867,7 @@ fieldset[disabled] .note-editor .btn-link:focus {
   list-style: none;
   font-size: 14px;
   background-color: #ffffff;
-  border: 1px solid #cccccc;
+  border: 1px solid #e5e5e5;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -3283,7 +3283,7 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
   color: #555555;
   text-align: center;
   background-color: #eeeeee;
-  border: 1px solid #cccccc;
+  border: 1px solid #e5e5e5;
   border-radius: 4px;
 }
 .note-editor .input-group-addon.input-sm {
@@ -3939,7 +3939,7 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
 .note-editor .navbar-default .navbar-nav > .disabled > a,
 .note-editor .navbar-default .navbar-nav > .disabled > a:hover,
 .note-editor .navbar-default .navbar-nav > .disabled > a:focus {
-  color: #cccccc;
+  color: #e5e5e5;
   background-color: transparent;
 }
 .note-editor .navbar-default .navbar-toggle {
@@ -3950,7 +3950,7 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
   background-color: #dddddd;
 }
 .note-editor .navbar-default .navbar-toggle .icon-bar {
-  background-color: #cccccc;
+  background-color: #e5e5e5;
 }
 .note-editor .navbar-default .navbar-collapse,
 .note-editor .navbar-default .navbar-form {
@@ -3995,7 +3995,7 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
   .note-editor .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
   .note-editor .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
   .note-editor .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
-    color: #cccccc;
+    color: #e5e5e5;
     background-color: transparent;
   }
 }
@@ -4118,7 +4118,7 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
 .note-editor .breadcrumb > li + li:before {
   content: "/\00a0";
   padding: 0 5px;
-  color: #cccccc;
+  color: #e5e5e5;
 }
 .note-editor .breadcrumb > .active {
   color: #999999;
@@ -5223,7 +5223,7 @@ button.note-editor .close {
   text-align: left;
   background-color: #ffffff;
   background-clip: padding-box;
-  border: 1px solid #cccccc;
+  border: 1px solid #e5e5e5;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);

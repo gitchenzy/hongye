@@ -62,9 +62,9 @@
 }
 .window-shadow {
   background: #ccc;
-  -moz-box-shadow: 2px 2px 3px #cccccc;
-  -webkit-box-shadow: 2px 2px 3px #cccccc;
-  box-shadow: 2px 2px 3px #cccccc;
+  -moz-box-shadow: 2px 2px 3px #e5e5e5;
+  -webkit-box-shadow: 2px 2px 3px #e5e5e5;
+  box-shadow: 2px 2px 3px #e5e5e5;
   filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=2,MakeShadow=false,ShadowOpacity=0.2);
 }
 .window,

@@ -10,9 +10,22 @@
 <body>
 <div class="blank">
     <div class="blank_pic">
-        <img src="../pics/new/none.jpg">
+        <img src="__PUBLIC__/Home/images/new/zu.png">
     </div>
     <p>抱歉，暂时没有相关信息</p>
+    <a id="link">3s后跳转</a>
 </div>
+<script>
+  var n=3;
+  function  timer() {
+      n--;
+      $('#link').html(n+'s后跳转');
+      if(n===0){
+          location.href='/index.php/Index/index';
+      }
+  }
+  setInterval(timer,1000);
+    </script>
+<script tyep="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
 </body>
 </html>
