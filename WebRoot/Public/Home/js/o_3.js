@@ -7,15 +7,15 @@ $(function(){
 	var n_5=$("div.helftopbox:eq(1)");
 	n_1.click(function(){
 		n_2.css("color","#CCCCCC");
-		n_3.css("color","#D33D3E");
+		n_3.css("color","#f45353");
 		n_4.css("border","none");
-		n_5.css("border-bottom","2px solid #d33d3e");
+		n_5.css("border-bottom","2px solid #f45353");
 		
 	})
 	n_0.click(function(){
-		n_2.css("color","#D33D3E");
+		n_2.css("color","#f45353");
 		n_3.css("color","#CCCCCC");
-		n_4.css("border-bottom","2px solid #d33d3e");
+		n_4.css("border-bottom","2px solid #f45353");
 		n_5.css("border-bottom","none");
 		
 	})

@@ -82,7 +82,7 @@ body{
 .addr_o{
     height: 40px;
     width: 100%;
-    background: #d33d3e;
+    background: #f45353;
     text-align: center;
     margin:8px 0 0 0;
 
@@ -108,6 +108,7 @@ body{
     float: right;
     display: block;
 }
+
 .info select{ margin-right:10px;
     border:2px #d33d3e solid;
     background:#FFFFFF;
@@ -126,3 +127,4 @@ body{
     font-size: 30px;
 }
 .info #show{ color:#d33d3e; }
+

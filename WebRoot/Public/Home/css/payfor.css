@@ -75,14 +75,14 @@
 
 }
 .pay_for_3 p{
-    color: #d33d3e;
+    color: #f45353;
     font-size: 14px;
     display: inline-block;
 }
 .pay_for_3 button{
     width:245px;
     height: 45px;
-    background: #d33d3e;
+    background: #f45353;
     border: none;
     border-radius: 3px;
     margin: 10px auto 0 15px;
@@ -93,7 +93,7 @@
 .pay_btn{
     width:245px;
     height: 45px;
-    background: #d33d3e;
+    background: #f45353;
     border: none;
     border-radius: 3px;
     margin: 25px auto 0 42px;

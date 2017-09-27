@@ -27,7 +27,7 @@
 }
 .get_top h1{
     font-size: 15px;
-    color: #d33d3e;
+    color: #f45353;
     line-height:40px;
     float: left;
 }
@@ -65,7 +65,7 @@
     height:30px;
     text-decoration:none;
     border:none;
-    background:#D33D3E;
+    background:#f45353;
     border-radius:4px;
     float:right;
     margin:15px 15px 8px 15px;
