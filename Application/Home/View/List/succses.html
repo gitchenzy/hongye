@@ -3,14 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/succses.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/scccses.css">
     <title>红叶帮帮忙</title>
 </head>
 <!--支付成功-->
 <body>
 <div class="page">
     <div class="scc">
-        <img src="__PUBLIC__/Home/images/new/cir.png">
+        <eq name="id" value="1">
+            <img src="__PUBLIC__/Home/images/new/cir.png">
+        <else />
+            <!--失败的图片-->
+            <img src="__PUBLIC__/Home/images/new/cir.png">
+        </eq>
     </div>
     <div class="suc">
         <h1>
@@ -21,10 +26,24 @@
             </eq>
         </h1>
         <p>将在</p>
-        <p>5s</p>
+        <p id="text">5s</p>
         <p>后跳转</p>
-        <a>点击直接跳转</a>
+        <a href="{:U('List/index')}">点击直接跳转</a>
     </div>
 </div>
 </body>
+
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
+<script>
+
+    var window_internal = window.setInterval( function() {
+        var second=5;
+        if (second==0) {
+            location.href='/index.php/List/index'
+        }
+        $('#text').text( (second--) + "s");
+
+    } , 1000);
+
+</script>
 </html>

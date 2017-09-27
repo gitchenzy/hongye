@@ -110,7 +110,7 @@ body{
 }
 
 .info select{ margin-right:10px;
-    border:2px #d33d3e solid;
+    border:2px #f45353 solid;
     background:#FFFFFF;
     width:68px;
     height: 25px;
@@ -126,5 +126,5 @@ body{
     height:30px;
     font-size: 30px;
 }
-.info #show{ color:#d33d3e; }
+.info #show{ color:#f45353; }
 
