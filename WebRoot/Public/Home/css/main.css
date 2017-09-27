@@ -106,9 +106,9 @@ html body {
 }
 .helftopbox a{
 	font-size:20px;
-
+	top:-4px;
 	/*color:#f45353;*/
-
+    position: relative;
 	color:#ccc;
 	text-align:center;
 	text-decoration:none;
@@ -312,7 +312,7 @@ html body {
 .midcard_bottom_text p{
 	color:#0e0e0e;
 	font-size:12px;
-	display:inline-block;
+	float: left;
 	margin-right:2px;
 
 
@@ -826,8 +826,8 @@ div.flicking_con a.on{
 	height:168px;
 	margin:0px;
 	padding:0px;
-	background:url(../images/img_main_1.jpg) no-repeat center;
-
+	background:url(../images/new/haibao.png) no-repeat center;
+	background-size: 360px 180px;
 
 }
 .find_titile{
@@ -882,7 +882,7 @@ div.flicking_con a.on{
 	line-height:40px;
 }
 .find_inbox_1 a{
-	color: #CCCCCC;
+	color: #a9a9a9;
 }
 .find_inbox_2{
 
@@ -897,14 +897,14 @@ div.flicking_con a.on{
 }
 .find_inbox_2 h1{
 	font-size:16px;
-	color:#cccccc;
+	color:#a9a9a9;
 	font-weight:lighter;
 	text-align:center;
 	line-height:40px;
 
 }
 .find_inbox_2 a{
-	color: #CCCCCC;
+	color: #a9a9a9;
 }
 .find_inbox_3{
 	width:64px;
@@ -912,11 +912,11 @@ div.flicking_con a.on{
 	height:100%;
 }
 .find_inbox_3 a{
-	color: #CCCCCC;
+	color: #a9a9a9;
 }
 .find_inbox_3 h1{
 	font-size:16px;
-	color:#cccccc;
+	color:#a9a9a9;
 	font-weight:lighter;
 	text-align:center;
 	line-height:40px;
@@ -999,7 +999,7 @@ div.flicking_con a.on{
 .mine_banner{
 	width:100%;
 	height:95px;
-	background:url(../images/woolk.jpg) no-repeat center;
+	background:url(../images/new/mybg.png) no-repeat center;
 	margin:0px;
 	padding-top:73px;
 
@@ -1007,6 +1007,18 @@ div.flicking_con a.on{
 .mine_in{
 	margin:0px 15px 0px 15px;
 	height:62px;
+
+}
+.mine_tin{
+	height: 25px;
+	width:80px;
+	overflow: hidden;
+}
+.mine_tin p{
+	overflow: hidden;
+	font-size:18px;
+	color:#000000;
+
 
 }
 .mine_img{

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css">
-    <title>红叶帮帮忙</title>
+    <title>红叶筹</title>
 </head>
 <body>
 <div class="all">
@@ -166,24 +166,24 @@
         <div class="main_bottom_box">
             <div class="main_bottom_box_mid">
 
-                <a href="../index.html"><img src="__PUBLIC__/Home/images/home_1.png"></a>
+                <a href="{:U('Index/index')}"><img src="__PUBLIC__/Home/images/new/home_1.png"></a>
 
-                <a  href="../index.html">主页</a>
+                <a href="{:U('Index/index')}">主页</a>
             </div>
         </div>
         <div class="main_bottom_box">
             <div class="main_bottom_box_mid">
 
-                <a href="find.html"><img src="__PUBLIC__/Home/images/found_1.png"></a>
+                <a href="{:U('List/index')}"><img src="__PUBLIC__/Home/images/new/find_1.png"></a>
 
-                <a href="find.html">发现</a>
+                <a href="{:U('List/index')}">发现</a>
             </div>
 
         </div>
-        <div class="main_bottom_box">
+        <div onclick="window.location.href='original.html'" class="main_bottom_box">
             <div class="main_bottom_box_mid_icon">
 
-                <a href="#"><img src="__PUBLIC__/Home/images/center.png"></a>
+                <a href="{:U('List/news')}"><img src="__PUBLIC__/Home/images/new/go.png"></a>
 
 
             </div>
@@ -191,19 +191,21 @@
         <div class="main_bottom_box">
             <div class="main_bottom_box_mid">
 
-                <a href="news.html"><img src="__PUBLIC__/Home/images/news_2.png"></a>
+                <a href="{:U('Massage/massage')}"><img src="__PUBLIC__/Home/images/new/news_2.png"></a>
 
-                <a style="color:#f45353" href="news.html">消息</a>
+                <a  style="color:#f45353" href="{:U('Massage/massage')}">消息</a>
             </div>
         </div>
         <div class="main_bottom_box">
             <div class="main_bottom_box_mid">
 
-                <a href="mine.html"><img src="__PUBLIC__/Home/images/person_1.png"></a>
+                <a href="{:U('Center/index')}"><img src="__PUBLIC__/Home/images/new/mine_1.png"></a>
 
-                <a href="mine.html">我的</a>
+                <a href="{:U('Center/index')}">我的</a>
             </div>
         </div>
+
+    </div>
 
     </div>
 </div>

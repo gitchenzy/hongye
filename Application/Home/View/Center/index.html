@@ -11,7 +11,9 @@
                 <img src="{$info.pic|default='/public/Home/images/text.png'}">
             </div>
             <div class="mine_text">
+                <div class="mine_tin">
                 <p>{$info.nick_name|default='填写昵称'}</p>
+                    </div>
                 <div class="mine_likes">
                     <ul>
                         <for start="0" end="$grade['grade']">
@@ -85,7 +87,9 @@
             </div>
         </a>
     </div>
+
     <div style="border-bottom:10px solid #F2F2F2" class="cash_bin">
+        <a href="{:U('center/myactive')}">
         <div class="cash_bin25">
             <img src="__PUBLIC__/Home/images/new/gift.png">
         </div>
@@ -93,8 +97,10 @@
         <div class="cash_bin2">
             <img src="__PUBLIC__/Home/images/new/back_r.png">
         </div>
+        </a>
     </div>
     <div class="cash_bin">
+        <a href="{:U('Help/helps_1')}">
         <div class="cash_bin25">
             <img src="__PUBLIC__/Home/images/new/helps.png">
         </div>
@@ -102,8 +108,10 @@
         <div class="cash_bin2">
             <img src="__PUBLIC__/Home/images/new/back_r.png">
         </div>
+            </a>
     </div>
     <div class="cash_bin">
+        <a href="{:U('Center/about')}">
         <div class="cash_bin25">
             <img src="__PUBLIC__/Home/images/new/about.png">
         </div>
@@ -111,6 +119,7 @@
         <div class="cash_bin2">
             <img src="__PUBLIC__/Home/images/new/back_r.png">
         </div>
+            </a>
     </div>
     <div class="cash_bin">
         <div class="cash_bin25">
