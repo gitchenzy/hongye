@@ -78,6 +78,8 @@ class ProjectController extends AdminController
            $data['start_time'] = strtotime($data['start_time']);
            $data['end_time'] = strtotime($data['end_time']);
            $data['father_type_id'] = M('project_type')->where(['id'=> $data['type_id']]) -> getfield('pid');
+           $data['is_return'] = M('project_type')->where(['id'=> $data['type_id']]) -> getfield('is_return');
+           $data['time'] = time();
            $res = M('project') -> add($data);
             if($res){
                 $this->success('添加成功！');

@@ -5,67 +5,35 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css">
     <script src="../javascript/main.js"></script>
-    <title>红叶筹</title>
+    <title>我的活动</title>
 </head>
 <body>
 
-<div style="border-bottom:1px solid #e5e5e5" class="top">
-    <div class="top_arrow"></div>
-    <h4>我的活动</h4>
-</div>
-<div class="stantic_3">
-    <div class="stantic_3_in">
-        <div class="stantic_3_in_text">
-            <p>2017.09.09</p>
-            <p>09:09</p>
-        </div>
-        <div class="stantic_lang_2_img">
-            <img src="__PUBLIC__/Home/images/new/none.jpg/img_1.jpg">
-        </div>
-        <div class="stantic_lang_2_text">
+<!--<div style="border-bottom:1px solid #e5e5e5" class="top">-->
+    <!--<div class="top_arrow"></div>-->
+    <!--<h4>我的活动</h4>-->
+<!--</div>-->
 
-            <h3>中国人的萌</h3>
+<volist name="info" id="vo">
+    <div class="stantic_3">
+        <div class="stantic_3_in">
+            <div class="stantic_3_in_text">
+                <p>{$vo.time|date="y-m-d",###}</p>
+                <p>{$vo.time|date="i:s",###}</p>
+            </div>
+            <div class="stantic_lang_2_img">
+                <img width="50" src="{$vo.pic}">
+            </div>
+            <div class="stantic_lang_2_text">
 
-            <div class="stantic_lang_2_icon">
+                <h3>{$vo.title}</h3>
+
+                <span>项目状态：<span style="color:#f45353;">{$vo.status|getProjectStatus} </span></span>
             </div>
-            <span>中国人的笛煽风点火的方式 </span>
         </div>
     </div>
-</div>
-<div class="stantic_3">
-    <div class="stantic_3_in">
-        <div class="stantic_3_in_text">
-            <p>2017.09.09</p>
-            <p>09:09</p>
-        </div>
-        <div class="stantic_lang_2_img">
-            <img src="__PUBLIC__/Home/images/new/none.jpg/img_1.jpg">
-        </div>
-        <div class="stantic_lang_2_text">
-            <h3>中国人的萌</h3>
-            <div class="stantic_lang_2_icon">
-            </div>
-            <span>中国人的笛煽风点火的方式</span>
-        </div>
-    </div>
-</div>
-<div class="stantic_3">
-    <div class="stantic_3_in">
-        <div class="stantic_3_in_text">
-            <p>2017.09.09</p>
-            <p>09:09</p>
-        </div>
-        <div class="stantic_lang_2_img">
-            <img src="__PUBLIC__/Home/images/new/none.jpg/img_1.jpg">
-        </div>
-        <div class="stantic_lang_2_text">
-            <h3>中国人的萌</h3>
-            <div class="stantic_lang_2_icon">
-            </div>
-            <span>中国人的笛煽风点火的方式</span>
-        </div>
-    </div>
-</div>
+</volist>
+
 
 
 </body>

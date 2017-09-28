@@ -189,6 +189,7 @@ class ListController extends Controller {
         $info = M('project_type') -> where(['id'=>$data['type_id']])-> field('pid,is_return') -> find();
         $data['father_type_id'] = $info['pid'];
         $data['is_return'] = $info['is_return'];
+        $data['time'] = time();
         $res = M('project') -> add($data);
         if($res){
             $url = U('List/payreturn',array('project_id'=>$res));
