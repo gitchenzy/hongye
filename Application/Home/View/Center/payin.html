@@ -15,12 +15,32 @@
         </div>
         <div class="pay_for_2">
             <h1>¥</h1>
-            <input type="text">
+            <input id="amount" type="text">
         </div>
         <div class="pay_for_3">
-            <button type="submit" value="">下一步</button>
+            <button type="submit" id="sub" value="">充值</button>
         </div>
     </div>
 </div>
 </body>
+<script tyep="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
+<script>
+    $('#sub').click(function(){
+        var id = $('#amount').val();
+        if(!id){
+            alert('请输入充值金额');
+            return false;
+        }
+        var num=RegExp('[0-9,.]')
+        if(!num.test(id)){
+            alert('金额只能是数字！');
+            return false;
+        }
+        var user_id = "{$user_id}"
+        location.href='/weixinpay/example/chongzhi.php?id='+id+'&user_id='+user_id
+
+    })
+
+
+</script>
 </html>

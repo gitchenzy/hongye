@@ -23,6 +23,7 @@ class IndexController extends Controller {
             $info = M('users') -> where(['id'=>$v['user_id']]) -> find();
             $v['name'] = $info['nick_name'];
             $v['head_pic'] = $info['pic'];
+            $v['num'] = $v['reach_amount']/$v['target_amount']*100;
         }
         $this -> assign('father_type',$father_type);
         $this -> assign('son_type',$son_type);

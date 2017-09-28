@@ -21,14 +21,25 @@
         <h1>
             <eq name="id" value="1">
             支付成功
-                <else />
-            支付失败
+            </eq>
+            <eq name="id" value="3">
+                支付成功
+            </eq>
+            <eq name="id" value="2">
+                支付失败
+            </eq>
+            <eq name="id" value="4">
+                支付失败
             </eq>
         </h1>
         <p>将在</p>
         <p id="text">5s</p>
         <p>后跳转</p>
-        <a href="{:U('List/index')}">点击直接跳转</a>
+        <gt name="id" value="2">
+            <a href="{:U('Center/cash')}">点击直接跳转</a>
+        <else />
+            <a href="{:U('List/index')}">点击直接跳转</a>
+        </gt>
     </div>
 </div>
 </body>
@@ -36,9 +47,15 @@
 <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
 <script>
     var second=5;
+    var id = '{$id}';
     var window_internal = window.setInterval( function() {
         if (second==0) {
-            location.href='/index.php/List/index'
+            if(id > 2){
+                location.href='/index.php/Center/cash'
+            }else{
+                location.href='/index.php/List/index'
+            }
+
         }
         $('#text').text( (second--) + "s");
 
