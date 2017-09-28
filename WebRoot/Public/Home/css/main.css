@@ -429,7 +429,7 @@ html body {
 	border-radius: 3px;
 }
 .stantic_lang_2_icon{
-	background:url(../images/new/aba.png);
+	background:url(../images/new/aba.png) no-repeat;
 	background-size: 13px 15px;
 	width:15px;
 	height:15px;
@@ -1227,18 +1227,18 @@ div.flicking_con a.on{
 	height:18px;
 	border:none;
 	color:#e5e5e5;
-
+	font-size:16px;
 
 }
 .police_blow{
 	height:44px;
 	width:100%;
-
+    background: #FFFFFF;
 }
 .police_bin{
 	margin:0px 15px 0px 15px;
 	height:44px;
-
+    background: #FFFFFF;
 }
 .police_bin p{
 	line-height:42px;
@@ -1258,14 +1258,14 @@ div.flicking_con a.on{
 	height:18px;
 	border:none;
 	color:#e5e5e5;
-
+	font-size:16px;
 
 
 }
 .police_lbtn{
 	text-decoration:none;
 	border:none;
-	background: #ffffff;
+	background: #f45353;
 	border-radius:4px;
 	width:74px;
 	height:24px;
@@ -1856,7 +1856,8 @@ div.flicking_con a.on{
 }
 .first_in p{
 	font-size:12px;
-	color:#e5e5e5;
+	color:#a9a9a9;
+
 	display:block;
 
 
