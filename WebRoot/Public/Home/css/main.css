@@ -426,7 +426,8 @@ html body {
 	border-radius: 3px;
 }
 .stantic_lang_2_icon{
-	background:url(../images/icon_1.png);
+	background:url(../images/new/aba.png);
+	background-size: 13px 15px;
 	width:15px;
 	height:15px;
 	margin:10px 5px 0px 0px;
@@ -521,7 +522,7 @@ html body {
 	width:20px;
 	border-radius:10px;
 	float:left;
-	background:url(../images/icon_2.png);
+	background:url(../images/new/icon_2.png);
 	margin:0px 10px 0px 0px;
 
 }
@@ -622,7 +623,7 @@ div.flicking_con a{
 	height:21px;
 	margin:0;
 	padding:0;
-	background:url(../images/12.png) 0 0 no-repeat;
+	background:url(../images/new/12.png) 0 0 no-repeat;
 	display:block;
 	text-indent:-1000px
 }
@@ -1036,6 +1037,10 @@ div.flicking_con a.on{
 	float:left;
 	margin-right:15px;
 }
+.mine_img img{
+	width:60px;
+	height: 60px;
+}
 .mine_img{
 	height: 60px;
 	width: 60px;
@@ -1431,7 +1436,7 @@ div.flicking_con a.on{
 	border-radius:4px;
 	float:right;
 	margin:8px 15px 8px 15px;
-	font-size:12px;
+	font-size:13px;
 	color:#FFFFFF;
 	display:block;
 
@@ -1971,8 +1976,8 @@ div.flicking_con a.on{
 	height:20px;
 	width:20px;
 	float:right;
-	background:url(../images/%E8%BF%94%E5%9B%9E.png);
-
+	background:url(../images/new/adrs.png);
+    background-size: 14px 16px;
 }
 .buildl{
 	width:64px;
