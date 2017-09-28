@@ -5,6 +5,13 @@
 
 </block>
 <block name="content">
+  <div class="background">
+        <div class="close">
+        </div>
+        <div class="bix">
+            <img src="../pics/new/qun.jpg">
+        </div>
+    </div>
     <div class="mine_banner">
         <div class="mine_in">
             <div class="mine_img">
@@ -53,13 +60,13 @@
             <div class="mine_go">
                 <img src="__PUBLIC__/Home/images/new/people.png">
             </div>
-            <p>我的社群</p>
+            <p>我的客服</p>
         </div>
         <div class="mine_m">
             <div class="mine_go">
                 <img src="__PUBLIC__/Home/images/new/weibo.png">
             </div>
-            <p>我的微博</p>
+            <p>官方微博</p>
         </div>
 
     </div>
@@ -121,6 +128,20 @@
         </div>
             </a>
     </div>
+    <script>
+        var qun=$('.mine_m:eq(2)');
+        var close=$('.close');
+        var weibo=$('.mine_m:eq(3)');
+        qun.click(function(){
+            $('.background').css('display','block');
+        });
+        close.click(function(){
+            $('.background').css('display','none');
+        });
+        weibo.click(function(){
+            location.href='http://weibo.com/p/1006066228912109/home?from=page_100606&mod=TAB&is_all=1#place';
+        })
+    </script>
     <!--<div class="cash_bin">-->
         <!--<div class="cash_bin25">-->
             <!--<img src="__PUBLIC__/Home/images/new/cook.png">-->
