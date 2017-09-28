@@ -31,11 +31,11 @@
             alert('请输入充值金额');
             return false;
         }
-//        var num=RegExp('[0-9]')
-//        if(!num.test(id)){
-//            alert('金额只能是数字！');
-//            return false;
-//        }
+        var num=RegExp('[0-9,.]')
+        if(!num.test(id)){
+            alert('金额只能是数字！');
+            return false;
+        }
         var user_id = "{$user_id}"
         location.href='/weixinpay/example/chongzhi.php?id='+id+'&user_id='+user_id
 
