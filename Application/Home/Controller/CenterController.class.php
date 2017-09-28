@@ -240,6 +240,12 @@ class CenterController extends Controller {
         $this -> display();
 
     }
+    //充值
+    public function payin(){
+
+        $this -> assign('user_id',$this->user_id);
+        $this -> display();
+    }
 
 
 }
