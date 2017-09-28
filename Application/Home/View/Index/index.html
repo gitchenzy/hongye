@@ -100,8 +100,24 @@
 
 </block>
 <block name="js">
-
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
     <script>
+//        滑动功能
+$(document).on("pageinit",function(){
+    $(".mid,.midcard").on("swipeleft",function(){
+        location.href='{:U('Index/index',array('fid'=>$sty['pid'],'sid'=>$sty['id']))}'
+    });
+    function  swp(){
+        if(window.location.href==={:U('Index/index',array('fid'=>$sty['pid'],'sid'=>$sty['id']))}){
+            $(".mid,.midcard").on("swiperight",function(){
+                location.href='{:U('Index/index',array('fid'=>$sty['pid'],'sid'=>$sty['id']))}'
+            });
+        }
+    }
+});
+
+
+
         var current_loading = false;
         var page_container_object =  $("body").get(0);
         var time=1;

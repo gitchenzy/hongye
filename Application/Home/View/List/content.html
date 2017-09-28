@@ -47,7 +47,7 @@
     </div>
     <div style="margin:2px;" class="midcard_tip">
         <div class="midcard_tip_1">
-            <div class="midcard_tip_2">
+            <div class="midcard_tip_2" style="left: {$vo.num}%;">
                 </div>
         </div>
     </div>
@@ -145,9 +145,9 @@
 //            }
         })
         $('.pay_pic:eq(0)').click(function(){
-                $('.first_box').css('display','block');
+                $('.background').css('display','block');
                 $('.first_lowboxin:eq(0)').click(function(){
-                $('.first_box').css('display','none');
+                $('.background').css('display','none');
             });
         })
         $('.first_box textarea').focus(function(){
