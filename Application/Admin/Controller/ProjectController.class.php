@@ -105,6 +105,13 @@ class ProjectController extends AdminController
                 $file = ROOT_PATH.$info['pic'];
                 unlink($file);
             }
+            if($info['status']==1 && $data['status']==2){
+                $xiaoxi['type'] = 2;
+                $xiaoxi['content'] = '您的项目已经审核通过了';
+                $xiaoxi['time'] = time();
+                $xiaoxi['user_id'] = $info['user_id'];
+                M('infos')->add($xiaoxi);
+            }
             $data['start_time'] = strtotime($data['start_time']);
             $data['end_time'] = strtotime($data['end_time']);
 
