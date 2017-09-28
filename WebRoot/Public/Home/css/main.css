@@ -1431,8 +1431,8 @@ div.flicking_con a.on{
 	float:left;
 }
 .pay_pic img{
-	width:25px;
-	height: 25px;
+	width:22px;
+	height: 22px;
 }
 .pay_b span{
 	font-size:13px;
@@ -1897,7 +1897,7 @@ div.flicking_con a.on{
 	top:100px;
 	left:7%;
 	right:auto;
-	background:#E4E4E4;
+	background:#f7f7f7;
 	border-radius:3px;
 	display: none;
 }

@@ -41,7 +41,7 @@
         <div class="work_bb">
             <p>{$info.start_time|date="y年m月d日",###}</p>
             <p>{$info.start_time|date="H时i分",###}</p>
-            <img style="float:left" src="__PUBLIC__/Home/images/new/adrs.png">
+            <img style="float:left" src="__PUBLIC__/Home/images/new/local.png">
             <p>{$info.city}</p>
         </div>
     </div>
@@ -79,7 +79,7 @@
 </div>
 <div class="pay_b">
     <div class="pay_pic">
-        <img src="__PUBLIC__/Home/images/new/chat_1.png">
+        <img width="20px" height="17px;" src="__PUBLIC__/Home/images/new/chat_1.png">
     </div>
     <span>评论</span>
     <empty name="key">
@@ -98,6 +98,7 @@
     <a href="{:U('List/getmonney',array('id'=>$info['id']))}">我要支持</a>
 
 </div>
+<div class="background">
 <div class="first_box">
     <h1>发表评论</h1>
     <div class="first_inbox">
@@ -114,7 +115,7 @@
 
     </div>
 </div>
-
+</div>
 </body>
 <script>
 
