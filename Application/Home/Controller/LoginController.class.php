@@ -41,7 +41,7 @@ class LoginController extends Controller {
 
         }else{
             $user['pic'] = $data -> headimgurl;
-            $user['nick_name'] = $data -> nickname;
+            $user['nick_name'] = $this -> filter($data -> nickname);
             $user['openid'] = $data -> openid;
             $user['sex'] = $data -> sex;
             $user['reg_time'] = time();
@@ -56,6 +56,21 @@ class LoginController extends Controller {
             }
         }
 
+    }
+    //过滤微信昵称
+    private function filter($str) {
+        if($str){
+            $name = $str;
+            $name = preg_replace('/\xEE[\x80-\xBF][\x80-\xBF]|\xEF[\x81-\x83][\x80-\xBF]/', '', $name);
+            $name = preg_replace('/xE0[x80-x9F][x80-xBF]‘.‘|xED[xA0-xBF][x80-xBF]/S','?', $name);
+            $return = json_decode(preg_replace("#(\\\ud[0-9a-f]{3})#ie","",json_encode($name)));
+            if(!$return){
+                return json_decode($return);
+            }
+        }else{
+            $return = '';
+        }
+        return $return;
 
     }
 
