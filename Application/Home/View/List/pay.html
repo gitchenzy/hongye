@@ -86,7 +86,7 @@
                 </div>
                 <p>微信支付</p>
                 <div class="pay_imgs">
-                    <input type="radio">
+                    <input type="radio" name="pays" value="1" checked>
                 </div>
             </div>
         </div>
@@ -96,11 +96,11 @@
                     <img src="__PUBLIC__/Home/images/new/hongye.png">
                 </div>
                 <p>余额支付</p>
-                <p>¥88</p>
+                <p>¥{$amount}</p>
                 <p>余额不足？</p>
                 <a>点击充值</a>
                 <div class="pay_imgs">
-                    <input type="radio">
+                    <input type="radio" value="2" name="pays">
                 </div>
             </div>
         </div>
@@ -118,24 +118,53 @@
 <script>
     $('#sub').click(function(){
 
-        var return_id = '{$Think.get.id}';
-        var address_id = '{$aid}';
-        var node = node;
-        var info = {address_id:address_id,return_id:return_id,node:node};
-        $.post("{:U('List/orders')}",info,function(data){
-            if(data.status == 1){
-                //生成订单成功发起支付
-                var id= data.info;
-                console.log(data.url);
-                var no= data.url;
-                location.href='http://test.hybbms.com/weixinpay/example/jsapi.php?id='+id+'&no='+no;
+        var v = $('input[name=pays]:checked').val();
+       if(1 == v){
+           var return_id = '{$Think.get.id}';
+           var address_id = '{$aid}';
+           var node = node;
+           var info = {address_id:address_id,return_id:return_id,node:node};
+           $.post("{:U('List/orders')}",info,function(data){
+               if(data.status == 1){
+                   //生成订单成功发起支付
+                   var id= data.info;
+                   console.log(data.url);
+                   var no= data.url;
+                   location.href='http://test.hybbms.com/weixinpay/example/jsapi.php?id='+id+'&no='+no;
+               }else{
+                   alert('订单发起支付失败，请重新确认！');
+               }
 
-
-            }else{
-                alert('订单发起支付失败，请重新确认！');
+           });
+       }else if(2 == v){
+            //发起余额支付 先判断是否够
+           var $return = '{$return.amount}';
+           var amount = '{$amount}';
+            if(amount < $return){
+                alert('余额不足！');
+                return false;
             }
 
-        });
+           var return_id = '{$Think.get.id}';
+           var address_id = '{$aid}';
+           var node = node;
+           var info = {address_id:address_id,return_id:return_id,node:node};
+           $.post("{:U('list/pay_amount')}",info,function(data){
+               if(data.status == 1){
+                   //生成订单成功发起支付
+                   window.location.href="/index.php/list/succ?id=1";
+               }else{
+                   window.location.href="/index.php/list/succ?id=2";
+               }
+
+           });
+
+
+       }else{
+           alert('请选择支付方式！')
+       }
+
+
 
     })
 

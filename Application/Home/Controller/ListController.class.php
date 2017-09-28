@@ -232,6 +232,13 @@ class ListController extends Controller {
         foreach($info as &$v){
             $v['rule'] = trim($v['rule'],';');
             $v['rule'] = explode(';',$v['rule']);
+            //
+            if($v['amount'] > 0){
+                $v['count'] = M('orders') -> where(['return_id'=>$v['id'],'status'=>['GT','1']]) -> count();
+            }else{
+                $v['count'] = M('orders') -> where(['return_id'=>$v['id']]) -> count();
+            }
+
         }
         $this -> assign('info',$info);
         $this -> display();
@@ -316,7 +323,7 @@ class ListController extends Controller {
             session('back_url','List/pay?id='.$id);
             $this->redirect("Login/index");
         }
-        //
+
         //查询出回报信息
         $info = M('project_return')-> field('title,amount') -> where(['id'=>$id]) -> find();
         //查出这个会员的默认地址
@@ -326,15 +333,17 @@ class ListController extends Controller {
             $address = M('address') -> where(['user_id'=>$user['user_id'],'is_default'=>2]) -> find();
             $aid = $address['id'];
         }
-
         if($address){
            // $addressinfo = $address['province'].$address['city'].$address['area'].' '.$address['address'].' '.$address['name'].' '.$address['phone'];
             $addressinfo = $address['province'].$address['city'].$address['area'].' '.$address['address'];
         }else{
             $addressinfo = null;
         }
+        //得到余额
+        $amount = M('users') -> where(['id'=>$user['user_id']]) -> getfield('balance');
         $this -> assign('return',$info);
         $this -> assign('aid',$aid);
+        $this -> assign('amount',$amount);
         $this -> assign('addressinfo',$addressinfo);
         $this -> display();
     }
@@ -372,6 +381,58 @@ class ListController extends Controller {
         $id=I('id');
         $this -> assign('id',$id);
         $this -> display('succses');
+    }
+    //使用余额支付
+    public function pay_amount(){
+        M()->startTrans();
+        $return_id = I('return_id');
+        $address_id = I('address_id');
+        $node = I('node');
+        $address = M('address') -> where(['id'=>$address_id]) -> find();
+        $return = M('project_return') -> where(['id'=>$return_id]) -> find();
+        $orders['name'] = $address['name'];
+        $orders['phone'] = $address['phone'];
+        $orders['province'] = $address['province'];
+        $orders['city'] = $address['city'];
+        $orders['area'] = $address['area'];
+        $orders['address'] = $address['address'];
+        $orders['time'] = time();
+        $orders['pay_amount'] = $return['amount'];
+        $orders['order_no'] = get_pay_no();
+        $user = get_user_info();
+        $orders['user_id'] = $user['user_id'];
+        $orders['project_id'] = $return['project_id'];
+        $orders['return_id'] = $return['id'];
+        $orders['node'] = $node;
+        $orders['status'] = 2;
+        $res = M('orders') -> add($orders);
+        //要对个人
+        $user_info = M('users') -> where(['id' => $user['user_id']]) -> find();
+        $u_data['balance'] = $user_info['balance'] - $orders['pay_amount'];
+        $u_data['amount'] = $user_info['amount'] + $orders['pay_amount'];
+        $u_res = M('users') -> where(['id' => $user['user_id']]) -> save($u_data);
+
+        $pay_info['user_id'] = $user['user_id'];
+        $pay_info['pay_no'] = $orders['order_no'];
+        $pay_info['amount'] = $orders['pay_amount'];
+        $pay_info['pay_time'] = $orders['time'];
+        $pay_info['pay_name'] = '付款';
+        $p_res = M('user_pay') -> add($pay_info);
+
+        //项目要达成目标 以及支持人数要改变
+
+        $project_info = M('project') -> field('reach_amount,people_num') ->where(['id' => $orders['project_id']]) -> find();
+        $p_data['reach_amount'] = $project_info['reach_amount'] + $orders['pay_amount'];
+        $p_data['people_num'] = $project_info['people_num'] + 1;
+        $pr_res = M('project') ->where(['id' => $orders['project_id']]) -> save($p_data);
+
+        if($res && $u_res && $p_res && $pr_res){
+            M()->commit();
+            $this -> success('支付成功！');
+        }else{
+            M()->rollback();
+            $this -> error('支付失败！');
+        }
     }
 
 }

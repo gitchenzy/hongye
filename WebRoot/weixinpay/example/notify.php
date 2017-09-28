@@ -67,9 +67,20 @@ class PayNotifyCallBack extends WxPayNotify
                 $sql = 'update project set people_num = people_num + 1,reach_amount = reach_amount + '.$list['pay_amount'].' where id ='.$list['project_id'];
                 $result = $mysql -> query($sql);
                 if($result){
-                    $mysql->commit(); //提交事务
-                    $mysql->autocommit(TRUE); //开启自动提交功能
-                    return true;
+                    //更新会员的信息
+                    $sql = 'update users set amount = amount + '.$list['pay_amount'].' where id ='.$list['user_id'];
+                    $result = $mysql -> query($sql);
+                    if($result){
+                        $mysql->commit(); //提交事务
+                        $mysql->autocommit(TRUE); //开启自动提交功能
+                        return true;
+                    }else{
+                        $msg = "会员信息更新失败";
+                        $mysql -> rollback();
+                        return false;
+                    }
+
+
                 }else{
                     $msg = "项目更新失败";
                     $mysql -> rollback();
