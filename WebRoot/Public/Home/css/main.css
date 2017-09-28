@@ -1136,6 +1136,7 @@ div.flicking_con a.on{
 	background: rgba(0, 0, 0, 0.7);
 	/*background: #000000;*/
 	/*opacity: 0.9;*/
+	z-index: 999;
 }
 .bix{
 	width:160px;
