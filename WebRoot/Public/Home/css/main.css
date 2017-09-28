@@ -280,9 +280,17 @@ html body {
 	margin:0px 15px 0px 15px;
 	height:3px;
 	border-radius:3px;
+	background:#d9d9d9;
+
+
+}
+.midcard_tip_2{
+	width: 100%;
+	height:3px;
+	border-radius:4px;
 	background:#f45353;
-
-
+	position: relative;;
+	right: 0%;
 }
 .midcard_img{
 	width:100%;

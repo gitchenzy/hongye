@@ -82,6 +82,8 @@
         <!--</div>-->
         <div class="midcard_tip">
             <div class="midcard_tip_1">
+                <div class="midcard_tip_2">
+                    </div>
             </div>
         </div>
         <div class="midcard_bottom">
@@ -126,6 +128,19 @@
                 }
             });
         }
+        function contr() {
+            var total = 12000;//总金额
+            var num = 6541;//当前金额
+            var control = num / total * 100;
+
+            if (control <= 100) {
+                $('.midcard_tip_2').css('right', 100 - control + '%');
+            } else {
+                $('.midcard_tip_2').css('right', 0 + '%');
+                console.log(control)
+            }
+        }
+
 
     </script>
 
