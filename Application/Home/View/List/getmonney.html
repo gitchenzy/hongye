@@ -18,7 +18,7 @@
             <div class="get_in">
                 <div class="get_top">
                     <h1><if condition="$vo['amount'] eq 0"> 免费抽奖活动  <else /> ￥{$vo['amount']} </if></h1>
-                    <p>66人支持/无限制</p>
+                    <p>{$vo.count|default=0}人支持/无限制</p>
                 </div>
             </div>
             <div class="get_blow">
