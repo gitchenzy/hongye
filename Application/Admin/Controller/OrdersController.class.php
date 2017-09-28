@@ -30,6 +30,24 @@ class OrdersController extends AdminController
 
         $search_value = i('search');
         $type = i('type');
+        $timea = i('timea');
+        $timeb = i('timeb');
+
+        if(!$timea && $timeb){
+            $timeb = strtotime($timeb);
+            $where['a.pay_time'] = array('lt',$timeb);
+        }
+
+        if($timea && !$timeb){
+            $timea = strtotime($timea);
+            $where['a.pay_time'] = array('GT',$timea);
+        }
+        if($timea && $timeb){
+            $timea = strtotime($timea);
+            $timeb = strtotime($timeb);
+            $where['a.pay_time'] = array('between',array($timea,$timeb));
+        }
+
         if($search_value){
             $where['a.pay_no'] = array('LIKE',"%$search_value%");;
         }

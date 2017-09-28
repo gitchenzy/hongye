@@ -49,6 +49,17 @@
                             <option value="2">提现</option>
                             <option value="3">项目打款</option>
                         </select>
+
+                        <div class="">
+                           <label class="control-label">提交时间：</label>
+
+                            <input class="form-control input-huge" id="timea" name="timea" value="" type="text" placeholder="起始时间"> -
+                            <input class="form-control input-huge" id="timeb" name="timeb" value="" type="text" placeholder="结束时间">
+
+                            <button id="searchButton" class="btn btn-success">
+                                搜索
+                            </button>
+                        </div>
                     </div>
                     <table id="table"
                            data-toolbar="#toolbar"
@@ -89,6 +100,9 @@
     <script type="text/javascript">
         var $table = $('#table'), $edit=$('#edit');$remove = $('#remove'), selections = [];
         var $add = $('#addform');
+        laydate({elem: '#timea', format: 'YYYY-MM-DD hh:mm:ss',event: 'focus'});
+        laydate({elem: '#timeb', format: 'YYYY-MM-DD hh:mm:ss', event: 'focus'});
+
         function initTable() {
             $table.bootstrapTable({
                 formatSearch:function(){return '请输入交易号'},
@@ -180,14 +194,21 @@
             });
             eachSeries(getScript, initTable);
         });
+
         $('#type').change(function(){
+            search();
+        })
+
+        $("#searchButton").on("click",function(){
             search();
         })
 
 
         function search(){
             var type = $('#type').val();
-            var str =  '/index.php/admin/Orders/loadAccount?type='+type;
+            var timea = $('#timea').val();
+            var timeb = $('#timeb').val();
+            var str =  '/index.php/admin/Orders/loadAccount?type='+type+'&timea='+timea+'&timeb='+timeb;
             $table.bootstrapTable('refresh', {url: str});
         }
     </script>

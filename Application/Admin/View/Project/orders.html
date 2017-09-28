@@ -32,6 +32,7 @@
 </style>
 
 <div class="box" style="padding-top: 15px;">
+    <div class="close" id="close">返回</div>
     <table>
         <tr>
             <td><h1>id</h1></td>
@@ -45,29 +46,28 @@
             <td><h1>金额</h1></td>
             <td><h1>付款时间</h1></td>
             <td><h1>状态</h1></td>
-
-
-
         </tr>
-
-        <tr class="bg">
-            <volist name="info" id="vo">
-
-              <td>{$vo.id}</td>
-              <td>{$vo.nick_name}</td>
-              <td>{$vo.name}</td>
-              <td>{$vo.phone}</td>
-              <td>{$vo.province}</td>
-              <td>{$vo.city}</td>
-              <td>{$vo.area}</td>
-              <td>{$vo.address}</td>
-              <td>{$vo.pay_amount}</td>
-              <td>{$vo.pay_time}</td>
-              <td>{$vo.status}</td>
-
-            </volist>
-
-        </tr>
-
+        <volist name="info" id="vo">
+            <tr class="bg">
+                <td>{$vo.id}</td>
+                <td>{$vo.nick_name}</td>
+                <td>{$vo.name}</td>
+                <td>{$vo.phone}</td>
+                <td>{$vo.province}</td>
+                <td>{$vo.city}</td>
+                <td>{$vo.area}</td>
+                <td>{$vo.address}</td>
+                <td>{$vo.pay_amount}</td>
+                <td>{$vo.pay_time}</td>
+                <td>{$vo.status}</td>
+            </tr>
+        </volist>
     </table>
 </div>
+<script>
+    $('#close').click(function(){
+        $('#defaultForm').bootstrapValidator('resetForm', true);$('input').val('');$('#addCustomer').modal('hide');
+
+    })
+
+</script>
