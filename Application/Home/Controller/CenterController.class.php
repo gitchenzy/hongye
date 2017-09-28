@@ -228,7 +228,18 @@ class CenterController extends Controller {
                 $this -> error('资料提交失败，请重新提交！');
             }
         }
+    }
+    //我的活动
+    public function myactive(){
+
+        $where['del'] = 0;
+        $where['user_id'] = $this -> user_id;
+
+        $info = M('project') -> field('status,title,time,pic') -> where($where) -> select();
+        $this -> assign('info',$info);
+        $this -> display();
 
     }
+
 
 }
