@@ -1,9 +1,6 @@
 <extend name="Public:main" />
 
-<block name="js">
 
-
-</block>
 <block name="content">
   <div class="background">
         <div class="close">
@@ -63,9 +60,11 @@
             <p>我的客服</p>
         </div>
         <div class="mine_m">
-            <div class="mine_go">
-                <img src="__PUBLIC__/Home/images/new/weibo.png">
-            </div>
+
+                <div class="mine_go">
+                    <img src="__PUBLIC__/Home/images/new/weibo.png">
+                </div>
+
             <p>官方微博</p>
         </div>
 
@@ -107,15 +106,15 @@
         </a>
     </div>
     <div class="cash_bin">
-        <a href="{:U('Help/helps_1')}">
-        <div class="cash_bin25">
-            <img src="__PUBLIC__/Home/images/new/helps.png">
-        </div>
-        <p>帮助中心</p>
-        <div class="cash_bin2">
-            <img src="__PUBLIC__/Home/images/new/back_r.png">
-        </div>
-            </a>
+        <a href="{:U('Helps/helps_1')}">
+            <div class="cash_bin25">
+                <img src="__PUBLIC__/Home/images/new/helps.png">
+            </div>
+            <p>帮助中心</p>
+            <div class="cash_bin2">
+                <img src="__PUBLIC__/Home/images/new/back_r.png">
+            </div>
+        </a>
     </div>
     <div class="cash_bin">
         <a href="{:U('Center/about')}">
@@ -128,20 +127,7 @@
         </div>
             </a>
     </div>
-    <script>
-        var qun=$('.mine_m:eq(2)');
-        var close=$('.close');
-        var weibo=$('.mine_m:eq(3)');
-        qun.click(function(){
-            $('.background').css('display','block');
-        });
-        close.click(function(){
-            $('.background').css('display','none');
-        });
-        weibo.click(function(){
-            location.href='http://weibo.com/p/1006066228912109/home?from=page_100606&mod=TAB&is_all=1#place';
-        })
-    </script>
+
     <!--<div class="cash_bin">-->
         <!--<div class="cash_bin25">-->
             <!--<img src="__PUBLIC__/Home/images/new/cook.png">-->
@@ -154,3 +140,21 @@
 
 </block>
 
+<block name="js">
+
+    <script>
+        var qun=$('.mine_m:eq(2)');
+        var close=$('.close');
+        var weibo=$('.mine_m:eq(3)');
+
+        qun.click(function(){
+            $('.background').css('display','block');
+        });
+        close.click(function(){
+            $('.background').css('display','none');
+        });
+        weibo.click(function(){
+            location.href='http://weibo.com/p/1006066228912109/home?from=page_100606&mod=TAB&is_all=1#place';
+        })
+    </script>
+</block>
