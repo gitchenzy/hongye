@@ -57,7 +57,6 @@ class PayNotifyCallBack extends WxPayNotify
         $res = $mysql -> query($sql);
         if($res){
             $sql = "select  * from orders WHERE id = {$order_id}";
-            Log::DEBUG("call sql:" . $sql);
             $res = $mysql -> query($sql);
             $list  = $res->fetch_assoc();
             $mysql -> set_charset("utf8");
@@ -65,9 +64,18 @@ class PayNotifyCallBack extends WxPayNotify
             Log::DEBUG("call sql:" . $sql);
             $res = $mysql -> query($sql);
             if($res){
-                $mysql->commit(); //提交事务
-                $mysql->autocommit(TRUE); //开启自动提交功能
-                return true;
+                $sql = 'update project set people_num = people_num + 1,reach_amount = reach_amount + '.$list['pay_amount'].' where id ='.$list['project_id'];
+                $result = $mysql -> query($sql);
+                if($result){
+                    $mysql->commit(); //提交事务
+                    $mysql->autocommit(TRUE); //开启自动提交功能
+                    return true;
+                }else{
+                    $msg = "项目更新失败";
+                    $mysql -> rollback();
+                    return false;
+                }
+
             }else{
                 $msg = "订单流水添加失败";
                 $mysql -> rollback();
