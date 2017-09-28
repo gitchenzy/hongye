@@ -155,7 +155,7 @@
     })
 
     $('.del').click(function(){
-
+        var obj = $(this);
         var id = $(this).attr('key');
 
 
@@ -163,6 +163,7 @@
         $.post("{:U('Project/delReturn')}",info,function(data){
             if(data.status == 1){
                 _popup('删除成功');
+                obj.parents('.modal-body').css('display','none');
               //  location.reload();
             }
         })
