@@ -281,7 +281,7 @@ html body {
 	height:3px;
 	border-radius:3px;
 	background:#d9d9d9;
-
+	overflow: hidden;
 
 }
 .midcard_tip_2{
@@ -1026,7 +1026,7 @@ div.flicking_con a.on{
 .mine_tin p{
 	overflow: hidden;
 	font-size:18px;
-	color:#000000;
+	color:#191919;
 
 
 }
@@ -1255,7 +1255,7 @@ div.flicking_con a.on{
 	-moz-appearance:none;
 	-webkit-appearance:none;
 	width:100px;
-	height:18px;
+	height:20px;
 	border:none;
 	color:#e5e5e5;
 	font-size:16px;
@@ -1725,7 +1725,7 @@ div.flicking_con a.on{
 	font-size:14px;
 	color:#000000;
 	display:block;
-
+    line-height: 20px;
 }
 #bg{
 	width:100px;
@@ -2515,6 +2515,8 @@ div.flicking_con a.on{
 	border-radius: 3px;
 	border: 1px #f45353 solid;
 }
+/*-blank-*/
+
 /*-for iphone 5s-*/
 @media screen and (max-width:321px) {
 	.midcard_bottom_text p{
