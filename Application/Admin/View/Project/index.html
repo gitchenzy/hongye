@@ -48,6 +48,10 @@
                             项目打款
                         </button>
 
+                        <button id="addReturn" class="btn btn-primary" disabled>
+                            项目回报
+                        </button>
+
                         <button id="orders" class="btn btn-primary" disabled>
                             项目订单
                         </button>
@@ -108,6 +112,7 @@
         var $addBalance = $('#addBalance');
         var $add = $('#addform');
         var $orders = $('#orders');
+        var $addReturn = $('#addReturn');
         function initTable() {
             $table.bootstrapTable({
                 formatSearch:function(){return '请输入用户昵称或者项目标题'},
@@ -157,12 +162,14 @@
                     $edit.prop('disabled',false);
                     $orders.prop('disabled',false);
                     $addBalance.prop('disabled',false);
+                    $addReturn.prop('disabled',false);
 
                 }else{
                     //$edit.attr("data-remote","javascript:void(0);");
                     $edit.prop('disabled',true);
                     $orders.prop('disabled',true);
                     $addBalance.prop('disabled',true);
+                    $addReturn.prop('disabled',true);
                 }
                 selections = getIdSelections();
             });
@@ -174,6 +181,13 @@
             $add.click(function(){
                 $("#addCustomer").modal({
                     remote: "/index.php/admin/Project/addProject"
+                    ,backdrop: 'static'
+                    ,keyboard: false
+                });
+            });
+            $addReturn.click(function(){
+                $("#addCustomer").modal({
+                    remote: "/index.php/admin/Project/addReturn?id=" + getIdSelections()+'&t=' + Math.random(1000)
                     ,backdrop: 'static'
                     ,keyboard: false
                 });

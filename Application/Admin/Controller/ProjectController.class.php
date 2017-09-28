@@ -347,4 +347,40 @@ class ProjectController extends AdminController
         $this->assign('info',$result);
         $this -> display();
     }
+    //添加项目汇报
+    public function addReturn(){
+        if(IS_POST){
+            $data = i('post.');
+            $data['time'] = time();
+            M('project_return') -> add($data);
+            $this->success('增加成功！');
+
+        }else{
+            $id = I('id');
+            $info = M('project_return')-> where(['project_id'=>$id]) -> select();
+            $this -> assign('info',$info);
+            $this -> display();
+        }
+
+    }
+    public function editReturn(){
+        $data = i('post.');
+        $info[$data['name']] = $data['v'];
+        $where['id'] = $data['id'];
+        $res = M('project_return')-> where($where) -> save($info);
+        if($res){
+            $this->success('修改成功！');
+        }
+    }
+    public function delReturn(){
+        $data = i('id');
+        $where['id'] = $data;
+        $res = M('project_return')-> where($where) -> delete();
+        if($res){
+            $this->success('删除成功！');
+        }
+    }
+
+
+
 }

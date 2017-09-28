@@ -91,47 +91,69 @@
         function v_1(){
             if(text_name===''){
                 alert('项目名称不能为空')
+                return false;
             }else if(text_name.length>=10){
                 alert('名称长度不能超过10字')
+                return false;
             }else{
                 return 1;
             }
+        }
+        if(!v_1()){
+            //上述条件判定通过后执行提交功能
+            return false;
         }
         function v_2(){
             if(text_money===''){
                 alert('项目金额不能为空')
+                return false;
             }else if(typeof(money_num)!=='number'){
                 alert('请输入正确的金额')
+                return false;
             }else if(Math.floor(money_num)<1){
                 alert('金额必须大于1元')
+                return false;
             }else{
                 return 1;
             }
+        }
+        if(!v_2()){
+            //上述条件判定通过后执行提交功能
+            return false;
         }
         function v_3(){
             if(!reg.test(text_address)||text_address===''){
                 alert('请输入正确的地址')
+                return false;
             }else{
                 return 1;
             }
+        }
+        if(!v_3()){
+            //上述条件判定通过后执行提交功能
+            return false;
         }
         function v_4(){
             if(select.length!==1){
                 alert('请选择项目分类')
+                return false;
             }else{
                 return 1;
             }
         }
-        if(v_4()*v_3()*v_2()*v_1()===1){
+        if(v_4()){
             //上述条件判定通过后执行提交功能
+            return true;
+        }else{
+            return false;
         }
 
-        v_1();
-        v_2();
-        v_3();
-        v_4();
+//        v_1();
+//        v_2();
+//        v_3();
+//        v_4();
     }
-    $('#sub').click(varify);//以上为验证用户输入信息
+  //  $('#sub').click(varify);//以上为验证用户输入信息
 
 
     //设置图片上传插件
@@ -156,13 +178,15 @@
         });
 
         $('#sub').click(function(){
+            if(!varify()){
+                return false;
+            }
             var title = $('#title').val();
             var city = $('#city').val();
             var pic = $('#pic').val();
             var des = $('#des').val();
             var type_id = $('input[name=type_id]:checked').val();
             var target_amount = $('#target_amount').val();
-
             var info = {'title':title,city:city,pic:pic,des:des,type_id:type_id,target_amount:target_amount};
 
             $.post("{:U('List/addProject')}",info,function(data){

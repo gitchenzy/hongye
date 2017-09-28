@@ -1,0 +1,187 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">设置项目回报</h4>
+</div>
+<volist name='info' id="vo">
+    <div class="modal-body">
+            <fieldset>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">回报金额</label>
+                    <div class="col-sm-4">
+                        <input class="form-control edit"  key="{$vo.id}" name="amount" type="text" value="{$vo.amount}"/>
+                    </div>
+
+                    <label class="col-sm-2 control-label" >回报标题</label>
+                    <div class="col-sm-4">
+                        <input class="form-control edit"  key="{$vo.id}" name="title" type="text" value="{$vo.title}"/>
+                    </div>
+                </div>
+               <br/>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" >回报简介</label>
+                    <div class="col-sm-10">
+                        <textarea name="des" class="edit" key="{$vo.id}" style="width: 100%;" >{$vo.des}</textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" >回报规则</label>
+                    <div class="col-sm-8">
+                        <textarea  name="rule" class="edit" key="{$vo.id}" style="width: 100%;">{$vo.rule}</textarea>
+                    </div>
+                    <div class="col-sm-8">
+                        <button class="del" key="{$vo.id}">删除</button>
+                    </div>
+                </div>
+
+            </fieldset>
+
+    </div>
+</volist>
+
+<div class="modal-body">
+    <form class="form-horizontal" role="form" id="defaultForm" method="post" action="{$self}">
+        <input type="hidden" name="project_id" value="{$Think.get.id}" />
+        <fieldset>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="amount">回报金额</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="amount" name="amount" type="text" value=""/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="title">回报标题</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="title" name="title" type="text" value=""/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="des">回报简介</label>
+                <div class="col-sm-10">
+                    <textarea name="des" style="width: 100%;" id="des"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="rule">回报规则</label>
+                <div class="col-sm-10">
+                    <textarea  name="rule" style="width: 100%;" id="rule"></textarea>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal" id="close">关闭</button>
+    <button type="button" class="btn btn-primary" id="submit">添加</button>
+</div>
+
+<script type="text/javascript">
+
+    $("#submit").click(function(){
+        $("#defaultForm").submit();
+    })
+    $(document).ready(function() {
+        $('#defaultForm')
+                .bootstrapValidator({
+                    message: 'This value is not valid',
+                    feedbackIcons: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    },
+                    fields: {
+                        LoginName: {
+                            message: '账号不可用',
+                            validators: {
+                                notEmpty: {
+                                    message: '账号不能为空'
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 30,
+                                    message: '账号长度6-30'
+                                },
+                                /*remote: {
+                                 url: 'remote.php',
+                                 message: '账号不可用'
+                                 },*/
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9_\.]+$/,
+                                    message: '账号格式不正确'
+                                }
+                            }
+                        }
+                    }
+                })
+                .on('success.form.bv', function(e) {
+                    // Prevent form submission
+                    e.preventDefault();
+                    // Get the form instance
+                    var $form = $(e.target);
+                    // Get the BootstrapValidator instance
+                    var bv = $form.data('bootstrapValidator');
+                    // Use Ajax to submit form data
+                    $.post($form.attr('action'), $form.serialize(), function(result) {
+                        if(result.status==1){
+                            swal({
+                                title:"操作成功！",
+                                text:result.info,
+                                type:"success"
+                            },function(){
+                                $('#defaultForm').bootstrapValidator('resetForm', true);$('input').val('');$('#addCustomer').modal('hide');
+                            });
+                        }else{
+                            toastr.warning(result.info);return false;
+                        }
+                    }, 'json');
+                });
+    });
+
+    $('.edit').blur(function(){
+
+        var id = $(this).attr('key');
+        var name = $(this).attr('name');
+        var v = $(this). val();
+        var info = {id:id,name:name,v:v}
+        $.post("{:U('Project/editReturn')}",info,function(data){
+            if(data.status == 1){
+                _popup('修改成功');
+            }
+        })
+    })
+
+    $('.del').click(function(){
+        var obj = $(this);
+        var id = $(this).attr('key');
+
+
+        var info = {id:id}
+        $.post("{:U('Project/delReturn')}",info,function(data){
+            if(data.status == 1){
+                _popup('删除成功');
+                obj.parents('.modal-body').css('display','none');
+              //  location.reload();
+            }
+        })
+    })
+
+    //弹出层
+    function _popup(Msg, url){
+        $(".popup").remove();
+        var sender = $("<div class='popup' style='z-index: 9999;position: fixed;top: 15%;left: 0;width: 100%;text-align: center;'><span class='popup_msg' style='display: none;padding: 19px 67px;background: #5cb85c;z-index: 99999;color: #FFF;font-size: 18px;'>" + Msg + "</span></div>").appendTo("body");
+        $(".popup_msg", sender).fadeIn();
+        setTimeout(function() {
+            sender.animate({ top : '10px' , opacity : 0}, function() {
+                if (url != undefined && url) {
+                    location.href = url;
+                }
+            });
+        }, 1000);
+    }
+
+
+</script>
