@@ -6,6 +6,11 @@ class MassageController extends Controller {
     public function index(){
         $this -> display();
     }
+    public function massage(){
+        session('index',4);
+        
+        $this -> display();
+    }
 
 
 }
