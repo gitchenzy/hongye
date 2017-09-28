@@ -707,7 +707,7 @@ div.flicking_con a.on{
 	height:196px;
 	background:#FFFFFF;
 	/*border-top:10px solid #e5e5e5;*/
-	border-bottom:10px solid #e5e5e5;
+	border-bottom:10px solid #f2f2f2;
 
 }
 .cash_card_1{
@@ -2336,6 +2336,7 @@ div.flicking_con a.on{
 	margin:10px 15px 0px 15px;
 	height:88px;
 	background: #fff;
+	border: 1px solid #f2f2f2;
 }
 .bind_box{
 	height: 44px;
@@ -2389,8 +2390,8 @@ div.flicking_con a.on{
 	padding: 0 auto 0 auto;
 }
 .bind_b button{
-	width:100px;
-	height: 32px;
+	width:320px;
+	height: 45px;
 	text-decoration: none;
 	border:2px solid #f45353;
 	background: #f45353;
