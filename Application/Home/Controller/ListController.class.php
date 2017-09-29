@@ -171,8 +171,8 @@ class ListController extends Controller {
         if(!$user){
             $this->redirect("Login/index");
         }
-        $auto = M('users')->where(['id'=>$user['user_id']])->getfield('is_auto');
-        if($auto != 1){
+        $auto = M('user_author')->where(['user_id'=>$user['user_id']])->find();
+        if(!$auto){
             $this->redirect("Center/verify");
         }
         //类别

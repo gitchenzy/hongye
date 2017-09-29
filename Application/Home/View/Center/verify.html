@@ -208,7 +208,7 @@
 
                 if(data.status ==1){
                     alert('提交成功，请等待管理员审核！');
-                    location.reload();
+                    location.href="{:U('List/news')}";
                 }else{
                     alert(data.info);
                 }
@@ -224,7 +224,7 @@
             $.post("{:U('Center/addverify')}",info,function(data){
                 if(data.status ==1){
                     alert('提交成功，请等待管理员审核！');
-                    location.reload();
+                    location.href="{:U('List/news')}";
                 }else{
                     alert(data.info);
                 }
