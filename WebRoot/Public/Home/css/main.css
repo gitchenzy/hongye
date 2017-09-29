@@ -1908,7 +1908,6 @@ div.flicking_con a.on{
 	right:auto;
 	background:#f7f7f7;
 	border-radius:3px;
-	display: none;
 	z-index: 100;
 }
 .first_box h1{
