@@ -1010,7 +1010,7 @@ div.flicking_con a.on{
 	background:url(../images/new/mybg.png) no-repeat center;
 	margin:0px;
 	padding-top:73px;
-    background-size: 360px 180px;;
+    background-size: 100% 180px;;
 }
 .mine_in{
 	margin:0px 15px 0px 15px;
@@ -1226,7 +1226,7 @@ div.flicking_con a.on{
 	width:100px;
 	height:18px;
 	border:none;
-	color:#e5e5e5;
+	color:#484848;
 	font-size:16px;
 
 }
@@ -1909,7 +1909,7 @@ div.flicking_con a.on{
 	background:#f7f7f7;
 	border-radius:3px;
 	z-index: 100;
-	display: none;
+
 }
 .first_box h1{
 	font-size:15px;
@@ -1932,7 +1932,7 @@ div.flicking_con a.on{
 	margin:0px auto 0px auto;
 	padding:5px 0 0 0;
 	border:none;
-	color:#e5e5e5;
+	color:#484848;
     resize: none;
 }
 .first_inbox h1{
@@ -2131,9 +2131,9 @@ div.flicking_con a.on{
 	margin-top:12px;
 }
 .original_inbox img{
-	width: 330px;
-	height:205px;
-	margin:0 15px 20px 15px;
+	width: 300px;
+	height:195px;
+	margin:0 15px 20px 0px;
 }
 .original_box{
 	width:100%;
@@ -2270,7 +2270,9 @@ div.flicking_con a.on{
 	font-size: 14px;
 	width:100px;
 	height: 32px;
-	margin: auto;
+	margin: 10px auto 0px auto;
+	position: relative;
+	left:-30px;
 	border-radius: 3px;
 }
 .original_bottomtext{
