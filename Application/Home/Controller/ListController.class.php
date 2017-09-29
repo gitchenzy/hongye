@@ -240,7 +240,17 @@ class ListController extends Controller {
             }
 
         }
+        //查询分享内容
+        $fenx = M('project') -> where(['id'=>$project_id]) -> find();
+        $fenx['pic'] = 'http://'.$_SERVER['SERVER_NAME'].$fenx['pic'];
+        Vendor("Wifisoft.Jssdk");
+        $appid = C('WX_APP_ID');
+        $APPSECRET = C('WX_APP_SECRET');
+        $jssdk = new \Jssdk($appid, $APPSECRET);
+        $data = $jssdk->GetSignPackage();
         $this -> assign('info',$info);
+        $this -> assign('data',$data);
+        $this -> assign('fenx',$fenx);
         $this -> display();
 
     }
