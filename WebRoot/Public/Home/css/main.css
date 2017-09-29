@@ -706,8 +706,7 @@ div.flicking_con a.on{
 	width:100%;
 	height:196px;
 	background:#FFFFFF;
-	/*border-top:10px solid #e5e5e5;*/
-	border-bottom:10px solid #f2f2f2;
+	border-bottom:10px solid #e5e5e5;
 
 }
 .cash_card_1{
@@ -746,9 +745,9 @@ div.flicking_con a.on{
 }
 .cash_btn_1{
 	width:130px;
-	height:32px;
+	height:34px;
 	border-radius:16px;
-	border:1px solid #e5e5e5;
+	border:1px solid #f2f2f2;
 	background:#FFFFFF;
 	float:left;
 	text-align:center;
@@ -765,7 +764,7 @@ div.flicking_con a.on{
 	height:32px;
 	border-radius:16px;
 	color:#FFFFFF;
-	background:#f45353;
+	background:#d33d3e;
 	float:right;
 	text-align:center;
 	line-height:30px;
@@ -789,7 +788,7 @@ div.flicking_con a.on{
 	margin:0px 15px 0px 15px;
 	height:46px;
 
-	border-bottom:1px solid #e5e5e5;
+	border-bottom:1px solid #f2f2f2;
 
 	padding: 0;
 
@@ -826,7 +825,7 @@ div.flicking_con a.on{
 .cash_black{
 	width:100%;
 	height:100%;
-	background:#e5e5e5
+	background:#f2f2f2
 
 }
 /*--find--*/
@@ -1597,12 +1596,12 @@ div.flicking_con a.on{
 /*-notes-*/
 .note{
 	width:100%;
-	height:45px;
+	height:35px;
 
 }
 .notes{
-	margin:15px 15px 0px 15px;
-	height:45px;
+	margin:10px 15px 0px 15px;
+	height:35px;
 	border-bottom:1px solid #e5e5e5;
 }
 .notes p{
@@ -2131,9 +2130,9 @@ div.flicking_con a.on{
 	margin-top:12px;
 }
 .original_inbox img{
-	width: 320px;
+	width: 330px;
 	height:205px;
-	margin:auto;
+	margin:0 15px 20px 15px;
 }
 .original_box{
 	width:100%;
