@@ -43,4 +43,109 @@
 
 </div>
 </body>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    $(function () {
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: '<?php echo $data["appId"];?>', // 必填，公众号的唯一标识
+            timestamp: '<?php echo $data["timestamp"];?>', // 必填，生成签名的时间戳
+            nonceStr: '<?php echo $data["nonceStr"];?>', // 必填，生成签名的随机串
+            signature: '<?php echo $data["signature"];?>',// 必填，签名，见附录1
+            jsApiList: [
+                'checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'onMenuShareWeibo',
+                'onMenuShareQZone',
+                'hideMenuItems',
+                'showMenuItems',
+                'hideAllNonBaseMenuItem',
+                'showAllNonBaseMenuItem',
+                'translateVoice',
+                'startRecord',
+                'stopRecord',
+                'onVoiceRecordEnd',
+                'playVoice',
+                'onVoicePlayEnd',
+                'pauseVoice',
+                'stopVoice',
+                'uploadVoice',
+                'downloadVoice',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage',
+                'getNetworkType',
+                'openLocation',
+                'getLocation',
+                'hideOptionMenu',
+                'showOptionMenu',
+                'closeWindow',
+                'scanQRCode',
+                'chooseWXPay',
+                'openProductSpecificView',
+                'addCard',
+                'chooseCard',
+                'openCard'
+            ]// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+    });
+    wx.ready(function () {
+        //取消除微信相关的分享
+        wx.hideMenuItems({
+            menuList: ['menuItem:share:qq',
+                "menuItem:share:weiboApp",
+                'menuItem:share:QZone',
+                'menuItem:copyUrl',
+                "menuItem:originPage",
+                "menuItem:openWithQQBrowser",
+                "menuItem:openWithSafari",
+                "menuItem:share:email"
+            ]
+        });
+        // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
+//        wx.onMenuShareAppMessage({
+//            title: '快来啊，滑雪拼车随你畅游',
+//            desc: '过年啦!!还在等什么？一起去拼车滑雪畅游世界吧',
+//            link: 'http://zuoyou365.com/weixin/tp/index.php/Home/Carpoos1/getCode',
+//            imgUrl: 'http://zuoyou365.com/weixin/tp/public/pic/logo.png',
+//            trigger: function (res) {
+//                // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+//
+//            },
+//            success: function (res) {
+//
+//            },
+//            cancel: function (res) {
+//
+//            },
+//            fail: function (res) {
+//                alert(JSON.stringify(res));
+//            }
+//        });
+        wx.onMenuShareTimeline({
+            title: '{$fenx.title}',
+            link: "{:U('List/content',array('id'=>$fenx['id']))}",
+            imgUrl: '{$fenx.pic}',
+            trigger: function (res) {
+                // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+
+            },
+            success: function (res) {
+
+            },
+            cancel: function (res) {
+
+            },
+            fail: function (res) {
+                alert(JSON.stringify(res));
+            }
+        });
+
+    });
+</script>
+
 </html>
