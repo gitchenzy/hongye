@@ -287,10 +287,21 @@ class CustomerController extends AdminController
             $user -> startTrans();
             $result = $user -> where(['id'=>$res['user_id']]) -> save(['is_auto'=>1]);
             if($result){
+
                 $da = M('user_author') -> where($where) -> save(['is_verify'=>2]);
                 if($da){
-                    $user -> commit();
-                    $this->success('审核成功！');
+                    $datas['time'] = time();
+                    $datas['user_id'] = $res['user_id'];
+                    $datas['type'] = 2;
+                    $datas['content'] = '您的认证已经通过了';
+                    $dre = M('infos') -> add($datas);
+                    if($dre){
+                        $user -> commit();
+                        $this->success('审核成功！');
+                    }else{
+                        $user -> rollback();
+                        $this->error('审核失败，重新审核！');
+                    }
                 }else{
                     $user -> rollback();
                     $this->error('审核失败，重新审核！');
