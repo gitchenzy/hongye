@@ -13,26 +13,66 @@
     <!--<div class="top_arrow"></div>-->
     <!--<h4>我的活动</h4>-->
 <!--</div>-->
+<empty name="info">
 
-<volist name="info" id="vo">
-    <div class="stantic_3">
-        <div class="stantic_3_in">
-            <div class="stantic_3_in_text">
-                <p>{$vo.time|date="y-m-d",###}</p>
-                <p>{$vo.time|date="i:s",###}</p>
-            </div>
-            <div class="stantic_lang_2_img">
-                <img width="50" src="{$vo.pic}">
-            </div>
-            <div class="stantic_lang_2_text">
+    <style>
+        .helftopbox{width:40px;}
+        .blank{
+            width:100%;
+            height: auto;
+            margin: 150px 0 0 0;
+            text-align: center;
+        }
+        .blank .text{
+            font-size: 12px;
+            color: #919191;
+            line-height: 40px;
+        }
+        .blank a{
+            font-size: 12px;
+            color: #f45353;
+            line-height: 40px;
+        }
+        .blank_pic{
+            width:54px;
+            height: 54px;
+            margin: 0 auto;
+        }
+        .blank_pic img{
+            width:54px;
+            height: 54px;
+        }
+    </style>
+    <div class="blank">
+        <div class="blank_pic">
+            <img src="__PUBLIC__/Home/images/new/zu.png">
+        </div>
+        <div class="text">抱歉，暂时没有发起项目</div>
+    </div>
 
-                <h3>{$vo.title}</h3>
+<else />
 
-                <span>项目状态：<span style="color:#f45353;">{$vo.status|getProjectStatus} </span></span>
+    <volist name="info" id="vo">
+        <div class="stantic_3">
+            <div class="stantic_3_in">
+                <div class="stantic_3_in_text">
+                    <p>{$vo.time|date="y-m-d",###}</p>
+                    <p>{$vo.time|date="i:s",###}</p>
+                </div>
+                <div class="stantic_lang_2_img">
+                    <img width="50" src="{$vo.pic}">
+                </div>
+                <div class="stantic_lang_2_text">
+
+                    <h3>{$vo.title}</h3>
+
+                    <span>项目状态：<span style="color:#f45353;">{$vo.status|getProjectStatus} </span></span>
+                </div>
             </div>
         </div>
-    </div>
-</volist>
+    </volist>
+
+</empty>
 
 
 
