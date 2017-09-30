@@ -28,15 +28,15 @@
     <!--<div class="top_share">-->
     <!--</div>-->
 <!--</div>-->
-<div class="background">
-    <div class="first_box">
+
+    <div style="display: none;" class="first_box">
         <h1>发表评论</h1>
         <div class="first_inbox">
             <textarea id="content">我也说一句</textarea>
 
         </div>
         <div class="first_lowbox">
-            <div class="first_lowboxin">
+            <div class="first_lowboxin closes">
                 <p>取消</p>
             </div>
             <div style="border:none" class="first_lowboxin sub">
@@ -45,7 +45,7 @@
 
         </div>
     </div>
-</div>
+
 <div class="work_banner">
     <img src="{$info.pic}">
 </div>
@@ -97,7 +97,7 @@
     </div>
 </div>
 <div class="pay_b">
-    <div class="pay_pic">
+    <div class="pay_pic shows">
         <img width="20px" height="17px;" src="__PUBLIC__/Home/images/new/chat_1.png">
     </div>
     <span>评论</span>
@@ -144,12 +144,14 @@
 //                $('.pay_pic:eq(1) img').attr('src','/public/Home/images/new/star_1.png')
 //            }
         })
-        $('.pay_pic:eq(0)').click(function(){
+        $('.shows').click(function(){
                 $('.first_box').css('display','block');
-                $('.first_lowboxin:eq(0)').click(function(){
-                $('.first_box').css('display','none');
-            });
+
         })
+
+        $('.closes').click(function(){
+            $('.first_box').css('display','none');
+        });
         $('.first_box textarea').focus(function(){
             if($('.first_box textarea').html()==='我也说一句'){
                 $('.first_box textarea').html('');

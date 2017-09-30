@@ -1909,7 +1909,7 @@ div.flicking_con a.on{
 	background:#f7f7f7;
 	border-radius:3px;
 	z-index: 100;
-
+    display: none;
 }
 .first_box h1{
 	font-size:15px;
