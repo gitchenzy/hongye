@@ -1175,6 +1175,7 @@ div.flicking_con a.on{
 	float:right;
 	margin:15px 0px 10px 10px;
 	background-image:url('../images/new/persons.png');
+	background-size: 75px 102px;
 }
 .police_img{
 	width:75px;
@@ -1182,6 +1183,14 @@ div.flicking_con a.on{
 	float:right;
 	margin:15px 0px 10px 10px;
 	background-image:url('../images/new/companys.png');
+	background-size: 75px 102px;
+}
+
+.btn_addimg{
+	width:300px;
+	height:195px;
+	background-image:url('../images/new/addimg.png');
+	background-size: 300px 195px;
 }
 
 .police_img{
@@ -2130,11 +2139,11 @@ div.flicking_con a.on{
 	font-size:15px;
 	margin-top:12px;
 }
-.original_inbox img{
-	width: 300px;
-	height:195px;
-	margin:0 15px 20px 0px;
-}
+/*.original_inbox img{*/
+	/*width: 300px;*/
+	/*height:195px;*/
+	/*margin:0 15px 20px 0px;*/
+/*}*/
 .original_box{
 	width:100%;
 	height:56px;
