@@ -904,18 +904,6 @@ div.flicking_con a.on {
     text-align: center;
     line-height: 40px;
 }
-<<<<<<< HEAD
-.cash_btn_2{
-	width:130px;
-	height:32px;
-	border-radius:16px;
-	color:#FFFFFF;
-	background:#f45353;
-	float:right;
-	text-align:center;
-	line-height:30px;
-=======
->>>>>>> 70be56cff047f213da4d2a2469a9b3447d30c4a9
 
 .find_inbox_1 a {
     color: #a9a9a9;
@@ -1474,9 +1462,10 @@ div.flicking_con a.on {
 }
 
 .core {
-    height: 75px;
+    height: 55px;
     width: 100%;
     background: #fff;
+
 }
 
 .pay_b {
@@ -1779,12 +1768,12 @@ div.flicking_con a.on {
     text-align: center;
 }
 
-.work_bgs span {
-    font-size: 14px;
-    color: #000000;
-    display: block;
-    line-height: 20px;
-}
+/*.work_bgs span {*/
+    /*font-size: 14px;*/
+    /*color: #000000;*/
+    /*display: block;*/
+    /*line-height: 20px;*/
+/*}*/
 
 #bg {
     width: 100px;
@@ -2358,16 +2347,6 @@ div.flicking_con a.on {
     height: 70px;
 }
 
-.first_inbox textarea {
-	width: 275px;
-	height: 115px;
-	background: #fff;
-	margin: 0px auto 0px auto;
-	padding: 5px 0 0 0;
-	border: none;
-	color: #484848;
-	resize: none;
-}
 .original button {
     text-decoration: none;
     border: none;
@@ -2380,7 +2359,6 @@ div.flicking_con a.on {
     position: relative;
     /*left:-30px;*/
     border-radius: 3px;
-
 }
 
 .original_bottomtext {
@@ -2587,83 +2565,11 @@ div.flicking_con a.on {
     margin: 10px 0 0 0;
 }
 
-<<<<<<< HEAD
-/*-bind-*/
-.bind{
-	margin:10px 15px 0px 15px;
-	height:88px;
-	background: #fff;
-}
-.bind_box{
-	height: 44px;
-	width:100%;
-	border-bottom: 1px solid #e5e5e5;
-}
-.bind_box_in{
-	height: 44px;
-	margin: 0px 10px 0px 10px;
-	padding: 10px 0 0 0;
-}
-.bind_box_in_l{
-	width: 22px;
-	height: 22px;
-	float: left;
-}
-.bind_box_in_l img{
-	width: 22px;
-	height: 22px;}
-
-.bind_box_in_r{
-	width:150px;
-	height: 22px;
-	float: left;
-	margin: 0 0 0 10px;
-}
-.bind_box_in button{
-	width:75px;
-	height: 24px;
-	text-decoration: none;
-	border:1px solid #f45353;
-	background: #fff;
-	float: right;
-	display: block;
-	border-radius:3px;
-	color: #f45353;
-	font-size: 12px;
-}
-.bind_box_in_r input{
-	text-decoration: none;
-	border: none;
-	font-size: 15px;
-	color: #f2f2f2;
-	width:120px;
-
-}
-.bind_b{
-	width: 320px;
-	height: 80px;
-	margin: 0 auto 0 auto;
-	padding: 0 auto 0 auto;
-}
-.bind_b button{
-	width:320px;
-	height: 45px;
-	text-decoration: none;
-	border:2px solid #f45353;
-	background: #f45353;
-	float: left;
-	display: block;
-	border-radius:3px;
-	color: #fff;
-	font-size: 16px;
-	margin: 35px auto 0px auto;
-=======
 .inf_lin_img {
     width: 20px;
     height: 20px;
     float: right;
     margin: 11px 0px 0px 0px;
->>>>>>> 70be56cff047f213da4d2a2469a9b3447d30c4a9
 }
 
 .inf_lin_img img {
@@ -2739,133 +2645,6 @@ div.flicking_con a.on {
 /*-for iphone 5s-*/
 
 @media screen and (max-width:321px) {
-<<<<<<< HEAD
-	.midcard_bottom_text p{
-		color:#0e0e0e;
-		font-size:11px;
-		display:inline-block;
-		margin-right:1px;
-		letter-spacing:-1px;
-
-	}
-	.stantic_lang_2_text{
-		margin: 15px 0 0 0;
-		width:180px;
-		height:59px;
-		padding:0px;
-		float:left;
-		overflow:hidden;
-
-	}
-	.content_r{
-		width:220px;
-		height:132px;
-		float:right;
-		margin:0;
-		background:#FFFFFF;
-
-	}
-	.content_bl{
-		width:100px;
-		height: 22px;
-		float: left;
-		overflow: hidden;
-		position: relative;
-		top: -2px;
-	}
-	.police_text{
-		height:44px;
-		width:195px;
-		margin:0px;
-		border-bottom:1px solid #e5e5e5;
-
-
-	}
-	.police_text p{
-		line-height:42px;
-		font-size:14px;
-		color:#000000;
-		display:inline-block;
-		margin-right:15px;
-	}
-	.police_text input{
-		text-decoration:none;
-		outline:none;
-		-moz-appearance:none;
-		-webkit-appearance:none;
-		width:100px;
-		height:18px;
-		border:none;
-		color:#484848;
-		font-size: 12px;
-
-	}
-	.original_little_1{
-		width: 50px;
-		height: 40px;
-		margin: 0px;
-		padding: 0px;
-		float: left;
-		margin-right:10px;
-	}
-	.original_little_1 p{
-		font-size:12px;
-		color: #000000;
-		float: left;
-		margin: 0px;
-
-	}
-	.original_little_1 input{
-		display: block;
-		float: left;
-		width: 13px;
-		height: 13px;
-		margin: 10px 5px 0 0 ;
-		position: relative;
-		top:2.5px;
-	}
-	.original_little_2{
-		width: 50px;
-		height: 40px;
-		margin-right: 8px;
-		padding-left:16px;
-		float: left;
-
-	}
-	.original_little_2 p{
-		font-size:12px;
-		color: #000000;
-		float: left;
-		margin: 0px;
-
-	}
-	.original_little_2 input{
-		display: block;
-		float: left;
-		width: 13px;
-		height: 13px;
-		margin: 10px 5px 0 0 ;
-		position: relative;
-		top:2.5px;
-	}
-	.original_inbox{
-		width: 65px;
-		height: 65px;
-		background: #e3e3e3;
-		float: left;
-		margin:0px 9px 15px 9px;
-		border-radius: 3px;
-
-	}
-	original_inbox img{
-		width:320px;
-		height195px;
-	}
-	.main_image li span img{
-		width: 320px;
-		height: 178px;
-	}
-=======
     .midcard_bottom_text p {
         color: #0e0e0e;
         font-size: 11px;
@@ -2977,5 +2756,4 @@ div.flicking_con a.on {
         width: 320px;
         height: 178px;
     }
->>>>>>> 70be56cff047f213da4d2a2469a9b3447d30c4a9
 }

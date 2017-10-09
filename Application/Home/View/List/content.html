@@ -36,7 +36,7 @@
     }
 </style>
 
-<body style="padding-bottom:5px">
+<body style="padding-bottom:55px">
     <!--<div style="border-bottom:1px solid #e5e5e5;text-align:center" class="top">-->
     <!--<div onClick="window.location.href='../index.html'" class="top_newarrow"></div>-->
     <!--<h5>项目详情</h5>-->
@@ -109,9 +109,9 @@
     <div class="work_bg">
         <div class="work_bgs">
             {$info.des|htmlspecialchars_decode}
+            <div class="core"></div>
         </div>
     </div>
-    <div class="core"></div>
     <div class="pay_b">
         <div class="pay_pic shows">
             <img width="20px" height="17px;" src="__PUBLIC__/Home/images/new/chat_1.png">
@@ -137,21 +137,8 @@
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
-<<<<<<< HEAD
-
-    $(function(){
-        $('.pay_pic:eq(0)').click(function(){
-            $('.first_box').css('display','block');
-            $('.first_lowboxin:eq(0)').click(function(){
-                $('.first_box').css('display','none');
-            });
-        })
-
-        $('.pay_pic:eq(1)').click(function(){
-=======
     $(function() {
         $('.pay_pic:eq(1)').click(function() {
->>>>>>> 70be56cff047f213da4d2a2469a9b3447d30c4a9
 
             var key = $(this).attr('key');
             var project_id = '{$Think.get.id}';
@@ -177,30 +164,16 @@
             //                $('.pay_pic:eq(1) img').attr('src','/public/Home/images/new/star_1.png')
             //            }
         })
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-        $('.shows').click(function(){
-                $('.first_box').css('display','block');
-=======
         $('.shows').click(function() {
             $('.first_box').css('display', 'block');
->>>>>>> 70be56cff047f213da4d2a2469a9b3447d30c4a9
 
         })
 
         $('.closes').click(function() {
             $('.first_box').css('display', 'none');
         });
-<<<<<<< HEAD
->>>>>>> 9821e8de41c0dec1324ddbc6d76fa70fffa72f69
-        $('.first_box textarea').focus(function(){
-            if($('.first_box textarea').html()==='我也说一句'){
-=======
         $('.first_box textarea').focus(function() {
             if ($('.first_box textarea').html() === '我也说一句') {
->>>>>>> 70be56cff047f213da4d2a2469a9b3447d30c4a9
                 $('.first_box textarea').html('');
             }
         })
