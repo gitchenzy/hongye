@@ -99,6 +99,12 @@ class AccountController extends AdminController {
             $this->display();
         }
     }
+    public function vcode(){
+        $Verify = new \Think\Verify();
+        $Verify->entry();
+
+    }
+
 
     public function logout() {
         session_destroy();

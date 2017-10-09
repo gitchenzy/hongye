@@ -18,7 +18,7 @@ class IndexController extends Controller {
         $s_type = I("sid")?I("sid"):$son_type[0]['id'];
 
         //查出类别关联的项目
-        $project = M('project') -> where(['type_id'=> $s_type,'del'=>0]) -> order('id asc') -> limit(0,5) -> select();
+        $project = M('project') -> where(['type_id'=> $s_type,'del'=>0,'status'=>['GT',1]]) -> order('id asc') -> limit(0,5) -> select();
         foreach($project as &$v){
             $info = M('users') -> where(['id'=>$v['user_id']]) -> find();
             $v['name'] = $info['nick_name'];

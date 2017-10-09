@@ -38,7 +38,7 @@ function vCode($num = 4, $size = 20, $width = 0, $height = 0) {
 		imagesetpixel($im, mt_rand(0, $width), mt_rand(0, $height), $font_color);
 	} 
 	// 画验证码
-	@imagefttext($im, $size , 0, 5, $size + 3, $text_color, 'c:\\WINDOWS\\Fonts\\simsun.ttc', $code);
+	@imagefttext($im, $size , 0, 5, $size + 3, $text_color, '/public/arial.ttf', $code);
 	//$_SESSION["VerifyCode"]=$code; 
 	//setcookie('VerifyCode',$code,0,'/');
     $_SESSION['VerifyCode'] = $code;

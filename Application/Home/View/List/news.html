@@ -54,10 +54,11 @@
     </div>
     <div class="original_b">
         <div class="original_btop">
-            <div class="original_inbox">
-                <input id="pic" type="hidden" value="">
+            <input id="pic" type="hidden" value="">
+            <div class="original_inbox" id="btn-upload">
+
                 <img id="photo_preview" src="__PUBLIC__/Home/images/new/addimg.png">
-                <span id="btn-upload"></span>
+
             </div>
      </div>
     </div>
@@ -159,16 +160,18 @@
     //设置图片上传插件
     $(function () {
         $("#btn-upload").uploadifive({
-            height: 25,
+            height: 195,
             swf: '/public/Static/uploadify/uploadify.swf',
             uploadScript: "{:U('File/uploadProject')}",
-            width: 80,
-            buttonClass: "btn",
-            buttonText: '点击上传',
+            width: 300,
+            buttonClass: "btn_addimg",
+            buttonText: '',
             onUploadComplete: function (file, data) {
                 data = $.parseJSON(data);
                 if (data.status) {
-                    $("#photo_preview").attr("src", data.data);
+//                    $("#photo_preview").attr("src", data.data);
+
+                    $(".btn_addimg").css('background-image','url('+data.data+')');
                     $("#pic").val(data.data);
                 }
                 else {

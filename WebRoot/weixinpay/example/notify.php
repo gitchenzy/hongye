@@ -48,7 +48,7 @@ class PayNotifyCallBack extends WxPayNotify
 		}
 		//有产生订单就是已经支付成功 则生成一定支付记录，并且修改订单的支出状态
         $order_id = $data['attach'];
-        $mysql = new mysqli('localhost','root','2017hybbms.com','hongye');
+        $mysql = new mysqli('127.0.0.1','root','2017HYbbms.com','hongye');
         $mysql -> autocommit(FALSE);
         $time = time();
         Log::DEBUG("call sql:" . $order_id);

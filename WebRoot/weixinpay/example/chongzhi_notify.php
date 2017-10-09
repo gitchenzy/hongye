@@ -49,7 +49,7 @@ class PayNotifyCallBack extends WxPayNotify
 		//有产生订单就是已经支付成功 则生成一定支付记录，并且修改订单的支出状态
         $jine = $data['attach'];
 		$arr = explode(',',$jine);
-        $mysql = new mysqli('localhost','root','2017hybbms.com','hongye');
+        $mysql = new mysqli('127.0.0.1','root','2017HYbbms.com','hongye');
         $mysql -> autocommit(FALSE);
         $time = time();
         //生成充值记录获取pay_no

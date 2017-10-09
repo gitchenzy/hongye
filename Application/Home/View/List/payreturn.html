@@ -61,7 +61,7 @@
     <img src="__PUBLIC__/Home/images/new/add.png">
 </div>
 <div class="add_btn">
-    <p>完成</p>
+    <p><a href="{:U('Center/myactive')}" style="color: #fff;">完成</a></p>
 </div>
 <script type="text/javascript" src="__PUBLIC__/Home/js/return.js"></script>
 
@@ -89,6 +89,10 @@
         })
     })
 
+    $('#end').click(function(){
+
+        location.href="{:U('Center/myactive')}";
+    })
 </script>
 </body>
 </html>

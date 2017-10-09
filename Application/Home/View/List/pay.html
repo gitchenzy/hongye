@@ -98,7 +98,7 @@
                 <p>余额支付</p>
                 <p>¥{$amount}</p>
                 <p>余额不足？</p>
-                <a>点击充值</a>
+                <a href="{:U('Center/payin')}">点击充值</a>
                 <div class="pay_imgs">
                     <input type="radio" value="2" name="pays">
                 </div>
@@ -130,7 +130,7 @@
                    var id= data.info;
                    console.log(data.url);
                    var no= data.url;
-                   location.href='http://test.hybbms.com/weixinpay/example/jsapi.php?id='+id+'&no='+no;
+                   location.href='http://www.hybbms.com/weixinpay/example/jsapi.php?id='+id+'&no='+no;
                }else{
                    alert('订单发起支付失败，请重新确认！');
                }
