@@ -12,7 +12,7 @@ $log = Log::Init($logHandler, 15);
 //得到要付款的金额
 $order_id = $_GET['id'];
 $order_no = $_GET['no'];
-$mysql = new mysqli('localhost','root','2017hybbms.com','hongye');
+$mysql = new mysqli('127.0.0.1','root','2017HYbbms.com','hongye');
 $sql = "select  * from orders WHERE order_no = {$order_no} and id = {$order_id}";
 $res = $mysql -> query($sql);
 
@@ -32,7 +32,7 @@ $input->SetTotal_fee($jine);
 $input->SetTime_start(date("YmdHis"));
 $input->SetTime_expire(date("YmdHis", time() + 600));
 $input->SetGoods_tag("test");
-$input->SetNotify_url("http://test.hybbms.com/weixinpay/example/notify.php");
+$input->SetNotify_url("http://www.hybbms.com/weixinpay/example/notify.php");
 $input->SetTrade_type("JSAPI");
 $input->SetOpenid($openId);
 $order = WxPayApi::unifiedOrder($input);

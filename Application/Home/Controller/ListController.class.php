@@ -78,6 +78,17 @@ class ListController extends Controller {
             }
         }
 
+        $fenx = M('project') -> where(['id'=>$id]) -> find();
+        $fenx['name'] = $info['nick_name'];
+        $fenx['pic'] = 'http://'.$_SERVER['SERVER_NAME'].$fenx['pic'];
+        Vendor("Wifisoft.Jssdk");
+        $appid = C('WX_APP_ID');
+        $APPSECRET = C('WX_APP_SECRET');
+        //echo U('List/content',array('id'=>$fenx['id']));
+        $jssdk = new \Jssdk($appid, $APPSECRET);
+        $data = $jssdk->GetSignPackage();
+        $this -> assign('data',$data);
+        $this -> assign('fenx',$fenx);
         $this -> assign('info',$project);
         $this -> display();
     }
