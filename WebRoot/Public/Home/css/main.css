@@ -764,7 +764,7 @@ div.flicking_con a.on{
 	height:32px;
 	border-radius:16px;
 	color:#FFFFFF;
-	background:#d33d3e;
+	background:#f45353;
 	float:right;
 	text-align:center;
 	line-height:30px;
@@ -1010,7 +1010,7 @@ div.flicking_con a.on{
 	background:url(../images/new/mybg.png) no-repeat center;
 	margin:0px;
 	padding-top:73px;
-    background-size: 360px 180px;;
+    background-size: 100% 180px;;
 }
 .mine_in{
 	margin:0px 15px 0px 15px;
@@ -1932,7 +1932,7 @@ div.flicking_con a.on{
 	margin:0px auto 0px auto;
 	padding:5px 0 0 0;
 	border:none;
-	color:#e5e5e5;
+	color:#1f1f1f;
     resize: none;
 }
 .first_inbox h1{
@@ -2367,12 +2367,12 @@ div.flicking_con a.on{
 	width:75px;
 	height: 24px;
 	text-decoration: none;
-	border:1px solid #d33d3e;
+	border:1px solid #f45353;
 	background: #fff;
 	float: right;
 	display: block;
 	border-radius:3px;
-	color: #D33d3e;
+	color: #f45353;
 	font-size: 12px;
 }
 .bind_box_in_r input{
@@ -2393,8 +2393,8 @@ div.flicking_con a.on{
 	width:320px;
 	height: 45px;
 	text-decoration: none;
-	border:2px solid #d33d3e;
-	background: #d33d3e;
+	border:2px solid #f45353;
+	background: #f45353;
 	float: left;
 	display: block;
 	border-radius:3px;
@@ -2576,7 +2576,7 @@ div.flicking_con a.on{
 		width:100px;
 		height:18px;
 		border:none;
-		color:#e5e5e5;
+		color:#484848;
 		font-size: 12px;
 
 	}
@@ -2636,6 +2636,10 @@ div.flicking_con a.on{
 		margin:0px 9px 15px 9px;
 		border-radius: 3px;
 
+	}
+	original_inbox img{
+		width:320px;
+		height195px;
 	}
 	.main_image li span img{
 		width: 320px;

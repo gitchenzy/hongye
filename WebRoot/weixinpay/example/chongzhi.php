@@ -183,7 +183,7 @@ $editAddress = $tools->GetEditAddressParameters();
         margin:25px 15px 0 15px;
         height: 45px;
         border-radius: 3px;
-        background: #d33d3e;
+        background: #f45353;
         text-align: center
     }
     .tran_last p{
