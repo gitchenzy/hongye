@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/content.css">
     <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
@@ -22,25 +23,26 @@
 
 </head>
 <style>
-    .work_bgs p{
+    .work_bgs p {
         padding: 0 10px;
         width: 320px;
         text-align: left;
     }
-    .work_bgs img{
+    
+    .work_bgs img {
         padding: 0 10px;
         width: 300px;
         margin: 0 auto;
     }
-
 </style>
-<body>
-<!--<div style="border-bottom:1px solid #e5e5e5;text-align:center" class="top">-->
+
+<body style="padding-bottom:5px">
+    <!--<div style="border-bottom:1px solid #e5e5e5;text-align:center" class="top">-->
     <!--<div onClick="window.location.href='../index.html'" class="top_newarrow"></div>-->
     <!--<h5>项目详情</h5>-->
     <!--<div class="top_share">-->
     <!--</div>-->
-<!--</div>-->
+    <!--</div>-->
 
     <div style="display: none;" class="first_box">
         <h1>发表评论</h1>
@@ -59,81 +61,83 @@
         </div>
     </div>
 
-<div class="work_banner">
-    <img src="{$info.pic}">
-</div>
-<div class="work_card">
-    <div class="work_r">
-        <div class="work_img">
-            <img style="width:35px;margin-top: -5px;border-radius: 17.5px;" src="{$info.head_pic}">
-        </div>
-        <span>{$info.name}</span>
-        <div class="work_bb">
-            <p>{$info.start_time|date="y年m月d日",###}</p>
-            <p>{$info.start_time|date="H时i分",###}</p>
-            <img style="float:left" src="__PUBLIC__/Home/images/new/local.png">
-            <p>{$info.city}</p>
-        </div>
+    <div class="work_banner">
+        <img src="{$info.pic}">
     </div>
-    <div style="margin:2px 2px 2px 2px;" class="midcard_tip">
-        <div class="midcard_tip_1">
-            <div class="midcard_tip_2" style="left: {$vo.num}%;">
+    <div class="work_card">
+        <div class="work_r">
+            <div class="work_img">
+                <img style="width:35px;margin-top: -5px;border-radius: 17.5px;" src="{$info.head_pic}">
+            </div>
+            <span>{$info.name}</span>
+            <div class="work_bb">
+                <p>{$info.start_time|date="y年m月d日",###}</p>
+                <p>{$info.start_time|date="H时i分",###}</p>
+                <img style="float:left" src="__PUBLIC__/Home/images/new/local.png">
+                <p>{$info.city}</p>
+            </div>
+        </div>
+        <div style="margin:2px 2px 2px 2px;" class="midcard_tip">
+            <div class="midcard_tip_1">
+                <div class="midcard_tip_2" style="left: {$vo.num}%;">
                 </div>
+            </div>
         </div>
-    </div>
-    <div class="midcard_bottom">
-        <div class="midcard_bottom_text">
-            <p>目标金额:{$info.target_amount}</p>
-            <p>已筹金额:{$info.reach_amount}</p>
-            <p style="float:right;">支持人数:{$info.people_num}</p>
-        </div>
-    </div>
-
-</div>
-<div style="box-shadow:0px 2px 2px 1px #e5e5e5" class="top">
-    <div class="helftop">
-        <div class="midtopbox">
-        </div>
-        <div class="helftopbox">
-            <h1><a style="font-size:18px;" href="#">项目信息</a></h1>
-        </div>
-    </div>
-    <div class="helftop">
-        <div style="border:none" class="helftopbox">
-            <h1 id="activa"><a  style="color:#a9a9a9;font-size: 18px;" href="{:U('List/active',array('id'=>$info['id']))}">筹款动态</a></h1>
-        </div>
-    </div>
-</div>
-<div class="work_bg">
-    <div class="work_bgs">
-       {$info.des|htmlspecialchars_decode}
-    </div>
-</div>
-<div class="pay_b">
-    <div class="pay_pic shows">
-        <img width="20px" height="17px;" src="__PUBLIC__/Home/images/new/chat_1.png">
-    </div>
-    <span>评论</span>
-    <empty name="key">
-
-        <div class="pay_pic" key="1" >
-            <img src="__PUBLIC__/Home/images/new/stars_1.png">
-        </div>
-        <else />
-        <div class="pay_pic" key="2" >
-            <img src="__PUBLIC__/Home/images/new/stars_2.png">
+        <div class="midcard_bottom">
+            <div class="midcard_bottom_text">
+                <p>目标金额:{$info.target_amount}</p>
+                <p>已筹金额:{$info.reach_amount}</p>
+                <p style="float:right;">支持人数:{$info.people_num}</p>
+            </div>
         </div>
 
-    </empty>
-    <span>关注</span>
-    
-    <a style="" href="{:U('List/getmonney',array('id'=>$info['id']))}">我要支持</a>
+    </div>
+    <div style="box-shadow:0px 2px 2px 1px #e5e5e5" class="top">
+        <div class="helftop">
+            <div class="midtopbox">
+            </div>
+            <div class="helftopbox">
+                <h1><a style="font-size:18px;" href="#">项目信息</a></h1>
+            </div>
+        </div>
+        <div class="helftop">
+            <div style="border:none" class="helftopbox">
+                <h1 id="activa"><a style="color:#a9a9a9;font-size: 18px;" href="{:U('List/active',array('id'=>$info['id']))}">筹款动态</a></h1>
+            </div>
+        </div>
+    </div>
+    <div class="work_bg">
+        <div class="work_bgs">
+            {$info.des|htmlspecialchars_decode}
+        </div>
+    </div>
+    <div class="core"></div>
+    <div class="pay_b">
+        <div class="pay_pic shows">
+            <img width="20px" height="17px;" src="__PUBLIC__/Home/images/new/chat_1.png">
+        </div>
+        <span>评论</span>
+        <empty name="key">
 
-</div>
+            <div class="pay_pic" key="1">
+                <img src="__PUBLIC__/Home/images/new/stars_1.png">
+            </div>
+            <else />
+            <div class="pay_pic" key="2">
+                <img src="__PUBLIC__/Home/images/new/stars_2.png">
+            </div>
+
+        </empty>
+        <span>关注</span>
+
+        <a style="" href="{:U('List/getmonney',array('id'=>$info['id']))}">我要支持</a>
+
+    </div>
 
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
+<<<<<<< HEAD
 
     $(function(){
         $('.pay_pic:eq(0)').click(function(){
@@ -144,55 +148,76 @@
         })
 
         $('.pay_pic:eq(1)').click(function(){
+=======
+    $(function() {
+        $('.pay_pic:eq(1)').click(function() {
+>>>>>>> 70be56cff047f213da4d2a2469a9b3447d30c4a9
 
             var key = $(this).attr('key');
             var project_id = '{$Think.get.id}';
             var pid = 0;
-            var info = {key:key,project_id:project_id,pid:pid}
-            $.post('/index.php/List/atten',info,function(datas){
-                if(datas.info == 1){
+            var info = {
+                key: key,
+                project_id: project_id,
+                pid: pid
+            }
+            $.post('/index.php/List/atten', info, function(datas) {
+                if (datas.info == 1) {
                     alert('请先登陆！');
                     location.href = '/index.php/Login/index';
-                }else{
+                } else {
                     alert(datas.info);
                     location.reload();
                 }
             })
 
-//            if($('.pay_pic:eq(1) img').attr('src')==='/public/Home/images/new/star_1.png'){
-//                $('.pay_pic:eq(1) img').attr('src','/public/Home/images/new/stars.png');
-//            }else {
-//                $('.pay_pic:eq(1) img').attr('src','/public/Home/images/new/star_1.png')
-//            }
+            //            if($('.pay_pic:eq(1) img').attr('src')==='/public/Home/images/new/star_1.png'){
+            //                $('.pay_pic:eq(1) img').attr('src','/public/Home/images/new/stars.png');
+            //            }else {
+            //                $('.pay_pic:eq(1) img').attr('src','/public/Home/images/new/star_1.png')
+            //            }
         })
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
         $('.shows').click(function(){
                 $('.first_box').css('display','block');
+=======
+        $('.shows').click(function() {
+            $('.first_box').css('display', 'block');
+>>>>>>> 70be56cff047f213da4d2a2469a9b3447d30c4a9
 
         })
 
-        $('.closes').click(function(){
-            $('.first_box').css('display','none');
+        $('.closes').click(function() {
+            $('.first_box').css('display', 'none');
         });
+<<<<<<< HEAD
 >>>>>>> 9821e8de41c0dec1324ddbc6d76fa70fffa72f69
         $('.first_box textarea').focus(function(){
             if($('.first_box textarea').html()==='我也说一句'){
+=======
+        $('.first_box textarea').focus(function() {
+            if ($('.first_box textarea').html() === '我也说一句') {
+>>>>>>> 70be56cff047f213da4d2a2469a9b3447d30c4a9
                 $('.first_box textarea').html('');
             }
         })
-        $('.sub').click(function(){
+        $('.sub').click(function() {
             var content = $('#content').val();
             var project_id = '{$Think.get.id}';
-            var info = {content:content,project_id:project_id}
-            $.post('/index.php/List/comments',info,function(datas){
-                if(datas.info == 1){
+            var info = {
+                content: content,
+                project_id: project_id
+            }
+            $.post('/index.php/List/comments', info, function(datas) {
+                if (datas.info == 1) {
                     alert('请先登陆！');
                     location.href = '/index.php/Login/index';
-                }else{
+                } else {
                     alert(datas.info);
-                    $('.first_box').css('display','none');
+                    $('.first_box').css('display', 'none');
                 }
             })
         })
@@ -202,48 +227,48 @@
             appId: '<?php echo $data["appId"];?>', // 必填，公众号的唯一标识
             timestamp: '<?php echo $data["timestamp"];?>', // 必填，生成签名的时间戳
             nonceStr: '<?php echo $data["nonceStr"];?>', // 必填，生成签名的随机串
-            signature: '<?php echo $data["signature"];?>',// 必填，签名，见附录1
+            signature: '<?php echo $data["signature"];?>', // 必填，签名，见附录1
             jsApiList: [
-                'checkJsApi',
-                'onMenuShareTimeline',
-                'onMenuShareAppMessage',
-                'onMenuShareQQ',
-                'onMenuShareWeibo',
-                'onMenuShareQZone',
-                'hideMenuItems',
-                'showMenuItems',
-                'hideAllNonBaseMenuItem',
-                'showAllNonBaseMenuItem',
-                'translateVoice',
-                'startRecord',
-                'stopRecord',
-                'onVoiceRecordEnd',
-                'playVoice',
-                'onVoicePlayEnd',
-                'pauseVoice',
-                'stopVoice',
-                'uploadVoice',
-                'downloadVoice',
-                'chooseImage',
-                'previewImage',
-                'uploadImage',
-                'downloadImage',
-                'getNetworkType',
-                'openLocation',
-                'getLocation',
-                'hideOptionMenu',
-                'showOptionMenu',
-                'closeWindow',
-                'scanQRCode',
-                'chooseWXPay',
-                'openProductSpecificView',
-                'addCard',
-                'chooseCard',
-                'openCard'
-            ]// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                    'checkJsApi',
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'onMenuShareQQ',
+                    'onMenuShareWeibo',
+                    'onMenuShareQZone',
+                    'hideMenuItems',
+                    'showMenuItems',
+                    'hideAllNonBaseMenuItem',
+                    'showAllNonBaseMenuItem',
+                    'translateVoice',
+                    'startRecord',
+                    'stopRecord',
+                    'onVoiceRecordEnd',
+                    'playVoice',
+                    'onVoicePlayEnd',
+                    'pauseVoice',
+                    'stopVoice',
+                    'uploadVoice',
+                    'downloadVoice',
+                    'chooseImage',
+                    'previewImage',
+                    'uploadImage',
+                    'downloadImage',
+                    'getNetworkType',
+                    'openLocation',
+                    'getLocation',
+                    'hideOptionMenu',
+                    'showOptionMenu',
+                    'closeWindow',
+                    'scanQRCode',
+                    'chooseWXPay',
+                    'openProductSpecificView',
+                    'addCard',
+                    'chooseCard',
+                    'openCard'
+                ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
         });
     });
-    wx.ready(function () {
+    wx.ready(function() {
         //取消除微信相关的分享
         wx.hideMenuItems({
             menuList: ['menuItem:share:qq',
@@ -259,39 +284,39 @@
         // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
         wx.onMenuShareAppMessage({
             title: '{$fenx.title}',
-//            desc: '{$fenx.title}',
+            //            desc: '{$fenx.title}',
             link: "http://www.hybbms.com/index.php/List/content?id={$fenx.id}",
             imgUrl: '{$fenx.pic}',
-            trigger: function (res) {
+            trigger: function(res) {
                 // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
 
             },
-            success: function (res) {
+            success: function(res) {
 
             },
-            cancel: function (res) {
+            cancel: function(res) {
 
             },
-            fail: function (res) {
+            fail: function(res) {
                 alert(JSON.stringify(res));
             }
         });
         wx.onMenuShareTimeline({
             title: '{$fenx.title}',
-//            desc:'{$fenx.title}',
+            //            desc:'{$fenx.title}',
             link: "http://www.hybbms.com/index.php/List/content?id={$fenx.id}",
             imgUrl: '{$fenx.pic}',
-            trigger: function (res) {
+            trigger: function(res) {
                 // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
 
             },
-            success: function (res) {
+            success: function(res) {
 
             },
-            cancel: function (res) {
+            cancel: function(res) {
 
             },
-            fail: function (res) {
+            fail: function(res) {
                 alert(JSON.stringify(res));
             }
         });
