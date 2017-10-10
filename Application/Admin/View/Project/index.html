@@ -55,6 +55,9 @@
                         <button id="orders" class="btn btn-primary" disabled>
                             项目订单
                         </button>
+                        <button id="blance" class="btn btn-primary" disabled>
+                            修改金额
+                        </button>
 
                         <select id="status" class="form-control select-huge">
                             <option value="0">项目状态</option>
@@ -113,6 +116,7 @@
         var $add = $('#addform');
         var $orders = $('#orders');
         var $addReturn = $('#addReturn');
+        var $blance = $('#blance');
         function initTable() {
             $table.bootstrapTable({
                 formatSearch:function(){return '请输入用户昵称或者项目标题'},
@@ -163,6 +167,7 @@
                     $orders.prop('disabled',false);
                     $addBalance.prop('disabled',false);
                     $addReturn.prop('disabled',false);
+                    $blance.prop('disabled',false);
 
                 }else{
                     //$edit.attr("data-remote","javascript:void(0);");
@@ -170,6 +175,7 @@
                     $orders.prop('disabled',true);
                     $addBalance.prop('disabled',true);
                     $addReturn.prop('disabled',true);
+                    $blance.prop('disabled',true);
                 }
                 selections = getIdSelections();
             });
@@ -188,6 +194,13 @@
             $addReturn.click(function(){
                 $("#addCustomer").modal({
                     remote: "/index.php/admin/Project/addReturn?id=" + getIdSelections()+'&t=' + Math.random(1000)
+                    ,backdrop: 'static'
+                    ,keyboard: false
+                });
+            });
+            $blance.click(function(){
+                $("#addCustomer").modal({
+                    remote: "/index.php/admin/Project/blance?id=" + getIdSelections()+'&t=' + Math.random(1000)
                     ,backdrop: 'static'
                     ,keyboard: false
                 });

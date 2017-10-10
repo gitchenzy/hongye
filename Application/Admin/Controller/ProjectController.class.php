@@ -389,7 +389,38 @@ class ProjectController extends AdminController
             $this->success('删除成功！');
         }
     }
+    //修改项目已达金额
+    public function blance(){
 
+        if(IS_POST){
+            $data = i('post.');
+            $where['id'] = $data['id'];
+            $info  = M('project') -> where($where) -> find();
+            $obj  = M('project');
+            $obj -> startTrans();
+            $p_info['people_num'] = $info['people_num'] + $data['num'];
+            $p_info['reach_amount'] = $info['reach_amount'] + $data['balance'];
+            $result  = $obj -> where($where) -> save($p_info);
+            $pay_info['pay_no'] = get_pay_no();
+            $pay_info['pay_time'] = time();
+            $pay_info['project_id'] = $data['id'];
+            $pay_info['amount'] = $data['balance'];
+            $pay_info['pay_type'] = 4;
+            $res = M('user_account') -> add($pay_info);
+            if($res){
+                $obj ->commit();
+                $this->success('修改金额成功！');
+            }else{
+                $obj ->rollback();
+                $this->error('修改金额失败！');
+            }
+
+        }else{
+            $this->display();
+        }
+
+
+    }
 
 
 }
