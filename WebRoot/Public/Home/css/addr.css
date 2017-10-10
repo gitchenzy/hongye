@@ -107,10 +107,11 @@ body{
 .addr_s input{
     float: right;
     display: block;
+    border: 1px solid #f45353;
 }
 
 .info select{ margin-right:10px;
-    border:2px #f45353 solid;
+    border:1px #797979 solid;
     background:#FFFFFF;
     width:68px;
     height: 25px;

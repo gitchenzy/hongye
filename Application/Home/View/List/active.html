@@ -32,7 +32,8 @@
             <div class="first_pic">
                 <img key="{$vo.id}" src="__PUBLIC__/Home/images/new/chat_2.png">
             </div>
-            <p>2017.09.06</p>
+            <p style="display: inline-block">{$info.start_time|date="y年m月d日",###}</p>
+            <p style="display: inline-block">{$info.start_time|date="H时i分",###}</p>
             <span>{$vo.content}</span>
 
             <volist name="vo.son" id="svo">
