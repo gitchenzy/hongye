@@ -36,7 +36,7 @@
     }
 </style>
 
-<body style="padding-bottom:5px">
+<body style="padding-bottom:55px">
     <!--<div style="border-bottom:1px solid #e5e5e5;text-align:center" class="top">-->
     <!--<div onClick="window.location.href='../index.html'" class="top_newarrow"></div>-->
     <!--<h5>项目详情</h5>-->
@@ -72,7 +72,7 @@
             <span>{$info.name}</span>
             <div class="work_bb">
                 <p>{$info.start_time|date="y年m月d日",###}</p>
-                <p>{$info.start_time|date="H时i分",###}</p>
+                <!--<p>{$info.start_time|date="H时i分",###}</p>-->
                 <img style="float:left" src="__PUBLIC__/Home/images/new/local.png">
                 <p>{$info.city}</p>
             </div>
@@ -109,9 +109,9 @@
     <div class="work_bg">
         <div class="work_bgs">
             {$info.des|htmlspecialchars_decode}
+            <div class="core"></div>
         </div>
     </div>
-    <div class="core"></div>
     <div class="pay_b">
         <div class="pay_pic shows">
             <img width="20px" height="17px;" src="__PUBLIC__/Home/images/new/chat_1.png">

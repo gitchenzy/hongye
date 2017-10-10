@@ -1458,13 +1458,14 @@ div.flicking_con a.on {
 .pay_bottom {
     width: 100%;
     height: 200px;
-    background: #D8D8D8;
+    background: #f2f2f2;
 }
 
 .core {
-    height: 75px;
+    height: 55px;
     width: 100%;
     background: #fff;
+
 }
 
 .pay_b {
@@ -1767,12 +1768,12 @@ div.flicking_con a.on {
     text-align: center;
 }
 
-.work_bgs span {
-    font-size: 14px;
-    color: #000000;
-    display: block;
-    line-height: 20px;
-}
+/*.work_bgs span {*/
+    /*font-size: 14px;*/
+    /*color: #000000;*/
+    /*display: block;*/
+    /*line-height: 20px;*/
+/*}*/
 
 #bg {
     width: 100px;
