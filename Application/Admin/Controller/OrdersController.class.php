@@ -174,7 +174,96 @@ class OrdersController extends AdminController
         $list_array= array("total"=>$count,"rows"=>$list?$list:array());
         echo json_encode($list_array);
     }
+    //会员提现申请
+    public function payout(){
+        $this -> display();
+    }
+    public function loadPayout(){
+        $offset = i("offset");
 
+        $limit = i("limit");
+        $search_key = i('search_key');
+
+        $search_value = i('search');
+        $type = i('status');
+        $timea = i('timea');
+        $timeb = i('timeb');
+
+        if(!$timea && $timeb){
+            $timeb = strtotime($timeb);
+            $where['a.time'] = array('lt',$timeb);
+        }
+
+        if($timea && !$timeb){
+            $timea = strtotime($timea);
+            $where['a.time'] = array('GT',$timea);
+        }
+        if($timea && $timeb){
+            $timea = strtotime($timea);
+            $timeb = strtotime($timeb);
+            $where['a.time'] = array('between',array($timea,$timeb));
+        }
+
+        if($search_value){
+            $where['u.nick_name'] = array('LIKE',"%$search_value%");;
+        }
+        if(!empty($type) && isset($type)){
+            $where['a.status'] = $type;
+        }
+        $sort = i('sort');
+        $order = i('order');
+        if(!empty($sort)){
+            $reorder = 'a.'.$sort." ".$order;
+        }else{
+            $reorder = 'a.id desc';
+        }
+        $list =  M('withdrawals')-> alias('a')
+            ->join('users as u on u.id = a.user_id','left')
+            -> field('a.*,u.nick_name')
+            -> where($where)
+            -> order($reorder)
+            ->limit($offset,$limit)
+            -> select();
+//        dump(M('user_account')->getlastsql());
+        foreach($list as &$v){
+
+            $v['time'] = date('Y-m-d H:i:s',$v['time']);
+            $v['status'] = $v['status']==1?'未处理':'已处理';
+
+
+        }
+//        dump($list);
+        $count =  M('withdrawals')-> alias('a')
+            ->join('users as u on u.id = a.user_id','left')
+            -> where($where)
+            -> order($reorder)
+            -> count();
+        $list_array= array("total"=>$count,"rows"=>$list?$list:array());
+        echo json_encode($list_array);
+
+    }
+    //处理提现
+    public function editCash(){
+
+        $id = I('id');
+        $info = M('withdrawals') -> where(['id'=> $id]) -> find();
+        if(IS_POST){
+
+        }else{
+            //查询可以提现余额如果大于则按照记录来，如果小于则按照最大可提现的金额进行提现
+            $balance = M('users') -> where(['id' => $info['user_id']])->getfield('balance');
+
+            if($balance > $info['amount']){
+                $this -> assign('jine',$info['amount']);
+            }else{
+                $this -> assign('jine',floor($balance));
+            }
+
+            $this -> display();
+
+        }
+
+    }
 
 
 

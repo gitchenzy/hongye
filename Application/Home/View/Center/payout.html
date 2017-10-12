@@ -12,22 +12,55 @@
 <div class="page">
     <div class="pay_for_in">
         <div class="pay_for_l">
-            <p>充值金额</p>
+            <p>提现申请</p>
         </div>
         <div class="pay_for_2">
             <h1>¥</h1>
-            <input type="text">
+            <input type="text" id="yue">
         </div>
         <div class="pay_for_3">
-            <span>当前余额为2元，</span>
-            <p>全部提现</p>
-            <button class="pay_btn" type="submit" value="">下一步</button>
+            <span>当前余额为{$balance}元，</span>
+            <p id="all">全部提现</p>
+            <button class="pay_btn" id="sub" type="submit" value="">提现申请</button>
         </div>
     </div>
 </div>
 <script>
     $(function(){
         $('.pay_for_2 input').focus();
+
+        $('#sub').click(function(){
+            var balance = '{$balance}';
+            var yue = $('#yue').val();
+            if(!yue){
+                alert('提现金额不能为空！');
+                return false;
+            }
+            if(yue > balance){
+                alert('可提现金额不足！');
+                return false;
+            }
+            var info = {type:1,yue:yue}
+            $.post("{:U('Center/addout')}",info,function(data){
+
+                    if(data.status == 1){
+                        alert('提交申请成功！');
+                    }else{
+                        alert(data.info);
+                    }
+            })
+        })
+
+        $('#all').click(function(){
+            var info = {type:2}
+            $.post("{:U('Center/addout')}",info,function(data){
+                if(data.status == 1){
+                    alert('提交申请成功！');
+                }else{
+                    alert(data.info);
+                }
+            })
+        })
     })
     </script>
 </body>

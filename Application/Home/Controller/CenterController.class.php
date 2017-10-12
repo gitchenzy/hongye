@@ -246,6 +246,44 @@ class CenterController extends Controller {
         $this -> assign('user_id',$this->user_id);
         $this -> display();
     }
+    //提现
+    public function payout(){
+
+        //获取可以提现的金额
+//        dump($this -> user_id);
+        $where['id'] = $this -> user_id;
+        $balance = M('users') -> where($where) -> getfield('balance');
+        $this -> assign('balance',$balance);
+        $this -> display();
+    }
+    //添加提现记录
+    public function addout(){
+
+        $w_time = session('w_time');
+
+        $balance['time'] = time();
+        if($w_time && $balance['time'] < $w_time+5*60*60){
+            $this -> error('请等待管理员的审核！');
+        }
+
+        $type = I('type');
+        if($type == 1){
+            $balance['amount'] = I('yue');
+        }else{
+            $yue = M('users') -> where(['id'=> $this -> user_id]) -> getfield('balance');
+            $balance['amount'] = floor($yue);
+        }
+
+        $balance['user_id'] = $this -> user_id;
+        $res = M('withdrawals') -> add($balance);
+        if($res){
+            session('w_time',time());
+            $this -> success('申请成功！');
+        }else{
+            $this -> error('申请失败，请重新申请！');
+        }
+
+    }
 
 
 }
