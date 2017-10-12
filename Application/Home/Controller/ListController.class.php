@@ -44,7 +44,8 @@ class ListController extends Controller {
                 break;
         }
         $count = I('time');
-        $project = M('project') -> where($where) -> order($order) ->limit(5*$count,5*($count+1)) -> select();
+        $project = M('project') -> where($where) -> order($order) ->limit(5*$count,5) -> select();
+     //   dump($project);
 
         if($project){
 
