@@ -52,7 +52,7 @@ class CenterController extends Controller {
         $where['status'] = ['GT',1];
         $where['user_id'] = $this -> user_id;
         $count = I('time');
-        $info = M('orders') -> where($where) -> order('pay_time desc') ->limit(5*$count,5*($count+1)) -> select();
+        $info = M('orders') -> where($where) -> order('pay_time desc') ->limit(5*$count,5) -> select();
 
         if($info){
             foreach($info as &$v){
@@ -98,7 +98,7 @@ class CenterController extends Controller {
         $where['pay_type'] = $type;
         $where['user_id'] = $this -> user_id;
         $count = I('time');
-        $info = M('user_pay') -> where($where) -> order('pay_time desc') ->limit(5*$count,5*($count+1)) -> select();
+        $info = M('user_pay') -> where($where) -> order('pay_time desc') ->limit(5*$count,5) -> select();
 
         if($info){
             $this -> assign('info',$info);

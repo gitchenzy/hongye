@@ -40,7 +40,7 @@ class IndexController extends Controller {
         $where[$type] = $id;
         $where['del'] = 0;
         $count = I('time');
-        $project = M('project') -> where($where) -> order('id asc') ->limit(5*$count,5*($count+1)) -> select();
+        $project = M('project') -> where($where) -> order('id asc') ->limit(5*$count,5) -> select();
 
         if($project){
             foreach($project as &$v){
