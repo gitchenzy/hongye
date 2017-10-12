@@ -763,8 +763,9 @@ div.flicking_con a.on {
     width: 130px;
     height: 34px;
     border-radius: 16px;
-    border: 1px solid #f2f2f2;
-    background: #FFFFFF;
+
+
+    background: #f45353;
     float: left;
     text-align: center;
     line-height: 30px;
@@ -777,10 +778,11 @@ div.flicking_con a.on {
 
 .cash_btn_2 {
     width: 130px;
-    height: 32px;
+    height: 34px;
     border-radius: 16px;
-    color: #FFFFFF;
-    background: #d33d3e;
+    color: #000;
+    border: 1px solid #f2f2f2;
+    background: #fff;
     float: right;
     text-align: center;
     line-height: 30px;
@@ -1259,7 +1261,7 @@ div.flicking_con a.on {
     font-size: 16px;
     color: #000000;
     display: inline-block;
-    margin-right: 15px;
+    margin-right:10px;
 }
 
 .police_text input {
@@ -1267,8 +1269,8 @@ div.flicking_con a.on {
     outline: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    width: 100px;
-    height: 18px;
+    width: 120px;
+    height: 16px;
     border: none;
     color: #484848;
     font-size: 16px;
@@ -1343,36 +1345,37 @@ div.flicking_con a.on {
 
 .pay_1 {
     width: 100%;
-    height: 27px;
+    height: 40px;
     background: #e5e5e5;
 }
 
 .pay_2 {
     margin: 0px 15px 0px 15px;
-    height: 27px;
+    height: 40px;
 }
 
 .pay_2 p {
-    font-size: 12px;
+    font-size: 15px;
     color: #666666;
-    line-height: 25px;
+    line-height:40px;
 }
 
 .pay_3 {
     width: 100%;
-    height: 35px;
+    height: 40px;
+    background: #FFFFFF;
 }
 
 .pay_4 {
     margin: 0px 15px 0px 15px;
-    height: 35px;
+    height: 40px;
     background: #FFFFFF;
 }
 
 .pay_4 h1 {
-    font-size: 14px;
+    font-size: 15px;
     color: #000000;
-    line-height: 32px;
+    line-height: 40px;
     font-weight: lighter;
     display: inline-block;
 }
@@ -1386,18 +1389,21 @@ div.flicking_con a.on {
     height: 28px;
     border: none;
     color: #484848;
-    line-height: 35px;
+    line-height: 55px;
 }
 
 .pay_5 {
     width: 100%;
-    height: 43px;
+    height: 51px;
+    background: #FFFFFF;
+    border-bottom: 1px #e5e5e5 solid;
 }
 
 .pay_6 {
     margin: 0px 15px 0px 15px;
-    height: 43px;
-    border-bottom: 1px #e5e5e5 solid;
+    height: 51px;
+
+    background: #FFFFFF;
 }
 
 .pay_box {
@@ -1413,7 +1419,7 @@ div.flicking_con a.on {
 }
 
 .pay_6 p {
-    font-size: 13px;
+    font-size: 16px;
     color: #000000;
     line-height: 45px;
     font-weight: bold;
@@ -1605,7 +1611,7 @@ div.flicking_con a.on {
 }
 
 .content_bl {
-    width: 150px;
+    width: 130px;
     height: 22px;
     float: left;
     overflow: hidden;
@@ -1630,16 +1636,23 @@ div.flicking_con a.on {
 
 
 /*-notes-*/
-
+.allnotes{
+    margin: 0px 15px 0px 15px;
+    height: 117px;
+    background: #FFFFFF;
+    border-radius: 5px;
+}
 .note {
     width: 100%;
     height: 35px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #FFFFFF;
 }
 
 .notes {
     margin: 10px 15px 0px 15px;
     height: 35px;
-    border-bottom: 1px solid #e5e5e5;
+
 }
 
 .notes p {
@@ -1756,25 +1769,15 @@ div.flicking_con a.on {
 
 .work_bg {
     background: #FFFFFF;
-    width: 100%;
+    width:100%;
     height: 300px;
     margin-top: 2px;
-    padding-bottom: 90px;
+
 }
 
 .work_bgs {
-    margin: 25px 15px 0px 15px;
-    height: 300px;
-    text-align: center;
+    margin: 25px 0px 0px 0px;
 }
-
-/*.work_bgs span {*/
-    /*font-size: 14px;*/
-    /*color: #000000;*/
-    /*display: block;*/
-    /*line-height: 20px;*/
-/*}*/
-
 #bg {
     width: 100px;
     height: 100%;
@@ -2429,7 +2432,7 @@ div.flicking_con a.on {
 /*-bind-*/
 
 .bind {
-    margin: 10px 15px 0px 15px;
+    margin: 0px 15px 0px 15px;
     height: 88px;
     background: #fff;
 }
@@ -2468,12 +2471,12 @@ div.flicking_con a.on {
     width: 75px;
     height: 24px;
     text-decoration: none;
-    border: 1px solid #d33d3e;
+    border: 1px solid #f45353;
     background: #fff;
     float: right;
     display: block;
     border-radius: 3px;
-    color: #D33d3e;
+    color: #f45353;
     font-size: 12px;
 }
 
@@ -2496,8 +2499,8 @@ div.flicking_con a.on {
     width: 320px;
     height: 45px;
     text-decoration: none;
-    border: 2px solid #d33d3e;
-    background: #d33d3e;
+    border: 2px solid #f45353;
+    background: #f45353;
     float: left;
     display: block;
     border-radius: 3px;
@@ -2693,7 +2696,7 @@ div.flicking_con a.on {
         outline: none;
         -moz-appearance: none;
         -webkit-appearance: none;
-        width: 100px;
+        width: 120px;
         height: 18px;
         border: none;
         color: #e5e5e5;
