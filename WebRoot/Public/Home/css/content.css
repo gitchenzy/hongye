@@ -26,7 +26,7 @@
     border-radius: 3px;
     background: rgba(244, 83, 83, 1);
     position: relative;
-    right: 50%;
+    right: 95%;
 }
 .tips_circle{
     height: 24px;
@@ -36,7 +36,7 @@
     border-radius: 25px;
     position: relative;
     top:-18px;
-    left: 43%;
+    left: 2%;
     text-align: center
 }
 .tips_circle p{
@@ -47,7 +47,7 @@
 }
 .work_incard span{
     font-size: 16px;
-    color:#000;
+    color:#333;
     line-height:22px;
     text-align: left;
     font-weight: bold;
