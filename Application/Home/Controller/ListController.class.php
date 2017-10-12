@@ -64,7 +64,7 @@ class ListController extends Controller {
         $where['del'] = 0;
 
         $project = M('project') -> where($where) -> find();
-
+        $project['num'] = $project['reach_amount']/$project['target_amount']*100;
         $info = M('users') -> where(['id'=>$project['user_id']]) -> find();
         $project['name'] = $info['nick_name'];
         $project['head_pic'] = $info['pic'];
