@@ -1,6 +1,8 @@
 /* CSS Document */
 
 * {
+    -webkit-tap-highlight-color: transparent;
+    -ms-scrollbar-highlight-color: transparent;
     margin: 0px;
     padding: 0px;
     list-style: none;
