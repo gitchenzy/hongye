@@ -102,6 +102,7 @@ function comments_info($pid=0){
         $p_user = M('comments') -> where(['id'=>$in['pid']])  -> getfield('user_id');
         $in['fname'] = M('users') -> where(['id'=>$p_user]) -> getfield('nick_name');
         $in['name'] = M('users') -> where(['id'=>$in['user_id']]) -> getfield('nick_name');
+        $in['head_pic'] = M('users') -> where(['id'=>$in['user_id']]) -> getfield('pic');
     }
     return $info;
 }
