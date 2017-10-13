@@ -275,7 +275,9 @@ class CenterController extends Controller {
             $yue = M('users') -> where(['id'=> $this -> user_id]) -> getfield('balance');
             $balance['amount'] = floor($yue);
         }
-
+        $balance['address'] =  I('address');
+        $balance['name'] =  I('name');
+        $balance['cards'] =  I('cards');
         $balance['user_id'] = $this -> user_id;
         $res = M('withdrawals') -> add($balance);
         if($res){

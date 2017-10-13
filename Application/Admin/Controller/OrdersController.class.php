@@ -249,16 +249,69 @@ class OrdersController extends AdminController
         $info = M('withdrawals') -> where(['id'=> $id]) -> find();
         if(IS_POST){
 
+            if($info['status'] == 2){
+                $this->error('该条提现申请已经处理。');
+            }
+
+            $balance = M('users') -> where(['id' => $info['user_id']])->getfield('balance');
+
+            if($balance > $info['amount']){
+                $info['user_amount'] = $info['amount'];
+            }else{
+                $info['user_amount'] = floor($balance);
+            }
+            //确认提现，生成一条提现记录，并且扣掉响应的余额
+            $tranDb = M();
+            $tranDb -> startTrans();
+            $res = $tranDb ->table('users') -> where(['id' => $info['user_id']])->setDec('balance',$info['user_amount']);
+            if($res){
+                //生成记录
+                $pay['pay_no'] = get_pay_no();
+                $pay['amount'] = $info['user_amount'];
+                $pay['user_id'] = $info['user_id'];
+                $pay['pay_time'] = time();
+                $pay['pay_type'] = 2;
+                $result = $tranDb ->table('user_account') -> add($pay);
+                if($result){
+                    $zhichu['pay_no'] =  $pay['pay_no'];
+                    $zhichu['user_id'] =  $pay['user_id'];
+                    $zhichu['pay_time'] =  $pay['pay_time'];
+                    $zhichu['amount'] =  $info['user_amount'];
+                    $zhichu['pay_type'] =  1;
+                    $zhichu['pay_name'] =  '提现';
+                    $result = $tranDb ->table('user_pay') -> add($zhichu);
+                    if($result){
+                        $info = $tranDb -> table('withdrawals') -> where(['id'=> $id])-> save(['status'=>2]);
+                        if($info){
+                            $tranDb -> commit();
+                            $this->success('提现成功');
+                        }else{
+                            $tranDb->rollback();
+                            $this->error('更新提现状态失败');
+                        }
+                    }else{
+                        $tranDb->rollback();
+                        $this->error('添加提现记录失败');
+                    }
+                }else{
+                    $tranDb->rollback();
+                    $this->error('添加流水失败');
+                }
+            }else{
+                $tranDb->rollback();
+                $this->error('会员余额扣减失败');
+            }
         }else{
             //查询可以提现余额如果大于则按照记录来，如果小于则按照最大可提现的金额进行提现
             $balance = M('users') -> where(['id' => $info['user_id']])->getfield('balance');
 
             if($balance > $info['amount']){
-                $this -> assign('jine',$info['amount']);
+               $info['user_amount'] = $info['amount'];
             }else{
-                $this -> assign('jine',floor($balance));
+                $info['user_amount'] = floor($balance);
             }
 
+            $this->assign('info',$info);
             $this -> display();
 
         }
