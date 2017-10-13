@@ -3,56 +3,101 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/payfor.css">
-    <script tyep="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
-    <title>提现</title>
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/out.css">
+    <title>余额提现</title>
+
 </head>
-<!--余额充值-->
-<body style="background:#f2f2f2">
-<div class="page">
-    <div class="pay_for_in">
-        <div class="pay_for_l">
-            <p>提现申请</p>
-        </div>
-        <div class="pay_for_2">
-            <h1>¥</h1>
-            <input type="text" id="yue">
-        </div>
-        <div class="pay_for_3">
-            <span>当前余额为{$balance}元，</span>
-            <p id="all">全部提现</p>
-            <button class="pay_btn" id="sub" type="submit" value="">提现申请</button>
+<body>
+<div class="out_card_1">
+    <div class="out_card_in">
+        <p>姓名：</p>
+        <input type="text" placeholder="请输入姓名" id="name">
+    </div>
+    <div class="out_card_in">
+        <p>银行卡：</p>
+        <input type="text" placeholder="请输入银行卡" id="cards">
+    </div>
+    <div style="border:none" class="out_card_in">
+        <p>开户行：</p>
+        <input type="text" placeholder="请输入开户行" id="address">
+    </div>
+</div>
+<div class="out_card_2">
+    <div class="out_card_bin">
+        <p>提现金额</p>
+        <span>￥</span>
+        <input type="text" id="yue" placeholder="">
+    </div>
+    <div class="out_card_binl">
+        <p>当前账户余额{$balance}元，</p>
+        <p style="color:#f45353" id="all">全部提现</p>
+        <button type="submit" id="sub">提现</button>
+        <div style="text-align:center" class="text">
+            <p>1-3个工作日内到账</p>
         </div>
     </div>
 </div>
+</body>
+<script tyep="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
 <script>
     $(function(){
-        $('.pay_for_2 input').focus();
 
         $('#sub').click(function(){
             var balance = '{$balance}';
+            var name = $('#name').val();
+            var address = $('#address').val();
+            var cards = $('#cards').val();
             var yue = $('#yue').val();
+            if(!name){
+                alert('姓名不能为空！');
+                return false;
+            }
+            if(!cards){
+                alert('银行卡号不能为空！');
+                return false;
+            }
+            if(!address){
+                alert('开户地址不能为空！');
+                return false;
+            }
             if(!yue){
                 alert('提现金额不能为空！');
                 return false;
             }
-            if(yue > balance){
+            if(parseInt(yue) > parseInt(balance)){
                 alert('可提现金额不足！');
                 return false;
             }
-            var info = {type:1,yue:yue}
+            var info = {type:1,yue:yue,name:name,address:address,cards:cards}
             $.post("{:U('Center/addout')}",info,function(data){
 
-                    if(data.status == 1){
-                        alert('提交申请成功！');
-                    }else{
-                        alert(data.info);
-                    }
+                if(data.status == 1){
+                    alert('提交申请成功！');
+                }else{
+                    alert(data.info);
+                }
             })
         })
 
         $('#all').click(function(){
-            var info = {type:2}
+            var name = $('#name').val();
+            var address = $('#address').val();
+            var cards = $('#cards').val();
+            if(!name){
+                alert('姓名不能为空！');
+                return false;
+            }
+            if(!cards){
+                alert('银行卡号不能为空！');
+                return false;
+            }
+            if(!address){
+                alert('开户地址不能为空！');
+                return false;
+            }
+
+            var info = {type:2,name:name,address:address,cards:cards}
             $.post("{:U('Center/addout')}",info,function(data){
                 if(data.status == 1){
                     alert('提交申请成功！');
@@ -62,6 +107,7 @@
             })
         })
     })
-    </script>
-</body>
+</script>
 </html>
+
+
