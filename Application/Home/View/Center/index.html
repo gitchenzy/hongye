@@ -156,5 +156,23 @@
         weibo.click(function(){
             location.href='http://weibo.com/p/1006066228912109/home?from=page_100606&mod=TAB&is_all=1#place';
         })
+
+
+        //几个点击事件
+        $('.cash_bin:eq(0)').click(function(){
+            location.href='{:U('Center/bind')}';
+        });
+        $('.cash_bin:eq(1)').click(function(){
+            location.href='{:U('Center/likes')}';
+        });
+        $('.cash_bin:eq(2)').click(function(){
+            location.href='{:U('Center/myactive')}';
+        })
+        $('.cash_bin:eq(3)').click(function(){
+            location.href='{:U('Helps/helps_1')}';
+        })
+        $('.cash_bin:eq(4)').click(function(){
+            location.href='{:U('Center/about')}';
+        })
     </script>
 </block>

@@ -41,19 +41,93 @@
         .home{
             width:25px;
             height: 25px;
-            position: absolute;
-            top:15px;
+            position:absolute;
+            top:10px;
             left: 15px;
-        }
+            z-index:89;
+      }
         .home img{
             width:25px;
             height: 25px;
             border-radius: 12.5px;
         }
+        .content_card_1{
+            width:35px;
+            height: 45px;
+            background: #FFFFFF;
+            position: relative;
+            top:-30px;
+            left: 305px;
+            border-radius: 2px;
+            box-shadow:0px 3px 2px 0px rgba(0,0,0,0.1);
+            z-index: 89;
+            text-align: center;
+
+        }
+        .content_card_1 p{
+            color: #000;
+            font-size: 18px;
+           position: relative;
+            top:4px;
+        }
+        .content_card_1 span{
+            color: rgba(0,0,0,0.3);
+            font-size:12px;
+            position: relative;
+            top:-6px;
+        }
+        .content_card_2{
+            width:35px;
+            height: 45px;
+            background: #FFFFFF;
+            position: relative;
+            top:-75px;
+            left: 265px;
+            border-radius: 2px;
+            box-shadow:0px 3px 2px 0px rgba(0,0,0,0.1);
+            z-index: 89;
+            text-align: center;
+        }
+        .content_card_2 p{
+            color: #000;
+            font-size: 18px;
+            position: relative;
+            top:4px;
+        }
+        .content_card_2 span{
+            color: rgba(0,0,0,0.3);
+            font-size:12px;
+            position: relative;
+            top:-6px;
+        }
+        .content_card_3{
+            width:35px;
+            height: 45px;
+            background: #FFFFFF;
+            position: relative;
+            top:-120px;
+            left: 225px;
+            border-radius: 2px;
+            box-shadow:0px 3px 2px 0px rgba(0,0,0,0.1);
+            z-index: 89;
+            text-align: center;
+        }
+        .content_card_3 p{
+            color: #000;
+            font-size: 18px;
+            position: relative;
+            top:4px;
+        }
+        .content_card_3 span{
+            color: rgba(0,0,0,0.3);
+            font-size:12px;
+            position: relative;
+            top:-6px;
+        }
     </style>
-    <div class="home">
-        <img src="__PUBLIC__/Home/images/new/home_icon.png">
-        </div>
+
+<!--    <div class="content_card_1">
+        </div>-->
     <div style="display: none;" class="first_box">
         <h1>发表评论</h1>
         <div class="first_inbox">
@@ -71,8 +145,23 @@
         </div>
     </div>
 
-    <div class="work_banner">
-        <img src="{$info.pic}">
+    <div  class="work_banner">
+        <div class="home">
+            <img src="__PUBLIC__/Home/images/new/home_icon.png">
+        </div>
+        <img style="z-index: 88" src="{$info.pic}">
+        <div class="content_card_1">
+             <p>15</p>
+            <span>天</span>
+            </div>
+        <div class="content_card_2">
+            <p>7</p>
+            <span>小时</span>
+        </div>
+        <div class="content_card_3">
+            <p>15</p>
+            <span>分</span>
+            </div>
     </div>
     <div class="work_card">
         <div class="work_r">
@@ -174,9 +263,10 @@
     var flip=parseInt($('.tips_circle').css('left'));
     var flip_1=parseInt($('.tips_other').css('right'));
     var wid=parseInt($(window).width());
+    var xin=wid-75+'px';
     var kill=flip/wid;
     if(kill>=1){
-        $('.tips_circle').css('left','300px')
+        $('.tips_circle').css('left',xin)
     }else if(kill<=0){
         $('.tips_circle').css('left','0px')
     }
