@@ -1,0 +1,89 @@
+body{
+    background: #f2f2f2;
+    margin: 0;
+    padding: 0;
+
+}
+
+.out_card_1{
+    margin: 10px 15px;
+    background: #ffffff;
+    border-radius: 5px;
+    padding:0 25px 0 25px;
+
+}
+.out_card_in{
+    height: 45px;
+    border-bottom: 1px solid #e5e5e5;
+    width:100%;
+}
+.out_card_in p{
+    font-size: 15px;
+    color: #000000;
+    font-weight: 100;
+    display: inline-block;
+    float: left;
+    line-height: 14px;
+}
+.out_card_in input{
+    float: left;
+    border: none;
+    background: #fff;
+    font-size: 15px;
+    color: #c2c2c2;
+    margin: 13px 0 0 3px;
+}
+.out_card_2{
+    margin: 10px 15px;
+    background: #ffffff;
+    border-radius: 5px;
+    padding:10px 25px 10px 25px;
+    height: 240px;
+}
+.out_card_bin{
+    border-bottom: 1px solid #cccccc;
+    width:100%;
+    height: 75px;
+}
+.out_card_bin p{
+    font-size: 15px;
+    color: #000000;
+    font-weight: 100;
+    line-height: 0px;
+    margin-left:5px;
+}
+.out_card_bin span{
+    font-size: 36px;
+    color: #000000;
+    font-weight:300;
+    float: left;
+    display: inline-block;
+}
+.out_card_bin input{
+    border: none;
+    display: inline-block;
+    width:120px;
+    margin:2px 0 0 0;
+    font-size: 38px;
+    color: #000;
+}
+.out_card_binl{
+    width:100%;
+    height: 120px;
+
+}
+.out_card_binl p{
+    font-size: 14px;
+    color:#c2c2c2;
+    display: inline-block;
+}
+.out_card_binl button{
+    width:100%;
+    height: 45px;
+    background: #f45353;
+    border: none;
+    border-radius: 4px;
+    color:#fff;
+    font-size: 16px;
+    margin-top:10px;
+}

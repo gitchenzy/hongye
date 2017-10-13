@@ -1928,21 +1928,18 @@ div.flicking_con a.on {
     display: block;
     line-height: 25px;
 }
-
-.first_blow {
-    margin: 10px 0px 0px 35px;
-    height: 76px;
-    overflow: hidden;
-    background: #E4E4E4;
+.first_blow{
+    margin:3px 0px 0px 35px;
+    height:85px;
+    overflow:hidden;
     padding-right: 5px;
-}
 
+}
 .first_l {
     margin: 10px 0px 0px 35px;
     height: 10px;
     border-bottom: 1px solid #e5e5e5;
 }
-
 .first_blow p {
     color: #e5e5e5;
     font-size: 14px;

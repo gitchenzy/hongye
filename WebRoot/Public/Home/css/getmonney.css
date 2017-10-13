@@ -76,3 +76,66 @@
 .get_blow button a{
     color: #ffffff;
 }
+.background{
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    display: none;
+    z-index: 99;
+}
+.b_box{
+    width:325px;
+    height: auto;
+    margin: 0 auto;
+    z-index: 100;
+    position: absolute;
+    left: 18px;
+    top:180px;
+    background: #ffffff;
+}
+.b_box_in{
+    margin:0px 15px 10px 15px;
+    text-align: center;
+    padding: 0;
+}
+.b_box_in h1{
+    font-size: 20px;
+    color: #000;
+    line-height: 65px;
+    font-weight: 800;
+}
+.b_box_in p{
+    font-size: 13px;
+    color: rgba(0,0,0,0.7);
+    margin-top:-15px;
+}
+.b_box_in input{
+    width:295px;
+    height: 40px;
+    background: #f2f2f2;
+    margin:15px auto;
+    border: none;
+    border-radius: 3px;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 1);
+    text-align: center;
+}
+.b_box_bottom{
+    width:100%;
+    height: 45px;
+    border-top:1px solid #e5e5e5;
+}
+.b_box_bottom_l{
+    width: 49.5%;
+    height: 45px;
+    float: left;
+    border-right: 1px solid #e5e5e5;
+    text-align: center;
+}
+.b_box_bottom_l p{
+    color: #000;
+    font-size: 18px;
+    line-height: 45px;
+}
