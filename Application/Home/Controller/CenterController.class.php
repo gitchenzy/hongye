@@ -161,6 +161,8 @@ class CenterController extends Controller {
             $v['pic'] = M('project') -> where(['id'=>$v['project_id']]) -> getfield('pic');
             $v['time'] = date('Y-m-d',$v['time']);
         }
+
+
         $this -> assign('title','我的关注');
         $this -> assign('info',$res);
         $this -> display();

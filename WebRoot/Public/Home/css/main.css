@@ -421,7 +421,7 @@ html body {
 
 .stantic_lang_2_img {
     margin: 15px 10px 15px 0px;
-    width: 49px;
+    /*width: 49px;*/
     height: 49px;
     border-radius: 3px;
     float: left;

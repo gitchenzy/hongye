@@ -81,7 +81,8 @@ class ListController extends Controller {
                 $this -> assign('key',1);
             }
         }
-
+        $project['count'] =  M('user_attention')-> where(['project_id'=>$id]) -> count();
+        $project['comment_count'] =  M('comments')-> where(['project_id'=>$id]) -> count();
         $fenx = M('project') -> where(['id'=>$id]) -> find();
         $fenx['name'] = $info['nick_name'];
         $fenx['pic'] = 'http://'.$_SERVER['SERVER_NAME'].$fenx['pic'];

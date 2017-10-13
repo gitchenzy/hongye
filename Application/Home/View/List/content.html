@@ -149,7 +149,7 @@
         <div class="pay_pic shows">
             <img width="20px" height="17px;" src="__PUBLIC__/Home/images/new/chat_1.png">
         </div>
-        <span>22</span>
+        <span>{$info.comment_count}</span>
         <empty name="key">
 
             <div class="pay_pic" key="1">
@@ -161,7 +161,7 @@
             </div>
 
         </empty>
-        <span>25</span>
+        <span>{$info.count}</span>
 
         <a style="" href="{:U('List/getmonney',array('id'=>$info['id']))}">我要支持</a>
 
