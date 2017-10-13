@@ -45,26 +45,27 @@
 
 
         <else />
+
         <volist name="info" id="vo">
             <div class="stantic_3">
-            <div class="stantic_3_in">
-                <div class="stantic_3_in_text">
-                    <p>{$vo.time}</p>
-                    <!--<p>09:09</p>-->
-                </div>
-                <div class="stantic_lang_2_img">
-                    <img src="__PUBLIC__/Home/images/new/img_1.jpg">
-                </div>
-                <div class="stantic_lang_2_text">
-
-                    <h3>{$vo.title}</h3>
-
-                    <div class="stantic_lang_2_icon">
+                <div class="stantic_3_in">
+                    <div class="stantic_3_in_text">
+                        <p>{$vo.time}</p>
+                        <!--<p>09:09</p>-->
                     </div>
-                    <span>{$vo.des} </span>
+                    <div class="stantic_lang_2_img">
+                        <img height="49" src="{$vo.pic}">
+                    </div>
+                    <div class="stantic_lang_2_text">
+
+                        <h3>{$vo.project_title}</h3>
+
+                        <div class="stantic_lang_2_icon">
+                        </div>
+                        <span>{$vo.project_des|htmlspecialchars_decode} </span>
+                    </div>
                 </div>
             </div>
-        </div>
         </volist>
 
     </empty>
