@@ -75,39 +75,49 @@
 
     </div>
 </div>-->
-<div class="first_all">
+<volist name="info" id="vo">
+    <div class="first_all">
     <div class="first">
         <div class="first_img">
-            <img src="__PUBLIC__/Home/images/new/local.png"><!--头像-->
+            <img src="{$vo.head_pic}" width="35" style="border-radius: 17.5px;"><!--头像-->
         </div>
         <div class="first_in">
 
 
-            <h1>左青龙右白虎</h1>
-            <h1>支持了</h1>
-            <h1 style="color:red;margin:0 -2px 0 -10px;">100</h1>
-            <h1>元</h1>
-            <div class="first_pic">
-                <img src="../pics/new/zan.png">
-                <p style="font-size:14px;margin-bottom:3px;">12</p>
-            </div>
-            <p>2017.09.06</p>
-            <span>宗华任命热第私爱士大夫是快递受到了考生登录手里的快乐时刻到了昆仑送大礼</span>
-            <div class="first_blow">
+            <h1>{$vo.name}</h1>
+            <notempty name="$vo['pay_amount']">
+                <h1>支持了</h1>
+                <h1 style="color:red;margin:0 -2px 0 -10px;">{$vo.pay_amount}</h1>
+                <h1>元</h1>
+            </notempty>
+            <!--<div class="first_pic">-->
+                <!--<img src="../pics/new/zan.png">-->
+                <!--<p style="font-size:14px;margin-bottom:3px;">12</p>-->
+            <!--</div>-->
+            <p>{$vo.time|date="Y.m.d",###}</p>
+            <span>{$vo.content}</span>
+
+            <volist name="vo.son" id="svo">
+                <div class="first_blow">
                 <div class="first_blow_img">
-                    <img src="__PUBLIC__/Home/images/new/hongye.png"><!--头像-->
+                    <img src="{$svo.head_pic}"><!--头像-->
                 </div>
                 <div class="first_blow_none">
-                    <span>蒋多渡</span>
-                    <span>2017.09.06</span>
+                    <span>{$svo.name}</span>
+                    <span>{$svo.time|date="Y.m.d",###}</span>
                 </div>
-                <span style="margin:0;"><p style="display:inline">回复&nbsp;&nbsp;用户名：&nbsp;&nbsp;</p>中华人民共和国第七次全国人民代表大会在之后会得到分开放你那放大失禁范德萨发的点附近的刷卡缴费环境好地方就是快递发货</span>
+                <span style="margin:0;"><p style="display:inline">回复&nbsp;&nbsp;{$svo.fname}：&nbsp;&nbsp;</p>{$svo.content}</span>
             </div>
+
+            </volist>
             <div class="first_l">
             </div>
         </div>
     </div>
 </div>
+
+</volist>
+
 <div class="first_bottom">
     <div class="first_bottom_in">
         <input type="text" placeholder="写评论">
