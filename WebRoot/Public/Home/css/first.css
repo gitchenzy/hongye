@@ -24,6 +24,9 @@
 .first_blow_none{
     margin-bottom: 5px;
 }
+.first_blow_none span{
+    display: inline-block;
+}
 .first_bottom{
     width:100%;
     height: 45px;
