@@ -1894,7 +1894,10 @@ div.flicking_con a.on {
     float: left;
     margin: 2px 5px 0px 15px;
 }
+.first_img img{
+    width:35px;
 
+}
 .first_pic {
     float: right;
     height: 20px;

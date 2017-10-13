@@ -80,13 +80,13 @@
         <!--<div class="midcard_contain">-->
             <!--<span>{$vo.dsc|htmlspecialchars}</span>-->
         <!--</div>-->
-        <div class="midcard_tip">
-            <div class="midcard_tip_1">
-                <div class="midcard_tip_2" style="left: {$vo.num}%;">
-
+            <div class="tips">
+                <div style="right: {$info.num_1}%;" class="tips_other">
                 </div>
             </div>
-        </div>
+            <div style="left: {$info.num_2}%;" class="tips_circle">
+                <p>{$info.num_3}%</p>
+            </div>
         <div class="midcard_bottom">
             <div class="midcard_bottom_text">
                 <p style="margin-right:10px;">目标金额:{$vo.target_amount}</p>
@@ -102,6 +102,23 @@
 <block name="js">
 
     <script>
+        //控制进度条
+        var flip=parseInt($('.tips_circle').css('left'));
+        var flip_1=parseInt($('.tips_other').css('right'));
+        var wid=parseInt($(window).width());
+        var xin=wid-75+'px';
+        var kill=flip/wid;
+        if(kill>=1){
+            $('.tips_circle').css('left',xin)
+        }else if(kill<=0){
+            $('.tips_circle').css('left','0px')
+        }
+        if(flip_1<0){
+            $('.tips_other').css('right','0px')
+        }
+
+
+
         var current_loading = false;
         var page_container_object =  $("body").get(0);
         var time=1;
