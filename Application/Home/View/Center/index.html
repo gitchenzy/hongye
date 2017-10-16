@@ -12,11 +12,13 @@
     <div class="mine_banner">
         <div class="mine_in">
             <div class="mine_img">
-                <img src="{$info.pic|default='/public/Home/images/text.png'}">
+                <a href="{:U('Center/imgset')}">
+                    <img src="{$info.pic|default='/public/Home/images/text.png'}">
+                </a>
             </div>
             <div class="mine_text">
                 <div class="mine_tin">
-                <p>{$info.nick_name|default='填写昵称'}</p>
+                    <p><a style="color: #000000;" href="{:U('Center/information')}">{$info.nick_name|default='填写昵称'}</a></p>
                     </div>
                 <div class="mine_likes">
                     <ul>

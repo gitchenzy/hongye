@@ -78,13 +78,13 @@
 <volist name="info" id="vo">
     <div class="first_all">
     <div class="first">
-        <div class="first_img">
+        <div class="first_img cont" key="{$vo.id}" name="{$vo.name}" >
             <img src="{$vo.head_pic}" width="35" style="border-radius: 17.5px;"><!--头像-->
         </div>
         <div class="first_in">
 
 
-            <h1>{$vo.name}</h1>
+            <h1 class="cont" key="{$vo.id}" name="{$vo.name}" >{$vo.name}</h1>
             <notempty name="$vo['pay_amount']">
                 <h1>支持了</h1>
                 <h1 style="color:red;margin:0 -2px 0 -10px;">{$vo.pay_amount}</h1>
@@ -95,19 +95,20 @@
                 <!--<p style="font-size:14px;margin-bottom:3px;">12</p>-->
             <!--</div>-->
             <p>{$vo.time|date="Y.m.d",###}</p>
-            <span>{$vo.content}</span>
+            <span class="cont" key="{$vo.id}" name="{$vo.name}" >{$vo.content}</span>
 
             <volist name="vo.son" id="svo">
-                <div class="first_blow">
-                <div class="first_blow_img">
-                    <img src="{$svo.head_pic}"><!--头像-->
+
+                <div class="first_blow" key="{$svo.id}" name="{$svo.name}">
+                    <div class="first_blow_img">
+                        <img src="{$svo.head_pic}"><!--头像-->
+                    </div>
+                    <div class="first_blow_none">
+                        <span>{$svo.name}</span>
+                        <span>{$svo.time|date="Y.m.d",###}</span>
+                    </div>
+                    <span style="margin:0;"><p style="display:inline">回复&nbsp;&nbsp;{$svo.fname}：&nbsp;&nbsp;</p>{$svo.content}</span>
                 </div>
-                <div class="first_blow_none">
-                    <span>{$svo.name}</span>
-                    <span>{$svo.time|date="Y.m.d",###}</span>
-                </div>
-                <span style="margin:0;"><p style="display:inline">回复&nbsp;&nbsp;{$svo.fname}：&nbsp;&nbsp;</p>{$svo.content}</span>
-            </div>
 
             </volist>
             <div class="first_l">
@@ -120,10 +121,30 @@
 
 <div class="first_bottom">
     <div class="first_bottom_in">
-        <input type="text" placeholder="写评论">
-        <button type="submit">发表评论</button>
+        <input type="hidden" id="pid" value="0">
+        <input type="hidden" id="project_id" value="{$Think.get.id}">
+        <input id="content" type="text" placeholder="写评论">
+        <button class = "sub" type="submit">发表评论</button>
     </div>
 </div>
 
 </body>
+<script>
+    $('.first_blow').click(function(){
+        var id = $(this).attr('key');
+        var name = $(this).attr('name');
+        $('#content').attr('placeholder','回复 ' + name);
+        $('#pid').val(id);
+
+    })
+    $('.cont').click(function(){
+        var id = $(this).attr('key');
+        var name = $(this).attr('name');
+        $('#content').attr('placeholder','回复 ' + name);
+        $('#pid').val(id);
+
+    })
+
+
+</script>
 </html>
