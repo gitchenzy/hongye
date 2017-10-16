@@ -71,7 +71,10 @@
 
         var aid = $(this).attr('key');
         var id = '{$Think.get.id}';
-        location.href="/index.php/List/pay?id="+id+"&aid="+aid;
+        if(id){
+            location.href="/index.php/List/pay?id="+id+"&aid="+aid;
+        }
+
     })
 
 </script>

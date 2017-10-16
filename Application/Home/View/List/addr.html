@@ -109,11 +109,16 @@
             if(data.status == 1){
                 alert('添加成功！')
                 var id = '{$Think.get.id}';
-                if(aid > 0){
-                    location.href="/index.php/List/pay?id="+id+"&aid="+aid;
+                if(id){
+                    if(aid > 0){
+                        location.href="/index.php/List/pay?id="+id+"&aid="+aid;
+                    }else{
+                        location.href="/index.php/List/pay?id="+id+"&aid="+data.info;
+                    }
                 }else{
-                    location.href="/index.php/List/pay?id="+id+"&aid="+data.info;
+                    location.href="/index.php/List/addr_before";
                 }
+
             }else{
                 alert(data.info)
             }
