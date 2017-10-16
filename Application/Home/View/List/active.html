@@ -96,9 +96,7 @@
             <!--</div>-->
             <p>{$vo.time|date="Y.m.d",###}</p>
             <span class="cont" key="{$vo.id}" name="{$vo.name}" >{$vo.content}</span>
-
             <volist name="vo.son" id="svo">
-
                 <div class="first_blow" key="{$svo.id}" name="{$svo.name}">
                     <div class="first_blow_img">
                         <img src="{$svo.head_pic}"><!--头像-->
