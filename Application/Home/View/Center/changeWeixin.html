@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <script type="text/javascript" src="__PUBLIC__/Home/js"></script>
+    <link rel="stylesheet" type="text/css" href="../stylesheet/main.css">
+    <title>修改微信号</title>
+</head>
+<body>
+<style>
+    body{
+        outline: none;
+        background: #f2f2f2;
+    }
+    .inputname{
+        margin-top:15px;
+        width: 100%;
+        height: 160px;
+        background: #ffffff;
+    }
+    .inputname p{
+        float: right;
+        font-size: 14px;
+        color: #797979;
+        position: relative;
+        top:130px;
+        right: 15px;
+    }
+    .inputname input{
+        border: none;
+        background: #ffffff;
+        padding: 15px;
+        color: #797979;
+        width: 300px;
+
+    }
+    .btn{
+        width: 200px;
+        height: 40px;
+        border-radius: 3px;
+        background: #f45353;
+        text-align: center;
+        margin: 10px auto;
+
+    }
+    .btn p{
+        font-size: 16px;
+        color: #ffffff;
+        line-height: 38px;
+    }
+</style>
+<div class="inputname">
+    <input type="text" placeholder="请输入微信号">
+    <p id="inNum">0</p>
+</div>
+<div class="btn">
+    <p>确认修改</p>
+</div>
+<script>
+    var num=$('.inputname input');
+    var text=$('#inNum');
+    num.bind('input propertychange',function(){
+        text.html(num.val().length)
+        console.log(num.val())
+    })
+</script>
+</body>
+</html>

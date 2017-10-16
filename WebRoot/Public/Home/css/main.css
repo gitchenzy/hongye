@@ -1942,6 +1942,7 @@ div.flicking_con a.on {
     margin: 10px 0px 0px 35px;
     height: 10px;
     border-bottom: 1px solid #e5e5e5;
+    width: 100%;
 }
 .first_blow p {
     color: #e5e5e5;
