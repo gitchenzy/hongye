@@ -4,8 +4,7 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
-
-        session('index',1);
+            session('index',1);
         //便利,默认为梦想清单
         $fid = I("fid")?I("fid"):1;
         $father_type = M('project_type') -> where(['pid'=> 0,'del'=>0]) -> select();
