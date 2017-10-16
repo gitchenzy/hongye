@@ -16,9 +16,9 @@
 </div>
 <div class="imgset">
     <div class="imgset_in">
-        <a href="javascrit::" class="imgset_a">选择文件
+        <span  class="imgset_a">选择文件
             <input class="imgset_i" type="file" accept="image/png,image/jpeg">
-        </a>
+        </span>
     </div>
     <button type="button" class="imgset_b">裁剪图片</button>
 </div>
@@ -28,10 +28,26 @@
 <div class="img_text">
     <p>您可以拖动、放大及收缩来框选您想要的图片</p>
 </div>
+<input type="hidden" id="result">
 <div class="result"></div>
 <div class="img_up">
     <button type="submit" class="img_up">确认上传
     </button>
 </div>
 </body>
+<script>
+    $('.img_up').click(function(){
+        var result = $('#result').val()
+        $.post("",{'pic':result},function(data){
+
+            if(1 == data.status){
+               alert('修改成功！');
+            }else{
+                alert(data.info)
+            }
+
+        })
+
+    })
+    </script>
 </html>

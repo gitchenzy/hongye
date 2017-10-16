@@ -15,16 +15,16 @@ $(function(){
         fr.readAsDataURL(file);
         fr.onload = function () {
             //这里初始化cropper
-            console.log(fr);
+        //    console.log(fr);
             $('.image').attr('src',fr.result);
             iniCropper()
         };
-        $('.imgset_a').html('重新选择');
-        $('.imgset_a').click(function ij(){
-            if( $('.imgset_a').html()==='重新选择'){
-                location=location;
-            }
-        })
+        // $('.imgset_a').html('重新选择');
+        // $('.imgset_a').click(function ij(){
+        //     if( $('.imgset_a').html()==='重新选择'){
+        //         location=location;
+        //     }
+        // })
     });
 
     var croppable = false;
@@ -32,16 +32,17 @@ $(function(){
         var $image = $('.image'),
             image = $image[0];
         cropper = new Cropper(image, {
-            dragMode: 'move',
+            dragMode: 'none',
             aspectRatio: 1,
             autoCropArea: 0.5,
             restore: false,
             viewMode: 1,
             guides: false,
-            center: false,
+            center: true,
             highlight: false,
-            cropBoxMovable: false,
+            cropBoxMovable: true,
             cropBoxResizable: false,
+            mouseWheelZoom:false,
             toggleDragModeOnDblclick: false,
             zoomable:true,
             ready: function () {
@@ -62,6 +63,7 @@ $(function(){
         croppedCanvas = cropper.getCroppedCanvas();
         //Rect
         rectCanvas = getRectCanvas(croppedCanvas);
+        $('#result').val(rectCanvas.toDataURL());
         // Show
         rectImage = document.createElement('img');
         rectImage.src = rectCanvas.toDataURL();
@@ -101,7 +103,7 @@ $(function(){
                 xhr.upload.addEventListener("progress", function (evt) {
                     if (evt.lengthComputable) {
                         var percentComplete = Math.round(evt.loaded * 100 / evt.total);
-                        console.log("正在提交..." + percentComplete.toString() + '%');        //在控制台打印上传进度
+                   //     console.log("正在提交..." + percentComplete.toString() + '%');        //在控制台打印上传进度
                     }
                 }, false);
 
