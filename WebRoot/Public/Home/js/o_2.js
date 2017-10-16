@@ -19,7 +19,7 @@ $(function(){
     $('.sub').click(function(){
         var content = $('#content').val();
         var pid = $('#pid').val();
-        var project_id = '{$Think.get.id}';
+        var project_id = $('#project_id').val();
         var info = {content:content,project_id:project_id,pid:pid}
         $.post('/index.php/List/comments',info,function(datas){
             if(datas.info == 1){

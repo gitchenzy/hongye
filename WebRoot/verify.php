@@ -39,7 +39,7 @@ function vCode($num = 4, $size = 20, $width = 0, $height = 0) {
 	} 
 	// 画验证码
 	@imagefttext($im, $size , 0, 5, $size + 3, $text_color, '/public/arial.ttf', $code);
-	//$_SESSION["VerifyCode"]=$code; 
+	//$_SESSION["VerifyCode"]=$code; y
 	//setcookie('VerifyCode',$code,0,'/');
     $_SESSION['VerifyCode'] = $code;
 	header("Cache-Control: max-age=1, s-maxage=1, no-cache, must-revalidate");

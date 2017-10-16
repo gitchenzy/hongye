@@ -236,7 +236,9 @@
     </div>
     <div class="pay_b">
         <div class="pay_pic shows">
+
             <img width="20px" height="17px;" src="__PUBLIC__/Home/images/new/chat_1.png">
+
         </div>
         <span>{$info.comment_count}</span>
         <empty name="key">
@@ -303,7 +305,7 @@
             //            }
         })
         $('.shows').click(function() {
-            $('.first_box').css('display', 'block');
+            location.href= "{:U('List/active',array('id'=>$info['id']))}";
 
         })
 
