@@ -405,6 +405,28 @@ class ListController extends Controller {
             $this -> error('订单添加失败！');
         }
     }
+    //无尝支持
+    public function love_orders(){
+        $return_id = I('return_id');
+        $project_id = I('project_id');
+        $user = get_user_info();
+        if(!$user){
+            session('back_url','List/getmonney?id='.$project_id);
+            $this->error(1);
+        }
+        $orders['user_id'] = $user['user_id'];
+        $orders['time'] = time();
+        $orders['pay_amount'] = I('amount');
+        $orders['order_no'] = get_pay_no();
+        $orders['project_id'] = $project_id;
+        $orders['return_id'] = 0;
+        $res = M('orders') -> add($orders);
+        if($res){
+            $this -> success($res,$orders['order_no']);
+        }else{
+            $this -> error('订单添加失败！');
+        }
+    }
     //支付成功跳转的页面
     public function succ(){
 

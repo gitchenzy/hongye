@@ -124,7 +124,7 @@
        if(1 == v){
            var return_id = '{$Think.get.id}';
            var address_id = '{$aid}';
-           var node = node;
+           var node = $('#node').val();
            var info = {address_id:address_id,return_id:return_id,node:node};
            $.post("{:U('List/orders')}",info,function(data){
                if(data.status == 1){

@@ -288,6 +288,13 @@ class CenterController extends Controller {
         }
 
     }
+    //个人资料
+    public function information(){
+        $where['id'] = $this -> user_id;
+        $info = M('users') -> where($where) -> find();
+        $this -> assign('info',$info);
+        $this -> display();
+    }
 
 
 }
