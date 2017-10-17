@@ -1,9 +1,11 @@
 <extend name="Public:main" />
 
 <block name="css">
-
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/content.css">
 </block>
 <block name="content">
+
+    
     <div class="top">
         <volist name="father_type" id="fty">
             <div id="c4" class="helftop">
@@ -80,12 +82,17 @@
         <!--<div class="midcard_contain">-->
             <!--<span>{$vo.dsc|htmlspecialchars}</span>-->
         <!--</div>-->
+    <div class="work_incard">
+        <div class="work_incard_in">
+                <span>{$info.title}</span>
+            </div>
             <div class="tips">
                 <div style="right: {$info.num_1}%;" class="tips_other">
                 </div>
             </div>
             <div style="left: {$info.num_2}%;" class="tips_circle">
                 <p>{$info.num_3}%</p>
+            </div>
             </div>
         <div class="midcard_bottom">
             <div class="midcard_bottom_text">
