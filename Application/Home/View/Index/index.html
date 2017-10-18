@@ -231,34 +231,38 @@
         <!--</div>-->
     <div class="work_incard">
             <div class="tips">
-                <div style="right: {$info.num_1}%;" class="tips_other">
+                <div style="right:{$vo.num_1}%;" class="tips_other">
                 </div>
             </div>
-            <div style="left: {$info.num_2}%;" class="tips_circle">
-                <p>{$info.num_3}%</p>
+            <div style="left: {$vo.num_2}%;" class="tips_circle">
+                <p>{$vo.num_3}%</p>
             </div>
             </div>
-        <div class="midcard_bottom">
+        <div style="margin-top:-15px;" class="midcard_bottom">
             <div class="midcard_bottom_text">
                 <p style="margin-right:10px;">目标金额:{$vo.target_amount}</p>
                 <p >已筹金额:{$vo.reach_amount}</p>
                 <p style="float:right;">支持人数:{$vo.people_num}</p>
             </div>
         </div>
+        <div style="width:100%;height:50px;" class="bottom-plus">
+            </div>
     </div>
-
     </volist>
+
 
 </block>
 <block name="js">
 
     <script>
+        
         //控制进度条
         var flip=parseInt($('.tips_circle').css('left'));
         var flip_1=parseInt($('.tips_other').css('right'));
         var wid=parseInt($(window).width());
         var xin=wid-75+'px';
         var kill=flip/wid;
+        console.log(kill);
         if(kill>=1){
             $('.tips_circle').css('left',xin)
         }else if(kill<=0){
@@ -266,7 +270,7 @@
         }
         if(flip_1<0){
             $('.tips_other').css('right','0px')
-        }
+        };
 
 
 
