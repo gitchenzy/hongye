@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
-    <title>修改昵称</title>
+    <title>修改性别</title>
 </head>
 <body>
 <style>
@@ -12,27 +12,13 @@
         background: #f2f2f2;
     }
     .inputname{
-        margin-top:15px;
-        width: 100%;
-        height: 160px;
-        background: #ffffff;
-    }
-    .inputname p{
-        float: right;
-        font-size: 14px;
-        color: #797979;
-        position: relative;
-        top:130px;
-        right: 15px;
-    }
-    .inputname input{
-        border: none;
-        background: #ffffff;
-        padding: 15px;
-        color: #797979;
-        width: 300px;
+        width: 320px;
+        height: 20px;
+        text-align: center;
+        margin: 10px auto;
 
     }
+
     .btn{
         width: 200px;
         height: 40px;
@@ -49,7 +35,8 @@
     }
 </style>
 <div class="inputname">
-    <input type="text" id="name" placeholder="请输入昵称">
+    <input type="radio" name="sex" checked class="name" value="1">男
+    <input type="radio" name="sex" class="name" value="2">女
 
 </div>
 <div class="btn">
@@ -64,16 +51,9 @@
         console.log(num.val())
     })
     $('#sub').click(function(){
-        var name = $('#name').val();
-        if(!name){
-            alert('昵称不能为空');
-            return false;
-        }
-        if(name.length > 6){
-            alert('昵称的长度不能大于6位');
-            return false;
-        }
-        var info = {name:name,cloum:'nick_name'}
+        var name = $('input[name=sex]:checked').val();
+        console.log(name);
+        var info = {name:name,cloum:'sex'}
         $.post("{:U('Center/editinfor')}",info,function(data){
 
             if(1 == data.status){
