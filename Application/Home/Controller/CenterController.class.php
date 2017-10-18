@@ -5,8 +5,8 @@ use Think\Controller;
 class CenterController extends Controller {
     private $user_id;
     protected function _initialize(){
-//        $user = get_user_info();
-        $user['user_id'] = 15;
+        $user = get_user_info();
+    //    $user['user_id'] = 15;
         if (!$user) {
             $this->redirect("Login/index");
         }
