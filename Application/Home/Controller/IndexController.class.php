@@ -4,6 +4,7 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
+
             session('index',1);
         //便利,默认为梦想清单
         $fid = I("fid")?I("fid"):1;
@@ -22,7 +23,14 @@ class IndexController extends Controller {
             $info = M('users') -> where(['id'=>$v['user_id']]) -> find();
             $v['name'] = $info['nick_name'];
             $v['head_pic'] = $info['pic'];
-            $v['num'] = $v['reach_amount']/$v['target_amount']*100;
+        //    $v['num'] = $v['reach_amount']/$v['target_amount']*100;
+
+                    //进度条
+        $v['num'] = $v['reach_amount']/$v['target_amount']*100;
+        $v['num_1'] = 100-$v['reach_amount']/$v['target_amount']*100;
+        $v['num_2'] = $v['reach_amount']/$v['target_amount']*100-10;
+        $v['num_3'] = floor($v['reach_amount']/$v['target_amount']*100);
+        
         }
         $this -> assign('father_type',$father_type);
         $this -> assign('son_type',$son_type);
