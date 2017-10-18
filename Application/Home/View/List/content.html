@@ -129,28 +129,29 @@
 
 <!--    <div class="content_card_1">
         </div>-->
-    <div style="display: none;" class="first_box">
-        <h1>发表评论</h1>
-        <div class="first_inbox">
-            <textarea id="content">我也说一句</textarea>
+    <!--<div style="display: none;" class="first_box">-->
+        <!--<h1>发表评论</h1>-->
+        <!--<div class="first_inbox">-->
+            <!--<textarea id="content">我也说一句</textarea>-->
 
-        </div>
-        <div class="first_lowbox">
-            <div class="first_lowboxin closes">
-                <p>取消</p>
-            </div>
-            <div style="border:none" class="first_lowboxin sub">
-                <span>提交</span>
-            </div>
+        <!--</div>-->
+        <!--<div class="first_lowbox">-->
+            <!--<div class="first_lowboxin closes">-->
+                <!--<p>取消</p>-->
+            <!--</div>-->
+            <!--<div style="border:none" class="first_lowboxin sub">-->
+                <!--<span>提交</span>-->
+            <!--</div>-->
 
-        </div>
-    </div>
+        <!--</div>-->
+    <!--</div>-->
 
     <div  class="work_banner">
         <a href="{:U('Index/index')}">
-        <div class="home">
-            <img src="__PUBLIC__/Home/images/new/home_icon.png">
-        </div></a>
+            <div class="home">
+                <img src="__PUBLIC__/Home/images/new/home_icon.png">
+            </div>
+        </a>
         <img style="z-index: 88" src="{$info.pic}">
         <div class="content_card_1">
              <p>15</p>
@@ -398,9 +399,9 @@
         });
         // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
         wx.onMenuShareAppMessage({
-            title: '{$fenx.title}',
+            title: '【红叶筹】 {$fenx.title}',
             //            desc: '{$fenx.title}',
-            link: "http://www.hybbms.com/index.php/List/content?id={$fenx.id}",
+            link: "{$data.url}",
             imgUrl: '{$fenx.pic}',
             trigger: function(res) {
                 // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
@@ -417,9 +418,9 @@
             }
         });
         wx.onMenuShareTimeline({
-            title: '{$fenx.title}',
+            title: '【红叶筹】 {$fenx.title}',
             //            desc:'{$fenx.title}',
-            link: "http://www.hybbms.com/index.php/List/content?id={$fenx.id}",
+            link: "{$data.url}",
             imgUrl: '{$fenx.pic}',
             trigger: function(res) {
                 // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回

@@ -92,6 +92,7 @@ class ListController extends Controller {
         //echo U('List/content',array('id'=>$fenx['id']));
         $jssdk = new \Jssdk($appid, $APPSECRET);
         $data = $jssdk->GetSignPackage();
+      //  dump($data);
         $this -> assign('data',$data);
         $this -> assign('fenx',$fenx);
         $this -> assign('info',$project);
