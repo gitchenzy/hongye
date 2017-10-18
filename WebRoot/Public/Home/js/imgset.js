@@ -1,5 +1,26 @@
 $(function(){
-    var cropper;
+
+    var imgs = $('.image');
+    var croppers = imgs.cropper({
+            dragMode: 'none',
+            aspectRatio: 1,
+            autoCropArea: 0.5,
+            restore: false,
+            viewMode: 1,
+            guides: false,
+            center: true,
+            highlight: false,
+            cropBoxMovable: true,
+            cropBoxResizable: false,
+            mouseWheelZoom:false,
+            toggleDragModeOnDblclick: false,
+            zoomable:true,
+            // ready: function () {
+            //     croppable = true;
+            // }
+        }
+    );
+
     $(".imgset_i").on("change", function () {
         var fr = new FileReader();
         var file = this.files[0];
@@ -15,10 +36,13 @@ $(function(){
         fr.readAsDataURL(file);
         fr.onload = function () {
             //这里初始化cropper
-        //    console.log(fr);
-            $('.image').attr('src',fr.result);
-            iniCropper()
+            //选择图片后重新初始裁剪区
+            imgs.attr('src',this.result);
+            imgs.cropper('reset', true).cropper('replace', this.result);
+            console.log(file);
         };
+
+
         // $('.imgset_a').html('重新选择');
         // $('.imgset_a').click(function ij(){
         //     if( $('.imgset_a').html()==='重新选择'){
@@ -27,11 +51,11 @@ $(function(){
         // })
     });
 
-    var croppable = false;
+    // var croppable = false;
     function iniCropper() {
         var $image = $('.image'),
             image = $image[0];
-        cropper = new Cropper(image, {
+     var   cropper = new Cropper(image, {
             dragMode: 'none',
             aspectRatio: 1,
             autoCropArea: 0.5,
@@ -45,72 +69,27 @@ $(function(){
             mouseWheelZoom:false,
             toggleDragModeOnDblclick: false,
             zoomable:true,
-            ready: function () {
-                croppable = true;
-            }
+            // ready: function () {
+            //     croppable = true;
+            // }
         });
     }
 
+
     $('.imgset_b').on('click', function () {
-        var croppedCanvas;
-        var rectCanvas;
-        var rectImage;
 
-        if (!croppable) {
-            return false;
-        }
-        // Crop
-        croppedCanvas = cropper.getCroppedCanvas();
-        //Rect
-        rectCanvas = getRectCanvas(croppedCanvas);
-        $('#result').val(rectCanvas.toDataURL());
-        // Show
-        rectImage = document.createElement('img');
-        rectImage.src = rectCanvas.toDataURL();
+        var type = imgs.attr('src').split(';')[0].split(':')[1];
 
-        $('.result').html('').append(rectImage);
+        var canVas = imgs.cropper("getCroppedCanvas", {});
+        //将裁剪的图片加载到face_image
+        $('#caij').attr('src', canVas.toDataURL());
 
-        //var form=document.forms[0];
-        var formData = new FormData();   //这里连带form里的其他参数也一起提交了,如果不需要提交其他参数可以直接FormData无参数的构造函数
+        $('#result').val(canVas.toDataURL());
 
-        //convertBase64UrlToBlob函数是将base64编码转换为Blob
-        formData.append("filename", convertBase64UrlToBlob(rectCanvas.toDataURL()));  //append函数的第一个参数是后台获取数据的参数名,和html标签的input的name属性功能相同
-        //ajax 提交form
+        return false;
 
-        return false;//不提交
-        $.ajax({
-            url: 'url',
-            type: "POST",
-            data: formData,
-            dataType: "text",
-            processData: false,         // 告诉jQuery不要去处理发送的数据
-            contentType: false,        // 告诉jQuery不要去设置Content-Type请求头
 
-            success: function (res) {
-                var data = JSON.parse(res);
-                if (data.status) {
-                    hideLoading();
-                    showTips(data.msg);
-                    setTimeout(function () {
-                        location.href = 'url?t=' + (new Date()).getTime();
-                    }, 200);
-                } else {
-                    console.log(data);
-                }
-            },
-            xhr: function () {            //在jquery函数中直接使用ajax的XMLHttpRequest对象
-                var xhr = new XMLHttpRequest();
-                xhr.upload.addEventListener("progress", function (evt) {
-                    if (evt.lengthComputable) {
-                        var percentComplete = Math.round(evt.loaded * 100 / evt.total);
-                   //     console.log("正在提交..." + percentComplete.toString() + '%');        //在控制台打印上传进度
-                    }
-                }, false);
 
-                return xhr;
-            }
-
-        });
     });
 
 //绘制矩形canvas

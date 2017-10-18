@@ -5,8 +5,8 @@ use Think\Controller;
 class CenterController extends Controller {
     private $user_id;
     protected function _initialize(){
-        $user = get_user_info();
-
+//        $user = get_user_info();
+        $user['user_id'] = 15;
         if (!$user) {
             $this->redirect("Login/index");
         }
@@ -295,6 +295,39 @@ class CenterController extends Controller {
         $this -> assign('info',$info);
         $this -> display();
     }
+    public function head_pic(){
+        $user_id = $this -> user_id;
+        $src = I('pic');
+        $url = explode(',',$src);
+        $img = base64_decode($url[1]);
+        $filename=  '/uploads/pic/'.$user_id.'.png';
+        $pic=ROOT_PATH.$filename;
+        $a = file_put_contents($pic, $img);
+        if($a){
+            $newWidth = $newHeight = 60;
+            list($width,$height)=getimagesize($pic);
+            //   echo $width;
+            $img=imagecreatefrompng($pic);
+            $newImg=imagecreatetruecolor($newWidth,$newHeight);
+            if($newWidth && ($width<$height)){
+                $newWidth=($newHeight/$height)*$width;
+            }else{
+                $newHeight=($newWidth/$width)*$height;
+            }
+            imagecopyresampled($newImg,$img,0,0,0,0,$newWidth,$newHeight,$width,$height);
+            // 6、保存图像
+            header('Content-type: image/png');
+            imagepng($newImg,$pic);
+            // 7、是放资源
+            imagedestroy($img);
+            imagedestroy($newImg);
+            $resule = M('users') -> where(['id'=>$user_id]) -> save(['pic'=>$filename]);
 
+            $this -> success('修改成功！');
+
+        }else{
+            $this -> error('上传失败！');
+        }
+    }
 
 }

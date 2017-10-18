@@ -2,18 +2,20 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <title>修改头像</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/cropper.css">
-    <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/Home/js/cropper.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Static/jquery-1.9.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Static/cropper/dist/cropper.js"></script>
     <script type="text/javascript" src="__PUBLIC__/Home/js/imgset.js"></script>
 </head>
 <body>
-<div style="border-bottom:1px solid #e5e5e5" class="top">
-    <div onclick="click()" class="top_arrow"></div>
-    <h4>照片选择</h4>
-</div>
+<!--<div style="border-bottom:1px solid #e5e5e5" class="top">-->
+    <!--<div onclick="click()" class="top_arrow"></div>-->
+    <!--<h4>照片选择</h4>-->
+<!--</div>-->
 <div class="imgset">
     <div class="imgset_in">
         <span  class="imgset_a">选择文件
@@ -23,25 +25,30 @@
     <button type="button" class="imgset_b">裁剪图片</button>
 </div>
 <div class="img_box">
-    <img class="image" src="">
+    <img class="image" id="image" src="">
 </div>
 <div class="img_text">
     <p>您可以拖动、放大及收缩来框选您想要的图片</p>
 </div>
-<input type="hidden" id="result">
-<div class="result"></div>
+<input type="hidden" value="123" id="result">
+<div class="result">
+    <img id="caij" src="" alt="">
+</div>
 <div class="img_up">
-    <button type="submit" class="img_up">确认上传
-    </button>
+    <button class="img_up res">确认上传</button>
 </div>
 </body>
 <script>
-    $('.img_up').click(function(){
+    $('.res').click(function(){
         var result = $('#result').val()
-        $.post("",{'pic':result},function(data){
+
+//        console.log(result);
+//        console.log(1234);
+        $.post("{:U('Center/head_pic')}",{'pic':result},function(data){
 
             if(1 == data.status){
                alert('修改成功！');
+               location.href= "{:U('Center/information')}"
             }else{
                 alert(data.info)
             }
@@ -49,5 +56,7 @@
         })
 
     })
+
+
     </script>
 </html>
