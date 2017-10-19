@@ -99,7 +99,7 @@
             top:-6px;
         }
 .work_incard{
-    margin:70px 15px 0 15px;
+    margin:72px 15px 0 15px;
     padding: 8px 0 0 0;
     border: 1px solid #ffffff;
     position: relative;
@@ -239,7 +239,7 @@
                 <p>{$vo.num}%</p>
             </div>
             </div>
-        <div style="margin-top:-15px;" class="midcard_bottom">
+        <div style="margin-top:18px;" class="midcard_bottom">
             <div class="midcard_bottom_text">
                 <p style="margin-right:10px;">目标金额:{$vo.target_amount}</p>
                 <p >已筹金额:{$vo.reach_amount}</p>
@@ -249,7 +249,7 @@
     </div>
     </volist>
     <div style="width:100%;height:50px;" class="bottom-plus">
-        </div>
+    </div>
 </block>
 <block name="js">
     <script>
@@ -297,6 +297,7 @@
                     // $(".loadingA").add(".loadingB").add(".loadingC").hide();
                 }else{
                     $(".midcard").last().append(data.info);
+                    $(".midcard").last().append($("<div class='plus' style='width:100%;height:55px;'></div>"))
                     current_loading =false;
                     time++;
                 }
