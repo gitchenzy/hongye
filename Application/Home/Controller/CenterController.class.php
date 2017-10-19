@@ -5,8 +5,8 @@ use Think\Controller;
 class CenterController extends Controller {
     private $user_id;
     protected function _initialize(){
-//        $user = get_user_info();
-        $user['user_id'] = 15;
+        $user = get_user_info();
+    //    $user['user_id'] = 15;
         if (!$user) {
             $this->redirect("Login/index");
         }
@@ -328,6 +328,27 @@ class CenterController extends Controller {
         }else{
             $this -> error('上传失败！');
         }
+    }
+    //修改头像
+    public function changename(){
+        $this -> display();
+    }
+    public function changeweixin(){
+        $this -> display();
+    }
+    public function changesex(){
+        $this -> display();
+    }
+    //修改个人资料
+    public function editinfor(){
+        $where['id'] = $this -> user_id;
+        $clo = I('cloum');
+        $name = I('name');
+        $data[$clo] = $name;
+        $result = M('users') -> where($where) -> save($data);
+
+        $this -> success('修改成功！');
+
     }
 
 }

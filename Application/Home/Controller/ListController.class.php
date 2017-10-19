@@ -81,6 +81,44 @@ class ListController extends Controller {
                 $this -> assign('key',1);
             }
         }
+        //计算出这个项目还有多久
+        $daojishi = $project['end_time'] - time();
+        if($daojishi > 0){
+            $d = 60*60*24;
+            $h = 60*60;
+            $s = 60;
+            $day = floor($daojishi /$d);
+            if($day > 0){
+                $shijian['d'] = $day;
+                $daojishi -= $day*60*60*24;
+
+                $hour = floor($daojishi/$h);
+                if($hour > 0){
+                    $shijian['h'] = $hour;
+                    $daojishi -= $hour*60*60;
+                    $shijian['s'] = ceil($daojishi/$s);
+                    if($daojishi < 1){
+                        //项目结束
+                        if($project['reach_amount']>=$project['target_amount']){
+                            $status = 5;
+                        }else{
+                            $status = 4;
+                        }
+                        M('project')-> where($where)->save(['status'=>$status]);
+                        $shijian['s'] = 0;
+                    }
+                }else{
+                    $shijian['h'] = 0;
+                }
+            }else{
+                $shijian['d'] = 0;
+            }
+        }else{
+            $shijian['d'] = 0;
+            $shijian['h'] = 0;
+            $shijian['s'] = 0;
+        }
+
         $project['count'] =  M('user_attention')-> where(['project_id'=>$id]) -> count();
         $project['comment_count'] =  M('comments')-> where(['project_id'=>$id]) -> count();
         $fenx = M('project') -> where(['id'=>$id]) -> find();
@@ -92,9 +130,11 @@ class ListController extends Controller {
         //echo U('List/content',array('id'=>$fenx['id']));
         $jssdk = new \Jssdk($appid, $APPSECRET);
         $data = $jssdk->GetSignPackage();
+      //  dump($data);
         $this -> assign('data',$data);
         $this -> assign('fenx',$fenx);
         $this -> assign('info',$project);
+        $this -> assign('shijian',$shijian);
         $this -> display();
     }
     //添加评价

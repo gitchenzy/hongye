@@ -3,8 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
-    <script type="text/javascript" src="__PUBLIC__/Home/js"></script>
-    <link rel="stylesheet" type="text/css" href="../stylesheet/main.css">
     <title>修改微信号</title>
 </head>
 <body>
@@ -51,18 +49,29 @@
     }
 </style>
 <div class="inputname">
-    <input type="text" placeholder="请输入微信号">
-    <p id="inNum">0</p>
+    <input type="text" id="name" placeholder="请输入微信号" />
 </div>
 <div class="btn">
-    <p>确认修改</p>
+    <p id="sub">确认修改</p>
 </div>
+<script tyep="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
 <script>
-    var num=$('.inputname input');
-    var text=$('#inNum');
-    num.bind('input propertychange',function(){
-        text.html(num.val().length)
-        console.log(num.val())
+
+    $('#sub').click(function(){
+        var name = $('#name').val();
+        if(!name){
+            alert('微信号不能为空');
+            return false;
+        }
+        var info = {name:name,cloum:'weixin'}
+        $.post("{:U('Center/editinfor')}",info,function(data){
+            if(1 == data.status){
+                alert(data.info)
+                location.href = "{:U('Center/information')}"
+            }else{
+                alert(data.info)
+            }
+        })
     })
 </script>
 </body>

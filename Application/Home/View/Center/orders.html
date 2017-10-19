@@ -82,10 +82,13 @@
                         <div class="content_litile">
                         </div>
                         <p>项目名称</p>
-                        <div class="content_bl">
-                            <p style="color:#797979;;">{$vo.project_name}</p>
-                        </div>
+                        <a href="{:U('List/content',array('id'=>$vo['project_id']))}">
+                            <div class="content_bl">
+                                <p style="color:#797979;;">{$vo.project_name}</p>
+                            </div>
+                        </a>
                         <img style="position:relative;top:-5px;float:right" src="__PUBLIC__/Home/images/back.png">
+
                     </div>
                     <div class="content_bin">
                         <div class="content_litile">
