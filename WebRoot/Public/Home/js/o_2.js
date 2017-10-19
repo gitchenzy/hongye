@@ -30,7 +30,7 @@ $(function(){
                 alert('请先登陆！');
                 location.href = '/index.php/Login/index';
             }else{
-                alert(datas.info);
+               // alert(datas.info);
                 location.reload();
                 $('.first_box').css('display','none');
             }
