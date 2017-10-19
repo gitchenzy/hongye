@@ -33,7 +33,7 @@
     </div>
 </div>
 <div class="out_card_2">
-    <div class="out_card_bin">
+    <div style="border-bottom: 1px solid #f2f2f2;" class="out_card_bin">
         <p>提现金额</p>
         <span style="line-height:46px;font-size:30px;">￥</span>
         <input style="outline:none;font-size:30px;width:160px;line-height:43px;" type="text" id="yue" placeholder="">
@@ -51,7 +51,10 @@
 <script tyep="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
 <script>
     $(function(){
-
+        var text=$('.out_card_in input')
+        text.each(function(){
+            $(this).css('color','#484848')
+        })
         $('#sub').click(function(){
             var balance = '{$balance}';
             var name = $('#name').val();
