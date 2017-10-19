@@ -30,7 +30,7 @@ class IndexController extends Controller {
         if($v['num'] >=100){
             $v['num_1'] = 0;
         }else{
-            $v['num_1'] = 100-$v['num']-14;
+            $v['num_1'] = 100-$v['num']-13.5;
         }        
         }
         $this -> assign('father_type',$father_type);
@@ -55,6 +55,13 @@ class IndexController extends Controller {
                 $info = M('users') -> where(['id'=>$v['user_id']]) -> find();
                 $v['name'] = $info['nick_name'];
                 $v['head_pic'] = $info['pic'];
+                $v['num'] = floor($v['reach_amount']/$v['target_amount']*100);
+                if($v['num'] >=100){
+                    $v['num_1'] = 0;
+                }else{
+                    $v['num_1'] = 100-$v['num']-14;
+                }     
+
             }
             $this -> assign('project',$project);
             $this->success($this->fetch(),"",true);
