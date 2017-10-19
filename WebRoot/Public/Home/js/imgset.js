@@ -4,8 +4,9 @@ $(function(){
     var croppers = imgs.cropper({
             dragMode: 'none',
             aspectRatio: 1,
-            autoCropArea: 0.5,
+            autoCropArea: 0.9,
             restore: false,
+            background: false,
             viewMode: 1,
             guides: false,
             center: true,
@@ -15,6 +16,7 @@ $(function(){
             mouseWheelZoom:false,
             toggleDragModeOnDblclick: false,
             zoomable:true,
+            resizable:true,
             // ready: function () {
             //     croppable = true;
             // }
@@ -28,15 +30,28 @@ $(function(){
         if (!/image\/\w+/.test(file.type)) {
             alert(file.name + "不是图片文件！");
             return false;
-        } else if (file.size > 2 * 1024 * 1024) {
-            alert('图片大小不能超过2M');
+        } else if (file.size > 10 * 1024 * 1024) {
+            alert('图片大小不能超过10M');
             return false;
         }
+
 
         fr.readAsDataURL(file);
         fr.onload = function () {
             //这里初始化cropper
             //选择图片后重新初始裁剪区
+
+
+            var image = new Image();
+            image.src = fr.result;
+            image.onload=function(){
+                var width = this.width;
+                var height = this.height;
+                // if(width < height){
+                //     imgs.attr('width',width);
+                // }
+
+            };
             imgs.attr('src',this.result);
             imgs.cropper('reset', true).cropper('replace', this.result);
             console.log(file);
@@ -82,11 +97,24 @@ $(function(){
 
         var canVas = imgs.cropper("getCroppedCanvas", {});
         //将裁剪的图片加载到face_image
-        $('#caij').attr('src', canVas.toDataURL());
+     //   $('#caij').attr('src', canVas.toDataURL());
 
-        $('#result').val(canVas.toDataURL());
+  //      $('#result').val(canVas.toDataURL());
+        var result = canVas.toDataURL();
+        $.post("/index.php/Center/head_pic",{'pic':result},function(data){
 
-        return false;
+            if(1 == data.status){
+                alert('修改成功！');
+                setTimeout(function(){
+                    location.href= "/index.php/Center/information";
+                },2000)
+
+            }else{
+                alert(data.info)
+            }
+
+        })
+
 
 
 
