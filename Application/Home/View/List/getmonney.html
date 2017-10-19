@@ -82,6 +82,15 @@
 
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
+    var wid=parseInt($(window).width());
+    var num=(wid-325)/2;
+    (function wid(){
+        $('.b_box').css('left',num+'px');
+    })()
+    
+
+
+
     $('.get_blow').click(function(){
         $('.background').css('display','block')
     })
