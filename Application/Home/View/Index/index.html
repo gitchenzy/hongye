@@ -101,7 +101,8 @@
 .work_incard{
     margin:70px 15px 0 15px;
     padding: 8px 0 0 0;
-    border: 1px solid #ffffff
+    border: 1px solid #ffffff;
+    position: relative;
 }
 .work_incard_in{
     width:100%;
@@ -131,9 +132,9 @@
     background: #fff;
     border: 2px solid rgba(244, 83, 83, 1);
     border-radius: 25px;
-    position: relative;
-    top:-18px;
-    left: 2%;
+    position: absolute;
+    top:-4px;
+
     text-align: center
 }
 .tips_circle p{
@@ -234,8 +235,8 @@
                 <div style="right:{$vo.num_1}%;" class="tips_other">
                 </div>
             </div>
-            <div style="left: {$vo.num_2}%;" class="tips_circle">
-                <p>{$vo.num_3}%</p>
+            <div style="right: {$vo.num_1}%;" class="tips_circle">
+                <p>{$vo.num}%</p>
             </div>
             </div>
         <div style="margin-top:-15px;" class="midcard_bottom">
@@ -245,32 +246,32 @@
                 <p style="float:right;">支持人数:{$vo.people_num}</p>
             </div>
         </div>
-        <div style="width:100%;height:50px;" class="bottom-plus">
-            </div>
     </div>
     </volist>
-
-
+    <div style="width:100%;height:50px;" class="bottom-plus">
+        </div>
 </block>
 <block name="js">
-
     <script>
-        
+       
         //控制进度条
-        var flip=parseInt($('.tips_circle').css('left'));
+        var proOne=$('.tips_other');
+        var proTwo=$('.tips_circle');
+        for(i=0;i<proOne.length;i++){
+            var m=proOne[i];
+            console.log(m)
+            
+            
+        }
+        console.log(typeof({$vo.num_1}));
+/*         var flip=parseInt($('.tips_circle').css('left'));
         var flip_1=parseInt($('.tips_other').css('right'));
         var wid=parseInt($(window).width());
         var xin=wid-75+'px';
-        var kill=flip/wid;
-        console.log(kill);
-        if(kill>=1){
-            $('.tips_circle').css('left',xin)
-        }else if(kill<=0){
-            $('.tips_circle').css('left','0px')
-        }
-        if(flip_1<0){
-            $('.tips_other').css('right','0px')
-        };
+        var kill=flip/wid; */
+
+
+
 
 
 

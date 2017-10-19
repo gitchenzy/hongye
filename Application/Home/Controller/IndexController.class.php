@@ -26,11 +26,12 @@ class IndexController extends Controller {
         //    $v['num'] = $v['reach_amount']/$v['target_amount']*100;
 
                     //进度条
-        $v['num'] = $v['reach_amount']/$v['target_amount']*100;
-        $v['num_1'] = 100-$v['reach_amount']/$v['target_amount']*100;
-        $v['num_2'] = $v['reach_amount']/$v['target_amount']*100-10;
-        $v['num_3'] = floor($v['reach_amount']/$v['target_amount']*100);
-        
+        $v['num'] = floor($v['reach_amount']/$v['target_amount']*100);
+        if($v['num'] >=100){
+            $v['num_1'] = 0;
+        }else{
+            $v['num_1'] = 100-$v['num']-14;
+        }        
         }
         $this -> assign('father_type',$father_type);
         $this -> assign('son_type',$son_type);
@@ -62,8 +63,5 @@ class IndexController extends Controller {
         }
     }
     //list
-
-
-
 
 }
