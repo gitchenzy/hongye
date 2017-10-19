@@ -28,8 +28,8 @@ $(function(){
         if (!/image\/\w+/.test(file.type)) {
             alert(file.name + "不是图片文件！");
             return false;
-        } else if (file.size > 2 * 1024 * 1024) {
-            alert('图片大小不能超过2M');
+        } else if (file.size > 4 * 1024 * 1024) {
+            alert('图片大小不能超过4M');
             return false;
         }
 
