@@ -300,6 +300,9 @@ class ListController extends Controller {
             }
 
         }
+
+        $count = M('orders') -> where(['return_id'=>0,'project_id'=>$project_id]) -> count();
+
         //查询分享内容
         $fenx = M('project') -> where(['id'=>$project_id]) -> find();
         $fenx['pic'] = 'http://'.$_SERVER['SERVER_NAME'].$fenx['pic'];
@@ -309,6 +312,7 @@ class ListController extends Controller {
         $jssdk = new \Jssdk($appid, $APPSECRET);
         $data = $jssdk->GetSignPackage();
         $this -> assign('info',$info);
+        $this -> assign('count',$count);
         $this -> assign('data',$data);
         $this -> assign('fenx',$fenx);
         $this -> display();

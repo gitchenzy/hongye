@@ -54,21 +54,23 @@
 
     <volist name="info" id="vo">
         <div class="stantic_3">
-            <div class="stantic_3_in">
-                <div class="stantic_3_in_text">
-                    <p>{$vo.time|date="y-m-d",###}</p>
-                    <p>{$vo.time|date="i:s",###}</p>
-                </div>
-                <div class="stantic_lang_2_img">
-                    <img width="50" src="{$vo.pic}">
-                </div>
-                <div class="stantic_lang_2_text">
+            <a href="{:U('List/content',array('id'=>$vo['id']))}">
+                <div class="stantic_3_in">
+                    <div class="stantic_3_in_text">
+                        <p>{$vo.time|date="y-m-d",###}</p>
+                        <p>{$vo.time|date="i:s",###}</p>
+                    </div>
+                    <div class="stantic_lang_2_img">
+                        <img width="50" src="{$vo.pic}">
+                    </div>
+                    <div class="stantic_lang_2_text">
 
-                    <h3>{$vo.title}</h3>
+                        <h3>{$vo.title}</h3>
 
-                    <span>项目状态：<span style="color:#f45353;">{$vo.status|getProjectStatus} </span></span>
+                        <span>项目状态：<span style="color:#f45353;">{$vo.status|getProjectStatus} </span></span>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     </volist>
 
