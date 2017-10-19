@@ -32,7 +32,13 @@
                 </div>
             </div>
             <div class="mine_l">
-                <p><a style="color:#fff;" href="{:U('Center/verify')}">申请实名认证</a></p>
+                <if condition="($info['is_auto'] eq 1) ">
+
+                    <p>已实名认证</p>
+                    <else />
+                    <p><a style="color:#fff;" href="{:U('Center/verify')}">申请实名认证</a></p>
+                </if>
+
             </div>
 
         </div>
