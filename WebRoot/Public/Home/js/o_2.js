@@ -18,6 +18,10 @@ $(function(){
 	})*/
     $('.sub').click(function(){
         var content = $('#content').val();
+        if(!content){
+            alert('评论的内容不能为空！');
+            return false;
+        }
         var pid = $('#pid').val();
         var project_id = $('#project_id').val();
         var info = {content:content,project_id:project_id,pid:pid}
