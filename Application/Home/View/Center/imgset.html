@@ -16,46 +16,50 @@
     <!--<div onclick="click()" class="top_arrow"></div>-->
     <!--<h4>照片选择</h4>-->
 <!--</div>-->
-<div class="imgset">
-    <div class="imgset_in">
-        <span  class="imgset_a">选择文件
-            <input class="imgset_i" type="file" accept="image/png,image/jpeg">
-        </span>
-    </div>
-    <button type="button" class="imgset_b">裁剪图片</button>
-</div>
+
 <div class="img_box">
     <img class="image" id="image" src="">
 </div>
-<div class="img_text">
-    <p>您可以拖动、放大及收缩来框选您想要的图片</p>
+
+<div class="imgset">
+    <div class="imgset_in">
+        <span  class="imgset_a">选择文件
+            <input class="imgset_i" type="file" accept="image/*">
+        </span>
+    </div>
+    <button type="button" class="imgset_b">确认上传</button>
 </div>
-<input type="hidden" value="123" id="result">
-<div align:center style="height:100px;" class="result">
-    <img id="caij" src="" alt="" style="width:90px;height:90px;margin:0 auto;">
-</div>
-<div class="img_up">
-    <button class="img_up res">确认上传</button>
-</div>
+<!--<div class="img_text">-->
+    <!--<p>您可以拖动、放大及收缩来框选您想要的图片</p>-->
+<!--</div>-->
+<!--<input type="hidden" value="123" id="result">-->
+<!--<div class="result">-->
+    <!--<img width="60" height="60" id="caij" src="" alt="">-->
+<!--</div>-->
+<!--<div class="img_up">-->
+    <!--<button class="img_up res">确认上传</button>-->
+<!--</div>-->
+
+
 </body>
 <script>
-    $('.res').click(function(){
-        var result = $('#result').val()
-
-//        console.log(result);
-//        console.log(1234);
-        $.post("{:U('Center/head_pic')}",{'pic':result},function(data){
-
-            if(1 == data.status){
-               alert('修改成功！');
-               location.href= "{:U('Center/information')}"
-            }else{
-                alert(data.info)
-            }
-
-        })
-
-    })
+//    $('.res').click(function(){
+//        var result = $('#result').val()
+//
+////        console.log(result);
+////        console.log(1234);
+//        $.post("{:U('Center/head_pic')}",{'pic':result},function(data){
+//
+//            if(1 == data.status){
+//               alert('修改成功！');
+//               location.href= "{:U('Center/information')}"
+//            }else{
+//                alert(data.info)
+//            }
+//
+//        })
+//
+//    })
 
 
     </script>
