@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css">
-    <script type="text/javascript" src="__PUBLIC__/Home/js/time.js"></script>
+    <!-- <script type="text/javascript" src="__PUBLIC__/Home/js/time.js"></script> -->
     <title>绑定手机</title>
 </head>
 <body style="background:#f2f2f2;padding-top:10px;">
@@ -64,6 +64,27 @@
         if(myreg.test(phone)) {
             $.post('/index.php/Center/send_sms',{'phone':phone,type:'phone'},function(datas){
                 alert(datas.info)
+                if(datas.info){
+                            //读秒
+          var n=60;
+          $('#send_code').html(60+'s');
+          var time=setInterval(function(){
+             
+              n--;
+              console.log(n);
+              $('#send_code').html(n+'s');
+            if($('#send_code').html()!='获取验证码'){
+               
+                $('#send_code').attr('disabled','true');
+            }
+            if(n==0){
+                clearInterval(time);
+                $('#send_code').html('获取验证码');
+                $('#send_code').removeAttr('disabled');
+            }
+              
+          },1000)
+                }
             });
         }else{
             alert('手机格式错误！');
@@ -72,14 +93,7 @@
     })
 
     $('#sub').click(function(){
-        //读秒
-        var n=60;
-        function num(){
-            if($('.bind_box_in>button').html()=='获取验证码'){
-                n--;
-                $('.bind_box_in>button').html=n;
-            }
-        }
+
 
         var phone = $('#phone').val();
         var code = $('#code').val();
@@ -96,10 +110,6 @@
             }
         });
     })
-
-
-
-
 </script>
 
 </html>

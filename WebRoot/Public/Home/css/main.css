@@ -722,7 +722,7 @@ div.flicking_con a.on {
     width: 100%;
     height: 170px;
     background: #FFFFFF;
-    border-bottom: 10px solid #e5e5e5;
+    border-bottom: 10px solid #f2f2f2;
 }
 
 .cash_card_1 {
@@ -766,7 +766,7 @@ div.flicking_con a.on {
     height: 34px;
     border-radius: 16px;
 
-
+    margin-top:10px;
     background: #f45353;
     float: left;
     text-align: center;
@@ -788,6 +788,7 @@ div.flicking_con a.on {
     float: right;
     text-align: center;
     line-height: 30px;
+
 }
 
 .cash_card_2 p {
