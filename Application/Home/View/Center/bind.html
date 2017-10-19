@@ -8,6 +8,15 @@
     <title>绑定手机</title>
 </head>
 <body style="background:#f2f2f2;padding-top:10px;">
+        <style>
+                .bind_box_in_r input {
+                text-decoration: none;
+                border: none;
+                font-size: 15px;
+                color: #484848;
+                width: 120px;
+            }
+                    </style>
 <div class="page">
     <!--<div class="top">-->
         <!--<div onclick="window.location.href='center.html'" class="top_arrow"></div>-->
@@ -63,6 +72,14 @@
     })
 
     $('#sub').click(function(){
+        //读秒
+        var n=60;
+        function num(){
+            if($('.bind_box_in>button').html()=='获取验证码'){
+                n--;
+                $('.bind_box_in>button').html=n;
+            }
+        }
 
         var phone = $('#phone').val();
         var code = $('#code').val();
