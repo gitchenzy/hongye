@@ -1486,7 +1486,7 @@ div.flicking_con a.on {
 }
 
 .pay_b p {
-    font-size: 13px;
+    font-size: 15px;
     color: #000000;
     line-height: 45px;
     font-weight: bold;
@@ -1530,7 +1530,7 @@ div.flicking_con a.on {
 
 .pay_b button {
     width: 75px;
-    heigh: 33px;
+    height: 33px;
     text-decoration: none;
     border: none;
     background: #f45353;
