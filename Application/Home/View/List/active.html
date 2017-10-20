@@ -94,11 +94,12 @@
 
 
             <h1 class="cont" key="{$vo.id}" name="{$vo.name}" >{$vo.name}</h1>
-            <notempty name="$vo['pay_amount']">
+            <?php if($vo['pay_amount'] > 0){ ?>
+
                 <h1>支持了</h1>
                 <h1 style="color:red;margin:0 -2px 0 -10px;">{$vo.pay_amount}</h1>
                 <h1>元</h1>
-            </notempty>
+           <?php } ?>
             <!--<div class="first_pic">-->
                 <!--<img src="../pics/new/zan.png">-->
                 <!--<p style="font-size:14px;margin-bottom:3px;">12</p>-->
