@@ -237,7 +237,7 @@ class CenterController extends Controller {
         $where['del'] = 0;
         $where['user_id'] = $this -> user_id;
 
-        $info = M('project') -> field('status,title,time,pic') -> where($where) -> select();
+        $info = M('project') -> field('status,title,time,pic,id') -> where($where) -> select();
         $this -> assign('info',$info);
         $this -> display();
 
