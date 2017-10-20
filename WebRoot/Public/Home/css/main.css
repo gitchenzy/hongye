@@ -2767,7 +2767,9 @@ html body{
     top: -40px;
     left:-15px;
 }
-
+.main_note{
+    margin-bottom:20px;
+}
 .img_box{
     width: 98%;
     height: 220px;
