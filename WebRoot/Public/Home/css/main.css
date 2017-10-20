@@ -664,11 +664,11 @@ div.flicking_con a.on {
 }
 
 #btn_prev {
-    left: 100px;
+    left: 1000px;
 }
 
 #btn_next {
-    right: 100px;
+    right: 1000px;
 }
 
 
@@ -1274,7 +1274,7 @@ div.flicking_con a.on {
     -moz-appearance: none;
     -webkit-appearance: none;
     width: 120px;
-    height: 16px;
+    height: 24px;
     border: none;
     color: #484848;
     font-size: 16px;
@@ -1641,7 +1641,7 @@ div.flicking_con a.on {
 
 /*-notes-*/
 .allnotes{
-    margin: 0px 15px 0px 15px;
+    margin: 0px 15px 2px 15px;
     height: 117px;
     background: #FFFFFF;
     border-radius: 5px;
