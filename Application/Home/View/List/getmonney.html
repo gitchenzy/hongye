@@ -14,7 +14,20 @@
 
 <body>
     <div class="page">
-
+        <!--每个项目默认设定有无偿捐赠项-->
+        <div class="get">
+                <div class="get_in">
+                    <div class="get_top">
+                        <h1>无回报支持</h1>
+                        <p>{$count}人支持</p>
+                    </div>
+                </div>
+                <div class="get_blow">
+                    <h1>感谢您无偿支持</h1><!-- 固定不变 -->
+                    <span>无偿支持的感谢语</span>
+                    <button type="button"><a>我要支持</a></button><!-- 点击可输入任意支持金额 -->
+                </div>
+            </div>
         <volist name="info" id="vo">
             <div class="get">
                 <div class="get_in">
@@ -45,20 +58,7 @@
                 </div>
             </div>
         </volist>
-        <!--每个项目默认设定有无偿捐赠项-->
-        <div class="get">
-            <div class="get_in">
-                <div class="get_top">
-                    <h1>无回报支持</h1>
-                    <p>{$count}人支持</p>
-                </div>
-            </div>
-            <div class="get_blow">
-                <h1>感谢您无偿支持</h1><!-- 固定不变 -->
-                <span>无偿支持的感谢语</span>
-                <button type="button"><a>我要支持</a></button><!-- 点击可输入任意支持金额 -->
-            </div>
-        </div>
+
         <div class="background">
             <div class="b_box">
                 <div class="b_box_in">
