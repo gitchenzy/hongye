@@ -1,8 +1,8 @@
 <?php
 // 本类由系统自动生成，仅供测试用途
 namespace Home\Controller;
-use Think\Controller;
-class CenterController extends Controller {
+
+class CenterController extends CommonController {
     private $user_id;
     protected function _initialize(){
         $user = get_user_info();
