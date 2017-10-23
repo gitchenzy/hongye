@@ -65,11 +65,11 @@
 
                 <a href="{:U('massage/massage')}"><img src="__PUBLIC__/Home/images/new/news_2.png"></a>
 
-                <a style="color:#f45353;" href="{:U('massage/massage')}"  >消息</a>
+            <a style="color:#f45353;" href="{:U('massage/massage')}"  >消息 </a>
             <?php }else{ ?>
                 <a href="{:U('massage/massage')}"><img src="__PUBLIC__/Home/images/new/news_1.png"></a>
 
-                <a href="{:U('massage/massage')}"  >消息</a>
+            <a href="{:U('massage/massage')}" >消息 <?php if($infos_num > 0){ ?>  <span class="tishi">{$infos_num}</span><?php } ?></a>
 
             <?php } ?>
         </div>
