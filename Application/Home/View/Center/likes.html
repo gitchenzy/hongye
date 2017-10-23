@@ -64,7 +64,7 @@
                         </div>
                         <div class="stantic_lang_2_text">
 
-                            <h3>{$vo.project_title}</h3>
+                            <h3 style="line-height:26px;">{$vo.project_title}</h3>
 
                             <!-- <div class="stantic_lang_2_icon">
                             </div> -->
@@ -78,6 +78,13 @@
       <script>
           var text=$('.stantic_lang_2_text p');
           var span=$('.stantic_lang_2_text span');
+          var h3=$('.stantic_lang_2_text h3');
+          var lang=$.grep(h3,function(){
+              h3.each(function(){
+                  $(this).html().length>13;
+              });
+          });
+          
           text.css('font-size','14px');
           span.css('font-size','14px');
           </script>
