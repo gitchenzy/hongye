@@ -77,10 +77,10 @@ function send_sms($code,$phone){
     $req = new AlibabaAliqinFcSmsNumSendRequest;
     $req->setExtend("123456");
     $req->setSmsType("normal");
-    $req->setSmsFreeSignName("身份验证");
-    $req->setSmsParam("{\"code\":\"$code\",\"product\":\"手机\"}");
+    $req->setSmsFreeSignName("厦门市红叶帮帮忙科技公司");
+    $req->setSmsParam("{\"code\":\"$code\"}");
     $req->setRecNum($phone);
-    $req->setSmsTemplateCode("SMS_44435271");
+    $req->setSmsTemplateCode("SMS_105590022");
     $resp = $c->execute($req);
     if($resp->result->success){
         return true;
