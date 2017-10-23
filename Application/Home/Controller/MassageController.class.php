@@ -3,7 +3,13 @@
 namespace Home\Controller;
 
 class MassageController extends CommonController {
+
+    protected function _initialize(){
+        parent::_initialize();
+    }
+
     public function index(){
+
         $this -> display();
     }
     public function massage(){

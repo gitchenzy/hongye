@@ -9,6 +9,21 @@
     text-decoration: none;
 }
 
+.tishi{
+    position: absolute;
+    top: 4px;
+    left: 25px;
+    /* z-index: 9999; */
+    line-height: 15px;
+    color: #fff;
+    font-size: 12px;
+    width: 15px;
+    height: 15px;
+    display: block;
+    background: #f45353;
+    border-radius: 17.5px;
+}
+
 html body {
     margin: 0px;
     padding: 0px;
@@ -354,6 +369,7 @@ html body {
 }
 
 .main_bottom_box_mid {
+    position: relative;
     width: 45px;
     height: 100%;
     margin: 0px auto 0px auto;

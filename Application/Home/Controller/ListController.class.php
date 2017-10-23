@@ -3,6 +3,9 @@
 namespace Home\Controller;
 
 class ListController extends CommonController {
+    protected function _initialize(){
+        parent::_initialize();
+    }
     public function index(){
 
         session('index',2);

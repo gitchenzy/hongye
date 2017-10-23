@@ -3,8 +3,11 @@
 namespace Home\Controller;
 
 class CenterController extends CommonController {
+
     private $user_id;
     protected function _initialize(){
+
+        parent::_initialize();
         $user = get_user_info();
     //    $user['user_id'] = 15;
         if (!$user) {
