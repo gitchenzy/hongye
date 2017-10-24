@@ -162,3 +162,12 @@ body{
     width: 15px;
     height: 15px;
 }
+.bottom_btn{
+    height: 34px;
+    width:115px;  
+    background: #f45353;
+    border-radius: 17px;
+    position: absolute;
+    bottom: 30px;
+    left:45px;  
+}

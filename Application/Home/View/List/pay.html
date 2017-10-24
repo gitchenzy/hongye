@@ -38,7 +38,7 @@
 
         <div class="pay_3">
             <div class="pay_4">
-                <h1 id="text">{$return.title}</h1>
+                <h1 style="width:280px;height:40px;overflow:hidden;" id="text">{$return.title}</h1>
                 <h1 style="float:right">¥{$return.amount}</h1>
             </div>
         </div>
@@ -135,8 +135,8 @@
 </body>
 <script>
     var control=$('#text').html();
-    console.log(control)
-    $('#sub').click(function(){
+    console.log(control);
+     $('#sub').click(function(){
 
         var v = $('input[name=pays]:checked').val();
        if(1 == v){
