@@ -1,0 +1,333 @@
+html,body{
+    background-color: #fff;
+}
+.address-container{
+    padding-left: .2rem;
+}
+.address-container input{
+    width: 100%;
+    height: .9rem;
+    line-height: .9rem;
+    border-bottom: 1px solid #e0e0e0;
+    display: block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.set-default{
+    width: 100%;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    padding: 0 .2rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.set-default p{
+    height: 1rem;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    color: #999999;
+}
+.set-default label{
+    width: .6rem;
+    height: .4rem;
+    display: inline-block;
+    background: url('../images/cart-check.png') no-repeat;
+    background-size: .38rem;
+    vertical-align: middle;
+}
+.set-default label.checked{
+    background: url('../images/cart-checked.png') no-repeat;
+    background-size: .38rem;
+}
+.save-region{
+    width: 90%;
+    background-color: #ff3600;
+    height: 1rem;
+    line-height: 1rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 5%;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    -weikit-border-radius: 5px;
+    font-size: .3rem;
+}
+/*选择省市区弹框*/
+.popup-regions-box{
+    display: none;
+}
+.mask-bg{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0,0,0,.8);
+}
+.pop-inner{
+    background: #FFF;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+.popup-regions-box .region-tab {
+    border-bottom: 1px solid #f6f6f6;
+    padding: 0 .2rem;
+    position: relative;
+}
+.popup-regions-box .region-tab a{
+    position: absolute;
+    right: .2rem;
+    padding: .15rem;
+    color: #999;
+    top: 0;
+}
+.popup-regions-box .region-tab span {
+    padding: .15rem;
+    display: inline-block;
+    color: #999;
+}
+.popup-regions-box .region-tab span.active {
+    border-bottom: 2px solid #ff3600;
+    color: #333;
+}
+.popup-regions-box .region-list {
+    height: 6rem;
+    overflow: auto;
+}
+.popup-regions-box .region-list dl {
+    padding: .1rem .2rem;
+    display: none;
+}
+.popup-regions-box .region-list dl.active{
+    display: block;
+}
+.popup-regions-box .region-list dl dd{
+    padding: .1rem .15rem;
+}
+.popup-regions-box .region-list dl dd.active{
+    color: #ff3600;
+}
+
+/*地址管理列表*/
+.addr-item{
+    margin-bottom: .2rem;
+    background-color: #fff;
+    padding-top: .2rem;
+}
+.addr-item>div{
+    padding: 0 .2rem;
+}
+.addr-item .row1 .rece-name{
+    float: left;
+}
+.addr-item .row1 .rece-tel{
+    float: right;
+}
+.addr-options{
+    text-align: right;
+}
+.addr-options a{
+    display: inline-block;
+    height: .8rem;
+    line-height: .8rem;
+    color: #999999;
+    margin-left: .2rem;
+}
+.addr-options a i{
+    font-size: .36rem;
+    padding-right:.1rem;
+}
+.addr-options .edit i{
+    font-size: .42rem;
+    padding-right: .06rem; 
+}
+.addrList-container .set-default{
+    padding: 0;
+}
+.addr-item .row2{
+    padding: .2rem;
+    border-bottom: 1px solid #f5f5f5;
+}
+.addrList-container .set-default p{
+    height: .8rem;
+}
+.new_addr a{
+    width: 100%;
+    background: #ff3600;
+    height: .8rem;
+    line-height: .8rem;
+    color: #fff;
+    text-align: center;
+
+}html,body{
+    background-color: #fff;
+}
+.address-container{
+    padding-left: .2rem;
+}
+.address-container input{
+    width: 100%;
+    height: .9rem;
+    line-height: .9rem;
+    border-bottom: 1px solid #e0e0e0;
+    display: block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.set-default{
+    width: 100%;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    padding: 0 .2rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.set-default p{
+    height: 1rem;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    color: #999999;
+}
+.set-default label{
+    width: .6rem;
+    height: .4rem;
+    display: inline-block;
+    background: url('../images/cart-check.png') no-repeat;
+    background-size: .38rem;
+    vertical-align: middle;
+}
+.set-default label.checked{
+    background: url('../images/cart-checked.png') no-repeat;
+    background-size: .38rem;
+}
+.save-region{
+    width: 90%;
+    background-color: #ff3600;
+    height: 1rem;
+    line-height: 1rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 5%;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    -weikit-border-radius: 5px;
+    font-size: .3rem;
+}
+/*选择省市区弹框*/
+.popup-regions-box{
+    display: none;
+}
+.mask-bg{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0,0,0,.8);
+}
+.pop-inner{
+    background: #FFF;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+.popup-regions-box .region-tab {
+    border-bottom: 1px solid #f6f6f6;
+    padding: 0 .2rem;
+    position: relative;
+}
+.popup-regions-box .region-tab a{
+    position: absolute;
+    right: .2rem;
+    padding: .15rem;
+    color: #999;
+    top: 0;
+}
+.popup-regions-box .region-tab span {
+    padding: .15rem;
+    display: inline-block;
+    color: #999;
+}
+.popup-regions-box .region-tab span.active {
+    border-bottom: 2px solid #ff3600;
+    color: #333;
+}
+.popup-regions-box .region-list {
+    height: 6rem;
+    overflow: auto;
+}
+.popup-regions-box .region-list dl {
+    padding: .1rem .2rem;
+    display: none;
+}
+.popup-regions-box .region-list dl.active{
+    display: block;
+}
+.popup-regions-box .region-list dl dd{
+    padding: .1rem .15rem;
+}
+.popup-regions-box .region-list dl dd.active{
+    color: #ff3600;
+}
+
+/*地址管理列表*/
+.addr-item{
+    margin-bottom: .2rem;
+    background-color: #fff;
+    padding-top: .2rem;
+}
+.addr-item>div{
+    padding: 0 .2rem;
+}
+.addr-item .row1 .rece-name{
+    float: left;
+}
+.addr-item .row1 .rece-tel{
+    float: right;
+}
+.addr-options{
+    text-align: right;
+}
+.addr-options a{
+    display: inline-block;
+    height: .8rem;
+    line-height: .8rem;
+    color: #999999;
+    margin-left: .2rem;
+}
+.addr-options a i{
+    font-size: .36rem;
+    padding-right:.1rem;
+}
+.addr-options .edit i{
+    font-size: .42rem;
+    padding-right: .06rem; 
+}
+.addrList-container .set-default{
+    padding: 0;
+}
+.addr-item .row2{
+    padding: .2rem;
+    border-bottom: 1px solid #f5f5f5;
+}
+.addrList-container .set-default p{
+    height: .8rem;
+}
+.new_addr a{
+    width: 100%;
+    background: #ff3600;
+    height: .8rem;
+    line-height: .8rem;
+    color: #fff;
+    text-align: center;
+
+}

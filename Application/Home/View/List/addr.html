@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/addr.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/LArea.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/address.css">
     <title>
         <empty name="address">
             添加地址
@@ -25,7 +26,7 @@
 
         .content-block input {
             float: left;
-            width: 42px;
+            width: 202px;
             height: 20px;
             font-size: 14px;
             border: none;
@@ -58,18 +59,16 @@
             <div class="addr_l">
                 <div style="width:80px" class="addr_lin">
                     <p>所在地区</p>
-                    <div style="float:left">
-                        <div id="open" class="content-block">
-                            <input id="s_province" type="text" readonly="" placeholder="城市选择特效"  value="福建省">
-                            <input style="top:-58px;left:140px;" id="s_city" type="text" readonly="" placeholder="城市选择特效"  value="厦门市">
-                            <input style="top:-88px;left:195px;" id="s_county" type="text" readonly="" placeholder="城市选择特效"  value="思明区">
-                            <input id="value1" type="hidden" value="20,234,504">
-                        </div>
-                    <!--         <div class="content-block">
-                            <input id="demo2" type="text" readonly="" placeholder="城市选择特效" />
-                            <input id="value2" type="hidden" />
-                        </div> -->
-                    </div>
+                    <div>
+                            
+                                    <div class="address-container">
+                            
+                                       <div><input class="region-input" type="text" placeholder="省份 城市 区县"></div>
+                            
+                                    </div>
+                            
+                            
+                                </div>
 
 
                     <!--                     <div class="info">
@@ -115,43 +114,37 @@
             </div>
         </div>
     </div>
+    
 </div>
+<div class="popup-regions-box">
+        <div class="mask-bg"></div>
+        <div class="pop-inner">
+            <div class="region-tab">
+                <span class="active">省份</span>
+                <span>城市</span>
+                <span>区县</span>
+                <a class="confirm-region" href="##">确定</a>
+            </div>
+            <div class="region-list">
+                <dl class="rl1 active">
+                    
+                </dl>
+                <dl class="rl2">
+                    
+                </dl>
+                <dl class="rl3">
+                    
+                </dl>
+                <input id='province' type="text" value="110000" data-txt="" hidden>
+                <input id='city' type="text" value="110100" data-txt="" hidden >
+                <input id='area' type="text" value="110101" data-txt="" hidden>
+            </div>
+        </div>
+        
+    </div>
 </body>
 <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Home/js/LAreaData1.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Home/js/LAreaData2.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Home/js/LArea.js"></script>
-<script>
-
-
-
-var area1 = new LArea();
-area1.init({
-	'trigger': '#s_province', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
-	'valueTo': '#value1', //选择完毕后id属性输出到该位置
-	'keys': {
-		id: 'id',
-		name: 'name'
-	}, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
-	'type': 1, //数据源类型
-	'data': LAreaData //数据源
-});
-$('#s_province').click(function(){console.log($('#s_province').val())})
-
-area1.value=[1,13,3];//控制初始位置，注意：该方法并不会影响到input的value
-var area2 = new LArea();
-area2.init({
-	'trigger': '#demo2',
-	'valueTo': '#value2',
-	'keys': {
-		id: 'value',
-		name: 'text'
-	},
-	'type': 2,
-	'data': [provs_data, citys_data, dists_data]
-});
-
-</script>
+<script src="__PUBLIC__/Home/js/address.js"></script>
 
 
 
