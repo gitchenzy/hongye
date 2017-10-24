@@ -4,7 +4,7 @@ use Think\Controller;
 class LoginController extends Controller {
     public function index(){
 
-        $this -> assign('title','登录');
+        $this -> assign('title','微信登录');
         $this -> assign('url',C('WX_LOGIN_URL'));
         $this -> assign('appid',C('WX_APP_ID'));
         $this -> display();
