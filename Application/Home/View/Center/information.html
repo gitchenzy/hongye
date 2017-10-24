@@ -8,11 +8,84 @@
     <title>个人资料</title>
 </head>
 <body>
+        <style>
+        .bg{
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width:100%;
+            display: none;
+            height: 100%;
+            z-index: 999;
+        }
+        .bg_box{
+            height: 143px;
+            width: 100%;
+            position: fixed;
+            z-index: 1000;
+            bottom: 0%;
+        }
+        .bg_lang{
+            height: 44px;
+            width: 100%;
+            margin-bottom: 1px;
+            background: #ffffff;
+            text-align: center;
+        }
+        .bg_lang p{
+            font-size: 16px;
+            color: #000000;
+            line-height: 44px;
+        }
+        
+        .bg_1{
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            top:-245px;
+            left: -65px;
+            width:100%;
+            display: none;
+            height: 100%;
+            z-index: 99;
+        }
+        .bg_box_1{
+            height: 143px;
+            width: 100%;
+            position: fixed;
+            z-index: 100;
+            bottom: 0%;
+        }
+        .bg_lang_1{
+            height: 44px;
+            width: 100%;
+            margin-bottom: 1px;
+            background: #ffffff;
+            text-align: center;
+        }
+        .bg_lang_1 p{
+            font-size: 16px;
+            color: #000000;
+            line-height: 44px;
+        }
+
+        </style>
 
 <!--<div style="border-bottom:1px solid #e5e5e5" class="top">-->
     <!--<div onclick="click()" class="top_arrow"></div>-->
     <!--<h4>个人资料</h4>-->
 <!--</div>-->
+<div class="bg">
+        <div class="bg_box">
+            <div class="bg_lang">
+                <p>男</p>
+                </div>
+                <div style="margin-bottom:10px" class="bg_lang">
+                    <p>女</p>
+                    </div>
+                    <div style="margin:none" class="bg_lang">
+                        <p>取消</p>
+                        </div>
+            </div>
+    </div>
 <a href="{:U('Center/imgset')}">
     <div class="inf_b">
         <div class="inf_bin">
@@ -36,14 +109,12 @@
     </a>
 </div>
 <div  class="inf_l">
-    <a href="{:U('Center/changesex')}">
         <div class="inf_lin">
             <p>性别</p>
             <div class="inf_lin_img">
                 <img src="__PUBLIC__/Home/images/new/in.png">
             </div>
         </div>
-    </a>
 </div>
 
 <div class="inf_l">
@@ -66,6 +137,7 @@
         </div>
     </a>
 </div>
+
 <script>
     $('.inf_l:eq(1)').bind('click',function(){
         $('.bg').css('display','block')
@@ -79,6 +151,8 @@
     $('.bg_lang_1:eq(2)').bind('click',function(){
         $('.bg_1').css('display','none')
     })
+    var height=$(window).height();
+    $('.bg').height(height)
 </script>
 </body>
 </html>

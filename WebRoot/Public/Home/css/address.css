@@ -89,11 +89,7 @@ html,body{
     color: #999;
     top: 0;
 }
-.popup-regions-box .region-tab span {
-    padding: .15rem;
-    display: inline-block;
-    color: #999;
-}
+
 .popup-regions-box .region-tab span.active {
     border-bottom: 2px solid #ff3600;
     color: #333;
@@ -259,10 +255,7 @@ html,body{
 .popup-regions-box .region-list dl.active{
     display: block;
 }
-.popup-regions-box .region-list dl dd{
-    font-size: 13px;
-    padding: .1rem .15rem;
-}
+
 .popup-regions-box .region-list dl dd.active{
     color: #ff3600;
 }
