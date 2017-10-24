@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/addr.css">
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/LArea.css">
+
     <link rel="stylesheet" href="__PUBLIC__/Home/css/address.css">
     <title>
         <empty name="address">
@@ -14,6 +14,18 @@
         </empty>
     </title>
     <style type="text/css">
+    .address-container input{
+    width: 200px;
+    height: 1rem;
+    line-height: .9rem;
+    border:none;
+    display: block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    position: relative;
+    top:-25px;
+    left: 87px;
+}
 
         html,
         body {
@@ -37,6 +49,27 @@
             left: 88px;
 
         }
+        .pop-inner{
+    background: #FFF;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    padding: 8px;
+}
+.popup-regions-box .region-list dl dd{
+    font-size: 14px;
+    padding: .1rem .15rem;
+    margin-bottom: 4px;
+}
+.popup-regions-box .region-tab span {
+    padding: .15rem;
+    display: inline-block;
+    color: #999;
+    margin-right: 25px;
+}
         </style>
         
 </head>
@@ -126,13 +159,13 @@
                 <a class="confirm-region" href="##">确定</a>
             </div>
             <div class="region-list">
-                <dl class="rl1 active">
+                <dl id="d1" class="rl1 active">
                     
                 </dl>
-                <dl class="rl2">
+                <dl id="d2" class="rl2">
                     
                 </dl>
-                <dl class="rl3">
+                <dl id="d3" class="rl3">
                     
                 </dl>
                 <input id='province' type="text" value="110000" data-txt="" hidden>
@@ -145,7 +178,11 @@
 </body>
 <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
 <script src="__PUBLIC__/Home/js/address.js"></script>
-
+<script>
+    var font=$('#d1>dd');
+    font.css('font-size','13px')
+    console.log(font.length)
+    </script>
 
 
 
