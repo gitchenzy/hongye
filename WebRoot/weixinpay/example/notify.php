@@ -71,11 +71,22 @@ class PayNotifyCallBack extends WxPayNotify
                     $sql = 'update users set amount = amount + '.$list['pay_amount'].' where id ='.$list['user_id'];
                     $result = $mysql -> query($sql);
                     if($result){
-                        $mysql->commit(); //提交事务
-                        $mysql->autocommit(TRUE); //开启自动提交功能
-                        return true;
+                        //添加一条评价信息
+                        $sql = "insert into comments(time,fid,type,user_id,project_id,content) value({$time},0,2,0,{$list['user_id']},{$list['project_id']},'')";
+                        $res = $mysql -> query($sql);
+                        if($res){
+                            $mysql->commit(); //提交事务
+                            $mysql->autocommit(TRUE); //开启自动提交功能
+                            return true;
+                        }else{
+                            $msg = "评论信息更新失败";
+                            Log::DEBUG("error info:评论信息更新失败");
+                            $mysql -> rollback();
+                            return false;
+                        }
                     }else{
                         $msg = "会员信息更新失败";
+                        Log::DEBUG("error info:会员信息更新失败");
                         $mysql -> rollback();
                         return false;
                     }
@@ -83,17 +94,20 @@ class PayNotifyCallBack extends WxPayNotify
 
                 }else{
                     $msg = "项目更新失败";
+                    Log::DEBUG("error info:项目更新失败");
                     $mysql -> rollback();
                     return false;
                 }
 
             }else{
                 $msg = "订单流水添加失败";
+                Log::DEBUG("error info:订单流水添加失败");
                 $mysql -> rollback();
                 return false;
             }
         }else{
             $msg = "订单更新失败";
+            Log::DEBUG("error info:订单更新失败");
             $mysql -> rollback();
             return false;
         }
