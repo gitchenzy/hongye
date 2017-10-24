@@ -4043,13 +4043,13 @@ var DISTRICTS = {
 var proc = $('#province').attr('value');
 var city = $('#city').attr('value');
 var area = $('#area').attr('value');
-
-$('#province').attr('data-txt',DISTRICTS[100000][proc]);
-$('#city').attr('data-txt',DISTRICTS[proc][city]);
-$('#area').attr('data-txt',DISTRICTS[city][area]);
+//
+// $('#province').attr('data-txt',DISTRICTS[100000][proc]);
+// $('#city').attr('data-txt',DISTRICTS[proc][city]);
+// $('#area').attr('data-txt',DISTRICTS[city][area]);
 // console.log(DISTRICTS[100000][proc]+' '+DISTRICTS[proc][city]+' '+DISTRICTS[city][area]);
-$(".region-input").attr('value',DISTRICTS[100000][proc]+' '+DISTRICTS[proc][city]+' '+DISTRICTS[city][area]);
-
+ $(".region-input").attr('value',proc+' '+city+' '+area);
+//
 
 //选择省市区
 $(".region-input").on("click",function(){
@@ -4086,13 +4086,13 @@ $(document).on('click','.rl1 dd',function(){
     $(this).addClass("active").siblings('dd').removeClass("active");
     $('#province').attr('data-txt',$(this).text());
     $('#province').attr('value',$(this).attr('data-code'));
-    console.log($('#province').attr('value'));
-    console.log($(this).attr('data-code'));
-    console.log($(this).text());
-    console.log($('#province').attr('data-txt'));
+    // console.log($('#province').attr('value'));
+    // console.log($(this).attr('data-code'));
+    // console.log($(this).text());
+    // console.log($('#province').attr('data-txt'));
     $('.region-tab span').eq(1).addClass("active").siblings('span').removeClass("active");
     $(".region-list dl").eq(1).addClass("active").siblings().removeClass("active");
-    // console.log($(this).attr('value'));
+    //console.log($(this).attr('value'));
     for(var i in DISTRICTS[$(this).attr('value')]){
         $(".rl2").append("<dd data-code="+i+" data-text="+DISTRICTS[$(this).attr('value')][i]+" value="+i+">"+DISTRICTS[$(this).attr('value')][i]+"</dd>");
     }

@@ -362,7 +362,9 @@ class ListController extends CommonController {
     public function editaddr(){
         $aid = I('aid');
         $address = M('address') -> where(['id'=>$aid]) -> find();
+        $address['pca'] = $address['province']." ".$address['city'].' '.$address['area'];
         $this -> assign('address',$address);
+        $this -> assign('aid',$aid);
         $this -> display('addr');
     }
     public function deladdr(){
