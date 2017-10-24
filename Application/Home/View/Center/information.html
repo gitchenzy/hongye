@@ -76,10 +76,10 @@
 <div class="bg">
         <div class="bg_box">
             <div class="bg_lang">
-                <p>男</p>
+                <p class="sex" key="1">男</p>
                 </div>
                 <div style="margin-bottom:10px" class="bg_lang">
-                    <p>女</p>
+                    <p class="sex" key="2">女</p>
                     </div>
                     <div style="margin:none" class="bg_lang">
                         <p>取消</p>
@@ -104,7 +104,7 @@
         <div class="inf_lin_img">
             <img src="__PUBLIC__/Home/images/new/in.png">
         </div>
-        <p style="float:right">我的昵称</p>
+        <p style="float:right">{$info.nick_name}</p>
         <!--<input type="text" name="昵称" placeholder="请输入您的昵称">-->
     </div>
     </a>
@@ -116,7 +116,14 @@
             <div class="inf_lin_img">
                 <img src="__PUBLIC__/Home/images/new/in.png">
             </div>
-            <p style="float:right">男</p>
+            <p style="float:right">
+                <if condition="$info['sex'] eq 1" >
+                    男
+                    <else />
+
+                    女
+                </if>
+            </p>
         </div>
 </div>
 
@@ -127,7 +134,7 @@
             <div class="inf_lin_img">
                 <img src="__PUBLIC__/Home/images/new/in.png">
             </div>
-            <p style="float:right">fdsfsdfsdfsdfsd</p>
+            <p style="float:right">{$info.weixin}</p>
         </div>
     </a>
 </div>
@@ -157,6 +164,24 @@
     })
     var height=$(window).height();
     $('.bg').height(height)
+
+    $('.sex').click(function(){
+        var name = $(this).attr('key');
+        console.log(name);
+        var info = {name:name,cloum:'sex'}
+        $.post("{:U('Center/editinfor')}",info,function(data){
+
+            if(1 == data.status){
+                alert(data.info)
+                location.reload();
+            }else{
+                alert(data.info)
+            }
+
+
+        })
+
+    })
 </script>
 </body>
 </html>

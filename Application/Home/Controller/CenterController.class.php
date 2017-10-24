@@ -348,6 +348,7 @@ class CenterController extends CommonController {
         $clo = I('cloum');
         $name = I('name');
         $data[$clo] = $name;
+
         $result = M('users') -> where($where) -> save($data);
 
         $this -> success('修改成功！');
