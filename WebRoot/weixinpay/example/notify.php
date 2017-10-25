@@ -72,7 +72,7 @@ class PayNotifyCallBack extends WxPayNotify
                     $result = $mysql -> query($sql);
                     if($result){
                         //添加一条评价信息
-                        $sql = "insert into comments('time',fid,'type',pid,user_id,project_id,content) value({$time},0,2,0,{$list['user_id']},{$list['project_id']},'')";
+                        $sql = "insert into comments(time,fid,type,pid,user_id,project_id,content) value({$time},0,2,0,{$list['user_id']},{$list['project_id']},{$order_id})";
                         $res = $mysql -> query($sql);
 
                         if($res){

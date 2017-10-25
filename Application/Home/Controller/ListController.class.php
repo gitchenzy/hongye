@@ -182,7 +182,10 @@ class ListController extends CommonController {
         foreach ($info as &$v){
             $v['son'] = comments_info($v['id']);
            // dump($v['son']);
-            $v['pay_amount'] = M('orders') -> where(['user_id'=>$v['user_id'],'project_id'=>$v['project_id']]) -> getfield('pay_amount');
+            if($v['type'] == 2){
+                $v['pay_amount'] = M('orders') -> where(['id'=>$v['content']]) -> getfield('pay_amount');
+            }
+
             $user_info = M('users') -> where(['id'=>$v['user_id']])-> field('nick_name,pic') -> find();
             $v['name'] = $user_info['nick_name'];
             $v['head_pic'] = $user_info['pic'];

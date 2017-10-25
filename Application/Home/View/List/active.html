@@ -105,7 +105,11 @@
                 <!--<p style="font-size:14px;margin-bottom:3px;">12</p>-->
             <!--</div>-->
             <p>{$vo.time|date="Y.m.d H:i:s",###}</p>
-            <span class="cont" key="{$vo.id}" name="{$vo.name}" >{$vo.content}</span>
+            <span class="cont" key="{$vo.id}" name="{$vo.name}" >
+                <?php if($vo['type'] == 1){ ?>
+                    {$vo.content}
+                <?php } ?>
+            </span>
             <volist name="vo.son" id="svo">
                 <div class="first_blow" key="{$svo.id}" name="{$svo.name}">
                     <div class="first_blow_img">
