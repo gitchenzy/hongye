@@ -172,7 +172,7 @@
         $.post("{:U('Center/editinfor')}",info,function(data){
 
             if(1 == data.status){
-            
+
                 location.reload();
             }else{
                 alert(data.info)
