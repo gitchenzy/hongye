@@ -10,7 +10,10 @@
 </head>
 <!--项目回报设置-->
 <body>
-    <style>
+<style>
+ .background{
+     z-index: 100;
+ }
  .bottom_btn_1{
     height: 34px;
     width:115px;  
@@ -20,6 +23,7 @@
     bottom: 30px;
     left:45px;  
     text-align: center;
+    z-index: 1;
 }
 .bottom_btn_1 p{
     font-size: 15px;
@@ -35,6 +39,7 @@
     bottom: 30px;
     right:45px;  
     text-align: center;
+    z-index: 1;
 }
 .bottom_btn_2 p{
     font-size: 15px;
@@ -54,7 +59,7 @@
                 <li><p>回报标题</p><input value="" type="text" id="title" name="title" placeholder="设置回报标题"></li>
                 <li><p>回报简介</p><input value="" name="des" id="des" type="text" placeholder="设置回报简介"></li>
                 <li><p>规则设置</p><input value="" name="rule" id="rule" type="text" placeholder="设置回报规则"><div class="return_add">
-                    <img src="__PUBLIC__/Home/images/new/plus.png">
+                    <!-- <img src="__PUBLIC__/Home/images/new/plus.png"> -->
                 </div></li>
             </ul>
             <button id="sub" type="submit" value="提交">提交</button>
