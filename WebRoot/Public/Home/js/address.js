@@ -4051,6 +4051,17 @@ var area = $('#area').attr('value');
  $(".region-input").attr('value',proc+' '+city+' '+area);
 //
 
+
+// //初始化省市区
+// var proc = $('#province').attr('value');
+// var city = $('#city').attr('value');
+// var area = $('#area').attr('value');
+//
+// $('#province').attr('data-txt',DISTRICTS[100000][proc]);
+// $('#city').attr('data-txt',DISTRICTS[proc][city]);
+// $('#area').attr('data-txt',DISTRICTS[city][area]);
+// // console.log(DISTRICTS[100000][proc]+' '+DISTRICTS[proc][city]+' '+DISTRICTS[city][area]);
+// $(".region-input").attr('value',DISTRICTS[100000][proc]+' '+DISTRICTS[proc][city]+' '+DISTRICTS[city][area]);
 //选择省市区
 $(".region-input").on("click",function(){
     $(".popup-regions-box").css("display","block");
