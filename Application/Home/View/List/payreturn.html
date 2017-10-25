@@ -10,6 +10,38 @@
 </head>
 <!--项目回报设置-->
 <body>
+    <style>
+ .bottom_btn_1{
+    height: 34px;
+    width:115px;  
+    background: #f45353;
+    border-radius: 17px;
+    position: fixed;
+    bottom: 30px;
+    left:45px;  
+    text-align: center;
+}
+.bottom_btn_1 p{
+    font-size: 15px;
+    color: #ffffff;
+    line-height: 35px;
+}
+.bottom_btn_2{
+    height: 34px;
+    width:115px;  
+    background: #f45353;
+    border-radius: 17px;
+    position: fixed;
+    bottom: 30px;
+    right:45px;  
+    text-align: center;
+}
+.bottom_btn_2 p{
+    font-size: 15px;
+    color: #ffffff;
+    line-height: 35px;
+}
+        </style>
 <div id="bg" class="background">
     <div class="in_return">
         <div class="in_return_r">
@@ -63,7 +95,13 @@
 <div class="add_btn">
     <p><a href="{:U('Center/myactive')}" style="color: #fff;">完成</a></p>
 </div> -->
-<div class="bottom_btn"></div>
+<div class="bottom_btn_1">
+    <p>添加回报</p>
+</div>
+<div class="bottom_btn_2">
+    <p>提交上传</p>
+</div>
+
 <script type="text/javascript" src="__PUBLIC__/Home/js/return.js"></script>
 
 <script>

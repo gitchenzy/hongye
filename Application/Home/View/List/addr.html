@@ -34,8 +34,12 @@
             min-height: 100%;
             overflow-x: hidden;
             -webkit-user-select: none;
+            background: #f2f2f2;
         }
-
+        .popup-regions-box .region-list {
+            height: 9rem;
+            overflow: auto;
+        }
         .content-block input {
             float: left;
             width: 202px;
@@ -186,6 +190,9 @@
     var font=$('#d1>dd');
     font.css('font-size','13px')
     console.log(font.length)
+    $('.mask-bg').click(function(){
+        $('.popup-regions-box').css('display','none')
+    })
     </script>
 
 

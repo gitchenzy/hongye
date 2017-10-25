@@ -95,7 +95,7 @@ html,body{
     color: #333;
 }
 .popup-regions-box .region-list {
-    height: 6rem;
+    height: 9rem;
     overflow: auto;
 }
 .popup-regions-box .region-list dl {

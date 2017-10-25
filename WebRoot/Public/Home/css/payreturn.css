@@ -162,12 +162,21 @@ body{
     width: 15px;
     height: 15px;
 }
-.bottom_btn{
+.bottom_btn_1{
     height: 34px;
     width:115px;  
     background: #f45353;
     border-radius: 17px;
-    position: absolute;
+    position: fixed;
     bottom: 30px;
     left:45px;  
+}
+.bottom_btn_2{
+    height: 34px;
+    width:115px;  
+    background: #f45353;
+    border-radius: 17px;
+    position: fixed;
+    bottom: 30px;
+    right:45px;  
 }
