@@ -94,10 +94,7 @@ html,body{
     border-bottom: 2px solid #ff3600;
     color: #333;
 }
-.popup-regions-box .region-list {
-    height: 9rem;
-    overflow: auto;
-}
+
 .popup-regions-box .region-list dl {
     padding: .1rem .2rem;
     display: none;
