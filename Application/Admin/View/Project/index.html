@@ -213,11 +213,14 @@
                 });
             });
             $orders.click(function(){
-                $("#addCustomer").modal({
-                    remote: "/index.php/admin/Project/orders?id=" + getIdSelections()+'&t=' + Math.random(1000)
-                    ,backdrop: 'static'
-                    ,keyboard: false
-                });
+
+                location.href="/index.php/admin/Project/orders?id=" + getIdSelections()+'&t=' + Math.random(1000);
+
+//                $("#addCustomer").modal({
+//                    remote: "/index.php/admin/Project/orders?id=" + getIdSelections()+'&t=' + Math.random(1000)
+//                    ,backdrop: 'static'
+//                    ,keyboard: false
+//                });
             });
             $addBalance.click(function(){
                 $("#addCustomer").modal({
@@ -247,7 +250,7 @@
                 location.reload();
                 $(this).removeData("bs.modal");
                 $edit.prop('disabled',true);
-                $orders.prop('disabled',true);
+//                $orders.prop('disabled',true);
                 $addBalance.prop('disabled',true);
                 $table.bootstrapTable('refresh', {silent: true});
             });

@@ -1,8 +1,7 @@
-
+<extend name="Public/common" />
+<block name="body">
 <style>
     .box{
-        width: 700px;
-        height: 300px;
         margin: 0 auto;
     }
     .box table{
@@ -32,7 +31,7 @@
 </style>
 
 <div class="box" style="padding-top: 15px;">
-    <div class="close" id="close">返回</div>
+    <div class="close" id="close"><a href="{:U('Project/index')}">返回</a></div>
     <table>
         <tr>
             <td><h1>id</h1></td>
@@ -42,13 +41,12 @@
             <td><h1>省份</h1></td>
             <td><h1>城市</h1></td>
             <td><h1>区域</h1></td>
-            <td><h1>地址</h1></td>
             <td><h1>金额</h1></td>
             <td><h1>付款时间</h1></td>
             <td><h1>状态</h1></td>
         </tr>
-        <volist name="info" id="vo">
-            <tr class="bg">
+        <volist name="info" id="vo" key="k">
+            <tr <?php if($k%2 ==0){ ?> class="bg" <?php } ?> >
                 <td>{$vo.id}</td>
                 <td>{$vo.nick_name}</td>
                 <td>{$vo.name}</td>
@@ -56,18 +54,18 @@
                 <td>{$vo.province}</td>
                 <td>{$vo.city}</td>
                 <td>{$vo.area}</td>
-                <td>{$vo.address}</td>
                 <td>{$vo.pay_amount}</td>
                 <td>{$vo.pay_time}</td>
                 <td>{$vo.status}</td>
             </tr>
         </volist>
+        <tr>
+            <td colspan="7" style="text-align: right;" >
+                总计:
+            </td>
+            <td colspan="3" style="color: red;text-align: left;">{$sum|default=0}元</td>
+        </tr>
     </table>
 </div>
-<script>
-    $('#close').click(function(){
-        $('#defaultForm').bootstrapValidator('resetForm', true);$('input').val('');$('#addCustomer').modal('hide');
 
-    })
-
-</script>
+</block>

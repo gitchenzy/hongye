@@ -49,7 +49,8 @@ class OrdersController extends AdminController
         }
 
         if($search_value){
-            $where['a.pay_no'] = array('LIKE',"%$search_value%");;
+//            $where['a.pay_amount|u.nick_name'] = array('LIKE',"%$search_value%")
+            $where['a.amount|u.nick_name'] = $search_value;
         }
         if(!empty($type) && isset($type)){
             $where['a.pay_type'] = $type;
@@ -116,6 +117,7 @@ class OrdersController extends AdminController
         $timea = i('timea');
         $timeb = i('timeb');
         $where['a.pay_type'] = 1;
+        $where['a.pay_name'] = '付款';
         if(!$timea && $timeb){
             $timeb = strtotime($timeb);
             $where['a.pay_time'] = array('lt',$timeb);
@@ -135,7 +137,7 @@ class OrdersController extends AdminController
         }
 
         if($search_value){
-            $where['a.pay_name'] = array('LIKE',"%$search_value%");;
+            $where['u.nick_name'] = array('LIKE',"%$search_value%");;
         }
 
         $sort = i('sort');

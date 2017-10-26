@@ -222,6 +222,14 @@ class ProjectController extends AdminController
             }else{
                 $v['pid'] = M('project_type')-> where(['id'=>$v['pid']]) -> getField('title');
             }
+            $v['faqi'] = M('project') -> where(['type_id'=>$v['id']]) -> sum('target_amount');//目标金额
+            $v['yic'] = M('project') -> where(['type_id'=>$v['id']]) -> sum('reach_amount');//目标金额
+            if($v['yic'] > $v['faqi']){
+                $v['haix'] = 0;
+            }else{
+                $v['haix'] = $v['faqi'] - $v['yic'];
+            }
+
             $v['small_pic'] = "<img src='{$v['small_pic']}' width='50' alt='小图标'>";
         }
         //dump($list);
@@ -348,12 +356,14 @@ class ProjectController extends AdminController
         //echo 1111;
         $p_id = I('id');
         $result = M('orders') -> where(['project_id'=> $p_id,'status'=>['GT',1]]) -> select();
+        $sum = M('orders') -> where(['project_id'=> $p_id,'status'=>['GT',1]]) -> sum('pay_amount');
         foreach($result as &$v){
             $v['status'] = getOrderStatus($v['status']);
             $v['nick_name'] = M('users') -> where(['id'=>$v['user_id']]) -> getField('nick_name');
             $v['pay_time'] = date('Y-m-d H:i:s',$v['pay_time']);
         }
         $this->assign('info',$result);
+        $this->assign('sum',$sum);
         $this -> display();
     }
     //添加项目汇报

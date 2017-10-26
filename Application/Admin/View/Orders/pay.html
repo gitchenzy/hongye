@@ -105,14 +105,14 @@
 
         function initTable() {
             $table.bootstrapTable({
-                formatSearch:function(){return '请输入类型名称'},
+                formatSearch:function(){return '请输入会员名称'},
                 height: getHeight(),
                 clickToSelect:true,
                 formatLoadingMessage:function(){
                     return '正在加载，请稍候...';
                 },
                 formatShowingRows: function (pageFrom, pageTo, totalRows) {
-                    return '第 ' + pageFrom + ' - ' + pageTo + ' 记录，共 ' + totalRows + ' 条记录';
+                    return '第 ' + pageFrom + ' - ' + pageTo + ' 记录，共 ' + totalRows + ' 条记录 总计:';
                 },
                 formatRecordsPerPage:function(pageNumber){
                     return '每页 '+pageNumber + ' 记录';
