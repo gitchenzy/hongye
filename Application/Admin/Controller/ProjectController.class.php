@@ -364,7 +364,33 @@ class ProjectController extends AdminController
         }
         $this->assign('info',$result);
         $this->assign('sum',$sum);
+        $this->assign('id',$p_id);
         $this -> display();
+    }
+    //加载订单
+
+    public function lorders(){
+        $id = I('id');
+        $this->assign('id',$id);
+        $this -> display();
+    }
+    public function loadOrders(){
+        $offset = i("offset");
+        $limit = i("limit");
+        $search_key = i('search_key');
+        $search_value = i('search');
+        $p_id = i('sort');
+        $list = M('orders') -> where(['project_id'=> $p_id,'status'=>['GT',1]]) -> select();
+        foreach($list as &$v){
+            $v['status'] = getOrderStatus($v['status']);
+            $v['nick_name'] = M('users') -> where(['id'=>$v['user_id']]) -> getField('nick_name');
+            $v['pay_time'] = date('Y-m-d H:i:s',$v['pay_time']);
+        }
+
+        $count = M('orders') -> where(['project_id'=> $p_id,'status'=>['GT',1]]) -> count();
+        //dump($list);
+        $list_array= array("total"=>$count,"rows"=>$list?$list:array());
+        echo json_encode($list_array);
     }
     //添加项目汇报
     public function addReturn(){
