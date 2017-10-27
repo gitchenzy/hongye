@@ -30,11 +30,19 @@ class CustomerController extends AdminController
         $offset = i("offset");
 
         $limit = i("limit");
+        $auto = i("auto");
         $search_key = i('search_key');
 
         $search_value = i('search');
         if($search_value){
             $where['nick_name|weixin'] = array('LIKE',"%$search_value%");;
+        }
+        if($auto){
+            if($auto == 2){
+                $where['is_auto'] = 0;
+            }else{
+                $where['is_auto'] = 1;
+            }
         }
         $sort = i('sort');
         $order = i('order');
@@ -269,7 +277,7 @@ class CustomerController extends AdminController
         foreach($list as &$v){
             $v['is_verify'] = $v['is_verify']==2?'是':'否';
             $v['type_name'] = $v['types']==2?'机构':'个人';
-            $v['pic'] = "<img src='{$v['pic']}'>";
+            $v['pic'] = "<img width='60' src='{$v['pic']}'>";
         }
         $list_array= array("total"=>$count,"rows"=>$list?$list:array());
         echo json_encode($list_array);

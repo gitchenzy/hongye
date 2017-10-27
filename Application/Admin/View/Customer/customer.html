@@ -43,6 +43,12 @@
                             <button id="remove" class="btn btn-danger" disabled>
                                 <i class="glyphicon glyphicon-remove"></i> 删除
                             </button>
+
+                        <select id="auto" class="form-control select-huge">
+                            <option value="0">是否认证</option>
+                            <option value="1">认证</option>
+                            <option value="2">未认证</option>
+                        </select>
                     </div>
                     <table id="table"
                            data-toolbar="#toolbar"
@@ -180,18 +186,13 @@
             eachSeries(getScript, initTable);
         });
 
-
-
-//        function search(){
-//            var ctm = $('#Ctm').val();
-//            var ctmName = $('#DeveloperName').val();
-//            var address = $('#address').val();
-//            var ctmR = $('#CtmRankID').val();
-//            var timeA = $('#TimeA').val();
-//            var timeB = $('#TimeB').val();
-//            var ctmS = $('#ctmS').val();
-//            var str =  '/admin/Customer/loadCustomer?ctmState='+ctm+'&ctmName='+ctmName+'&address='+address+'&timeB='+timeB+'&timeA='+timeA+'&ctmR='+ctmR+'&ctmS='+ctmS;
-//            $table.bootstrapTable('refresh', {url: str});
-//        }
+        $('#auto').change(function(){
+            search();
+        })
+        function search(){
+            var auto = $('#auto').val();
+            var str =  '/index.php/admin/Customer/loadCustomer?auto='+auto;
+            $table.bootstrapTable('refresh', {url: str});
+        }
     </script>
 </block>
