@@ -36,6 +36,7 @@
     <table>
         <tr>
             <td><h1>id</h1></td>
+            <td><h1>交易号</h1></td>
             <td><h1>会员昵称</h1></td>
             <td><h1>收货人</h1></td>
             <td><h1>联系电话</h1></td>
@@ -49,6 +50,7 @@
         <volist name="info" id="vo" key="k">
             <tr <?php if($k%2 ==0){ ?> class="bg" <?php } ?> >
                 <td>{$vo.id}</td>
+                <td>{$vo.order_no}</td>
                 <td>{$vo.nick_name}</td>
                 <td>{$vo.name}</td>
                 <td>{$vo.phone}</td>
