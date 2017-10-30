@@ -1,6 +1,6 @@
 <?php
 // 本类由系统自动生成，仅供测试用途
-namespace Home\Controller;
+namespace Pc\Controller;
 class IndexController extends CommonController {
     protected function _initialize(){
         parent::_initialize();
@@ -49,7 +49,6 @@ class IndexController extends CommonController {
         $id = I('id');
         $where[$type] = $id;
         $where['del'] = 0;
-        $where['status'] = ['GT',1];
         $count = I('time');
         $project = M('project') -> where($where) -> order('id asc') ->limit(5*$count,5) -> select();
 

@@ -2,7 +2,7 @@
 return array(
 	//'配置项'=>'配置值'
     'MULTI_MODULE'          =>  true,
-    'MODULE_ALLOW_LIST'   => array('Admin','Home'),
+    'MODULE_ALLOW_LIST'   => array('Admin','Home','Pc'),
     'DEFAULT_MODULE'        =>  'Home',  // 默认模块
   //  'MODULE_DENY_LIST'   => array('Home'),
 
@@ -13,7 +13,7 @@ return array(
     'DB_NAME'   => 'hongye', // 数据库名
     'DB_USER'   => 'root', // 用户名
 
- //   'DB_PWD'    => 'root',  // 密码
+   // 'DB_PWD'    => 'root',  // 密码
     'DB_PWD'    => '2017hybbms.com',  // 密码
 
     'DB_PORT'   => '3306', // 端口

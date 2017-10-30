@@ -1,0 +1,49 @@
+<volist name="project" id="vo">
+    <div class="midcard" style="margin-top:5px;">
+        <div class="midcard_top">
+            <div class="midcard_top_pic">
+                <img src="{$vo.head_pic}">
+            </div>
+            <div class="midcard_top_name">
+                <a >{$vo.name}</a>
+            </div>
+            <div class="midcard_address">
+                <p>{$vo.city}</p>
+
+            </div>
+            <div class="midcard_address_icon">
+                <img src="__PUBLIC__/Home/images/new/local.png">
+            </div>
+
+        </div>
+        <a href="{:U('List/content',array('id'=>$vo['id']))}">
+            <div class="midcard_content">
+                <h2>{$vo.title}</h2>
+            </div>
+            <div class="midcard_img">
+                <div align="center" class="midcard_img_content">
+                    <img src="{$vo.pic}">
+                </div>
+            </div>
+        </a>
+        <!--<div class="midcard_contain">-->
+            <!--<span>{$vo.dsc|htmlspecialchars}</span>-->
+        <!--</div>-->
+    <div class="work_incard">
+            <div class="tips">
+                <div style="right:{$vo.num_1}%;" class="tips_other">
+                </div>
+            </div>
+            <div style="right: {$vo.num_1}%;" class="tips_circle">
+                <p>{$vo.num}%</p>
+            </div>
+            </div>
+        <div style="margin-top:18px;" class="midcard_bottom">
+            <div class="midcard_bottom_text">
+                <p style="margin-right:10px;">目标金额:{$vo.target_amount}</p>
+                <p >已筹金额:{$vo.reach_amount}</p>
+                <p style="float:right;">支持人数:{$vo.people_num}</p>
+            </div>
+        </div>
+    </div>
+</volist>
