@@ -28,12 +28,22 @@
         height: 30px;
         text-align: center;
     }
+    .fl{
+        float:left;
+        margin-right: 15px;
+    }
+    .closee{
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 1;
+        color: #000;
+        text-shadow: 0 1px 0 #fff;
+    }
 </style>
 
 <div class="box" style="padding-top: 15px;">
-    <div class="close" id="close"><a href="{:U('Project/index')}">返回</a></div>
-    <div class="close"><a href="{:U('Project/lorders',array('id'=>$id))}">导出</a></div>
-    <table>
+
+    <table class="fl">
         <tr>
             <td><h1>id</h1></td>
             <td><h1>交易号</h1></td>
@@ -69,6 +79,9 @@
             <td colspan="3" style="color: red;text-align: left;">{$sum|default=0}元</td>
         </tr>
     </table>
+    <div class="closee fl"><a style="color: #753d3d;" href="{:U('Project/lorders',array('id'=>$id))}">导出</a></div>
+    <div class="closee fl" id="close"><a href="{:U('Project/index')}">返回</a></div>
+
 </div>
 
 </block>

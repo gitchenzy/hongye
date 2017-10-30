@@ -379,15 +379,24 @@ class ProjectController extends AdminController
         $limit = i("limit");
         $search_key = i('search_key');
         $search_value = i('search');
-        $p_id = i('sort');
-        $list = M('orders') -> where(['project_id'=> $p_id,'status'=>['GT',1]]) -> select();
+
+        $order = i('order');
+        $sort = i('sort');
+        if(!empty($sort)){
+            $reorder = $sort." ".$order;
+        }else{
+            $reorder = 'id asc';
+        }
+
+        $p_id = i('id');
+        $list = M('orders') -> where(['project_id'=> $p_id,'status'=>['GT',1]]) -> order($reorder) -> select();
         foreach($list as &$v){
             $v['status'] = getOrderStatus($v['status']);
             $v['nick_name'] = M('users') -> where(['id'=>$v['user_id']]) -> getField('nick_name');
             $v['pay_time'] = date('Y-m-d H:i:s',$v['pay_time']);
         }
 
-        $count = M('orders') -> where(['project_id'=> $p_id,'status'=>['GT',1]]) -> count();
+        $count = M('orders') -> where(['project_id'=> $p_id,'status'=>['GT',1]]) -> order($reorder) -> count();
         //dump($list);
         $list_array= array("total"=>$count,"rows"=>$list?$list:array());
         echo json_encode($list_array);

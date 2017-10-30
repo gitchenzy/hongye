@@ -40,7 +40,7 @@
                            data-minimum-count-columns="5"
                            data-pagination="true"
                            data-id-field="id"
-                           data-sort-name="{$id}"
+                           data-sort-name="id"
                            data-detail-formatter="detailFormatter"
                            data-click-select = true
                            data-order="desc"
@@ -49,7 +49,7 @@
                            data-page-list="[50,100,ALL]"
                            data-show-footer="false"
                            data-side-pagination="server"
-                           data-url="{:U('Project/loadOrders')}"
+                           data-url="{:U('Project/loadOrders',array('id'=>$id))}"
                            data-response-handler="responseHandler">
                     </table>
                 </div>
@@ -102,8 +102,9 @@
                         {field: 'province', title: '省份', align: 'center'},
                         {field: 'city', title: '城市', align: 'center'},
                         {field: 'area', title: '区域', align: 'center'},
+                        {field: 'address', title: ' 地址', align: 'center'},
                         {field: 'pay_amount', title: '金额', align: 'center'},
-                        {field: 'pay_time', title: '付款时间', align: 'center'},
+                        {field: 'pay_time', title: '付款时间', align: 'center',sortable: true},
                         {field: 'status', title: '状态', align: 'center'},
 //                        {field: 'CreateTime', title: '创建时间', align: 'center',sortable: true},
                     ]
