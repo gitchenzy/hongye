@@ -1,6 +1,6 @@
 <?php
 // 本类由系统自动生成，仅供测试用途
-namespace Pc\Controller;
+namespace Hy\Controller;
 use Think\Controller;
 class CommonController extends Controller {
 
@@ -15,6 +15,9 @@ class CommonController extends Controller {
             $this -> assign('infos_num',$info_num);
         }
 
+    }
+    public function index(){
+        echo 123456;
     }
 
 

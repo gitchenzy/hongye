@@ -2,7 +2,7 @@
 return array(
 	//'配置项'=>'配置值'
     'MULTI_MODULE'          =>  true,
-    'MODULE_ALLOW_LIST'   => array('Admin','Home','Pc'),
+    'MODULE_ALLOW_LIST'   => array('Admin','Home','Hy'),
     'DEFAULT_MODULE'        =>  'Home',  // 默认模块
   //  'MODULE_DENY_LIST'   => array('Home'),
 

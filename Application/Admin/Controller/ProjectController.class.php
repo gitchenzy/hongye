@@ -140,7 +140,7 @@ class ProjectController extends AdminController
     //项目打款
     public function addBalance(){
         $project_id = I('id');
-        $status = M('project') -> where(['id'=>$project_id]) -> getField('status');
+    //    $status = M('project') -> where(['id'=>$project_id]) -> getField('status');
         if(IS_POST){
             //要更新两个地方
             $tranDb = M();
@@ -180,14 +180,16 @@ class ProjectController extends AdminController
         }else{
 
 
-            if($status ==5 || $status == 6){
-                $this -> assign('id',$project_id);
-                $this -> display();
+//            if($status ==5 || $status == 6){
+//                $this -> assign('id',$project_id);
+//                $this -> display();
+//
+//            }else{
+//                echo '该项目不需要打款！';
+//            }
 
-            }else{
-                echo '该项目不需要打款！';
-            }
-
+            $this -> assign('id',$project_id);
+            $this -> display();
         }
 
     }
