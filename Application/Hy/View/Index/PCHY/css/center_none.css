@@ -1,7 +1,7 @@
 .pag{
     background: rgba(0, 0, 0, 0.03);
     padding:30px 0 100px 0;   
-    
+    height: 1000px;
     display: flex;
     justify-content: center;
 }
@@ -222,4 +222,13 @@
     font-size: 16px;
     color: rgba(0, 0, 0, 0.4);
     line-height: 45px;
+}
+.other_text{
+    margin-top:160px;
+    display: flex;
+    justify-content: center;
+}
+.other_text p{
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.6);
 }

@@ -181,7 +181,9 @@ div.flicking_con a.on {
     margin: 10px 20px 0 20px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
+
 .card_text_right{
     width:240px;
     height: 55px;
@@ -283,9 +285,59 @@ div.flicking_con a.on {
     text-align: center;
     cursor: pointer;
 }
-.add_child p{
+.add_child a{
     font-size: 2.4rem;
     color: #ffffff;
     line-height: 54px;
 }
 
+/* projects */
+.backgrounds{
+    background: #f45353;
+}
+.colors{
+    color: #fff !important;
+}
+
+.contain{
+    height: 170px;
+    padding: 40px 410px 0 410px;
+    display: flex;
+    flex-direction: column;
+}
+.contain_text{
+    text-align: left;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #c2c2c2;
+}
+.contain_text h1{
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: lighter;
+
+}
+.contain_list{
+    margin-top: 16px;
+    display: flex;
+}
+.contain_list p{
+    margin-right: 20px;
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 30px;
+}
+.contain_list ul {
+    display: flex;
+}
+.contain_list ul li{
+    width:72px;
+    height: 32px;
+    text-align: center;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.contain_list ul li a{
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 30px;
+}
