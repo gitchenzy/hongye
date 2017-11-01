@@ -24,6 +24,51 @@
     width: 800px;
     
 }
+.card_right_in{
+    margin: 30px 0 0 0;
+}
+.card_right_in ul{
+    display: flex;
+    flex-direction: column;
+}
+.card_right_in ul li{
+    width:798px;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    margin: 0 0 30px 0;
+    display: flex;
+}
+.name{
+    width:120px;
+    height: 40px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.03);
+    border-right: 1px solid #e5e5e5;
+}
+.texts{
+    width: 100%;
+    padding-right: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.name p{
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 40px;
+}
+.texts input{
+    width: 80%;
+    border: none;
+    box-shadow: none;
+    margin-left: 20px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+}
+.texts p{
+    margin: 10px 0 0 0;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+}
 .card_text ul{
     display: none;
     position: relative;

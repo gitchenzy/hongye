@@ -20,6 +20,9 @@ a{
     border-bottom: 4px solid #f45353;
     color: #f45353 !important;
 }
+.colors{
+    color: #f45353 !important;
+}
 input{
     outline: none;
 }
