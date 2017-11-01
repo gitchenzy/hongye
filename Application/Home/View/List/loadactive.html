@@ -1,0 +1,45 @@
+<volist name="info" id="vo">
+    <div class="first_all">
+        <div class="first">
+            <div class="first_img cont" key="{$vo.id}" name="{$vo.name}" >
+                <img src="{$vo.head_pic}" width="35" style="border-radius: 17.5px;"><!--头像-->
+            </div>
+            <div class="first_in">
+
+
+                <h1 class="cont" key="{$vo.id}" name="{$vo.name}" >{$vo.name}</h1>
+                <?php if($vo['type'] == 2){ ?>
+
+                <h1>支持了</h1>
+                <h1 style="color:red;margin:0 -2px 0 -10px;">{$vo.pay_amount}</h1>
+                <h1>元</h1>
+                <?php } ?>
+                <!--<div class="first_pic">-->
+                <!--<img src="../pics/new/zan.png">-->
+                <!--<p style="font-size:14px;margin-bottom:3px;">12</p>-->
+                <!--</div>-->
+                <p>{$vo.time|date="Y.m.d H:i:s",###}</p>
+                <span class="cont" key="{$vo.id}" name="{$vo.name}" >
+                <?php if($vo['type'] == 1){ ?>
+                    {$vo.content}
+                    <?php } ?>
+            </span>
+                <volist name="vo.son" id="svo">
+                    <div class="first_blow" key="{$svo.id}" name="{$svo.name}">
+                        <div class="first_blow_img">
+                            <img src="{$svo.head_pic}"><!--头像-->
+                        </div>
+                        <div class="first_blow_none">
+                            <span>{$svo.name}</span>
+                            <span>{$svo.time|date="Y.m.d H:i:s",###}</span>
+                        </div>
+                        <span style="margin:0;"><p style="display:inline">回复&nbsp;&nbsp;{$svo.fname}：&nbsp;&nbsp;</p>{$svo.content}</span>
+                    </div>
+
+                </volist>
+                <div  style="width:290px;margin-top:-5px"  class="first_l">
+                </div>
+            </div>
+        </div>
+    </div>
+</volist>

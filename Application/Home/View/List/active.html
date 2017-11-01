@@ -130,7 +130,7 @@
 </div>
 
 </volist>
-
+    <div style="width:100%;height:55px"></div>
 <div class="first_bottom">
     <div class="first_bottom_in">
         <input type="hidden" id="pid" value="0">
@@ -156,9 +156,40 @@
         $('#pid').val(id);
 
     })
-    var l=$('.first_all').last();
-    l.append($('<div style="width:100%;height:55px"></div>'))
+//    var l=$('.first_all').last();
+//    l.append($(''))
 
+    var current_loading = false;
+    var page_container_object =  $("body").get(0);
+
+
+    var time=1;
+    $(window).scroll(function(){
+
+        var scroll_interval = page_container_object.scrollHeight - page_container_object.scrollTop-screen.height;
+        if (scroll_interval <= 100 && !current_loading) {
+            current_loading = true;
+
+       //    console.log(123);
+//            alert(page_container_object.clientHeight);
+            loadMore(time);
+        }
+
+        function loadMore(te) {
+            var type = '{$Think.get.id}';
+
+            $.get("{:U('List/loadActive')}",{ time : te,type:type} , function(data) {
+                if(data.status==0){
+                    // $(".loadingA").add(".loadingB").add(".loadingC").hide();
+                }else{
+                    $(".first_all").last().append(data.info);
+                    current_loading =false;
+                    time++;
+                }
+            });
+        }
+
+    });
 
 </script>
 </html>
