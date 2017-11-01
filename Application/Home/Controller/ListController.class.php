@@ -196,6 +196,33 @@ class ListController extends CommonController {
         $this -> assign('info',$info);
         $this -> display();
     }
+    public function loadActive(){
+
+        $project_id = I('type');
+        $where['project_id'] = $project_id;
+        $where['pid'] = 0;
+        $count = I('time');
+        $info = M('comments') -> where($where) -> order('time desc') -> limit(10*$count,10) -> select();
+        //查出地下都有多少回复
+        foreach ($info as &$v){
+            $v['son'] = comments_info($v['id']);
+            // dump($v['son']);
+            if($v['type'] == 2){
+                $v['pay_amount'] = M('orders') -> where(['id'=>$v['content']]) -> getfield('pay_amount');
+            }
+
+            $user_info = M('users') -> where(['id'=>$v['user_id']])-> field('nick_name,pic') -> find();
+            $v['name'] = $user_info['nick_name'];
+            $v['head_pic'] = $user_info['pic'];
+        }
+        if($info){
+            $this -> assign('info',$info);
+            $this->success($this->fetch(),"",true);
+        }else{
+            $this -> error('没有更多数据！');
+        }
+
+    }
     //关注取消项目
     public function atten(){
         $user = get_user_info();
