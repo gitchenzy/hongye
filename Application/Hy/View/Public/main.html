@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/common.css">
+
+    <block name="css"></block>
+<script type="text/javascript" src="__PUBLIC__/Hy/js/jquery-1.7.1.min.js"></script>
+<!-- <script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/Hy/js/jquery.touchSlider.js"></script>
+<title>欢迎来到红叶筹</title>
+</head>
+<body>
+    <div class="bg">
+        <div class="erweima">
+            <img src="__PUBLIC__/Hy/images/erweima.png" alt="公众号二维码">
+        </div>
+    </div>
+    <div class="top">
+        <div class="top_box">
+            <div class="top_img">
+                <a href="#"><img alt="hongye logo" src="__PUBLIC__/Hy/images/logo.png"></a>
+            </div>
+               <ul>
+                    <li id="index" class="active"><a class="active">首页</a></li>
+                    <li><a href="lookprojects.html">浏览项目</a></li>
+                    <li id="code"><a>关注公众号</a></li>
+                    <li><a>帮助中心</a></li>
+               </ul>
+        </div>
+        <div class="top_box">
+            <div class="search">
+                <input type="text" placeholder="请输入搜索内容" value="">
+                </div>
+            <div id="btn_1" class="start">
+                <a>发起项目</a>
+            </div>
+            <div class="text">
+                <div class="text_child">
+                    <a>登录</a>
+                </div>
+                <div class="text_child none">
+                    <a>注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <block name="main"></block>
+
+
+    <div class="bottom">
+        <div class="bottom_text">
+            <a>关于我们</a>
+            </div>
+            <div class="bottom_text">
+                    <a>使用协议</a>
+                    </div>
+                    <div class="bottom_text">
+                            <a>用户指南</a>
+                            </div>
+                            <div style="border:none" class="bottom_text none">
+                                    <a>新浪微博</a>
+                                    </div>
+        </div>
+    <div class="blow">
+        <p>Copyright © 2017 帮帮忙-厦门红叶帮帮忙科技有限公司</p>
+        </div>
+
+
+
+
+
+
+
+
+ <script type="text/javascript">
+    /* 轮播代码 */
+    var width=$(window).width();
+    var height=width*0.447;
+    var img=$('#vad>li>span>a img');
+    img.css({'width':width,'height':height})
+
+    $(document).ready(function(){
+        $(".main_visual").hover(function(){
+            $("#btn_prev,#btn_next").fadeIn()
+        },function(){
+            $("#btn_prev,#btn_next").fadeOut()
+        });
+
+        $dragBln = false;
+
+        $(".main_image").touchSlider({
+            flexible : true,
+            speed : 200,
+            btn_prev : $("#btn_prev"),
+            btn_next : $("#btn_next"),
+            paging : $(".flicking_con a"),
+            counter : function (e){
+                $(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+            }
+        });
+
+        $(".main_image").bind("mousedown", function() {
+            $dragBln = false;
+        });
+
+        $(".main_image").bind("dragstart", function() {
+            $dragBln = true;
+        });
+
+        $(".main_image a").click(function(){
+            if($dragBln) {
+                return false;
+            }
+        });
+
+        timer = setInterval(function(){
+            $("#btn_next").click();
+        }, 2500);
+
+    });
+    //二维码
+    $('#code').click(function(){
+        $(this).addClass('active');
+        $('#code a').addClass('active');
+        $('#index').removeClass('active');
+        $('#index a').removeClass('active');
+        $('.bg').css('display','block');
+    });
+    $('.bg').click(function(){
+        $('#code').removeClass('active');
+        $('#code a').removeClass('active');
+        $('#index').addClass('active');
+        $('#index a').addClass('active');
+        $('.bg').css('display','none');
+    })
+</script>
+    <block name="js"></block>
+</body>
+</html>
