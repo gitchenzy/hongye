@@ -18,7 +18,7 @@ a{
 }
 .active{
     border-bottom: 4px solid #f45353;
-    color: #f45353;
+    color: #f45353 !important;
 }
 input{
     outline: none;
@@ -71,6 +71,7 @@ input{
     font-size: 1.8rem;
     border: none;
     line-height: 70px;
+    color: rgba(0, 0, 0, 0.87);
 }
 .search{
     width:200px;
