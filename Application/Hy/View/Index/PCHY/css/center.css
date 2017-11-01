@@ -1,3 +1,6 @@
+.solid{
+    display: block !important;
+}
 .pag{
     background: rgba(0, 0, 0, 0.03);
     padding:30px 0 100px 0;   

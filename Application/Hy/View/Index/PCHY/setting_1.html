@@ -48,8 +48,8 @@
         <div class="card_text">
             <a>我的项目</a>
             <a id="select" >个人设置</a>
-            <img id="ad" src="images/seting_2.png">
-            <ul id="cntx">
+            <img id="ad" src="images/seting_1.png">
+            <ul class="solid" id="cntx">
                 <li><a style="font-weight:normal;">个人资料</a></li>
                 <li><a style="font-weight:normal;">收货地址</a></li>
                 <li><a style="font-weight:normal;">密码安全</a></li>
@@ -58,7 +58,7 @@
         </div>
     <div class="card_right">
         <div class="title">
-            <p>我发起的项目</p>
+            <p>个人资料</p>
         </div>
         <div class="card_right_box">
             <div class="card_grey">
@@ -95,48 +95,6 @@
                                     </div>
                         </div>
             </div>
-            <div class="little_tel">
-                    <div class="little_tel_img">
-                        <img src="images/girl.jpg">
-                        </div>
-                        <div class="card_grey_text">
-                                <div class="card_in_btn">
-                                    <div class="card_btn_1">
-                                        <a>公益</a>
-                                        </div>
-                                        <div class="card_btn_2">
-                                            <a>审核中</a><!-- 状态 -->
-                                            </div>
-                                    </div>
-                                <div class="card_in_name">
-                                    <p>项目名称</p>
-                                    </div>
-                                </div>
-                        <div class="little_btn">
-                            <a>进入项目管理</a>
-                            </div>
-                    </div>
-                    <div class="little_tel">
-                            <div class="little_tel_img">
-                                <img src="images/girl.jpg">
-                                </div>
-                                <div class="card_grey_text">
-                                        <div class="card_in_btn">
-                                            <div class="card_btn_1">
-                                                <a>公益</a>
-                                                </div>
-                                                <div class="card_btn_2">
-                                                    <a>审核中</a><!-- 状态 -->
-                                                    </div>
-                                            </div>
-                                        <div class="card_in_name">
-                                            <p>项目名称</p>
-                                            </div>
-                                        </div>
-                                <div class="little_btn">
-                                    <a>进入项目管理</a>
-                                    </div>
-                            </div>
                 
         </div>
     </div>
@@ -159,16 +117,6 @@
     <p>Copyright © 2017 帮帮忙-厦门红叶帮帮忙科技有限公司</p>
     </div>
 <script>
-    //个人设置
-    var slt=$('#select,#ad');
-    slt.toggle(function(){
-        $('#cntx').css('display','block');
-        $('#ad').attr('src','images/seting_1.png');
-    },function(){
-        $('#cntx').css('display','none');
-        $('#ad').attr('src','images/seting_2.png');
-    });
-    var list=$('#cntx>li a');
 
     </script>
 </body>

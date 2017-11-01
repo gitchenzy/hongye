@@ -110,11 +110,12 @@ div.flicking_con a.on {
 }
 
 .mid{
-    padding:50px 0 0 0;
+    padding:30px 0 0 0;
 }
 .mid_top{
     width: 100%;
     height: 48px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
 }
@@ -136,20 +137,22 @@ div.flicking_con a.on {
     margin-top:19px;
 }
 .mid_mid{
-    width: 100%;
+    width: 1200px;
     height: auto;
-    margin: 50px 0 0 0;
+    margin: 50px auto 0 auto;
     display: flex;
     justify-content: center;
+    
 }
 .mid_mid ul{
+    width: 1125px;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
 }
 .mid_mid ul li{
     width:350px;
     height: 480px;
-    margin: 0 0 20px 0;
+    margin: 0 12.5px 30px 12.5px;
     box-shadow: 0px 2px 5px 1.5px #d9d9d9;
 }
 .card_img{
