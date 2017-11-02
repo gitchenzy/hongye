@@ -7,9 +7,111 @@ class IndexController extends CommonController {
     }
     public function index(){
 
-
+        //找出热门的项目
+        $where['is_hot'] = 1;
+        $where['del'] = 0;
+        $where['status'] = array('GT',1);
+        //是否最热
+        $hot_info = M('project') -> where($where) -> limit(0,9) ->select();
+        foreach($hot_info as $k => $v){
+            $hot_info[$k]['typename'] = M('project_type') -> where(['id'=>$v['type_id']]) -> getfield('title');
+        }
+        $where['is_hot'] = 0;
+        $info = M('project') -> where($where)-> order('id desc') -> limit(0,9) ->select();
+        foreach($info as $ik => $iv){
+            $info[$ik]['typename'] = M('project_type') -> where(['id'=>$iv['type_id']]) -> getfield('title');
+        }
+        $this -> assign('hot_info',$hot_info);
+        $this -> assign('info',$info);
+        $this -> assign('pos',1);
         $this -> display();
     }
+    public function loadProject(){
 
+        $where['is_hot'] = 0;
+        $where['del'] = 0;
+        $count = I('time');
+        $where['status'] = array('GT',1);
+        $info = M('project') -> where($where) -> order('id desc') -> limit(9*$count,9) ->select();
+        if($info){
+            foreach($info as $ik => $iv){
+                $info[$ik]['typename'] = M('project_type') -> where(['id'=>$iv['type_id']]) -> getfield('title');
+            }
+            $this -> assign('info',$info);
+            $this->success($this->fetch(),"",true);
+        }else{
+            $this -> error('没有更多数据！');
+        }
+    }
+    public function lists(){
+        $type_where['pid'] = array('GT',0);
+        $type = M('project_type') -> field('title,id') ->where($type_where)  ->select();
+        $where['status'] = array('GT',1);
+        $where['del'] = 0;
+        $pid = I('t_id');
+        $orders = I('orders');
+        $order = 'id desc';
+        if(isset($pid) && !empty($pid)){
+            $where['type_id'] = $pid;
+        }
+        if(isset($orders) && !empty($orders)){
+            switch ($orders){
+                case '1':
+                    $order = 'start_time desc';
+                    break;
+                case '2':
+                    $where['is_hot'] = 1;
+                    break;
+                case '3':
+                    $order = 'end_time desc';
+                    break;
+            }
+        }
+        $info = M('project') -> where($where) -> order($order) -> limit(0,9) ->select();
+        foreach($info as $ik => $iv){
+            $info[$ik]['typename'] = M('project_type') -> where(['id'=>$iv['type_id']]) -> getfield('title');
+        }
+        $this -> assign('info',$info);
+        $this -> assign('type',$type);
+        $this -> assign('pos',2);
+        $this -> display();
+
+    }
+    public function loadLists(){
+
+        $where['status'] = array('GT',1);
+        $where['del'] = 0;
+        $count = I('time');
+        $pid = I('t_id');
+        $orders = I('orders');
+        $order = 'id desc';
+        if(isset($pid) && !empty($pid)){
+            $where['type_id'] = $pid;
+        }
+        if(isset($orders) && !empty($orders)){
+            switch ($orders){
+                case '1':
+                    $order = 'start_time desc';
+                    break;
+                case '2':
+                    $where['is_hot'] = 1;
+                    break;
+                case '3':
+                    $order = 'end_time desc';
+                    break;
+            }
+        }
+        $info = M('project') -> where($where) -> order($order) -> limit(9*$count,9) ->select();
+        if($info){
+            foreach($info as $ik => $iv){
+                $info[$ik]['typename'] = M('project_type') -> where(['id'=>$iv['type_id']]) -> getfield('title');
+            }
+            $this -> assign('info',$info);
+            $this->success($this->fetch(),"",true);
+        }else{
+            $this -> error('没有更多数据！');
+        }
+
+    }
 
 }

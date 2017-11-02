@@ -1,0 +1,132 @@
+<extend name="Public:main" />
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/index.css">
+</block>
+<block name="main">
+    <div class="main_visual">
+        <div class="flicking_con">
+            <a >1</a>
+            <a >2</a>
+            <a >3</a>
+
+        </div>
+        <div class="main_image">
+            <ul>
+                    <li><span><a href=""><img id="b_{$ak + 1}" src="__PUBLIC__/Hy/images/banner-1.jpg"></a></span></li>
+                    <li><span><a href=""><img id="b_{$ak + 1}" src="__PUBLIC__/Hy/images/banner-2.jpg"></a></span></li>
+                    <li><span><a href=""><img id="b_{$ak + 1}" src="__PUBLIC__/Hy/images/banner-3.jpg"></a></span></li>
+            </ul>
+            <a href="javascript:;" id="btn_prev"></a>
+            <a href="javascript:;" id="btn_next"></a>
+
+        </div>
+    </div>
+    <a name="p"></a>
+    <div class="contain">
+        <div class="contain_text">
+            <h1>众筹项目</h1>
+            </div>
+        <div class="contain_list">
+            <p>众筹类型：</p>
+            <ul>
+                <li><a href="/index.php/hy/index/lists?orders={$Think.get.orders}#p" <empty name="Think.get.t_id"> class="actives"</empty> >全部</a></li>
+                <volist name="type" id="t_vo">
+                    <li><a <if condition="$_GET['t_id'] eq $t_vo['id']"> class="actives" </if> href="/index.php/hy/index/lists?t_id={$t_vo['id']}&orders={$Think.get.orders}#p">{$t_vo.title}</a></li>
+                </volist>
+            </ul>
+            </div>
+            <div style="margin-top:10px;    border-bottom:1px solid #c2c2c2;padding-bottom:16px;" class="contain_list">
+                    <p>众筹类型：</p>
+                    <ul>
+                        <li><a href="/index.php/hy/index/lists?t_id={$Think.get.t_id}#p"  <empty name="Think.get.orders"> class="actives"</empty> >全部</a></li>
+                        <li><a href="/index.php/hy/index/lists?t_id={$Think.get.t_id}&orders=1#p"  <if condition="$_GET['orders'] eq 1"> class="actives" </if> >最新上线</a></li>
+                        <li><a href="/index.php/hy/index/lists?t_id={$Think.get.t_id}&orders=2#p" <if condition="$_GET['orders'] eq 2"> class="actives" </if> >热门推荐</a></li>
+                        <li><a href="/index.php/hy/index/lists?t_id={$Think.get.t_id}&orders=3#p" <if condition="$_GET['orders'] eq 3"> class="actives" </if> >即将结束</a></li>
+                    </ul>
+                    </div>
+        </div>
+        <div class="mid_mid">
+                <ul class="infos">
+                    <volist name="info" id="vos">
+                        <li>
+                        <div class="card_img">
+                            <div class="card_img_little">
+                                <p>{$vos.typename}</p>
+                            </div>
+                            <img src="{$vos.pic}">
+                        </div>
+                        <div class="card_text">
+                            <div class="card_text_right">
+                                <p>{$vos.title}</p>
+                            </div>
+                            <div class="card_text_left">
+                                <img src="__PUBLIC__/Hy/images/addr.png">
+                                <p>{$vos.city}</p>
+                            </div>
+                        </div>
+                        <div class="card_going">
+                            <div class="card_going_1">
+                                <div class="card_going_2">
+
+                                </div>
+                            </div>
+                            <div class="card_going_circle">
+                                <p>100%</p>
+                            </div>
+                        </div>
+                        <div class="card_bottom">
+                            <div class="card_bottom_card">
+                                <h1><!-- <p class="inli">￥</p> -->{$vos.target_amount}</h1>
+                                <p>目标金额</p>
+                            </div>
+                            <div  class="card_bottom_card">
+                                <h1>{$vos.reach_amount}</h1>
+                                <p>已筹金额</p>
+                            </div>
+                            <div class="card_bottom_card">
+                                <h1>{$vos.people_num}</h1>
+                                <p>支持人数</p>
+                            </div>
+                        </div>
+                    </li>
+                    </volist>
+                </ul>
+        </div>
+
+
+                        <div class="add">
+                                <div class="add_child">
+                                    <a class="more" style="font-size:2rem">查看更多项目</a>
+                                    </div>
+                                </div>                        
+</block>
+
+
+
+<block name="js">
+    <script>
+        var time= 1;
+        $('.more').click(function(){
+            var orders = '{$Think.get.orders}';
+            var t_id = '{$Think.get.t_id}';
+            $.get("{:U('Index/loadLists')}",{ time :time,orders:orders,t_id:t_id} , function(data) {
+                if(data.status==0){
+                    // $(".loadingA").add(".loadingB").add(".loadingC").hide();
+                    $('.add').html('以显示全部');
+                }else{
+                    $(".infos").last().append(data.info);
+
+                    time++;
+                }
+            });
+
+        })
+
+    </script>
+</block>
+
+
+
+
+
+

@@ -8,7 +8,7 @@
 <script type="text/javascript" src="__PUBLIC__/Hy/js/jquery-1.7.1.min.js"></script>
 <!-- <script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script> -->
 <script type="text/javascript" src="__PUBLIC__/Hy/js/jquery.touchSlider.js"></script>
-<title>欢迎来到红叶筹</title>
+<title>{$title|default=欢迎来到红叶筹}</title>
 </head>
 <body>
     <div class="bg">
@@ -22,8 +22,8 @@
                 <a href="#"><img alt="hongye logo" src="__PUBLIC__/Hy/images/logo.png"></a>
             </div>
                <ul>
-                    <li id="index" class="active"><a class="active">首页</a></li>
-                    <li><a href="lookprojects.html">浏览项目</a></li>
+                    <li id="index" <if condition="$pos eq 1"> class="active" </if> ><a href="{:U('Index/index')}" <if condition="$pos eq 1"> class="active" </if> >首页</a></li>
+                    <li <if condition="$pos eq 2"> class="active" </if> ><a href="{:U('Index/lists')}" <if condition="$pos eq 2"> class="active" </if> >浏览项目</a></li>
                     <li id="code"><a>关注公众号</a></li>
                     <li><a>帮助中心</a></li>
                </ul>
@@ -122,17 +122,17 @@
     });
     //二维码
     $('#code').click(function(){
-        $(this).addClass('active');
-        $('#code a').addClass('active');
-        $('#index').removeClass('active');
-        $('#index a').removeClass('active');
+//        $(this).addClass('active');
+//        $('#code a').addClass('active');
+//        $('#index').removeClass('active');
+//        $('#index a').removeClass('active');
         $('.bg').css('display','block');
     });
     $('.bg').click(function(){
-        $('#code').removeClass('active');
-        $('#code a').removeClass('active');
-        $('#index').addClass('active');
-        $('#index a').addClass('active');
+//        $('#code').removeClass('active');
+//        $('#code a').removeClass('active');
+//        $('#index').addClass('active');
+//        $('#index a').addClass('active');
         $('.bg').css('display','none');
     })
 </script>
