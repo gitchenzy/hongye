@@ -36,22 +36,24 @@
                 <img src="__PUBLIC__/Hy/images/lang_2.png">
             </div>
         </div>
+
         <div class="mid_mid">
             <ul>
-                <li>
+                <volist name="hot_info" id="h_vo">
+                    <li>
                     <div class="card_img">
                         <div class="card_img_little">
-                            <p>公益</p>
+                            <p>{$h_vo.typename}</p>
                         </div>
-                        <img src="__PUBLIC__/Hy/images/girl.jpg">
+                        <img src="{$h_vo.pic}">
                     </div>
                     <div class="card_text">
                         <div class="card_text_right">
-                            <p>子非鱼焉知鱼之乐？子非吾焉知吾不知鱼之乐？滚你妈的。。。。</p>
+                            <p>{$h_vo.title}</p>
                         </div>
                         <div class="card_text_left">
-                            <img src="images/addr.png">
-                            <p>厦门</p>
+                            <img src="__PUBLIC__/Hy/images/addr.png">
+                            <p>{$h_vo.city}</p>
                         </div>
                     </div>
                     <div class="card_going">
@@ -66,261 +68,50 @@
                     </div>
                     <div class="card_bottom">
                         <div class="card_bottom_card">
-                            <h1><!-- <p class="inli">￥</p> -->10000</h1>
+                            <h1><!-- <p class="inli">￥</p> -->{$h_vo.target_amount}</h1>
                             <p>目标金额</p>
                         </div>
                         <div  class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
+                            <h1>{$h_vo.reach_amount}</h1>
+                            <p>已筹金额</p>
                         </div>
                         <div class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
+                            <h1>{$h_vo.people_num}</h1>
+                            <p>支持人数</p>
                         </div>
                     </div>
                 </li>
-
-            <li style="margin:0 25px;">
-                <div class="card_img">
-                    <div class="card_img_little">
-                        <p>公益</p>
-                    </div>
-                    <img src="images/girl.jpg">
-                </div>
-                <div class="card_text">
-                    <div class="card_text_right">
-                        <p>子非鱼焉知鱼之乐？子非吾焉知吾不知鱼之乐？滚你妈的。。。。</p>
-                    </div>
-                    <div class="card_text_left">
-                        <img src="images/addr.png">
-                        <p>厦门</p>
-                    </div>
-                </div>
-                <div class="card_going">
-                    <div class="card_going_1">
-                        <div class="card_going_2">
-
-                        </div>
-                    </div>
-                    <div class="card_going_circle">
-                        <p>100%</p>
-                    </div>
-                </div>
-                <div class="card_bottom">
-                    <div class="card_bottom_card">
-                        <h1><!-- <p class="inli">￥</p> -->10000</h1>
-                        <p>目标金额</p>
-                    </div>
-                    <div  class="card_bottom_card">
-                        <h1>10000</h1>
-                        <p>目标金额</p>
-                    </div>
-                    <div class="card_bottom_card">
-                        <h1>10000</h1>
-                        <p>目标金额</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="card_img">
-                    <div class="card_img_little">
-                        <p>公益</p>
-                    </div>
-                    <img src="images/girl.jpg">
-                </div>
-                <div class="card_text">
-                    <div class="card_text_right">
-                        <p>子非鱼焉知鱼之乐？子非吾焉知吾不知鱼之乐？滚你妈的。。。。</p>
-                    </div>
-                    <div class="card_text_left">
-                        <img src="images/addr.png">
-                        <p>厦门</p>
-                    </div>
-                </div>
-                <div class="card_going">
-                    <div class="card_going_1">
-                        <div class="card_going_2">
-
-                        </div>
-                    </div>
-                    <div class="card_going_circle">
-                        <p>100%</p>
-                    </div>
-                </div>
-                <div class="card_bottom">
-                    <div class="card_bottom_card">
-                        <h1><!-- <p class="inli">￥</p> -->10000</h1>
-                        <p>目标金额</p>
-                    </div>
-                    <div  class="card_bottom_card">
-                        <h1>10000</h1>
-                        <p>目标金额</p>
-                    </div>
-                    <div class="card_bottom_card">
-                        <h1>10000</h1>
-                        <p>目标金额</p>
-                    </div>
-                </div>
-            </li>
+                </volist>
             </ul>
         </div>
-        <div style="margin-top:10px;" class="mid_mid">
-            <ul>
-                <li>
-                    <div class="card_img">
-                        <div class="card_img_little">
-                            <p>公益</p>
-                        </div>
-                        <img src="images/girl.jpg">
-                    </div>
-                    <div class="card_text">
-                        <div class="card_text_right">
-                            <p>子非鱼焉知鱼之乐？子非吾焉知吾不知鱼之乐？滚你妈的。。。。</p>
-                        </div>
-                        <div class="card_text_left">
-                            <img src="images/addr.png">
-                            <p>厦门</p>
-                        </div>
-                    </div>
-                    <div class="card_going">
-                        <div class="card_going_1">
-                            <div class="card_going_2">
-
-                            </div>
-                        </div>
-                        <div class="card_going_circle">
-                            <p>100%</p>
-                        </div>
-                    </div>
-                    <div class="card_bottom">
-                        <div class="card_bottom_card">
-                            <h1><!-- <p class="inli">￥</p> -->10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div  class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                    </div>
-                </li>
-                <li style="margin:0 25px;">
-                    <div class="card_img">
-                        <div class="card_img_little">
-                            <p>公益</p>
-                        </div>
-                        <img src="images/girl.jpg">
-                    </div>
-                    <div class="card_text">
-                        <div class="card_text_right">
-                            <p>子非鱼焉知鱼之乐？子非吾焉知吾不知鱼之乐？滚你妈的。。。。</p>
-                        </div>
-                        <div class="card_text_left">
-                            <img src="images/addr.png">
-                            <p>厦门</p>
-                        </div>
-                    </div>
-                    <div class="card_going">
-                        <div class="card_going_1">
-                            <div class="card_going_2">
-
-                            </div>
-                        </div>
-                        <div class="card_going_circle">
-                            <p>100%</p>
-                        </div>
-                    </div>
-                    <div class="card_bottom">
-                        <div class="card_bottom_card">
-                            <h1><!-- <p class="inli">￥</p> -->10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div  class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="card_img">
-                        <div class="card_img_little">
-                            <p>公益</p>
-                        </div>
-                        <img src="images/girl.jpg">
-                    </div>
-                    <div class="card_text">
-                        <div class="card_text_right">
-                            <p>子非鱼焉知鱼之乐？子非吾焉知吾不知鱼之乐？滚你妈的。。。。</p>
-                        </div>
-                        <div class="card_text_left">
-                            <img src="images/addr.png">
-                            <p>厦门</p>
-                        </div>
-                    </div>
-                    <div class="card_going">
-                        <div class="card_going_1">
-                            <div class="card_going_2">
-
-                            </div>
-                        </div>
-                        <div class="card_going_circle">
-                            <p>100%</p>
-                        </div>
-                    </div>
-                    <div class="card_bottom">
-                        <div class="card_bottom_card">
-                            <h1><!-- <p class="inli">￥</p> -->10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div  class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-    </div>
-    <div style="margin-top:-10px" class="mid">
         <div class="mid_top">
             <div class="mid_top_lang">
-                <img src="images/lang_1.png">
+                <img src="__PUBLIC__/Hy/images/lang_1.png">
             </div>
             <div class="mid_top_mid">
                 <p>精品推荐</p>
             </div>
             <div class="mid_top_lang">
-                <img src="images/lang_2.png">
+                <img src="__PUBLIC__/Hy/images/lang_2.png">
             </div>
         </div>
         <div class="mid_mid">
-            <ul>
-                <li>
+            <ul class="infos">
+                <volist name="info" id="vo">
+                    <li>
                     <div class="card_img">
                         <div class="card_img_little">
-                            <p>公益</p>
+                            <p>{$vo.typename}</p>
                         </div>
-                        <img src="images/girl.jpg">
+                        <img src="{$vo.pic}">
                     </div>
                     <div class="card_text">
                         <div class="card_text_right">
-                            <p>子非鱼焉知鱼之乐？子非吾焉知吾不知鱼之乐？滚你妈的。。。。</p>
+                            <p>{$vo.title}</p>
                         </div>
                         <div class="card_text_left">
-                            <img src="images/addr.png">
-                            <p>厦门</p>
+                            <img src="__PUBLIC__/Hy/images/addr.png">
+                            <p>{$vo.city}</p>
                         </div>
                     </div>
                     <div class="card_going">
@@ -335,239 +126,50 @@
                     </div>
                     <div class="card_bottom">
                         <div class="card_bottom_card">
-                            <h1><!-- <p class="inli">￥</p> -->10000</h1>
+                            <h1><!-- <p class="inli">￥</p> -->{$vo.target_amount}</h1>
                             <p>目标金额</p>
                         </div>
                         <div  class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
+                            <h1>{$vo.reach_amount}</h1>
+                            <p>已筹金额</p>
                         </div>
                         <div class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
+                            <h1>{$vo.people_num}</h1>
+                            <p>支持人数</p>
                         </div>
                     </div>
                 </li>
-                <li style="margin:0 25px;">
-                    <div class="card_img">
-                        <div class="card_img_little">
-                            <p>公益</p>
-                        </div>
-                        <img src="images/girl.jpg">
-                    </div>
-                    <div class="card_text">
-                        <div class="card_text_right">
-                            <p>子非鱼焉知鱼之乐？子非吾焉知吾不知鱼之乐？滚你妈的。。。。</p>
-                        </div>
-                        <div class="card_text_left">
-                            <img src="images/addr.png">
-                            <p>厦门</p>
-                        </div>
-                    </div>
-                    <div class="card_going">
-                        <div class="card_going_1">
-                            <div class="card_going_2">
-
-                            </div>
-                        </div>
-                        <div class="card_going_circle">
-                            <p>100%</p>
-                        </div>
-                    </div>
-                    <div class="card_bottom">
-                        <div class="card_bottom_card">
-                            <h1><!-- <p class="inli">￥</p> -->10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div  class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="card_img">
-                        <div class="card_img_little">
-                            <p>公益</p>
-                        </div>
-                        <img src="images/girl.jpg">
-                    </div>
-                    <div class="card_text">
-                        <div class="card_text_right">
-                            <p>子非鱼焉知鱼之乐？子非吾焉知吾不知鱼之乐？滚你妈的。。。。</p>
-                        </div>
-                        <div class="card_text_left">
-                            <img src="images/addr.png">
-                            <p>厦门</p>
-                        </div>
-                    </div>
-                    <div class="card_going">
-                        <div class="card_going_1">
-                            <div class="card_going_2">
-
-                            </div>
-                        </div>
-                        <div class="card_going_circle">
-                            <p>100%</p>
-                        </div>
-                    </div>
-                    <div class="card_bottom">
-                        <div class="card_bottom_card">
-                            <h1><!-- <p class="inli">￥</p> -->10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div  class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                    </div>
-                </li>
+                </volist>
             </ul>
         </div>
-        <div style="margin-top:10px;" class="mid_mid">
-            <ul>
-                <li>
-                    <div class="card_img">
-                        <div class="card_img_little">
-                            <p>公益</p>
-                        </div>
-                        <img src="images/girl.jpg">
-                    </div>
-                    <div class="card_text">
-                        <div class="card_text_right">
-                            <p>子非鱼焉知鱼之乐？子非吾焉知吾不知鱼之乐？滚你妈的。。。。</p>
-                        </div>
-                        <div class="card_text_left">
-                            <img src="images/addr.png">
-                            <p>厦门</p>
-                        </div>
-                    </div>
-                    <div class="card_going">
-                        <div class="card_going_1">
-                            <div class="card_going_2">
 
-                            </div>
-                        </div>
-                        <div class="card_going_circle">
-                            <p>100%</p>
-                        </div>
-                    </div>
-                    <div class="card_bottom">
-                        <div class="card_bottom_card">
-                            <h1><!-- <p class="inli">￥</p> -->10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div  class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                    </div>
-                </li>
-                <li style="margin:0 25px;">
-                    <div class="card_img">
-                        <div class="card_img_little">
-                            <p>公益</p>
-                        </div>
-                        <img src="images/girl.jpg">
-                    </div>
-                    <div class="card_text">
-                        <div class="card_text_right">
-                            <p>子非鱼焉知鱼之乐？子非吾焉知吾不知鱼之乐？滚你妈的。。。。</p>
-                        </div>
-                        <div class="card_text_left">
-                            <img src="images/addr.png">
-                            <p>厦门</p>
-                        </div>
-                    </div>
-                    <div class="card_going">
-                        <div class="card_going_1">
-                            <div class="card_going_2">
-
-                            </div>
-                        </div>
-                        <div class="card_going_circle">
-                            <p>100%</p>
-                        </div>
-                    </div>
-                    <div class="card_bottom">
-                        <div class="card_bottom_card">
-                            <h1><!-- <p class="inli">￥</p> -->10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div  class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="card_img">
-                        <div class="card_img_little">
-                            <p>公益</p>
-                        </div>
-                        <img src="images/girl.jpg">
-                    </div>
-                    <div class="card_text">
-                        <div class="card_text_right">
-                            <p>子非鱼焉知鱼之乐？子非吾焉知吾不知鱼之乐？滚你妈的。。。。</p>
-                        </div>
-                        <div class="card_text_left">
-                            <img src="images/addr.png">
-                            <p>厦门</p>
-                        </div>
-                    </div>
-                    <div class="card_going">
-                        <div class="card_going_1">
-                            <div class="card_going_2">
-
-                            </div>
-                        </div>
-                        <div class="card_going_circle">
-                            <p>100%</p>
-                        </div>
-                    </div>
-                    <div class="card_bottom">
-                        <div class="card_bottom_card">
-                            <h1><!-- <p class="inli">￥</p> -->10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div  class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                        <div class="card_bottom_card">
-                            <h1>10000</h1>
-                            <p>目标金额</p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
     </div>
+
     <div class="add">
         <div class="add_child">
-            <a>查看更多</a>
+            <a class=more>查看更多</a>
         </div>
     </div>
 
 </block>
 
 <block name="js">
+    <script>
+        var time= 1;
+        $('.more').click(function(){
+            $.get("{:U('Index/loadProject')}",{ time :time,} , function(data) {
+                if(data.status==0){
+                    // $(".loadingA").add(".loadingB").add(".loadingC").hide();
+                    $('.add').html('以显示全部');
+                }else{
+                    $(".infos").last().append(data.info);
 
+                    time++;
+                }
+            });
+
+        })
+
+
+    </script>
 </block>
