@@ -23,6 +23,12 @@ a{
 .colors{
     color: #f45353 !important;
 }
+.white{
+    color: #ffffff !important;
+}
+.bgm{
+    background: #f45353 !important;
+}
 input{
     outline: none;
 }
