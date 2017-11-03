@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/helps.css">
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<title>欢迎来到红叶筹</title>
+</head>
+<body>
+        <div class="bg">
+                <div class="erweima">
+                    <img src="images/erweima.png" alt="公众号二维码">
+                    </div>
+                </div>
+        <div class="top">
+                <div class="top_box">
+                  <div class="top_img">
+                      <a href="index.html"><img alt="hongye logo" src="images/logo.png"></a>
+                  </div>
+                     <ul>
+                          <li><a href="index.html">首页</a></li>
+                          <li><a href="lookprojects.html">浏览项目</a></li>
+                          <li id="code"><a >关注公众号</a></li>
+                          <li class="active"><a class="active" href="helps_1.html">帮助中心</a></li>
+                      </ul>
+              </div>
+              <div class="top_box">
+                  <div class="search">
+                      <input type="text" placeholder="请输入搜索内容" value="">
+                      </div>
+                  <div id="btn_1" class="start">
+                      <a>发起项目</a>
+                      </div>
+                  <div class="text">
+                      <div class="text_child">
+                          <a>登录</a>
+                          </div>
+                      <div class="text_child none">
+                          <a>注册</a>
+                      </div>
+              </div>
+           </div>
+           </div>
+        <div class="contain">
+            <div class="contain_left">
+                <ul>
+                    <li class="act"><a href="helps_1.html" class="colors">常见问题</a></li>
+                    <li><a href="helps_2.html">支持者手册</a></li>
+                    <li><a href="helps_3.html">支持者手册</a></li>
+                    <li style="border-bottom:1px solid #e5e5e5"><a href="helps_4.html">法律协议</a></li>
+                </ul>
+                </div>
+            <div class="contain_right">
+                <div class="contain_right_in">
+                   <div class="contain_right_lit"> 
+                    <h1>常见问题</h1>
+                    <img id="open" src="images/helps_2.png">
+                    </div>
+                    <p>发生速度恢复健康多杀鸡大厦附近空打算发挥空间速度发货计划都是风景的回复可见爱护对方即可多舒服就好哈市的房价会尽快好说的啥积分换就是看到回复多舒服就好是的</p>
+                    </div>
+                    <div class="contain_right_in">
+                            <div class="contain_right_lit"> 
+                             <h1>常见问题</h1>
+                             <img id="open" src="images/helps_2.png">
+                             </div>
+                             <p>发生速度恢复健康多杀鸡大厦附近空打算发挥空间速度发货计划都是风景的回复可见爱护对方即可多舒服就好哈市的房价会尽快好说的啥积分换就是看到回复多舒服就好是的</p>
+                             </div>
+                             <div class="contain_right_in">
+                                    <div class="contain_right_lit"> 
+                                     <h1>常见问题</h1>
+                                     <img id="open" src="images/helps_2.png">
+                                     </div>
+                                     <p>发生速度恢复健康多杀鸡大厦附近空打算发挥空间速度发货计划都是风景的回复可见爱护对方即可多舒服就好哈市的房价会尽快好说的啥积分换就是看到回复多舒服就好是的</p>
+                                     </div>
+                </div>
+            </div>
+    <script>
+        $('#open').toggle(function(){
+            $('.contain_right_in:eq(0)>p').css('display','block');
+            $('#open').attr('src','images/helps_1.png');
+        },function(){
+            $('.contain_right_in:eq(0)>p').css('display','none');
+            $('#open').attr('src','images/helps_2.png');
+        })
+        </script>
+</body>
+</html>

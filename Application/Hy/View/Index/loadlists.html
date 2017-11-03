@@ -17,12 +17,12 @@
         </div>
         <div class="card_going">
             <div class="card_going_1">
-                <div class="card_going_2">
+                <div style="right: <?php  echo 100-$vos['num']>0?100-$vos['num']:0; ?>%;" class="card_going_2">
 
                 </div>
             </div>
-            <div class="card_going_circle">
-                <p>100%</p>
+            <div style="left: {$vos.num_1}%;" class="card_going_circle">
+                <p>{$vos.num}%</p>
             </div>
         </div>
         <div class="card_bottom">
