@@ -15,11 +15,30 @@ class IndexController extends CommonController {
         $hot_info = M('project') -> where($where) -> limit(0,9) ->select();
         foreach($hot_info as $k => $v){
             $hot_info[$k]['typename'] = M('project_type') -> where(['id'=>$v['type_id']]) -> getfield('title');
+            $hot_info[$k]['num'] = floor($v['reach_amount']/$v['target_amount']*100);
+            if($hot_info[$k]['num'] >=100){
+                $hot_info[$k]['num_1'] = 86;
+            }else{
+                $hot_info[$k]['num_1'] = $hot_info[$k]['num']-4;
+                if($hot_info[$k]['num_1'] < 0){
+                    $hot_info[$k]['num_1']=0;
+                }
+            }
         }
         $where['is_hot'] = 0;
         $info = M('project') -> where($where)-> order('id desc') -> limit(0,9) ->select();
         foreach($info as $ik => $iv){
             $info[$ik]['typename'] = M('project_type') -> where(['id'=>$iv['type_id']]) -> getfield('title');
+
+            $info[$ik]['num'] = floor($iv['reach_amount']/$iv['target_amount']*100);
+            if($info[$ik]['num'] >=100){
+                $info[$ik]['num_1'] = 86;
+            }else{
+                $info[$ik] ['num_1'] = $info[$ik]['num']-4;
+                if($info[$ik]['num_1'] < 0){
+                    $info[$ik]['num_1']=0;
+                }
+            }
         }
         $this -> assign('hot_info',$hot_info);
         $this -> assign('info',$info);
@@ -36,6 +55,15 @@ class IndexController extends CommonController {
         if($info){
             foreach($info as $ik => $iv){
                 $info[$ik]['typename'] = M('project_type') -> where(['id'=>$iv['type_id']]) -> getfield('title');
+                $info[$ik]['num'] = floor($iv['reach_amount']/$iv['target_amount']*100);
+                if($info[$ik]['num'] >=100){
+                    $info[$ik]['num_1'] = 86;
+                }else{
+                    $info[$ik] ['num_1'] = $info[$ik]['num']-4;
+                    if($info[$ik]['num_1'] < 0){
+                        $info[$ik]['num_1']=0;
+                    }
+                }
             }
             $this -> assign('info',$info);
             $this->success($this->fetch(),"",true);
@@ -70,6 +98,15 @@ class IndexController extends CommonController {
         $info = M('project') -> where($where) -> order($order) -> limit(0,9) ->select();
         foreach($info as $ik => $iv){
             $info[$ik]['typename'] = M('project_type') -> where(['id'=>$iv['type_id']]) -> getfield('title');
+            $info[$ik]['num'] = floor($iv['reach_amount']/$iv['target_amount']*100);
+            if($info[$ik]['num'] >=100){
+                $info[$ik]['num_1'] = 86;
+            }else{
+                $info[$ik] ['num_1'] = $info[$ik]['num']-4;
+                if($info[$ik]['num_1'] < 0){
+                    $info[$ik]['num_1']=0;
+                }
+            }
         }
         $this -> assign('info',$info);
         $this -> assign('type',$type);
@@ -105,6 +142,15 @@ class IndexController extends CommonController {
         if($info){
             foreach($info as $ik => $iv){
                 $info[$ik]['typename'] = M('project_type') -> where(['id'=>$iv['type_id']]) -> getfield('title');
+                $info[$ik]['num'] = floor($iv['reach_amount']/$iv['target_amount']*100);
+                if($info[$ik]['num'] >=100){
+                    $info[$ik]['num_1'] = 86;
+                }else{
+                    $info[$ik] ['num_1'] = $info[$ik]['num']-4;
+                    if($info[$ik]['num_1'] < 0){
+                        $info[$ik]['num_1']=0;
+                    }
+                }
             }
             $this -> assign('info',$info);
             $this->success($this->fetch(),"",true);
