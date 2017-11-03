@@ -70,12 +70,12 @@
                 </div></li>
                 <li><div class="name"><p>手机号</p></div><div class="texts">
                         <input id="num" placeholder="请输入手机号">
-                        <p>0/11</p>
+                        <p id="ele">0/11</p>
                     </div></li>
                 </ul>
             </div>
            <div class="btn_father">
-            <div class="btn bgs"><a>保存更改</a></div>
+            <div id="sub_1" class="btn bgs"><a>保存更改</a></div>
            </div> 
             </div>
             </div>
@@ -135,14 +135,14 @@
                 <div class="card_right_in">
                     <div class="conts_l_text">
                         <p>当前手机号：</p>
-                        <p id="p_num">11212</p>
+                        <p id="p_num"></p>
                         </div>
                     <div class="c">
                         <div class="c_in">
                             <p>设置登录密码</p>
                             </div>
                         <ul>
-                            <li><input id="phone" type="text" placeholder="请输入验证码"><a>获取验证码</a></li>
+                            <li><input id="phone" type="text" placeholder="请输入验证码"><a id="get_num">获取验证码</a></li>
                             <li><input id="psd_1" type="password" placeholder="请输入密码"></li>
                             <li style="border-bottom: 1px solid #e5e5e5;"><input id="psd_1" type="password" placeholder="请再次输入密码"></li>
                         </ul>
@@ -189,18 +189,53 @@
         }
         
     });
-    $('#names').on('input',function(){
-        var len=$('#names').val().length;
-        if(len>=10){
-            var so=$('#names').val().slice(0,10);
-            $('#names').val(so);
-            $('#ten').html('10/10')
-            console.log(so);
+    $('#num').on('input',function(){
+        var number=$('#num').val();
+        var len=$('#num').val().length;
+        if(len>=11){
+            var so=$('#num').val().slice(0,11);
+            $('#num').val(so);
+            $('#ele').html('11/11')
         }else{
-            $('#ten').html(len+'/10')
-        }
+            $('#ele').html(len+'/11')
+        };
+        $('#p_num').html(number);
         
     });
+    //正则验证;
+    var ph_m=RegExp(/^1[0-9]{10}$/);
+    function va(){
+        var p_m=$('#num').val();
+        if(!ph_m.test(p_m)){
+            alert('请输入正确的手机号！');
+        };
+        return false;
+    };
+    $('#sub_1').click(va);
+    //倒计时
+
+    $('#get_num').click(function(evnt){
+        var n=10;
+        if($('#get_num').html()!=='获取验证码'){
+                evnt.preventDefault();
+                return false;
+            };
+        $('#get_num').html(10);      
+    
+           var timer=setInterval(function(){
+            n--;
+            $('#get_num').html(n);
+            if(n<=0){
+                clearInterval(timer)
+                $('#get_num').html('获取验证码');
+                n=60;
+                $('#get_num').removeAttr('disabled');
+            }
+           },1000)
+      
+     
+    });
+
     </script>
 </body>
 </html>

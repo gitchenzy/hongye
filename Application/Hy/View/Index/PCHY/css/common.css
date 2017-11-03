@@ -43,6 +43,7 @@ input{
     height: 72px;
     display: flex;
     justify-content: space-between;
+    background: #ffffff;
 }
 .top_box{
     width: 50%;
