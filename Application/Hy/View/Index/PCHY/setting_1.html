@@ -215,12 +215,12 @@
     //倒计时
 
     $('#get_num').click(function(evnt){
-        var n=10;
+        var n=60;
         if($('#get_num').html()!=='获取验证码'){
                 evnt.preventDefault();
                 return false;
             };
-        $('#get_num').html(10);      
+        $('#get_num').html(60);      
     
            var timer=setInterval(function(){
             n--;
@@ -229,7 +229,6 @@
                 clearInterval(timer)
                 $('#get_num').html('获取验证码');
                 n=60;
-                $('#get_num').removeAttr('disabled');
             }
            },1000)
       
