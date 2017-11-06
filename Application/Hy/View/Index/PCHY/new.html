@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/new.css">
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<title>欢迎来到红叶筹</title>
+</head>
+<body>
+        <div class="bg">
+                <div class="erweima">
+                    <img src="images/erweima.png" alt="公众号二维码">
+                    </div>
+                </div>
+            <div class="top">
+              <div class="top_box">
+                <div class="top_img">
+                    <a href="#"><img alt="hongye logo" src="images/logo.png"></a>
+                </div>
+                   <ul>
+                        <li id="index"><a href="index.html">首页</a></li>
+                        <li id="look"><a href="lookprojects.html">浏览项目</a></li>
+                        <li id="code"><a>关注公众号</a></li>
+                        <li id="help"><a href="helps_1.html">帮助中心</a></li>
+                    </ul>
+            </div>
+            <div class="top_box">
+                <div class="search">
+                    <input type="text" placeholder="请输入搜索内容" value="">
+                    </div>
+                <div id="btn_1" class="start">
+                    <a>发起项目</a>
+                    </div>
+                <div class="text">
+                    <div class="text_child">
+                        <a>登录</a>
+                        </div>
+                    <div class="text_child none">
+                        <a>注册</a>
+                    </div>
+            </div>
+         </div>
+         </div>
+    <div class="tps">
+        <div class="cir act">
+            </div>
+        <div class="lan">
+            </div>
+        <div class="cir">
+            </div>
+        <div class="lan">
+            </div>
+        <div class="cir">
+            </div>
+        </div>
+    <div class="tps_text">
+        <p>项目设置</p>
+        <p>内容编辑</p>
+        <p style="position:relative;left:-106px;">回报设置</p>
+        </div>
+    <div class="imgs">
+        <div class="imgs_bg">
+            <img alt="upload" src="images/upload.png">
+            <div class="inbox">
+                    <div class="box">
+                        <span>*</span>
+                        <a>上传封面图片</a>
+                        </div>
+                    </div>
+            <div class="lang_box">
+                <p>建议尺寸 1300px*650px</p>
+                <p>大小2m以内</p>
+                <p>格式：jpg png gif</p>
+                </div> 
+            </div>
+        </div>
+    <div class="contain">
+        <div class="contain_in">
+            <input type="text" placeholder="请输入标题，最多20字">
+            <p>0/20</p>
+            </div>
+        <div class="co">
+            <div class="co_left">
+                <span>*</span>
+                <p>众筹金额</p>
+                <p>(元)</p>
+                </div>
+            <div class="co_right">
+                <input type="text" placeholder="请输入众筹金额">
+                </div>
+            </div>
+        <div class="du">
+            <div class="in_du">
+                <div class="in_du_left">
+                    <span>*</span>
+                    <p>发起人姓名</p>
+                    </div>
+                <div class="in_du_right">
+                    <input type="text" placeholder="请输入姓名">
+                    </div>
+                </div>
+            <p>温馨提示：发起人姓名适用于所有项目有关的项目披露</p>
+            <div class="in_du">
+                    <div class="in_du_left">
+                        <span>*</span>
+                        <p>手机号码</p>
+                        </div>
+                    <div class="in_du_right">
+                        <input type="text" placeholder="请输入手机号码">
+                        </div>
+                    </div>
+                <p>温馨提示：平台将会推送给您的每一个支持者</p>
+                <div class="in_du">
+                        <div class="in_du_left">
+                            <span>*</span>
+                            <p>项目地点</p>
+                            </div>
+                        <div class="in_du_right">
+                            <input type="text" placeholder="厦门">
+                            </div>
+                        </div>
+                        <div class="in_du">
+                                <div class="in_du_left">
+                                    <span>*</span>
+                                    <p>项目分类</p>
+                                    </div>
+                                <div class="in_du_right">
+                                        <form>
+                                                <select name="selects">
+                                                <option value="">公益</option>
+                                                <option value="">约吗</option>
+                                                <option value="">愿望</option>
+                                                <option value="">农业</option>
+                                                <option value="">生活</option>
+                                                <option value="">创意</option>
+                                                </select>
+                                                </form>
+                                    </div>
+                                </div>
+            
+            </div>
+        
+        </div>
+        <div class="bb">
+            <div class="btn">
+                <a>下一步</a>
+                </div>
+        </div>
+
+         <script>
+            $('#code').click(function(){
+            $('.bg').css('display','block');
+        });
+        $('.bg').click(function(){
+            $('.bg').css('display','none');
+        })
+    
+        $('#getNum').click(function(evnt){
+            var n=60;
+            if($('#num').html()!=='获取验证码'){
+                    evnt.preventDefault();
+                    return false;
+                };
+            $('#num').html(60);      
+        
+               var timer=setInterval(function(){
+                n--;
+                $('#num').html(n);
+                if(n<=0){
+                    clearInterval(timer)
+                    $('#num').html('获取验证码');
+                    n=60;
+                }
+               },1000)
+          
+         
+        });
+                 </script>
+</body>
+</html>

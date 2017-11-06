@@ -110,8 +110,10 @@ input{
     margin: 10px 30px 0 0;
     background-color:#f45353;
     text-align: center;
+    cursor: pointer;
 }
 .start a{
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;    
     color: #ffffff;
     font-size: 1.8rem;
     line-height: 52px;
