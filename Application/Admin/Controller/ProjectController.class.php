@@ -395,6 +395,7 @@ class ProjectController extends AdminController
         foreach($list as &$v){
             $v['status'] = getOrderStatus($v['status']);
             $v['nick_name'] = M('users') -> where(['id'=>$v['user_id']]) -> getField('nick_name');
+            $v['weixin_no'] = M('user_pay') -> where(['pay_no'=>$v['order_no']]) -> getField('weixin_no');
             $v['pay_time'] = date('Y-m-d H:i:s',$v['pay_time']);
         }
 
