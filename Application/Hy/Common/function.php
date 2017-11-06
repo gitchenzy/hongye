@@ -58,6 +58,7 @@ function get_user_info() {
 
 function getProjectStatus($type) {
     $list = array(
+        '0' => '草稿中' ,
         '1' => '待审核' ,
         '2' => '进行中' ,
         '3' => '审核不通过' ,

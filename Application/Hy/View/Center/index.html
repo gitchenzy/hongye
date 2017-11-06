@@ -1,0 +1,93 @@
+
+<extend name="Public:main" />
+
+
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/center.css">
+</block>
+<block name="main">
+    <div class="pag">
+        <div class="card_left">
+            <div class="card_img">
+                <div class="card_img_pic">
+                    <img src="{$info.pic}">
+                </div>
+                <a>{$info.nick_name}</a>
+            </div>
+            <div class="card_text">
+                <a>我的项目</a>
+                <!--<a id="select" >个人设置</a>-->
+                <!--<img id="ad" src="__PUBLIC__/Hy/images/seting_2.png">-->
+                <!--<ul id="cntx">-->
+                    <!--<li><a style="font-weight:normal;">个人资料</a></li>-->
+                    <!--<li><a style="font-weight:normal;">收货地址</a></li>-->
+                    <!--<li><a style="font-weight:normal;">密码安全</a></li>-->
+                <!--</ul>-->
+            </div>
+        </div>
+        <div class="card_right">
+            <div class="title">
+                <p>我发起的项目</p>
+            </div>
+            <volist name="project" id="vo">
+                <div class="card_right_box">
+                <div class="card_grey">
+                    <div class="card_grey_img">
+                        <img src="{$vo.pic}">
+                    </div>
+                    <div class="card_grey_text">
+                        <div class="card_in_btn">
+                            <div class="card_btn_1">
+                                <a>{$vo.type_name}</a>
+                            </div>
+                            <div class="card_btn_2">
+                                <a>{$vo.status_name}</a>
+                            </div>
+                        </div>
+                        <div class="card_in_name">
+                            <p>{$vo.title}</p>
+                        </div>
+                        <div class="card_in_b">
+                            <img src="__PUBLIC__/Hy/images/addr.png">
+                            <p>{$vo.city}</p>
+                        </div>
+                    </div>
+                    <div class="little_btn">
+                        <a class="project">进入项目管理</a>
+                    </div>
+                </div>
+                <div class="card_bottom" style="display: none;">
+                    <div class="card_bottom_in fl">
+                        <a href="{:U('Index/index',array('id'=>$vo['id']))}">预览项目</a>
+                    </div>
+                    <div class="card_bottom_in fl">
+                        <a href="{:U('Index/index')}">重新编辑</a>
+                    </div>
+                    <if condition="$vo['status'] LT 1">
+                        <div class="card_bottom_ins fl">
+                            <a href="{:U('Index/index')}">提交审核</a>
+                        </div>
+                    </if>
+                </div>
+            </div>
+            </volist>
+        </div>
+
+    </div>
+
+</block>
+
+<block name="js">
+    <script>
+
+        $('.project').click(function(){
+            $('.little_btn').show();
+            $('.card_bottom').hide();
+            $(this).parent('.little_btn').hide();
+            $(this).parents('.card_right_box').find('.card_bottom').css('display','block')
+
+        })
+
+
+    </script>
+</block>
