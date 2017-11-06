@@ -143,32 +143,25 @@
     line-height: 26px;
     font-weight: bold
 }
-.midcard {
-    height: 340px;
-    width: 100%;
-    margin: 1px 0px 0px 0px;
-    padding-top: 2px;
-    background: #FFFFFF;
-    border-bottom: 1px solid #e5e5e5;
-}
+
 
     </style>
     
-    <div style="position:fixed;top:0%;left:0%;z-index:100;" class="top">
-        <volist name="father_type" id="fty">
-            <div id="c4" class="helftop">
-                <div class="midtopbox">
-                </div>
-                <div id="c1" class="helftopbox" <eq name="f_type" value="$fty['id']"> style="border-bottom:2px solid #f45353;"</eq>>
-                    <h1><a <eq name="f_type" value="$fty['id']"> style="color:#f45353;"</eq> href="{:U('Index/index',array('fid'=>$fty['id']))}">{$fty.title}</a></h1>
-                </div>
-            </div>
-        </volist>
+    <!--<div style="position:fixed;top:0%;left:0%;z-index:100;" class="top">-->
+        <!--<volist name="father_type" id="fty">-->
+            <!--<div id="c4" class="helftop">-->
+                <!--<div class="midtopbox">-->
+                <!--</div>-->
+                <!--<div id="c1" class="helftopbox" <eq name="f_type" value="$fty['id']"> style="border-bottom:2px solid #f45353;"</eq>>-->
+                    <!--<h1><a <eq name="f_type" value="$fty['id']"> style="color:#f45353;"</eq> href="{:U('Index/index',array('fid'=>$fty['id']))}">{$fty.title}</a></h1>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</volist>-->
 
 
-    </div>
+    <!--</div>-->
 
-    <div style="margin-top:44px;" class="main_visual">
+    <div class="main_visual">
         <div class="flicking_con">
             <a >1</a>
             <a >2</a>
@@ -191,8 +184,8 @@
         <volist name="son_type" id="sty" key="k">
             <div class="mid_box">
                 <div class="mid_box_bg">
-                    <a href="{:U('Index/index',array('fid'=>$sty['pid'],'sid'=>$sty['id']))}"><img id="img{$k + 1}" src="{$sty.small_pic}"></a>
-                    <a href="{:U('Index/index',array('fid'=>$sty['pid'],'sid'=>$sty['id']))}" <eq name="s_type" value="$sty['id']"> style="color:#fe3535;" </eq> >{$sty.title}</a>
+                    <a href="{:U('Index/index',array('sid'=>$sty['id']))}"><img id="img{$k + 1}" src="{$sty.small_pic}"></a>
+                    <a href="{:U('Index/index',array('sid'=>$sty['id']))}" <eq name="s_type" value="$sty['id']"> style="color:#fe3535;" </eq> >{$sty.title}</a>
                 </div>
             </div>
         </volist>
@@ -248,7 +241,7 @@
         </div>
     </div>
     </volist>
-    <div style="width:100%;height:50px;" class="bottom-plus">
+    <div style="width:100%;height:50px;" class="">
     </div>
 </block>
 <block name="js">

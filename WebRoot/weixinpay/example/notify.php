@@ -60,7 +60,7 @@ class PayNotifyCallBack extends WxPayNotify
             $res = $mysql -> query($sql);
             $list  = $res->fetch_assoc();
             $mysql -> set_charset("utf8");
-            $sql = "insert into user_pay(user_id,pay_no,amount,pay_time,pay_name) value({$list['user_id']},{$list['order_no']},{$list['pay_amount']},{$time},'付款')";
+            $sql = "insert into user_pay(user_id,pay_no,amount,pay_time,pay_name,weixin_no) value({$list['user_id']},{$list['order_no']},{$list['pay_amount']},{$time},'付款',{$data['transaction_id']})";
             Log::DEBUG("call sql:" . $sql);
             $res = $mysql -> query($sql);
             if($res){

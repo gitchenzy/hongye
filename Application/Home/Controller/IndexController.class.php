@@ -9,9 +9,9 @@ class IndexController extends CommonController {
 
             session('index',1);
         //便利,默认为梦想清单
-        $fid = I("fid")?I("fid"):1;
-        $father_type = M('project_type') -> where(['pid'=> 0,'del'=>0]) -> select();
-        $son_type = M('project_type') -> where(['pid'=> $fid,'del'=>0]) -> select();
+        $fid = 1;
+    //    $father_type = M('project_type') -> where(['pid'=> 0,'del'=>0]) -> select();
+        $son_type = M('project_type') -> where(['pid'=>array('GT',0),'del'=>0]) -> select();
 
         //查询出关联的广告图
 
@@ -35,7 +35,7 @@ class IndexController extends CommonController {
             $v['num_1'] = 100-$v['num']-13.5;
         }        
         }
-        $this -> assign('father_type',$father_type);
+      //  $this -> assign('father_type',$father_type);
         $this -> assign('son_type',$son_type);
         $this -> assign('s_type',$s_type);
         $this -> assign('f_type',$fid);
