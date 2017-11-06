@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/new.css">
+<link rel="stylesheet" type="text/css" href="css/new3.css">
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<title>欢迎来到红叶筹</title>
+</head>
+<body>
+        <div class="bg">
+                <div class="erweima">
+                    <img src="images/erweima.png" alt="公众号二维码">
+                    </div>
+                </div>
+            <div class="top">
+              <div class="top_box">
+                <div class="top_img">
+                    <a href="#"><img alt="hongye logo" src="images/logo.png"></a>
+                </div>
+                   <ul>
+                        <li id="index"><a href="index.html">首页</a></li>
+                        <li id="look"><a href="lookprojects.html">浏览项目</a></li>
+                        <li id="code"><a>关注公众号</a></li>
+                        <li id="help"><a href="helps_1.html">帮助中心</a></li>
+                    </ul>
+            </div>
+            <div class="top_box">
+                <div class="search">
+                    <input type="text" placeholder="请输入搜索内容" value="">
+                    </div>
+                <div id="btn_1" class="start">
+                    <a>发起项目</a>
+                    </div>
+                <div class="text">
+                    <div class="text_child">
+                        <a>登录</a>
+                        </div>
+                    <div class="text_child none">
+                        <a>注册</a>
+                    </div>
+            </div>
+         </div>
+         </div>
+    <div class="tps">
+        <div class="cir act">
+            </div>
+        <div class="lan">
+            </div>
+        <div class="cir act">
+            </div>
+        <div class="lan">
+            </div>
+        <div class="cir act">
+            </div>
+        </div>
+    <div class="tps_text">
+        <p style="position:relative;left:-105px;">项目设置</p>
+        <p style="position:relative;left:-105px;">内容编辑</p>
+        <p style="position:relative;left:-100px;">回报设置</p>
+        </div>
+<div class="all">
+    <div class="all_left">
+        <div class="all_left_box">
+            <h1>0</h1>
+            <p>已设置</p>
+            </div>
+        </div>
+    <div class="all_right">
+        <div class="all_right_card">
+            <div class="cards_1">
+                <div class="cards_1_in">
+                    <span>*</span>
+                    <p>回报金额</p>
+                    </div>
+                <input type="text" placeholder="0">
+                </div>
+            <div class="cards_2">
+                    <div class="cards_2_in">
+                            <span>*</span>
+                            <p>回报标题</p>
+                        </div>
+                        <input type="text" placeholder="请输入回报标题">
+                        <h1>0/10</h1>
+                </div>
+                <div class="cards_3">
+                        <div class="cards_3_in">
+                                <span>*</span>
+                                <p>回报描述</p>
+                            </div>
+                            <textarea></textarea>
+                            <h1>0/1000</h1>
+                        
+                    </div>
+                
+    </div>
+    <div class="all_right_card">
+            <div class="cards_2">
+                    <div class="cards_2_in">
+                            <span>*</span>
+                            <p>人数限制</p>
+                        </div>
+                        <input type="text" placeholder="无人数限制">
+                      
+            </div>
+            <div class="cards_2">
+                    <div class="cards_2_in">
+                            <span>*</span>
+                            <p>发送回报时间</p>
+                        </div>
+                        <input type="text" placeholder="10">
+                        <h1>天</h1>
+            </div>
+            <div class="cards_2">
+                    <div class="cards_2_in">
+                            <span>*</span>
+                            <p>收货地址</p>
+                        </div>
+                    <div id="mane_1" class="cards_2_div bor">    
+                        <p id="text_1" class="bor">需要填写</p>
+                        </div>
+                        <!-- 状态选择 -->
+                        <div id="mane_2" class="cards_2_div">    
+                                <p id="text_2">不需要填写</p>
+                            </div>
+
+            </div>
+            <div class="cards_2">
+                    <div class="cards_2_in">
+                            <span>*</span>
+                            <p>配送说明</p>
+                        </div>
+                        <input type="text" placeholder="例：福建省厦门市思明区...">
+                        <h1>0/40</h1>
+            </div>
+                
+            </div>
+        <div class="all_right_card">
+                <div class="cards_2">
+                        <div class="cards_2_in">
+                                <span>*</span>
+                                <p>配送说明</p>
+                            </div>
+                            <input style="width:80%" type="text" placeholder="例：福建省厦门市思明区...">
+                            <div id="h_1" class="hehe bor">
+                                <p id="t_1" class="bor">必填</p>
+                                </div>
+                                <div id="h_2" class="hehe">
+                                        <p id="t_2">选填</p>
+                                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+
+        <div class="bb">
+            <div class="btn">
+                <a>保存</a>
+                </div>
+                <div style="position:absolute;left:800px;background:#e5e5e5" class="btn">
+                        <a style="color:#797979">预览</a>
+                        </div>
+        </div>
+
+         <script>
+            $('#code').click(function(){
+            $('.bg').css('display','block');
+        });
+        $('.bg').click(function(){
+            $('.bg').css('display','none');
+        })
+    
+        $('#getNum').click(function(evnt){
+            var n=60;
+            if($('#num').html()!=='获取验证码'){
+                    evnt.preventDefault();
+                    return false;
+                };
+            $('#num').html(60);      
+        
+               var timer=setInterval(function(){
+                n--;
+                $('#num').html(n);
+                if(n<=0){
+                    clearInterval(timer)
+                    $('#num').html('获取验证码');
+                    n=60;
+                }
+               },1000)
+          
+         
+        });
+        //点击事件
+        $('#mane_2').click(function(){
+            $('#mane_1').removeClass('bor');
+            $('#mane_2').addClass('bor');
+            $('#text_2').addClass('bor');
+            $('#text_1').removeClass('bor');
+        });
+        $('#mane_1').click(function(){
+            $('#mane_1').addClass('bor');
+            $('#mane_2').removeClass('bor');
+            $('#text_2').removeClass('bor');
+            $('#text_1').addClass('bor');
+        });
+                 </script>
+</body>
+</html>

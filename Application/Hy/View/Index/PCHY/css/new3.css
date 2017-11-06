@@ -1,0 +1,191 @@
+.all{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.all_left{
+    width:140px;
+    margin-right: 130px;
+
+}
+.all_right{
+    width: 860px;
+    display: flex;
+    flex-direction: column;
+}
+.all_left_box{
+    width:120px;
+    padding: 20px 40px;
+    border: 1px solid #f45353;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.all_left_box h1{
+    font-size: 30px;
+    color: #f45353;
+}
+.all_left_box p{
+    font-size: 16px;
+    color: #f45353;
+}
+.all_right_card{
+    width:800px;
+    padding: 30px;
+    padding-top:0;
+    margin-bottom: 30px;
+    background: #ffffff;
+}
+.cards_1{
+    margin-top:30px;
+    width: 100%;
+    height: 84px;
+    border: 1px solid #e5e5e5;
+    background: #ffffff;
+    display: flex;
+}
+.cards_1_in{
+    width:120px;
+    height: 100%;
+    background: #f2f2f2;
+    border-right: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: center;
+}
+.cards_1_in span{
+    font-size: 14px;
+    color: #f45353;
+    line-height: 46px;
+}
+.cards_1_in p{
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 46px;
+}
+.cards_1 input{
+    width:660px;
+    height: 84px;
+    padding-left: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.7);
+    border: none;
+}
+.cards_2{
+    margin-top:30px;
+    width: 100%;
+    height: 42px;
+    border: 1px solid #e5e5e5;
+    background: #ffffff;
+    display: flex;
+    position: relative;
+}
+.cards_2_div{
+    width:338px;
+    height: 40px;
+    cursor: pointer;
+}
+.cards_2_div p{
+    text-align: center;
+    line-height: 38px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
+    border: none;
+}
+.bor{
+    border: 1px solid #f45353;
+    color: #f45353 !important;
+    background: rgba(255, 212, 216, 0.2);
+}
+.cards_2_in{
+    width:120px;
+    height: 100%;
+    background: #f2f2f2;
+    border-right: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: center;
+}
+.cards_2_in span{
+    font-size: 14px;
+    color: #f45353;
+    line-height: 43px;
+}
+.cards_2_in p{
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 43px;
+}
+.cards_2 input{
+    width:660px;
+    height: 42px;
+    padding-left: 20px;
+    font-size: 16px;  
+    color: rgba(0, 0, 0, 0.7);
+    border: none;
+}
+.cards_2 h1{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-weight: normal;
+}
+.cards_3{
+    margin-top:30px;
+    width: 100%;
+    height: 126px;
+    border: 1px solid #e5e5e5;
+    background: #ffffff;
+    display: flex;
+    position: relative;
+}
+.cards_3_in{
+    width:120px;
+    height: 100%;
+    background: #f2f2f2;
+    border-right: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: center;
+}
+.cards_3_in span{
+    font-size: 14px;
+    color: #f45353;
+    line-height: 46px;
+}
+.cards_3_in p{
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 46px;
+}
+.cards_3 textarea{
+    width:660px;
+    height: 125px;
+    padding-left: 20px;
+    font-size: 16px;  
+    color: rgba(0, 0, 0, 0.7);
+    border: none;
+    resize: none;
+}
+.cards_3 h1{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-weight: normal;
+}
+.hehe{
+    width:64px;
+    height: 42px;
+    border: 1px solid #e5e5e5;
+    border-top:none;
+    border-bottom: none;
+    border-right: none;
+    text-align: center;
+}
+.hehe p{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 40px;
+}
