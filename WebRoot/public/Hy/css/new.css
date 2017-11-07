@@ -42,8 +42,10 @@ body{
 .imgs{
     display: flex;
     justify-content: center;
-
+    background:url('../images/upimg.jpg');
     margin-top: 40px;
+    margin:0px auto 40px auto;
+    cursor: pointer;
 }
 .imgs_bg{
     width:1300px;

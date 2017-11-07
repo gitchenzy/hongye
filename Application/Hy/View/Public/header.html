@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/common.css">
+
+    <block name="css"></block>
+<script type="text/javascript" src="__PUBLIC__/Hy/js/jquery-1.7.1.min.js"></script>
+<!-- <script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/Hy/js/jquery.touchSlider.js"></script>
+<title>{$title|default=欢迎来到红叶筹}</title>
+</head>
+<body>
+    <div class="bg">
+        <div class="erweima">
+            <img src="__PUBLIC__/Hy/images/erweima.png" alt="公众号二维码">
+        </div>
+    </div>
+    <div class="top">
+        <div class="top_box">
+            <div class="top_img">
+                <a href="#"><img alt="hongye logo" src="__PUBLIC__/Hy/images/logo.png"></a>
+            </div>
+               <ul>
+                    <li id="index" <if condition="$pos eq 1"> class="active" </if> ><a href="{:U('Index/index')}" <if condition="$pos eq 1"> class="active" </if> >首页</a></li>
+                    <li <if condition="$pos eq 2"> class="active" </if> ><a href="{:U('Index/lists')}" <if condition="$pos eq 2"> class="active" </if> >浏览项目</a></li>
+                    <li id="code"><a>关注公众号</a></li>
+                    <li><a>帮助中心</a></li>
+               </ul>
+        </div>
+        <div class="top_box">
+            <div class="search">
+                <input type="text" placeholder="请输入搜索内容" value="">
+                </div>
+            <div id="btn_1" class="start">
+                <a href="{:U('center/news')}">发起项目</a>
+            </div>
+            <div class="text">
+                <div class="text_child">
+                    <a>登录</a>
+                </div>
+                <div class="text_child none">
+                    <a>注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
