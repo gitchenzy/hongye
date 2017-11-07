@@ -298,18 +298,9 @@ div.flicking_con a.on {
 .backgrounds{
     background: #f45353;
 }
-
-.contain_list a{
-    width: 72px;
-    height: 32px;
-    text-align: center;
-    cursor: pointer;
-    font-size: 1.6rem;
-    color: #000;
-    line-height: 30px;
-    display: block;
+.colors{
+    color: #fff !important;
 }
-
 
 .contain{
     height: 170px;
@@ -342,10 +333,14 @@ div.flicking_con a.on {
     display: flex;
 }
 .contain_list ul li{
+    width:72px;
+    height: 32px;
+    text-align: center;
     margin-right: 20px;
+    cursor: pointer;
 }
-
-.actives{
-    background: #f45353;
-    color:#fff !important;
+.contain_list ul li a{
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 30px;
 }

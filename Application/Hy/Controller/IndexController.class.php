@@ -159,5 +159,18 @@ class IndexController extends CommonController {
         }
 
     }
+    //详情
+    public function details(){
+        $id = I('id');
+        if(empty($id)){
+            $this -> error('暂无该项目');
+        }
+
+        $project = M('project') -> where(['id'=> $id]) -> find();
+
+        $this -> assign('project',$project);
+
+        $this -> display();
+    }
 
 }

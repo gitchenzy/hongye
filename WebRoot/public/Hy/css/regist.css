@@ -1,0 +1,132 @@
+body{
+    background: rgba(0, 0, 0, 0.03);
+}
+.regist{
+    margin: 50px 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+.regist_box{
+    width: 768px;
+    padding: 40px 98px 30px 0;
+    background: #ffffff;
+}
+.regist_box_text{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 30px;
+    position: relative;
+}
+.regist_box_text input{
+    border: 1px solid #e5e5e5;
+    font-size: 16px;
+    color: rgba(0,0,0,0.5);
+    margin-left: 30px;
+    height: 40px;
+    width:483px;
+    padding:0px 0 0 20px;
+}
+.regist_box_text p{
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.87);
+    margin-left: 6px;
+    position: relative;
+    top:11px;
+}
+.regist_box_text span{
+    color: #f45353;
+    font-size: 16px;
+    position: relative;
+    top:15px;
+}
+.b{
+    width:130px;
+    height: 40px;
+    position: absolute;
+    text-align: center;
+    border-left: 1px solid #e5e5e5;
+    cursor: pointer;
+}
+.b p{
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: pointer;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;
+}
+.c{
+    display: flex;
+    justify-content: center;
+    padding-left: 151px;
+    margin-top: -10px;
+}
+.c span{
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.87);
+}
+.c a{
+    font-size: 16px;
+    color: #f45353;
+}
+.chk{
+    display: none;
+}
+.chk+label{
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 2px solid #e5e5e5;
+    margin-right: 30px;
+}
+.chk:checked+label{
+    background: #f45353;
+    border: 2px solid #f45353;
+}
+.chk:checked+label:after{
+    content: '\2713';
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    position: relative;
+    top:-1.5px;
+    left:1.5px;
+    text-align: center;
+}
+.d{
+    margin-top:40px;
+    display: flex;
+    justify-content: center;
+    padding-left: 140px;
+}
+.d_btn_1{
+    width:140px;
+    height: 42px;
+    background: #f2f2f2;
+    margin-right: 30px;
+    text-align: center;
+}
+.d_btn_2{
+    width:140px;
+    height: 42px;
+    background: #f45353;
+    margin-right: 30px;
+    text-align: center;
+}
+.d_btn_1 a{
+    font-size: 16px;
+    color: #c2c2c2;
+    line-height: 40px;
+}
+.d_btn_2 a{
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 40px;
+}
+.el{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.el a{
+    font-size: 
+}
