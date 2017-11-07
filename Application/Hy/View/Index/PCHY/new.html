@@ -60,25 +60,12 @@
         <p style="position:relative;left:-106px;">回报设置</p>
         </div>
     <div class="imgs">
-        <div class="imgs_bg">
-            <img alt="upload" src="images/upload.png">
-            <div class="inbox">
-                    <div class="box">
-                        <span>*</span>
-                        <a>上传封面图片</a>
-                        </div>
-                    </div>
-            <div class="lang_box">
-                <p>建议尺寸 1300px*650px</p>
-                <p>大小2m以内</p>
-                <p>格式：jpg png gif</p>
-                </div> 
-            </div>
+      <img width="1300" height="650" src="images/upimg.jpg">
         </div>
     <div class="contain">
         <div class="contain_in">
-            <input type="text" placeholder="请输入标题，最多20字">
-            <p>0/20</p>
+            <input id="content" type="text" placeholder="请输入标题，最多20字">
+            <p id="sccc">0/20</p>
             </div>
         <div class="co">
             <div class="co_left">
@@ -176,6 +163,19 @@
           
          
         });
+        //字数限制；
+        $('#content').on('input',function(){
+        var len=$('#content').val().length;
+        if(len>=20){
+            var so=$('#content').val().slice(0,20);
+            $('#content').val(so);
+            $('#sccc').html('20/20')
+            console.log(so);
+        }else{
+            $('#sccc').html(len+'/10')
+        }
+        
+    });
                  </script>
 </body>
 </html>

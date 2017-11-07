@@ -1,0 +1,14 @@
+body{
+    background: rgba(0, 0, 0, 0.03);
+}
+.all{
+    display: flex;
+    justify-content: center;
+}
+.all_box{
+    margin: 0;
+}
+.all_box img{
+    width:240px;
+    height: 240px;
+}
