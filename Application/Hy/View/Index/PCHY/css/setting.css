@@ -181,6 +181,7 @@
     width: 100%;
     padding-right: 20px;
     display: flex;
+    background: #fff;
     justify-content: space-between;
 }
 .name p{

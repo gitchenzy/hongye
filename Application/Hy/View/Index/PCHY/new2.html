@@ -4,10 +4,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <link rel="stylesheet" type="text/css" href="css/new.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="css/codemirror.min.css">
-<link rel="stylesheet" type="text/css" href="css/froala_editor.min.css">
-<link rel="stylesheet" type="text/css" href="css/froala_editor.pkgd.min.css">
+<link href="css/quill.snow.css" rel="stylesheet">
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 <title>欢迎来到红叶筹</title>
 </head>
@@ -83,9 +80,13 @@
                 <p>内容编辑</p>
                 <p style="position:relative;left:-106px;">回报设置</p>
                 </div>
-<div style="width:1300px;margin:60px auto 0 auto;border-top:none" id="edit" class="fr-view">
-      
-        </div>
+
+                <div id="editor">
+                        <p>Hello World!</p>
+                        <p>Some initial <strong>bold</strong> text</p>
+                        <p><br></p>
+                      </div>
+
         <div class="bb">
             <div class="btn">
                 <a href="new3.html">下一步</a>
@@ -121,18 +122,12 @@
          
         });
                  </script>
-<script type="text/javascript" src="js/codemirror.min.js"></script>
-<script type="text/javascript" src="js/xml.min.js"></script>                 
-<script type="text/javascript" src="js/froala_editor.pkgd.min.js"></script>
-<script type="text/javascript" src="js/zh_cn.js"></script>
+
+<script src="js/quill.js"></script>
 <script>
-        $(function() {
-          $('#edit').froalaEditor({
-            // Set the language code.
-            language: 'zh_cn'
-          })
+        var quill = new Quill('#editor', {
+          theme: 'snow'
         });
       </script>
-<script> $(function() { $('textarea').froalaEditor() }); </script>
 </body>
 </html>
