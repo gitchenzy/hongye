@@ -52,6 +52,18 @@
     display: flex;
     justify-content: center;
 }
+.haha{
+    margin-top: 60px;
+    width: 202px;
+    height: 42px;
+    background: #f45353;
+    text-align: center;
+}
+.haha a{
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 42px;
+}
 .cards_1_in span{
     font-size: 14px;
     color: #f45353;
@@ -188,4 +200,9 @@
     font-size: 14px;
     color: rgba(0, 0, 0, 0.7);
     line-height: 40px;
+}
+.fuck{
+    width:142px;
+    height: 42px;
+    background: #f45353;
 }
