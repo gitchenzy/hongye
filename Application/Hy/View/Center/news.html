@@ -1,0 +1,129 @@
+
+<include file="Public/header"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/new.css">
+
+<div class="tps">
+    <div class="cir act">
+    </div>
+    <div class="lan">
+    </div>
+    <div class="cir">
+    </div>
+    <div class="lan">
+    </div>
+    <div class="cir">
+    </div>
+</div>
+<div class="tps_text">
+    <p>项目设置</p>
+    <p>内容编辑</p>
+    <p style="position:relative;left:-106px;">回报设置</p>
+</div>
+<div id="uploads" class="imgs" style="width: 1300px;height:650px;">
+    <!--<img width="1300" height="650" src="images/upimg.jpg?">-->
+    <input type="hidden" id="pic">
+</div>
+<div class="contain">
+    <div class="contain_in">
+        <input type="text" id="title" placeholder="请输入标题，最多20字">
+        <p>0/20</p>
+    </div>
+    <div class="co">
+        <div class="co_left">
+            <span>*</span>
+            <p>众筹金额</p>
+            <p>(元)</p>
+        </div>
+        <div class="co_right">
+            <input type="text" id="target_amount" placeholder="请输入众筹金额">
+        </div>
+    </div>
+    <div class="du">
+        <div class="in_du">
+            <div class="in_du_left">
+                <span>*</span>
+                <p>项目地点</p>
+            </div>
+            <div class="in_du_right">
+                <input type="text" id="city" placeholder="请输入城市">
+            </div>
+        </div>
+        <div class="in_du">
+            <div class="in_du_left">
+                <span>*</span>
+                <p>项目分类</p>
+            </div>
+            <div class="in_du_right">
+                <form>
+                    <select name="selects" id="type_id">
+                        <volist name="type" id="t_vo">
+                            <option value="{$t_vo.id}">{$t_vo.title}</option>
+                        </volist>
+                    </select>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="bb">
+    <div class="btn">
+        <a class="sub" >下一步</a>
+    </div>
+</div>
+<script type="text/javascript" src='__PUBLIC__/Static/uploadifive/Sample/jquery.uploadifive.min.js'></script>
+<script>
+    $(function () {
+        $("#uploads").uploadifive({
+            height: 650,
+            swf: '/public/Static/uploadify/uploadify.swf',
+            uploadScript: "{:U('File/uploadProject')}",
+            width: 1300,
+            buttonClass: "imgs",
+            buttonText: '',
+            onUploadComplete: function (file, data) {
+                data = $.parseJSON(data);
+                if (data.status) {
+//                    $("#photo_preview").attr("src", data.data);
+                    $(".imgs").css('background-image','url('+data.data+')');
+
+                    $("#pic").val(data.data);
+                    $(".complete").css('display','none');
+                }
+                else {
+                    alert(data.info);
+                }
+            }
+        });
+
+        $('.sub').click(function(){
+
+            var title = $('#title').val();
+            var city = $('#city').val();
+            var pic = $('#pic').val();
+            var type_id = $('#type_id').val();
+            var target_amount = $('#target_amount').val();
+            var info = {'title':title,city:city,pic:pic,type_id:type_id,target_amount:target_amount};
+
+            $.post("{:U('Center/addProject')}",info,function(data){
+
+                if(data.status ==1){
+                    alert('添加成功！');
+                    location.href=data.info;
+                }else{
+                    alert(data.info)
+                }
+
+
+            })
+
+
+
+        })
+
+
+    });
+</script>
+</body>
+</html>

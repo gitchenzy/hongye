@@ -1,0 +1,82 @@
+
+<include file="Public/header"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/new.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/codemirror.min.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/froala_editor.min.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/froala_editor.pkgd.min.css">
+<style>
+    .fr-box.fr-basic .fr-element {
+        color: #000;
+        padding: 16px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        overflow-x: auto;
+        overflow-y: scroll;
+        min-height: 52px;
+    }
+    .fr-element {
+        color: #000;
+        padding: 16px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        overflow-x: auto;
+        height: 550px !important;}
+
+    .fr-wrapper div:first-child{
+        display: none;
+    }
+</style>
+
+<div class="tps">
+    <div class="cir act">
+    </div>
+    <div class="lan">
+    </div>
+    <div class="cir act">
+    </div>
+    <div class="lan">
+    </div>
+    <div class="cir">
+    </div>
+</div>
+<div class="tps_text">
+    <p>项目设置</p>
+    <p>内容编辑</p>
+    <p style="position:relative;left:-106px;">回报设置</p>
+</div>
+<div style="width:1300px;margin:60px auto 0 auto;border-top:none" id="edit" class="fr-view">
+
+</div>
+<div class="bb">
+    <div class="btn">
+        <a href="new3.html">下一步</a>
+    </div>
+</div>
+
+<script>
+
+</script>
+<script type="text/javascript" src="__PUBLIC__/Hy/js/codemirror.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Hy/js/xml.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Hy/js/froala_editor.pkgd.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Hy/js/zh_cn.js"></script>
+<script>
+    $(function() {
+        $('#edit').froalaEditor({
+            // Set the language code.
+            language: 'zh_cn'
+        })
+    });
+
+    var chi=$('.show-placeholder');
+    console.log(chi)
+    (function () {
+        chi.css('height','100px')
+    })();
+</script>
+<script> $(function() { $('textarea').froalaEditor() }); </script>
+</body>
+</html>

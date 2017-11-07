@@ -1,0 +1,28 @@
+$('#o_1').toggle(function(){
+    $('.contain_right_in:eq(0)>p').css('display','block');
+    $('#o_1').attr('src','images/helps_1.png');
+},function(){
+    $('.contain_right_in:eq(0)>p').css('display','none');
+    $('#o_1').attr('src','images/helps_2.png');
+})
+$('#o_2').toggle(function(){
+    $('.contain_right_in:eq(1)>p').css('display','block');
+    $('#o_2').attr('src','images/helps_1.png');
+},function(){
+    $('.contain_right_in:eq(1)>p').css('display','none');
+    $('#o_2').attr('src','images/helps_2.png');
+})
+$('#o_3').toggle(function(){
+    $('.contain_right_in:eq(2)>p').css('display','block');
+    $('#o_3').attr('src','images/helps_1.png');
+},function(){
+    $('.contain_right_in:eq(2)>p').css('display','none');
+    $('#o_3').attr('src','images/helps_2.png');
+})
+$('#o_4').toggle(function(){
+    $('.contain_right_in:eq(3)>p').css('display','block');
+    $('#o_4').attr('src','images/helps_1.png');
+},function(){
+    $('.contain_right_in:eq(3)>p').css('display','none');
+    $('#o_4').attr('src','images/helps_2.png');
+})
