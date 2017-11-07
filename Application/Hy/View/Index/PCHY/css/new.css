@@ -277,7 +277,9 @@ body{
     margin-top: 70px;
     display: flex;
     flex-direction: row-reverse;
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
 }
 .btn{
     width:142px;
