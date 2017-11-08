@@ -55,12 +55,31 @@ class CenterController extends CommonController {
             $this -> error('添加失败！');
         }
     }
-
     public function new_two(){
-
         //便利类别
-
         $this -> display();
     }
+    //添加项目第二部
+    public function addProjectDea(){
+
+        $data = I('post.');
+        $where['user_id'] = $this -> user_id;
+        $where['id'] = $data['id'];
+        $where['del'] = 0;
+       
+        $res = M('project') -> where($where) ->save(['des'=>$data['content']]);
+
+        if($res){
+            $url = U('Center/new_three',array('project_id'=>$data['id']));
+            $this -> success($url);
+        }else{
+            $this -> error('添加内容失败！');
+        }
+    }
+    //项目第三部
+    public function new_three(){
+        $this -> display();
+    }
+
 
 }

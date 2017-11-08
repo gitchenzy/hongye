@@ -52,7 +52,7 @@
 </div>
 <div class="bb">
     <div class="btn">
-        <a href="new3.html">下一步</a>
+        <a class="sub">下一步</a>
     </div>
 </div>
 
@@ -62,16 +62,42 @@
 <script type="text/javascript" src="__PUBLIC__/Hy/js/codemirror.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Hy/js/xml.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Hy/js/froala_editor.pkgd.min.js"></script>
-<!--<script type="text/javascript" src="__PUBLIC__/Hy/js/image.min.js"></script>-->
+<script type="text/javascript" src="__PUBLIC__/Hy/js/image.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Hy/js/zh_cn.js"></script>
 <script>
     $(function() {
+        var id = '{$Think.get.project_id}';
+     //   alert(id)
         $('#edit').froalaEditor({
             // Set the language code.
-            language: 'zh_cn'
+            language: 'zh_cn',
+            imageUploadURL:"{:U('File/uploadProjects')}",
+
+            saveParam :'content' ,
+
+        //设置保存网址
+            saveURL:"{:U('Center/addProjectDea')}" ,
+
+            // HTTP请求类型
+            saveMethod :'POST' ,
+
+            //额外的保存参数。
+            saveParams :{ id :id }
+
+
         })
+        .on('froalaEditor.save.after', function (e, editor, response) {
+            location.href='/index.php/hy/center/new_three?project_id='+id;
+        })
+
     });
 
+    $('.sub').click(function(){
+
+        $ ('#edit').froalaEditor('save.save');
+
+
+    })
 
 </script>
 <script> $(function() { $('textarea').froalaEditor() }); </script>
