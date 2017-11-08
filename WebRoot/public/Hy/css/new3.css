@@ -35,6 +35,9 @@
     padding-top:0;
     margin-bottom: 30px;
     background: #ffffff;
+    position: fixed;
+    top:200px;
+
 }
 .cards_1{
     margin-top:30px;
@@ -152,6 +155,11 @@
     display: flex;
     position: relative;
 }
+.cards_3 textarea>h2{
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: normal;
+}
 .cards_3_in{
     width:120px;
     height: 100%;
@@ -178,6 +186,7 @@
     color: rgba(0, 0, 0, 0.7);
     border: none;
     resize: none;
+    text-align: left;
 }
 .cards_3 h1{
     font-size: 14px;
@@ -205,4 +214,33 @@
     width:142px;
     height: 42px;
     background: #f45353;
+}
+.sh{
+    margin-top: 30px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.sh_btn_1{
+    width:140px;
+    height: 42px;
+    background: #f45353;
+    text-align: center;
+}
+.sh_btn_1 a{
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 40px;
+}
+.sh_btn_2{
+    width:138px;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    background: #f2f2f2;
+    text-align: center;
+}
+.sh_btn_2 a{
+    font-size: 16px;
+    color: #797979;
+    line-height: 40px;
 }
