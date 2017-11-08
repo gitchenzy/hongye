@@ -127,6 +127,18 @@ body{
     display: flex;
     flex-direction: row-reverse;
 }
-.el a{
-    font-size: 
+.load{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.load img{
+    width: 230px;
+    height: 230px;
+}
+.load p{
+    margin-top:30px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.5);
 }
