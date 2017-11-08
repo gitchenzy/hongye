@@ -165,11 +165,68 @@ class IndexController extends CommonController {
         if(empty($id)){
             $this -> error('暂无该项目');
         }
-
         $project = M('project') -> where(['id'=> $id]) -> find();
+        $project['user_name'] = M('users') -> where(['id'=>$project['user_id']]) -> getfield('nick_name');
+        $project['user_pic'] = M('users') -> where(['id'=>$project['user_id']]) -> getfield('pic');
+
+
+        //计算出这个项目还有多久
+        $daojishi = $project['end_time'] - time();
+        if($daojishi > 0){
+            $d = 60*60*24;
+            $h = 60*60;
+            $s = 60;
+            $day = floor($daojishi /$d);
+            if($day > 0){
+                $shijian['d'] = $day;
+                $daojishi -= $day*60*60*24;
+
+                $hour = floor($daojishi/$h);
+                if($hour > 0){
+                    $shijian['h'] = $hour;
+                    $daojishi -= $hour*60*60;
+                    $shijian['s'] = ceil($daojishi/$s);
+                    if($daojishi < 1){
+                        //项目结束
+                        if($project['reach_amount']>=$project['target_amount']){
+                            $status = 5;
+                        }else{
+                            $status = 4;
+                        }
+                        $where['id'] = $id;
+                        $where['del'] = 0;
+
+                        M('project')-> where($where)->save(['status'=>$status]);
+                        $shijian['s'] = 0;
+                    }
+                }else{
+                    $shijian['h'] = 0;
+                }
+            }else{
+                $shijian['d'] = 0;
+            }
+        }else{
+            $shijian['d'] = 0;
+            $shijian['h'] = 0;
+            $shijian['s'] = 0;
+        }
+
+        //回报
+        $return = M('project_return') -> where(['project_id'=>$project['id']]) -> select();
+        foreach($return as &$r){
+            $r['rule'] = trim($r['rule'],';');
+            $r['rule'] = explode(';',$r['rule']);
+            if($r['amount'] > 0){
+                $r['count'] = M('orders') -> where(['return_id'=>$r['id'],'status'=>['GT','1']]) -> count();
+            }else{
+                $r['count'] = M('orders') -> where(['return_id'=>$r['id']]) -> count();
+            }
+        }
+//        dump($return);
 
         $this -> assign('project',$project);
-
+        $this -> assign('return',$return);
+        $this -> assign('shijian',$shijian);
         $this -> display();
     }
 
