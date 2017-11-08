@@ -49,7 +49,7 @@
                     </div>
                     <div class="card_text">
                         <div class="card_text_right">
-                            <p><a style="color: #000;" href="{:U('Index/details',array('id'=>$h_vo['id']))}">{$h_vo.title}</a></p>
+                            <a href="{:U('Index/details',array('id'=>$h_vo['id']))}"><p>{$h_vo.title}</p></a>
                         </div>
                         <div class="card_text_left">
                             <img src="__PUBLIC__/Hy/images/addr.png">
@@ -107,7 +107,7 @@
                     </div>
                     <div class="card_text">
                         <div class="card_text_right">
-                            <p>{$vo.title}</p>
+                            <a href="{:U('Index/details',array('id'=>$vo['id']))}"><p>{$vo.title}</p></a>
                         </div>
                         <div class="card_text_left">
                             <img src="__PUBLIC__/Hy/images/addr.png">
