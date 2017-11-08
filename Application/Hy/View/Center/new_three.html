@@ -2,42 +2,50 @@
 <include file="Public/header"/>
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/new.css">
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/new3.css">
-
-<div class="bgs">
-    <div style="display:none;flex-direction:column">
-        <div class="all_right_card">
-            <div class="cards_1">
-                <div class="cards_1_in">
-                    <span>*</span>
-                    <p>回报金额</p>
-                </div>
-                <input id="money" type="text" placeholder="0">
+<style>
+    .bbb{
+        background: rgba(0, 0, 0, 0.3);
+        position: fixed;
+        width:100%;
+        height: 1080px !important;
+        z-index: 9999;
+        display: none;
+    }
+</style>
+<div class="bbb">
+<div style="display:flex;flex-direction:column">
+    <div class="all_right_card">
+        <div class="cards_1">
+            <div class="cards_1_in">
+                <span>*</span>
+                <p>回报金额</p>
             </div>
-            <div class="cards_2">
-                <div class="cards_2_in">
-                    <span>*</span>
-                    <p>回报标题</p>
-                </div>
-                <input id="in_text" type="text" placeholder="请输入回报标题">
-                <h1 id="sccc">0/10</h1>
+            <input id="money" type="text" placeholder="0">
+        </div>
+        <div class="cards_2">
+            <div class="cards_2_in">
+                <span>*</span>
+                <p>回报标题</p>
             </div>
-            <div class="cards_3">
-                <div class="cards_3_in">
-                    <span>*</span>
-                    <p>回报描述</p>
-                </div>
-                <textarea></textarea>
-                <h1>0/1000</h1>
+            <input id="in_text" type="text" placeholder="请输入回报标题">
+            <h1 id="sccc">0/10</h1>
+        </div>
+        <div class="cards_3">
+            <div class="cards_3_in">
+                <span>*</span>
+                <p>回报描述</p>
             </div>
-            <div class="sh">
-                <div class="sh_btn_2">
-                    <a>取消</a>
-                </div>
-                <div class="sh_btn_1">
-                    <a>保存</a>
-                </div>
-
+            <textarea></textarea>
+            <h1>0/1000</h1>
+        </div>
+        <div class="sh">
+            <div class="sh_btn_2">
+                <a>取消</a>
             </div>
+            <div class="sh_btn_1">
+                <a>添加</a>
+            </div>
+        </div>
         </div>
     </div>
 </div>
@@ -138,10 +146,10 @@
     });
     //点击事件
     $('#btn').click(function(){
-        $('.bgs').css('display','block');
+        $('.bbb').css('display','block');
     })
-    $('#btn').click(function(){
-        $('.bgs').css('display','none');
+    $('.sh_btn_2').click(function(){
+        $('.bbb').css('display','none');
     })
     //弹窗位置
     var wid=$(window).width();
@@ -173,7 +181,7 @@
         if(!text_num.test(moneys)){
             alert('请输入正确的金额');
             return false;
-        }else if($('#in_text').html()===''){
+        }else if($('#in_text').val()===''){
             alert('标题名称不能为空');
             return false;
         }
