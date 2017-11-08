@@ -1,0 +1,47 @@
+
+<extend name="Public:main" />
+
+
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/helps.css">
+</block>
+<block name="main">
+    <div class="contain">
+        <div class="contain_left">
+            <ul>
+                <li <if condition="$active eq 1"> class="act" </if> ><a href="{:U('Helps/index')}" <if condition="$active eq 1"> class="colors" </if> >常见问题</a></li>
+                <li <if condition="$active eq 2"> class="act" </if> ><a href="{:U('Helps/helps_2')}" <if condition="$active eq 2"> class="colors" </if> >发起人手册</a></li>
+                <li <if condition="$active eq 3"> class="act" </if> ><a href="{:U('Helps/helps_3')}" <if condition="$active eq 3"> class="colors" </if> >支持者手册</a></li>
+                <li <if condition="$active eq 4"> class="act" </if> style="border-bottom:1px solid #e5e5e5"><a href="{:U('Helps/helps_4')}" <if condition="$active eq 4"> class="colors" </if>>法律协议</a></li>
+            </ul>
+        </div>
+        <div class="contain_right">
+            <div class="contain_right_in">
+                <div class="contain_right_lit">
+                    <h1>项目通过之后下一步怎么操作，文案、图片谁负责？</h1>
+                    <img id="o_1" src="__PUBLIC__/Hy/images/helps_2.png">
+                </div>
+                <p> 审核通过后我们会与您对接，发起人需要提供文字和图片的原始素材，我们负责文字的整合和润色，图片的优化。</p>
+            </div>
+            <div class="contain_right_in">
+                <div class="contain_right_lit">
+                    <h1>谁来承担发放回报的邮费</h1>
+                    <img id="o_2" src="__PUBLIC__/Hy/images/helps_2.png">
+                </div>
+                <p>通常是有发起人承担邮费，如有特殊情况请和支持者协商分担。</p>
+            </div>
+            <div class="contain_right_in">
+                <div class="contain_right_lit">
+                    <h1>微信文章由谁来写</h1>
+                    <img id="o_3" src="__PUBLIC__/Hy/images/helps_2.png">
+                </div>
+                <p>有微信公众号的编辑负责，所以他们也将与你取得联系。</p>
+            </div>
+        </div>
+    </div>
+
+</block>
+
+<block name="js">
+    <script type="text/javascript" src="__PUBLIC__/Hy/js/help.js"></script>
+</block>

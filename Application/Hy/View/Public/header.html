@@ -25,7 +25,8 @@
                     <li id="index" <if condition="$pos eq 1"> class="active" </if> ><a href="{:U('Index/index')}" <if condition="$pos eq 1"> class="active" </if> >首页</a></li>
                     <li <if condition="$pos eq 2"> class="active" </if> ><a href="{:U('Index/lists')}" <if condition="$pos eq 2"> class="active" </if> >浏览项目</a></li>
                     <li id="code"><a>关注公众号</a></li>
-                    <li><a>帮助中心</a></li>
+
+                    <li <if condition="$pos eq 3"> class="active" </if> ><a href="{:U('Helps/index')}" <if condition="$pos eq 3"> class="active" </if> >帮助中心</a></li>
                </ul>
         </div>
         <div class="top_box">

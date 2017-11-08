@@ -1,0 +1,47 @@
+
+<extend name="Public:main" />
+
+
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/helps.css">
+</block>
+<block name="main">
+    <div class="contain">
+        <div class="contain_left">
+            <ul>
+                <li <if condition="$active eq 1"> class="act" </if> ><a href="{:U('Helps/index')}" <if condition="$active eq 1"> class="colors" </if> >常见问题</a></li>
+                <li <if condition="$active eq 2"> class="act" </if> ><a href="{:U('Helps/helps_2')}" <if condition="$active eq 2"> class="colors" </if> >发起人手册</a></li>
+                <li <if condition="$active eq 3"> class="act" </if> ><a href="{:U('Helps/helps_3')}" <if condition="$active eq 3"> class="colors" </if> >支持者手册</a></li>
+                <li <if condition="$active eq 4"> class="act" </if> style="border-bottom:1px solid #e5e5e5"><a href="{:U('Helps/helps_4')}" <if condition="$active eq 4"> class="colors" </if>>法律协议</a></li>
+            </ul>
+        </div>
+        <div class="contain_right">
+            <div class="contain_right_in">
+                <div class="contain_right_lit">
+                    <h1>谁可以发起项目</h1>
+                    <img id="o_1" src="__PUBLIC__/Hy/images/helps_2.png">
+                </div>
+                <p> 年满18周岁，且为中国公民，或能提供长期在中国居住证明的非中国公民。</p>
+            </div>
+            <div class="contain_right_in">
+                <div class="contain_right_lit">
+                    <h1>目前红叶的项目分为六大类</h1>
+                    <img id="o_2" src="__PUBLIC__/Hy/images/helps_2.png">
+                </div>
+                <p>  。公益      。约吗      。愿望      。农业       。创意      。生活</p>
+            </div>
+            <div class="contain_right_in">
+                <div class="contain_right_lit">
+                    <h1>红叶帮帮忙的收费标准</h1>
+                    <img id="o_3" src="__PUBLIC__/Hy/images/helps_2.png">
+                </div>
+                <p>项目筹款成功，红叶帮帮忙将收取一定比例的众筹金额作为平台佣金。</p>
+            </div>
+        </div>
+    </div>
+
+</block>
+
+<block name="js">
+    <script type="text/javascript" src="__PUBLIC__/Hy/js/help.js"></script>
+</block>
