@@ -396,8 +396,11 @@ class ProjectController extends AdminController
             $v['status'] = getOrderStatus($v['status']);
             $v['nick_name'] = M('users') -> where(['id'=>$v['user_id']]) -> getField('nick_name');
             $v['weixin_no'] = M('user_pay') -> where(['pay_no'=>$v['order_no']]) -> getField('weixin_no');
+            $v['weixin_no'] = '`'.$v['weixin_no'];
             $v['pay_time'] = date('Y-m-d H:i:s',$v['pay_time']);
         }
+
+//        dump($list);
 
         $count = M('orders') -> where(['project_id'=> $p_id,'status'=>['GT',1]]) -> order($reorder) -> count();
         //dump($list);
