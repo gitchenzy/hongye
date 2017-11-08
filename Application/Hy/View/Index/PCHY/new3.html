@@ -180,7 +180,7 @@
         if(!text_num.test(moneys)){
             alert('请输入正确的金额');
             return false;
-        }else if($('#in_text').html()===''){
+        }else if($('#in_text').val()===''){
             alert('标题名称不能为空');
             return false;
         }
@@ -190,7 +190,9 @@
     
         }
     })
-    
+    $(window).click(function(event){
+        console.log(event)
+    })
 
                  </script>
 </body>
