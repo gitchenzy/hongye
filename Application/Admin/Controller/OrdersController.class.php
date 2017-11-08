@@ -159,6 +159,7 @@ class OrdersController extends AdminController
         foreach($list as &$v){
 
             $v['pay_time'] = date('Y-m-d H:i:s',$v['pay_time']);
+            $v['weixin_no'] = '`'.$v['weixin_no'];
 //            if($v['pay_type']==1){
 //                $v['pay_type'] = '充值';
 //            }elseif($v['pay_type']==2){

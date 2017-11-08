@@ -885,7 +885,7 @@
         if (cell != null) {
           var $cell = $(cell);
           var htmlData;
-          
+
           if ($cell[0].hasAttribute("data-tableexport-value"))
             htmlData = $cell.data("tableexport-value");
           else

@@ -15,9 +15,9 @@
         </div>
         <div class="main_image">
             <ul>
-                <li><span><a href=""><img id="b_{$ak + 1}" src="__PUBLIC__/Hy/images/banner-1.jpg"></a></span></li>
-                <li><span><a href=""><img id="b_{$ak + 1}" src="__PUBLIC__/Hy/images/banner-2.jpg"></a></span></li>
-                <li><span><a href=""><img id="b_{$ak + 1}" src="__PUBLIC__/Hy/images/banner-3.jpg"></a></span></li>
+                <volist name="ad" id="vad" key="ak">
+                    <li><span><a href="{$vad.url}"><img id="b_{$ak + 1}" src="{$vad.pic}"></a></span></li>
+                </volist>
             </ul>
             <a href="javascript:;" id="btn_prev"></a>
             <a href="javascript:;" id="btn_next"></a>

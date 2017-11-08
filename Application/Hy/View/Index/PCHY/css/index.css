@@ -344,3 +344,11 @@ div.flicking_con a.on {
     color: rgba(0, 0, 0, 0.7);
     line-height: 30px;
 }
+.actives{
+    width:72px;
+    height: 32px;
+    text-align: center;
+    display: block;
+    color: #fff !important;
+    background: #f45353;
+}

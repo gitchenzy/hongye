@@ -12,9 +12,9 @@
         </div>
         <div class="main_image">
             <ul>
-                    <li><span><a href=""><img id="b_{$ak + 1}" src="__PUBLIC__/Hy/images/banner-1.jpg"></a></span></li>
-                    <li><span><a href=""><img id="b_{$ak + 1}" src="__PUBLIC__/Hy/images/banner-2.jpg"></a></span></li>
-                    <li><span><a href=""><img id="b_{$ak + 1}" src="__PUBLIC__/Hy/images/banner-3.jpg"></a></span></li>
+                <volist name="ad" id="vad" key="ak">
+                    <li><span><a href="{$vad.url}"><img id="b_{$ak + 1}" src="{$vad.pic}"></a></span></li>
+                </volist>
             </ul>
             <a href="javascript:;" id="btn_prev"></a>
             <a href="javascript:;" id="btn_next"></a>
@@ -36,7 +36,7 @@
             </ul>
             </div>
             <div style="margin-top:10px;    border-bottom:1px solid #c2c2c2;padding-bottom:16px;" class="contain_list">
-                    <p>众筹类型：</p>
+                    <p>项目状态：</p>
                     <ul>
                         <li><a href="/index.php/hy/index/lists?t_id={$Think.get.t_id}#p"  <empty name="Think.get.orders"> class="actives"</empty> >全部</a></li>
                         <li><a href="/index.php/hy/index/lists?t_id={$Think.get.t_id}&orders=1#p"  <if condition="$_GET['orders'] eq 1"> class="actives" </if> >最新上线</a></li>
