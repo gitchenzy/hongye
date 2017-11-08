@@ -40,8 +40,11 @@ class IndexController extends CommonController {
                 }
             }
         }
+
+        $ad = M('ad') -> where(['positions'=> 'pc_1']) -> select();
         $this -> assign('hot_info',$hot_info);
         $this -> assign('info',$info);
+        $this -> assign('ad',$ad);
         $this -> assign('pos',1);
         $this -> display();
     }
@@ -108,6 +111,8 @@ class IndexController extends CommonController {
                 }
             }
         }
+        $ad = M('ad') -> where(['positions'=> 'pc_2']) -> select();
+        $this -> assign('ad',$ad);
         $this -> assign('info',$info);
         $this -> assign('type',$type);
         $this -> assign('pos',2);
