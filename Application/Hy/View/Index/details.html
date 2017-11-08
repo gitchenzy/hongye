@@ -4,23 +4,23 @@
 </block>
 <block name="main">
     <div class="banner">
-        <img alt="项目封面大图" src="__PUBLIC__/Hy/images/banner-1.jpg">
-        <h2>种瓜得瓜，种豆得豆，呵呵</h2>
+        <img alt="项目封面大图" src="{$project.pic}">
+        <h2>{$project.title}</h2>
         <div class="banner_pic">
-            <img alt="用户头像" src="__PUBLIC__/Hy/images/girl.jpg">
-            <a>用户名称</a>
-            <p>城市</p>
+            <img alt="用户头像" src="{$project.user_pic}">
+            <a>{$project.user_name}</a>
+            <p>{$project.city}</p>
         </div>
         <div class="little_card_1">
-            <h1>41</h1>
+            <h1>{$shijian.d}</h1>
             <p>天</p>
         </div>
         <div style=" left:446px;" class="little_card_1">
-            <h1>41</h1>
+            <h1>{$shijian.h}</h1>
             <p>时</p>
         </div>
         <div style="left:542px;" class="little_card_1">
-            <h1>41</h1>
+            <h1>{$shijian.s}</h1>
             <p>分</p>
         </div>
     </div>
@@ -28,27 +28,27 @@
         <div class="content_content">
             <section>
                 <!--项目内容在此-->
+                {$project.des|htmlspecialchars_decode}
             </section>
         </div>
         <div class="content_conts">
-            <div class="content_text">
+
+            <volist name="return" id="vo">
+                <div class="content_text">
                 <div class="content_conts_1">
-                    <h3>￥200</h3>
-                    <p>已有5人支持</p>
+                    <h3>￥{$vo['amount']}</h3>
+                    <p>已有{$vo.count|default=0}人支持</p>
                 </div>
                 <div class="content_conts_2">
-                    <h4>感谢您的支持</h4>
-                    <p>环境恢复健康速度恢复健康速度恢复健康速度恢复健康</p>
-                    <p>环境恢复健康速度恢复健康速度恢复健康速度恢复健康</p>
-                    <p>环境恢复健康速度恢复健康速度恢复健康速度恢复健康</p>
+                    <h4>{$vo.title}</h4>
+
+                    <span>{$vo.des}</span>
+
+                    <volist name="vo.rule" id="rvo">
+                        <p>{$rvo}</p>
+                    </volist>
                 </div>
-                <div class="content_conts_3">
-                    <p>配送说明：全国地区免费配送</p>
-                </div>
-                <div class="content_conts_4">
-                    <p>发送回报时间</p>
-                    <p>一个月后</p>
-                </div>
+
                 <div class="content_conts_5">
                     <div class="content_conts_btn">
                         <a>我要支持</a>
@@ -57,40 +57,12 @@
                 <div class="wechat_box">
                     <h1>扫码关注公众号支持</h1>
                     <div class="wechat_box_box">
-                        <img src="images/code.png">
+                        <img src="__PUBLIC__/Hy/images/code.png">
                     </div>
                 </div>
             </div>
-            <div class="content_text">
-                <div class="content_conts_1">
-                    <h3>￥200</h3>
-                    <p>已有5人支持</p>
-                </div>
-                <div class="content_conts_2">
-                    <h4>感谢您的支持</h4>
-                    <p>环境恢复健康速度恢复健康速度恢复健康速度恢复健康</p>
-                    <p>环境恢复健康速度恢复健康速度恢复健康速度恢复健康</p>
-                    <p>环境恢复健康速度恢复健康速度恢复健康速度恢复健康</p>
-                </div>
-                <div class="content_conts_3">
-                    <p>配送说明：全国地区免费配送</p>
-                </div>
-                <div class="content_conts_4">
-                    <p>发送回报时间</p>
-                    <p>一个月后</p>
-                </div>
-                <div class="content_conts_5">
-                    <div class="content_conts_btn">
-                        <a>我要支持</a>
-                    </div>
-                </div>
-                <div class="wechat_box">
-                    <h1>扫码关注公众号支持</h1>
-                    <div class="wechat_box_box">
-                        <img src="images/code.png">
-                    </div>
-                </div>
-            </div>
+            </volist>
+
         </div>
     </div>
 
