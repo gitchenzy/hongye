@@ -14,6 +14,45 @@
                     <img src="images/erweima.png" alt="公众号二维码">
                     </div>
                 </div>
+        <div class="bgs">
+            <div style="display:flex;flex-direction:column">
+                <div class="all_right_card">
+                        <div class="cards_1">
+                            <div class="cards_1_in">
+                                <span>*</span>
+                                <p>回报金额</p>
+                                </div>
+                            <input type="text" placeholder="0">
+                            </div>
+                        <div class="cards_2">
+                                <div class="cards_2_in">
+                                        <span>*</span>
+                                        <p>回报标题</p>
+                                    </div>
+                                    <input id="in_text" type="text" placeholder="请输入回报标题">
+                                    <h1 id="sccc">0/10</h1>
+                            </div>
+                            <div class="cards_3">
+                                    <div class="cards_3_in">
+                                            <span>*</span>
+                                            <p>回报描述</p>
+                                        </div>
+                                        <textarea></textarea>
+                                        <h1>0/1000</h1>
+                                    
+                                </div>
+                            <div class="sh">
+                                    <div class="sh_btn_2">
+                                        <a>取消</a>
+                                        </div>
+                                <div class="sh_btn_1">
+                                        <a>保存</a>
+                                    </div>
+                               
+                                </div>
+                        </div>    
+                </div>
+            </div>
             <div class="top">
               <div class="top_box">
                 <div class="top_img">
@@ -66,7 +105,7 @@
             <h1>0</h1>
             <p>已设置</p>
             </div>
-        <div class="haha">
+        <div id="btn" class="haha">
             <a>添加回报</a>
             </div>
         </div>
@@ -96,65 +135,8 @@
                             <textarea></textarea>
                             <h1>0/1000</h1>
                         
-                    </div>
-                
+                    </div>               
     </div>
-    <div class="all_right_card">
-            <div class="cards_2">
-                    <div class="cards_2_in">
-                            <span>*</span>
-                            <p>人数限制</p>
-                        </div>
-                        <input type="text" placeholder="无人数限制">
-                      
-            </div>
-            <div class="cards_2">
-                    <div class="cards_2_in">
-                            <span>*</span>
-                            <p>发送回报时间</p>
-                        </div>
-                        <input type="text" placeholder="10">
-                        <h1>天</h1>
-            </div>
-            <div class="cards_2">
-                    <div class="cards_2_in">
-                            <span>*</span>
-                            <p>收货地址</p>
-                        </div>
-                    <div id="mane_1" class="cards_2_div bor">    
-                        <p id="text_1" class="bor">需要填写</p>
-                        </div>
-                        <!-- 状态选择 -->
-                        <div id="mane_2" class="cards_2_div">    
-                                <p id="text_2">不需要填写</p>
-                            </div>
-
-            </div>
-            <div class="cards_2">
-                    <div class="cards_2_in">
-                            <span>*</span>
-                            <p>配送说明</p>
-                        </div>
-                        <input type="text" placeholder="例：福建省厦门市思明区...">
-                        <h1>0/40</h1>
-            </div>
-                
-            </div>
-        <div class="all_right_card">
-                <div class="cards_2">
-                        <div style="width:140px;" class="cards_2_in">
-                                
-                                <p>默认备注</p>
-                            </div>
-                            <input style="width:80%" type="text" placeholder="例：福建省厦门市思明区...">
-                            <div id="h_1" class="hehe bor">
-                                <p id="t_1" class="bor">必填</p>
-                                </div>
-                                <div id="h_2" class="hehe">
-                                        <p id="t_2">选填</p>
-                                    </div>
-                </div>
-            </div>
             </div>
     </div>
 </div>
@@ -199,18 +181,32 @@
          
         });
         //点击事件
-        $('#mane_2').click(function(){
-            $('#mane_1').removeClass('bor');
-            $('#mane_2').addClass('bor');
-            $('#text_2').addClass('bor');
-            $('#text_1').removeClass('bor');
-        });
-        $('#mane_1').click(function(){
-            $('#mane_1').addClass('bor');
-            $('#mane_2').removeClass('bor');
-            $('#text_2').removeClass('bor');
-            $('#text_1').addClass('bor');
-        });
+        $('#btn').click(function(){
+           $('.bgs').css('display','block');
+        })
+        $('.sh_btn_2').click(function(){
+            $('.bgs').css('display','none');
+        })
+        //弹窗位置
+        var wid=$(window).width();
+        var new_wid=(wid-800)/2;
+        (function(){
+            $('.all_right_card:eq(0)').css('left',new_wid+'px')
+        })();
+        //字数限制；
+        $('#in_text').on('input',function(){
+        var len=$('#in_text').val().length;
+        if(len>=10){
+            var so=$('#in_text').val().slice(0,10);
+            $('#in_text').val(so);
+            $('#sccc').html('10/10')
+            console.log(so);
+        }else{
+            $('#sccc').html(len+'/10')
+        }
+        
+    });
+        
                  </script>
 </body>
 </html>
