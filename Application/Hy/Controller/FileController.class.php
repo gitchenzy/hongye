@@ -49,6 +49,29 @@ class FileController extends Controller{
         Log::record(json_encode($return) , Log::INFO);
         $this->ajaxReturn($return);
     }
+    public function uploadProjects(){
+
+        $return  = array('status' => 1, 'info' => '上传成功', 'data' => '');
+        $setting['rootPath'] = "uploads/project/";
+        makeDir(ROOT_PATH."/".$setting['rootPath']);
+        $Upload = new Upload($setting, "local", C("UPLOAD_LOCAL_CONFIG"));
+        $info   = $Upload->upload($_FILES);
+       // dump($info);
+        if ($info) {
+            $return['data'] = "/" . $setting['rootPath'] . $info['file']['savepath'] . $info['file']['savename'];
+            $arr['link'] = $return['data'];
+        }
+        else {
+            $return['info'] =  $Upload->getError();
+            $return['status'] = 0;
+            $arr['link'] = $return['status'];
+        }
+
+
+
+        Log::record(json_encode($arr) , Log::INFO);
+        $this->ajaxReturn($arr);
+    }
 
     public function uploadType(){
         $return  = array('status' => 1, 'info' => '上传成功', 'data' => '');
