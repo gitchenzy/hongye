@@ -22,7 +22,7 @@
                                 <span>*</span>
                                 <p>回报金额</p>
                                 </div>
-                            <input type="text" placeholder="0">
+                            <input id="money" type="text" placeholder="0">
                             </div>
                         <div class="cards_2">
                                 <div class="cards_2_in">
@@ -39,7 +39,6 @@
                                         </div>
                                         <textarea></textarea>
                                         <h1>0/1000</h1>
-                                    
                                 </div>
                             <div class="sh">
                                     <div class="sh_btn_2">
@@ -75,7 +74,7 @@
                 <div class="text">
                     <div class="text_child">
                         <a>登录</a>
-                        </div>
+                    </div>
                     <div class="text_child none">
                         <a>注册</a>
                     </div>
@@ -102,7 +101,7 @@
 <div class="all">
     <div class="all_left">
         <div class="all_left_box">
-            <h1>0</h1>
+            <h1 id="nums">0</h1>
             <p>已设置</p>
             </div>
         <div id="btn" class="haha">
@@ -132,7 +131,7 @@
                                 <span>*</span>
                                 <p>回报描述</p>
                             </div>
-                            <textarea></textarea>
+                            <textarea id="txt" placeholder="请输入描述内容，格式为1.&nbsp;&nbsp;&nbsp;2.&nbsp; &nbsp; 3."></textarea>
                             <h1>0/1000</h1>
                         
                     </div>               
@@ -140,9 +139,6 @@
             </div>
     </div>
 </div>
-
-
-
         <div class="bb">
             <div class="btn">
                 <a>保存</a>
@@ -151,7 +147,6 @@
                         <a style="color:#797979">预览</a>
                         </div>
         </div>
-
          <script>
             $('#code').click(function(){
             $('.bg').css('display','block');
@@ -206,7 +201,29 @@
         }
         
     });
-        
+
+
+
+    //简单的表单验证
+    var n=0;
+    var text_num=RegExp(/[0-9]/); 
+    $('.sh_btn_1').click(function(){
+        var moneys=parseInt($('#money').val());
+        if(!text_num.test(moneys)){
+            alert('请输入正确的金额');
+            return false;
+        }else if($('#in_text').html()===''){
+            alert('标题名称不能为空');
+            return false;
+        }
+        else{
+           n++;
+           $('#nums').html(n)
+    
+        }
+    })
+    
+
                  </script>
 </body>
 </html>
