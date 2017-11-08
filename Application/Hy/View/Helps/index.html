@@ -1,0 +1,54 @@
+
+<extend name="Public:main" />
+
+
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/helps.css">
+</block>
+<block name="main">
+    <div class="contain">
+        <div class="contain_left">
+            <ul>
+                <li <if condition="$active eq 1"> class="act" </if> ><a href="{:U('Helps/index')}" <if condition="$active eq 1"> class="colors" </if> >常见问题</a></li>
+                <li <if condition="$active eq 2"> class="act" </if> ><a href="{:U('Helps/helps_2')}" <if condition="$active eq 2"> class="colors" </if> >发起人手册</a></li>
+                <li <if condition="$active eq 3"> class="act" </if> ><a href="{:U('Helps/helps_3')}" <if condition="$active eq 3"> class="colors" </if> >支持者手册</a></li>
+                <li <if condition="$active eq 4"> class="act" </if> style="border-bottom:1px solid #e5e5e5"><a href="{:U('Helps/helps_4')}" <if condition="$active eq 4"> class="colors" </if>>法律协议</a></li>
+            </ul>
+        </div>
+        <div class="contain_right">
+            <div class="contain_right_in">
+                <div class="contain_right_lit">
+                    <h1>发起项目流程</h1>
+                    <img id="o_1" src="__PUBLIC__/Hy/images/helps_2.png">
+                </div>
+                <p>在Pc端点击“发起项目”-提交实名认证信息-编辑项目内容“项目设置、内容编辑、回报设置”-保存、预览，若需修改点击“重新编辑”，若编辑完成提交审核即可。</p>
+            </div>
+            <div class="contain_right_in">
+                <div class="contain_right_lit">
+                    <h1>退款到账需要多久？退到哪里？</h1>
+                    <img id="o_2" src="__PUBLIC__/Hy/images/helps_2.png">
+                </div>
+                <p>3-5个工作日（原路返回）</p>
+            </div>
+            <div class="contain_right_in">
+                <div class="contain_right_lit">
+                    <h1>如何联系发起人？</h1>
+                    <img id="o_3" src="__PUBLIC__/Hy/images/helps_2.png">
+                </div>
+                <p>1.我还没有支持项目，对项目很感兴趣想联系发起人，该 怎么办？如果您想对项目有更多的了解，或者想与发起人直接沟通对话，可以在项目详情-评论区留下您的联系方式，或者联系客服留下您的联系方式，我们会主动联系你。</p>
+            </div>
+            <div class="contain_right_in">
+                <div class="contain_right_lit">
+                    <h1>提现有手续费吗？</h1>
+                    <img id="o_4" src="__PUBLIC__/Hy/images/helps_2.png">
+                </div>
+                <p>提现不收取任何手续费。</p>
+            </div>
+        </div>
+    </div>
+
+</block>
+
+<block name="js">
+    <script type="text/javascript" src="__PUBLIC__/Hy/js/help.js"></script>
+</block>

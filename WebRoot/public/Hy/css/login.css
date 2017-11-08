@@ -1,0 +1,134 @@
+body{
+    background: rgba(0, 0, 0, 0.03);
+}
+.all{
+    display: flex;
+    justify-content: center;
+}
+.all_box{
+    margin: 0;
+}
+.all_box img{
+    width:240px;
+    height: 240px;
+}
+
+
+
+
+
+
+
+.texts{
+    display: flex;
+
+    justify-content: center;
+    margin-top: 30px;
+}
+.texts_in{
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
+.texts_first{
+    width: 820px;
+    height: 60px;
+    background: #f2f2f2;
+    text-align: center;
+}
+.texts_first h1{
+    font-weight: lighter;
+    font-size: 22px;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 62px;
+}
+.biaoti{
+    height: 45px;
+    display: flex;
+    border-bottom: 1px solid #e5e5e5;
+}
+.biaoti_in{
+    width: 50%;
+    border-right: 1px solid #e5e5e5;
+    text-align: center;
+}
+.biaoti_in a{
+    font-size: 22px;
+    color: rgba(0, 0, 0, 0.5);
+    line-height: 42px;
+    height: 9px;
+    padding-bottom: 9px;
+}
+.acts{
+    color: #f45353 !important;
+    border-bottom: 2px solid #f45353;
+}
+.langs{
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: column;
+}
+.langs_in{
+    display: flex;
+    justify-content: space-between;
+}
+.langs_left{
+    display: flex;
+    flex-direction: column;
+}
+.langs_left_child{
+    width:533px;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    display: flex;
+    margin-bottom: 30px;
+}
+.cc{
+    width:100px;
+    height: 40px;
+    background: #fafafa;
+    border-right: 1px solid #e5e5e5;    display: flex;
+    justify-content: center;
+}
+.cc span{
+    font-size: 14px;
+    color: #f45353;
+    line-height: 38px;
+}
+.cc p{
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.5);
+    line-height: 38px;
+}
+.langs_left_child input{
+    width:413px;
+    height: 40px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.5);
+    padding-left: 20px;
+    border: none;
+}
+.imgss{
+    width: 135px;
+    height: 186px;
+    background: url(../images/ge.png) no-repeat;
+    background-size: 135px 186px;
+    cursor: pointer;
+}
+.no{
+    width:100%;
+    height: 42px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.no_red{
+    width:135px;
+    height: 42px;
+    background: #f45353;
+    text-align: center;
+}
+.no_red a{
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 42px;
+}

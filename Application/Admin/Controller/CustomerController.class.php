@@ -56,6 +56,7 @@ class CustomerController extends AdminController
             $v['status_name'] = $v['status']==1?'正常':'冻结';
             $v['sex_name'] = $v['sex']==1?'男':'女';
             $v['is_auth'] = $v['is_auto']?'认证':'未认证';
+            $v['reg_time'] = date('Y-m-d H:i:s',$v['reg_time']);
             $v['grade_name'] = M('user_grade') -> where(['id'=>$v['grade_id']]) -> getField('title');
         }
         //dump($list);
