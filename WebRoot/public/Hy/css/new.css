@@ -42,10 +42,8 @@ body{
 .imgs{
     display: flex;
     justify-content: center;
-    background:url('../images/upimg.jpg');
+
     margin-top: 40px;
-    margin:0px auto 40px auto;
-    cursor: pointer;
 }
 .imgs_bg{
     width:1300px;
@@ -279,7 +277,9 @@ body{
     margin-top: 70px;
     display: flex;
     flex-direction: row-reverse;
-
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
 }
 .btn{
     width:142px;

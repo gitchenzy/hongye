@@ -66,7 +66,7 @@ class CenterController extends CommonController {
         $where['user_id'] = $this -> user_id;
         $where['id'] = $data['id'];
         $where['del'] = 0;
-       
+
         $res = M('project') -> where($where) ->save(['des'=>$data['content']]);
 
         if($res){
