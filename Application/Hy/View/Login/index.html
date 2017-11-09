@@ -1,0 +1,26 @@
+
+<include file="Public/header"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/regist.css">
+
+<div class="regist">
+    <div id="qr" class="load">
+
+    </div>
+
+</div>
+
+<!--<a href="https://open.weixin.qq.com/connect/qrconnect?appid={$info.appid}&redirect_uri={$info.url}&response_type=code&scope=SCOPE&state=STATE#wechat_redirect">微信登录</a>-->
+<script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+<script>
+    var obj = new WxLogin({
+        id:"qr",
+        appid: "wxd624dd8270d22b25",
+        scope: "snsapi_login",
+        redirect_uri: "http://www.hybbms.com/index.php/Hy/Login/w_login",
+        state: "1",
+        style: "",
+        href: ""
+    });
+</script>
+</body>
+</html>
