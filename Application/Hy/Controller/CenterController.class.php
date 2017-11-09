@@ -78,7 +78,52 @@ class CenterController extends CommonController {
     }
     //项目第三部
     public function new_three(){
+
+        $project_id = I('project_id');
+
+        $info = M('project_return') -> where(['project_id'=>$project_id]) -> select();
+        $count = M('project_return') -> where(['project_id'=>$project_id]) -> count();
+
+        $this -> assign('info',$info);
+        $this -> assign('count',$count);
+        $this -> assign('id',$project_id);
+
         $this -> display();
+    }
+    //添加下那个木回报
+    public function addReturn(){
+        $data = I('post.');
+        $data['time'] = time();
+        $info = M('project_return') -> add($data);
+        if($info){
+            $this -> success('添加成功！');
+        }else{
+            $this -> error('添加失败！');
+        }
+    }
+    //修改回报
+    public function editReturn(){
+        $data = I('post.');
+        $info = M('project_return') -> where(['id'=>$data['id']]) -> save([$data['name']=>$data['val']]);
+        if($info){
+            $this -> success('修改成功！');
+        }else{
+            $this -> error('修改失败！');
+        }
+    }
+    //修改项目状态
+    public function editProject(){
+
+        $project_id = I('project_id');
+        $where['user_id'] = $this -> user_id;
+        $where['id'] = $project_id;
+        $where['del'] = 0;
+        $res = M('project') -> where($where) ->save(['status'=>1]);
+        if($res){
+            $this -> success('修改成功！');
+        }else{
+            $this -> error('修改失败！');
+        }
     }
 
 

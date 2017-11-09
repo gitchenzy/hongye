@@ -14,7 +14,7 @@
 </style>
 <div class="bbb">
 <div style="display:flex;flex-direction:column">
-    <div class="all_right_card">
+    <div style="position: fixed;" class="all_right_card">
         <div class="cards_1">
             <div class="cards_1_in">
                 <span>*</span>
@@ -35,7 +35,7 @@
                 <span>*</span>
                 <p>回报描述</p>
             </div>
-            <textarea></textarea>
+            <textarea id="des"></textarea>
             <h1>0/1000</h1>
         </div>
         <div class="sh">
@@ -70,50 +70,54 @@
 <div class="all">
     <div class="all_left">
         <div class="all_left_box">
-            <h1 id="nums">0</h1>
+            <h1 id="nums">{$count}</h1>
             <p>已设置</p>
         </div>
         <div id="btn" class="haha">
             <a>添加回报</a>
         </div>
     </div>
-    <div class="all_right">
-        <div style="display:flex;flex-direction:column">
-            <div class="all_right_card">
-                <div class="cards_1">
-                    <div class="cards_1_in">
-                        <span>*</span>
-                        <p>回报金额</p>
+    <div class="all_right" style="margin-bottom: 45px;" >
+        <volist name="info" id="vo">
+            <div style="display:flex;flex-direction:column">
+                <div class="all_right_card">
+                    <div class="cards_1">
+                        <div class="cards_1_in">
+                            <span>*</span>
+                            <p>回报金额</p>
+                        </div>
+                        <input type="text" name="amount" class="edit" key="{$vo.id}" value="{$vo.amount}" placeholder="0">
                     </div>
-                    <input type="text" placeholder="0">
-                </div>
-                <div class="cards_2">
-                    <div class="cards_2_in">
-                        <span>*</span>
-                        <p>回报标题</p>
+                    <div class="cards_2">
+                        <div class="cards_2_in">
+                            <span>*</span>
+                            <p>回报标题</p>
+                        </div>
+                        <input type="text" name="title" class="edit" key="{$vo.id}" value="{$vo.title}"  placeholder="请输入回报标题">
+                        <h1>0/10</h1>
                     </div>
-                    <input type="text" placeholder="请输入回报标题">
-                    <h1>0/10</h1>
-                </div>
-                <div class="cards_3">
-                    <div class="cards_3_in">
-                        <span>*</span>
-                        <p>回报描述</p>
-                    </div>
-                    <textarea id="txt" placeholder="请输入描述内容，格式为1.&nbsp;&nbsp;&nbsp;2.&nbsp; &nbsp; 3."></textarea>
-                    <h1>0/1000</h1>
+                    <div class="cards_3">
+                        <div class="cards_3_in">
+                            <span>*</span>
+                            <p>回报描述</p>
+                        </div>
+                        <textarea  class="edit" name="des"  key="{$vo.id}" >{$vo.des}</textarea>
+                        <h1>0/1000</h1>
 
+                    </div>
                 </div>
             </div>
-        </div>
+        </volist>
+
     </div>
+
 </div>
 <div class="bb">
-    <div class="btn">
+    <div class="btn sub">
         <a>保存</a>
     </div>
     <div style="position:absolute;left:800px;background:#e5e5e5" class="btn">
-        <a style="color:#797979">预览</a>
+        <a href="{:U('Index/details',array('id'=>$id))}" style="color:#797979">预览</a>
     </div>
 </div>
 <script>
@@ -178,20 +182,59 @@
     var text_num=RegExp(/[0-9]/);
     $('.sh_btn_1').click(function(){
         var moneys=parseInt($('#money').val());
+        var title=$('#in_text').val();
+        var des=$('#des').val();
         if(!text_num.test(moneys)){
             alert('请输入正确的金额');
             return false;
-        }else if($('#in_text').val()===''){
+        }else if(title===''){
             alert('标题名称不能为空');
             return false;
         }
         else{
-            n++;
-            $('#nums').html(n)
+            var id = '{$Think.get.project_id}';
+            var info = {project_id:id,title:title,des:des,amount:moneys}
+            $.post("{:U('Center/addReturn')}",info,function (data) {
+                if(1 == data.status){
+                    location.reload();
+                }else{
+                    alert('添加失败');
+                }
+            })
+            
+            
+
 
         }
     })
 
+    $('.edit').blur(function(){
+        var obj = $(this);
+        var val = obj.val();
+        var id = obj.attr('key');
+        var name = obj.attr('name');
+        var info = {id:id,name:name,val:val}
+        $.post("{:U('Center/editReturn')}",info,function (data) {
+            if(1 == data.status){
+
+            }else{
+
+            }
+        })
+
+    })
+    $('.sub').click(function(){
+        var id = '{$Think.get.project_id}'
+        var info = {'project_id':id};
+        $.post("{:U('Center/editProject')}",info,function (data) {
+            if(1 == data.status){
+
+                location.href="{:U('Center/index')}";
+            }else{
+                alert('保存失败,请重新保存');
+            }
+        })
+    })
 
 </script>
 </body>
