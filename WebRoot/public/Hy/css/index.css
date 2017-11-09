@@ -79,7 +79,7 @@ div.flicking_con a {
     display: block;
     text-indent: -1000px;
     position: relative;
-    top: 600px;
+    top: 610px;
 }
 
 div.flicking_con a.on {
@@ -266,7 +266,7 @@ div.flicking_con a.on {
     float: left;
 }
 .card_bottom_card h1{
-    font-size: 2.4rem;
+    font-size: 2.0rem!important;
     font-weight: lighter;
     color: #000000;
 }

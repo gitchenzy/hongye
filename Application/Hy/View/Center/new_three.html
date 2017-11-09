@@ -101,8 +101,8 @@
                             <span>*</span>
                             <p>回报描述</p>
                         </div>
-                        <textarea  class="edit" name="des"  key="{$vo.id}" >{$vo.des}</textarea>
-                        <h1>0/1000</h1>
+                        <textarea id="contents"  class="edit" name="des"  key="{$vo.id}" >{$vo.des}</textarea>
+                        <h1 id="numbs">0/1000</h1>
 
                     </div>
                 </div>
@@ -171,6 +171,18 @@
             console.log(so);
         }else{
             $('#sccc').html(len+'/10')
+        }
+
+    });
+    $('#contents').on('input',function(){
+        var lengs=$('#contents').val().length;
+        if(lengs>=1000){
+            var so=$('#contents').val().slice(0,1000);
+            $('#contents').val(so);
+            $('#numbs').html('1000/1000')
+            console.log(so);
+        }else{
+            $('#numbs').html(lengs+'/10')
         }
 
     });
