@@ -22,7 +22,7 @@
 
 <div id="uploads" class="imgs"  style="width: 1300px;height:650px;">
     <!--<img width="1300" height="650" src="images/upimg.jpg?">-->
-    <input type="hidden" id="pic">
+    <input type="hidden" id="pic" value="{$project.pic}" >
 
 </div>
 <input type="hidden" id="project_id" value="{$project.id|default=0}">
@@ -118,7 +118,7 @@
             $.post("{:U('Center/addProject')}",info,function(data){
 
                 if(data.status ==1){
-                    alert('添加成功！');
+                   // alert('添加成功！');
                     location.href=data.info;
                 }else{
                     alert(data.info)
