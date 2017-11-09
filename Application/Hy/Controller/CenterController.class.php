@@ -5,11 +5,10 @@ class CenterController extends CommonController {
     protected function _initialize(){
         parent::_initialize();
         $user = get_user_info();
-         $user['user_id'] = 15;
-//        if (!$user) {
-//            $this->redirect("Index/index");
-//        }
-//
+       //  $user['user_id'] = 15;
+        if (!$user) {
+            $this->redirect("Login/index");
+        }
         $this -> user_id = $user['user_id'];
     }
     public function index(){
