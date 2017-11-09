@@ -162,8 +162,6 @@ div.flicking_con a.on {
     width: 350px;
     height: 310px;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
 }
 .card_img_little{
     width: 50px;
