@@ -82,7 +82,7 @@
                                     <div class="card_img_little">
                                         <p>公益</p>
                                         </div>
-                                    <img src="images/girl.jpg">
+                                    <img id="pic" src="images/creates.jpg">
                                     </div>
                             <div class="card_text">
                                 <div class="card_text_right">
@@ -123,7 +123,7 @@
                                     <div class="card_img_little">
                                         <p>公益</p>
                                         </div>
-                                    <img src="images/girl.jpg">
+                                    <img src="images/banner-2.jpg">
                                     </div>
                             <div class="card_text">
                                 <div class="card_text_right">
@@ -675,6 +675,14 @@
         $('#index a').addClass('active');
         $('.bg').css('display','none');
     })
+    //
+    var pics=$('.card_img img');
+    (function(){
+        for(i=0;i<12;i++){
+            console.log(pics[i].style.width)
+        }
+    })()
+
 </script>
 </body>
 </html>

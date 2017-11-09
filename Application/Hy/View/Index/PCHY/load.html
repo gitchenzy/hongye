@@ -7,7 +7,35 @@
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 <title>欢迎来到红叶筹</title>
 </head>
-<body>
+<body style="background:rgba(0,0,0,0.03)">
+    <style>
+        .boxs{
+            width:280px;
+            height: 435px;
+            border: 1px solid #e5e5e5;
+            display: flex;
+            flex-direction: column;
+            padding: 26px 19px 25px 19px;
+            text-align: center;
+            background: #ffffff;
+        }
+        .boxs h1{
+            font-size: 22px;
+            color: rgba(0,0,0,0.87);
+            margin-bottom: 24px;
+            font-weight: lighter;
+        }
+        .boxs img{
+            width:272px;
+            height: 272px;
+            margin-bottom: 24px;
+        }
+        .boxs p{
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.87);
+        }
+
+        </style>
         <div class="bg">
                 <div class="erweima">
                     <img src="images/erweima.png" alt="公众号二维码">
@@ -43,9 +71,11 @@
          </div>
          </div>
          <div class="regist">
-             <div class="load">
+             <div class="boxs">
+                 <h1>微信登录</h1>
                  <img src="images/erweima.png">
-                 <p>请用微信扫描登录</p>
+                 <p>请使用微信扫描二维码登录</p>
+                 <p>“红叶筹”公众号</p>
                  </div>
              </div>
          <script>

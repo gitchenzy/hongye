@@ -159,6 +159,11 @@ div.flicking_con a.on {
     margin: 0;
     padding: 0;
     position: relative;
+    width: 350px;
+    height: 310px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 .card_img_little{
     width: 50px;
@@ -176,8 +181,7 @@ div.flicking_con a.on {
     line-height: 28px;
 }
 .card_img img{
-    width: 350px;
-    height: 310px;
+  /*   clip-path: inset(0px 20px 20px 20px); */
     z-index: 99;
 }
 .card_text{
