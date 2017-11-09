@@ -33,30 +33,54 @@ class CenterController extends CommonController {
 
         //便利类别
         $son_type = M('project_type') -> where(['pid'=>array('GT',0),'del'=>0]) -> select();
-
+        //判断是否有project_id
+        $project_id = I('project_id');
+        if($project_id){
+            $project = M('project') -> where(['id'=>$project_id,'del'=>0]) -> find();
+        }else{
+            $project = 1;
+        }
         $this->assign('type',$son_type);
+        $this->assign('project',$project);
         $this -> display();
     }
     //添加项目第一步
     public function addProject(){
 
         $data = I('post.');
-        $data['user_id'] = $this -> user_id;
-        $info = M('project_type') -> where(['id'=>$data['type_id']])-> field('pid,is_return') -> find();
-        $data['father_type_id'] = $info['pid'];
-        $data['is_return'] = $info['is_return'];
-        $data['status'] = 0;//草稿状态
-        $data['time'] = time();
-        $res = M('project') -> add($data);
-        if($res){
-            $url = U('Center/new_two',array('project_id'=>$res));
-            $this -> success($url);
+        if($data['id'] > 0){
+            $res = M('project') ->where(['id' => $data['id']]) ->save($data);
+            if($res){
+                $url = U('Center/new_two',array('project_id'=>$data['id']));
+                $this -> success($url);
+            }else{
+                $this -> error('添加失败！');
+            }
         }else{
-            $this -> error('添加失败！');
+            unset($data['id']);
+            $data['user_id'] = $this -> user_id;
+            $info = M('project_type') -> where(['id'=>$data['type_id']])-> field('pid,is_return') -> find();
+            $data['status'] = 0;//草稿状态
+            $data['father_type_id'] = $info['pid'];
+            $data['is_return'] = $info['is_return'];
+            $data['time'] = time();
+            $res = M('project') -> add($data);
+            if($res){
+                $url = U('Center/new_two',array('project_id'=>$res));
+                $this -> success($url);
+            }else{
+                $this -> error('添加失败！');
+            }
         }
+
+
     }
     public function new_two(){
         //便利类别
+
+        $project_id = I('project_id');
+        $project = M('project') -> where(['id'=>$project_id,'del'=>0]) -> find();
+        $this->assign('project',$project);
         $this -> display();
     }
     //添加项目第二部
