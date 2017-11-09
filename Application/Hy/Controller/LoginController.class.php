@@ -29,7 +29,7 @@ class LoginController extends CommonController {
         $data = json_decode($data);
 
         //线判断是否有，没有则注册
-        $res = M('users') -> where(['openid'=>$data -> openid,'del'=>0]) -> find();
+        $res = M('users') -> where(['unionid'=>$data -> unionid,'del'=>0]) -> find();
         if($res){
             $current_user['user_id'] = $res['id'];
             session("user" , $current_user);
@@ -46,9 +46,11 @@ class LoginController extends CommonController {
             $user['pic'] = $data -> headimgurl;
             $user['nick_name'] = $this -> filter($data -> nickname);
             $user['openid'] = $data -> openid;
+            $user['unionid'] = $data -> unionid;
             $user['sex'] = $data -> sex;
             $user['reg_time'] = time();
             $user['login_time'] = time();
+            $user['status'] = 1;
             $user['status'] = 1;
             $user['grade_id'] = M('user_grade') -> where(['level'=>1]) -> getfield('id');
             $user_id = M('users') -> add($user);
@@ -77,5 +79,10 @@ class LoginController extends CommonController {
 
     }
 
+    public function out(){
+
+        session('[destroy]');
+        $this->redirect( 'Index/index');
+    }
 
 }

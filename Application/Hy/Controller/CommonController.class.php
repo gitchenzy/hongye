@@ -9,16 +9,13 @@ class CommonController extends Controller {
         $user = get_user_info();
         if($user){
             //登录的时候可以查查几条唯独记录
-            $where['user_id'] = $user['user_id'];
-            $where['status'] = 1;
-            $info_num = M('infos') -> where($where) -> count();
-            $this -> assign('infos_num',$info_num);
+            $where['id'] = $user['user_id'];
+            $login =  M('users') -> where($where) -> find();
+           $this -> assign('login',$login);
         }
 
     }
-    public function index(){
-        echo 123456;
-    }
+
 
 
 }

@@ -57,7 +57,7 @@ body{
 }
 .content_text{
     width: 318px;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
     padding: 22px 0px 16px 0px;
     background: #ffffff;
     border: 1px solid #e5e5e5;
@@ -164,13 +164,13 @@ body{
 }
 .wechat_box{
     width:160px;
-    height: 180px;
+    height: 165px;
     box-shadow: 1px 0px 5px #e5e5e5;
     display: none;
     flex-direction: column;
     text-align: center;
     position: absolute;
-    top:167px;
+    top:-25px;
     left: 170px;
     padding-top: 10px;
     background: #ffffff;
