@@ -42,8 +42,9 @@ body{
 .imgs{
     display: flex;
     justify-content: center;
-
-    margin-top: 40px;
+    background: url('../images/upimg.jpg');
+    text-align: center;
+    margin: 0 auto;
 }
 .imgs_bg{
     width:1300px;
@@ -94,6 +95,7 @@ body{
     display: flex;
     flex-direction: column;
     margin-top: 60px;
+    margin-bottom: 100px;
 }
 .contain_in{
     width: 800px;

@@ -57,19 +57,22 @@
                     </div>
                 </div>
                 <div class="card_bottom" style="display: none;">
-                    <div class="card_bottom_in fl">
-                        <a href="{:U('Index/index',array('id'=>$vo['id']))}">预览项目</a>
+                    <div class="card_bottom_in">
+                        <a  target="_blank" href="{:U('Index/details',array('id'=>$vo['id']))}">预览项目</a>
                     </div>
-                    <div class="card_bottom_in fl">
-                        <a href="{:U('Index/index')}">重新编辑</a>
+                    <if condition="$vo['status'] LT 2">
+                    <div class="card_bottom_in">
+                        <a href="{:U('Center/news',array('project_id'=>$vo['id']))}">重新编辑</a>
                     </div>
-                    <if condition="$vo['status'] LT 1">
-                        <div class="card_bottom_ins fl">
-                            <a href="{:U('Index/index')}">提交审核</a>
+                    </if>
+                    <if condition="$vo['status'] eq 0">
+                        <div class="card_bottom_ins sub" key="{$vo['id']}">
+                            <a>提交审核</a>
                         </div>
                     </if>
                 </div>
             </div>
+
             </volist>
         </div>
 
@@ -87,7 +90,18 @@
             $(this).parents('.card_right_box').find('.card_bottom').css('display','block')
 
         })
-
+        $('.sub').click(function(){
+            var id = $(this).attr('key')
+            var info = {'project_id':id};
+            $.post("{:U('Center/editProject')}",info,function (data) {
+                if(1 == data.status){
+                    alert('提交审核成功！');
+                    location.href="{:U('Center/index')}";
+                }else{
+                    alert('提交审核失败,请重新提交审核！');
+                }
+            })
+        })
 
     </script>
 </block>

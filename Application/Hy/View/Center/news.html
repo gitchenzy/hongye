@@ -19,13 +19,16 @@
     <p>内容编辑</p>
     <p style="position:relative;left:-106px;">回报设置</p>
 </div>
-<div id="uploads" class="imgs" style="width: 1300px;height:650px;">
+
+<div id="uploads" class="imgs"  style="width: 1300px;height:650px;">
     <!--<img width="1300" height="650" src="images/upimg.jpg?">-->
     <input type="hidden" id="pic">
+
 </div>
+<input type="hidden" id="project_id" value="{$project.id|default=0}">
 <div class="contain">
     <div class="contain_in">
-        <input type="text" id="title" placeholder="请输入标题，最多20字">
+        <input type="text" id="title" value="{$project.title}" placeholder="请输入标题，最多20字">
         <p>0/20</p>
     </div>
     <div class="co">
@@ -35,7 +38,7 @@
             <p>(元)</p>
         </div>
         <div class="co_right">
-            <input type="text" id="target_amount" placeholder="请输入众筹金额">
+            <input type="text" value="{$project.target_amount}" id="target_amount" placeholder="请输入众筹金额">
         </div>
     </div>
     <div class="du">
@@ -45,7 +48,7 @@
                 <p>项目地点</p>
             </div>
             <div class="in_du_right">
-                <input type="text" id="city" placeholder="请输入城市">
+                <input type="text" id="city" value="{$project.city}" placeholder="请输入城市">
             </div>
         </div>
         <div class="in_du">
@@ -57,7 +60,7 @@
                 <form>
                     <select name="selects" id="type_id">
                         <volist name="type" id="t_vo">
-                            <option value="{$t_vo.id}">{$t_vo.title}</option>
+                            <option <if condition="$project['type_id'] eq $t_vo['id']"> selected </if> value="{$t_vo.id}">{$t_vo.title}</option>
                         </volist>
                     </select>
                 </form>
@@ -96,16 +99,22 @@
                 }
             }
         });
+        var pic = '{$project.pic}'
+        var $pro = '{$project}';
+        if(1 != $pro){
+            $(".imgs").css('background-image','url('+pic+')');
+        }
+
 
         $('.sub').click(function(){
 
             var title = $('#title').val();
+            var project_id = $('#project_id').val();
             var city = $('#city').val();
             var pic = $('#pic').val();
             var type_id = $('#type_id').val();
             var target_amount = $('#target_amount').val();
-            var info = {'title':title,city:city,pic:pic,type_id:type_id,target_amount:target_amount};
-
+            var info = {'title':title,city:city,pic:pic,type_id:type_id,target_amount:target_amount,id:project_id};
             $.post("{:U('Center/addProject')}",info,function(data){
 
                 if(data.status ==1){
