@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/common.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/js/common.js">
 
     <block name="css"></block>
 <script type="text/javascript" src="__PUBLIC__/Hy/js/jquery-1.7.1.min.js"></script>
@@ -11,6 +12,62 @@
 <title>{$title|default=欢迎来到红叶筹}</title>
 </head>
 <body>
+
+<style>
+    .login{
+        width:180px;
+        height: 60px;
+        display: flex!important;
+        justify-content: space-between;
+        margin-left: 15px;
+        cursor: pointer;
+        position: relative;
+
+    }
+    .login p{
+        font-size: 16px;
+        color: rgba(0,0,0,0.5);
+        width: 100px;
+        height: 23px;
+        overflow: hidden;
+        margin-right: 10px;
+    }
+    .login img{
+        width:52px;
+        height:52px;
+        border-radius: 26px;
+        margin-top:-15px;
+    }
+    .down{
+        width: 97px;
+        display: none;
+        position: absolute;
+        background: #fff;
+        top:37px;
+        z-index: 10000;
+    }
+    .down ul{
+        flex-direction: column;
+    }
+    .down ul li{
+        width: 97px;
+        height: 42px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 30px;
+        border-bottom: 1px solid #e5e5e5;
+        text-align: center;
+        background: #fff;
+        border:1px solid #e5e5e5;
+        border-bottom: none;
+    }
+    .down ul li a{
+        font-size: 16px;
+        color: rgba(0,0,0,0.7);
+        line-height: 40px;
+        margin-left: 17px;
+    }
+    </style>
     <div class="bg">
         <div class="erweima">
             <img src="__PUBLIC__/Hy/images/erweima.png" alt="公众号二维码">
@@ -30,16 +87,35 @@
                </ul>
         </div>
         <div class="top_box">
-            <div class="search">
-                <input type="text" placeholder="请输入搜索内容" value="">
-                </div>
+            <!--<div class="search">-->
+                <!--<input type="text" placeholder="请输入搜索内容" value="">-->
+                <!--</div>-->
             <div id="btn_1" class="start">
                 <a href="{:U('center/news')}">发起项目</a>
             </div>
             <div class="text">
-                <div class="text_child">
-                    <a href="{:U('Login/index')}">登录</a>
-                </div>
+
+                <empty name="login">
+
+                    <div class="text_child">
+                        <a href="{:U('Login/index')}">登录</a>
+                    </div>
+
+                    <else />
+
+
+                    <div id="login" class="login">
+                        <p>{$login.nick_name}</p>
+                        <img id="aha" src="{$login.pic}">
+                        <div id="pics" class="down">
+                            <ul>
+                                <li><a href="{:U('center/index')}">我的项目</a></li>
+                                <li style="border-bottom: 1px solid #e5e5e5"><a href="{:U('Login/out')}">退出</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </empty>
                 <!--<div class="text_child none">-->
                     <!--<a>注册</a>-->
                 <!--</div>-->
@@ -47,3 +123,16 @@
         </div>
     </div>
 
+
+<script>
+   var n=0;
+   var btn=document.getElementById('aha');
+   btn.onclick=function () {
+       n++;
+       if(n%2===1){
+           document.getElementById('pics').style.display='block';
+       }else {
+           document.getElementById('pics').style.display='none';
+       }
+   }
+</script>

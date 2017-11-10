@@ -79,7 +79,7 @@ div.flicking_con a {
     display: block;
     text-indent: -1000px;
     position: relative;
-    top: 600px;
+    top: 610px;
 }
 
 div.flicking_con a.on {
@@ -266,7 +266,7 @@ div.flicking_con a.on {
     float: left;
 }
 .card_bottom_card h1{
-    font-size: 2.4rem;
+    font-size: 2.0rem!important;
     font-weight: lighter;
     color: #000000;
 }
@@ -307,6 +307,14 @@ div.flicking_con a.on {
     padding: 40px 410px 0 410px;
     display: flex;
     flex-direction: column;
+}
+@media screen and (max-width: 1367px) {
+    .contain{
+        height: 170px;
+        padding: 40px 300px 0 300px !important;
+        display: flex;
+        flex-direction: column;
+    }
 }
 .contain_text{
     text-align: left;
@@ -351,4 +359,20 @@ div.flicking_con a.on {
     display: block;
     color: #fff !important;
     background: #f45353;
+}
+.login{
+    width:180px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 30px;
+}
+.login a{
+    font-size: 16px;
+    color: rgba(0,0,0,0.5);
+}
+.login img{
+    width:52px;
+    height:52px;
+    border-radius: 26px;
 }

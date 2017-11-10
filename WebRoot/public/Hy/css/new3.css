@@ -42,7 +42,7 @@
 .cards_1{
     margin-top:30px;
     width: 100%;
-    height: 84px;
+    height: 70px;
     border: 1px solid #e5e5e5;
     background: #ffffff;
     display: flex;
@@ -79,10 +79,10 @@
 }
 .cards_1 input{
     width:660px;
-    height: 84px;
+    height: 70px;
     padding-left: 20px;
     font-size: 30px;
-    font-weight: bold;
+    font-weight: lighter;
     color: rgba(0, 0, 0, 0.7);
     border: none;
 }

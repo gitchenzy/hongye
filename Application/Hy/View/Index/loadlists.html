@@ -4,7 +4,7 @@
             <div class="card_img_little">
                 <p>{$vos.typename}</p>
             </div>
-            <img src="{$vos.pic}">
+            <a href="{:U('Index/details',array('id'=>$vos['id']))}"> <img src="{$vos.pic}"></a>
         </div>
         <div class="card_text">
             <div class="card_text_right">

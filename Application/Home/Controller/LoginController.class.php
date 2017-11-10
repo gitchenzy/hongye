@@ -27,7 +27,11 @@ class LoginController extends Controller {
 
         //线判断是否有，没有则注册
         $res = M('users') -> where(['openid'=>$data -> openid,'del'=>0]) -> find();
+
         if($res){
+            if(!$res['unionid']){
+                M('users') -> where(['openid'=>$data -> openid,'del'=>0]) -> save(['unionid'=>$data -> unionid]);
+            }
             $current_user['user_id'] = $res['id'];
             session("user" , $current_user);
             $back_url = session('back_url');
@@ -47,6 +51,7 @@ class LoginController extends Controller {
             $user['reg_time'] = time();
             $user['login_time'] = time();
             $user['status'] = 1;
+            $user['unionid'] =  $data -> unionid;
             $user['grade_id'] = M('user_grade') -> where(['level'=>1]) -> getfield('id');
             $user_id = M('users') -> add($user);
             $current_user['user_id'] = $user_id;
@@ -73,5 +78,6 @@ class LoginController extends Controller {
         return $return;
 
     }
+
 
 }

@@ -45,7 +45,7 @@
                         <div class="card_img_little">
                             <p>{$h_vo.typename}</p>
                         </div>
-                        <img src="{$h_vo.pic}">
+                        <a href="{:U('Index/details',array('id'=>$h_vo['id']))}"><img src="{$h_vo.pic}"></a>
                     </div>
                     <div class="card_text">
                         <div class="card_text_right">
@@ -103,7 +103,7 @@
                         <div class="card_img_little">
                             <p>{$vo.typename}</p>
                         </div>
-                        <img src="{$vo.pic}">
+                        <a href="{:U('Index/details',array('id'=>$vo['id']))}"><img src="{$vo.pic}"></a>
                     </div>
                     <div class="card_text">
                         <div class="card_text_right">
@@ -168,6 +168,11 @@
                 }
             });
 
+        });
+
+        var h=$('.card_bottom_card h1');
+        h.each(function () {
+            console.log($(this))
         })
 
 
