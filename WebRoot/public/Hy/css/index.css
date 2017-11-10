@@ -247,7 +247,7 @@ div.flicking_con a.on {
     position: absolute;
     top:-15px;
     left:280px;
-    z-index: 100px;
+    z-index: 100;
 }
 .card_going_circle p{
     font-size: 1.6rem;
