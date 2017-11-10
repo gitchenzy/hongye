@@ -22,6 +22,14 @@
     display: flex;
     flex-direction: column;
 }
+@media screen and (max-width: 1367px){
+    .contain{
+        background: rgba(0, 0, 0, 0.03);
+        height: 1000px;
+        padding: 30px 210px !important;
+        display: flex;
+    }
+}
 .contain_right_in{
     padding-bottom: 16px;
     margin-bottom: 14px;

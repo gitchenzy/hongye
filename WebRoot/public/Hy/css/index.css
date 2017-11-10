@@ -308,6 +308,14 @@ div.flicking_con a.on {
     display: flex;
     flex-direction: column;
 }
+@media screen and (max-width: 1367px) {
+    .contain{
+        height: 170px;
+        padding: 40px 300px 0 300px !important;
+        display: flex;
+        flex-direction: column;
+    }
+}
 .contain_text{
     text-align: left;
     padding-bottom: 16px;

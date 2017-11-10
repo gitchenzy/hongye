@@ -27,51 +27,62 @@
             <div class="title">
                 <p>我发起的项目</p>
             </div>
-            <volist name="project" id="vo">
-                <div class="card_right_box">
-                <div class="card_grey">
-                    <div class="card_grey_img">
-                        <img src="{$vo.pic}">
-                    </div>
-                    <div class="card_grey_text">
-                        <div class="card_in_btn">
-                            <div class="card_btn_1">
-                                <a>{$vo.type_name}</a>
+            <empty name="project">
+              <div style="height: 800px;width: auto;text-align: center">
+                  <p style="font-size: 20px;color: rgba(0,0,0,0.7);margin-top: 200px;">
+                      暂时没有任何项目！
+                  </p>
+              </div>
+                <else />
+                <volist name="project" id="vo">
+                    <div class="card_right_box">
+                        <div class="card_grey">
+                            <div class="card_grey_img">
+                                <img src="{$vo.pic}">
                             </div>
-                            <div class="card_btn_2">
-                                <a>{$vo.status_name}</a>
+                            <div class="card_grey_text">
+                                <div class="card_in_btn">
+                                    <div class="card_btn_1">
+                                        <a>{$vo.type_name}</a>
+                                    </div>
+                                    <div class="card_btn_2">
+                                        <a>{$vo.status_name}</a>
+                                    </div>
+                                </div>
+                                <div class="card_in_name">
+                                    <p>{$vo.title}</p>
+                                </div>
+                                <div class="card_in_b">
+                                    <img src="__PUBLIC__/Hy/images/addr.png">
+                                    <p>{$vo.city}</p>
+                                </div>
+                            </div>
+                            <div class="little_btn">
+                                <a class="project">进入项目管理</a>
                             </div>
                         </div>
-                        <div class="card_in_name">
-                            <p>{$vo.title}</p>
+                        <div class="card_bottom" style="display: none;">
+                            <div class="card_bottom_in">
+                                <a  target="_blank" href="{:U('Index/details',array('id'=>$vo['id']))}">预览项目</a>
+                            </div>
+                            <if condition="$vo['status'] LT 2">
+                                <div class="card_bottom_in">
+                                    <a href="{:U('Center/news',array('project_id'=>$vo['id']))}">重新编辑</a>
+                                </div>
+                            </if>
+                            <if condition="$vo['status'] eq 0">
+                                <div class="card_bottom_ins sub" key="{$vo['id']}">
+                                    <a>提交审核</a>
+                                </div>
+                            </if>
                         </div>
-                        <div class="card_in_b">
-                            <img src="__PUBLIC__/Hy/images/addr.png">
-                            <p>{$vo.city}</p>
-                        </div>
                     </div>
-                    <div class="little_btn">
-                        <a class="project">进入项目管理</a>
-                    </div>
-                </div>
-                <div class="card_bottom" style="display: none;">
-                    <div class="card_bottom_in">
-                        <a  target="_blank" href="{:U('Index/details',array('id'=>$vo['id']))}">预览项目</a>
-                    </div>
-                    <if condition="$vo['status'] LT 2">
-                    <div class="card_bottom_in">
-                        <a href="{:U('Center/news',array('project_id'=>$vo['id']))}">重新编辑</a>
-                    </div>
-                    </if>
-                    <if condition="$vo['status'] eq 0">
-                        <div class="card_bottom_ins sub" key="{$vo['id']}">
-                            <a>提交审核</a>
-                        </div>
-                    </if>
-                </div>
-            </div>
 
-            </volist>
+                </volist>
+            </empty>
+
+
+
         </div>
 
     </div>
@@ -100,6 +111,9 @@
                 }
             })
         })
-
+       //图象控制
+        var wid=$(window).width();
+        var hit=wid*0.447;
+//        console.log(hit);
     </script>
 </block>

@@ -33,7 +33,11 @@
     var width=$(window).width();
     var height=width*0.447;
     var img=$('#vad>li>span>a img');
-    img.css({'width':width,'height':height})
+    img.eq(0).css({'width':width,'height':height});
+    console.log(img[0].attr('width'));
+
+//    img[1].css({'width':width,'height':height});
+//    img[2].css({'width':width,'height':height});
 
     $(document).ready(function(){
         $(".main_visual").hover(function(){
