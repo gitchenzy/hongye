@@ -4,8 +4,8 @@ namespace Hy\Controller;
 class CenterController extends CommonController {
     protected function _initialize(){
         parent::_initialize();
-        $user = get_user_info();
-       //  $user['user_id'] = 15;
+       // $user = get_user_info();
+         $user['user_id'] = 15;
         if (!$user) {
             $this->redirect("Login/index");
         }
@@ -92,12 +92,9 @@ class CenterController extends CommonController {
 
         $res = M('project') -> where($where) ->save(['des'=>$data['content']]);
 
-        if($res){
-            $url = U('Center/new_three',array('project_id'=>$data['id']));
-            $this -> success($url);
-        }else{
-            $this -> error('添加内容失败！');
-        }
+        $url = U('Center/new_three',array('project_id'=>$data['id']));
+        $this -> success($url);
+
     }
     //项目第三部
     public function new_three(){

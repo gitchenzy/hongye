@@ -52,8 +52,10 @@ body{
     margin-right: 60px;
 }
 .content_content section{
-    width:100%;
+    width:720px;
     height: auto;
+    margin-bottom: 100px;
+    overflow-x: scroll;
 }
 .content_text{
     width: 318px;

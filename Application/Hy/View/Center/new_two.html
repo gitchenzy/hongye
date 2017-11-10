@@ -1,10 +1,8 @@
 
 <include file="Public/header"/>
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/new.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/codemirror.min.css">
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/froala_editor.min.css">
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Hy/css/froala_editor.pkgd.min.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Static/quill/quill.snow.css">
+<!--<link rel="stylesheet" type="text/css" href="__PUBLIC__/Static/froala_edito/css/froala_style.min.css">-->
 <style>
     .fr-box.fr-basic .fr-element {
         color: #000;
@@ -28,6 +26,9 @@
     .fr-wrapper div:first-child{
         display: none;
     }
+    .w-e-text-container{
+        height:800px !important;
+    }
 </style>
 
 <div class="tps">
@@ -47,7 +48,7 @@
     <p>内容编辑</p>
     <p style="position:relative;left:-106px;">回报设置</p>
 </div>
-<div style="width:1300px;margin:60px auto 0 auto;border-top:none" id="edit" class="fr-view">
+<div id="editor" style="height:700px;">
     {$project.des|htmlspecialchars_decode}
 </div>
 <div class="bb">
@@ -59,48 +60,32 @@
 <script>
 
 </script>
-<script type="text/javascript" src="__PUBLIC__/Hy/js/codemirror.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Hy/js/xml.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Hy/js/froala_editor.pkgd.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Hy/js/image.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Hy/js/zh_cn.js"></script>
+
+<script src="__PUBLIC__/Static/quill/quill.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Static/we/release/wangEditor.min.js"></script>
 <script>
-    $(function() {
-        var id = '{$Think.get.project_id}';
-     //   alert(id)
-        $('#edit').froalaEditor({
-            // Set the language code.
-            language: 'zh_cn',
-            saveInterval: 10000000,
-            imageUploadURL:"{:U('File/uploadProjects')}",
 
-            saveParam :'content' ,
+//        var id = '{$Think.get.project_id}';
+    var E = window.wangEditor
+    var editor = new E('#editor')
+    // 或者 var editor = new E( document.getElementById('#editor') )
+    editor.customConfig.uploadFileName = 'file'
+    editor.customConfig.uploadImgServer = "{:U('File/uploadProjects')}"
+    editor.create()
 
-        //设置保存网址
-            saveURL:"{:U('Center/addProjectDea')}" ,
-
-            // HTTP请求类型
-            saveMethod :'POST' ,
-
-            //额外的保存参数。
-            saveParams :{ id :id }
-
-
-        })
-        .on('froalaEditor.save.after', function (e, editor, response) {
-            location.href='/index.php/hy/center/new_three?project_id='+id;
-        })
-
-    });
 
     $('.sub').click(function(){
+        var contents = editor.txt.html()
+        var id = '{$Think.get.project_id}';
+        var info = {'id':id,content:contents}
+        $.post("{:U('Center/addProjectDea')}",info,function(data){
 
-        $ ('#edit').froalaEditor('save.save');
+            location.href = data.info;
+        })
 
 
     })
 
 </script>
-<script> $(function() { $('textarea').froalaEditor() }); </script>
 </body>
 </html>
