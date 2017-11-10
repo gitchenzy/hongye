@@ -676,18 +676,16 @@
         $('.bg').css('display','none');
     })
     //
-/*     var pics=$('#pic');
-    var hit=pics.css('height');
-    var wid=pics.css('width');
-    console.log(hit)
-    var doc=parseInt(hit.slice(0,hit.length-2));
-    var docs=parseInt(wid.slice(0,hit.length-2));
-    var lit=310/doc;
-    var real=lit*docs;
-    var fl=(real-350)/2;
-    pics.css({'position':'relative','left':'fl','width':'real','height':'310'}) */
-
-    
+    var img_1=$('.main_image>ul>li img:eq(0)');
+    var img_2=$('.main_image>ul>li img:eq(1)');
+    var img_3=$('.main_image>ul>li img:eq(2)');
+    var wid=$(window).width();
+    var hit=wid*0.44;
+    (function(){
+        img_1.css('height','hit');
+        img_2.css('height','hit');
+        img_3.css('height','hit');
+    })();
 
 
 </script>
