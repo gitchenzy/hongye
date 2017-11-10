@@ -58,7 +58,34 @@
 .main_image li .img_3 {
     background: url(../images/img_main_3.jpg) center top no-repeat
 }
+@media screen and (max-width: 1367px) {
+    .main_visual {
+        height: 585px !important;
+        overflow: hidden;
+        position: relative;
+    }
+    .main_image li span img {
+        width: 1366px !important;
+        height: 585px !important;
+    }
+    div.flicking_con {
+        position: absolute;
+        top: -93px !important;
+        left: 50%;
+        z-index: 999;
+        width: 300px;
+        height: 21px;
+        margin: 0 0 0 -32px;
+    }
+    .main_image {
+        height: 585px !important;
+        overflow: hidden;
+        position: relative;
+        margin: 0px;
+        padding: 0px;
+    }
 
+}
 div.flicking_con {
     position: absolute;
     top: 153px;
