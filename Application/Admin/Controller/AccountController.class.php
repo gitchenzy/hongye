@@ -41,9 +41,9 @@ class AccountController extends AdminController {
     public function Login(){
         if(IS_POST){
             $VerifyCode=I('VerifyCode');
-//            if($this->VerifyCodeIsRight($VerifyCode)==false){
-//                $this->error('验证码输入错误!');
-//            }
+            if($this->VerifyCodeIsRight($VerifyCode)==false){
+                $this->error('验证码输入错误!');
+            }
 
             $typeName = 'employee';
             $typeID = 'employeeID';

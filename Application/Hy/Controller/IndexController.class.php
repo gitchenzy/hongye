@@ -234,5 +234,14 @@ class IndexController extends CommonController {
         $this -> assign('shijian',$shijian);
         $this -> display();
     }
-
+    //关于我们
+    public function about(){
+        $this->display();
+    }
+    public function xiyi(){
+        $this->display();
+    }
+    public function zhinan(){
+        $this->display();
+    }
 }

@@ -7,7 +7,7 @@ class CommonController extends Controller {
     protected function _initialize(){
 
         $user = get_user_info();
-        $user['user_id'] = 15;
+    //    $user['user_id'] = 15;
         if($user){
             //登录的时候可以查查几条唯独记录
             $where['id'] = $user['user_id'];

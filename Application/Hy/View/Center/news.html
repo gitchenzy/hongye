@@ -102,6 +102,9 @@
         var pic = '{$project.pic}'
         var $pro = '{$project}';
         if(1 != $pro){
+            if(!pic){
+                pic = '/public/Hy/images/upimg.jpg'
+            }
             $(".imgs").css('background-image','url('+pic+')');
         }
 
@@ -121,7 +124,11 @@
                    // alert('添加成功！');
                     location.href=data.info;
                 }else{
-                    alert(data.info)
+                    if(1 != $pro){
+                        location.href=data.info;
+                    }else{
+                        alert(data.info)
+                    }
                 }
 
 
