@@ -39,7 +39,7 @@ class ProjectController extends AdminController
         }
         $sort = i('sort');
         $order = i('order');
-        if(!empty($sort)){
+        if(!empty($sort) && $sort!='aid'){
             $reorder = 'p.'.$sort." ".$order;
         }else{
             $reorder = 'p.id desc';
