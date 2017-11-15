@@ -20,7 +20,7 @@ class IndexController extends CommonController {
         $s_type = I("sid")?I("sid"):$son_type[0]['id'];
 
         //查出类别关联的项目
-        $project = M('project') -> where(['type_id'=> $s_type,'del'=>0,'status'=>['GT',1]]) -> order('id asc') -> limit(0,5) -> select();
+        $project = M('project') -> where(['type_id'=> $s_type,'del'=>0,'status'=>['GT',1]]) -> order('id desc') -> limit(0,5) -> select();
         foreach($project as &$v){
             $info = M('users') -> where(['id'=>$v['user_id']]) -> find();
             $v['name'] = $info['nick_name'];
@@ -51,7 +51,7 @@ class IndexController extends CommonController {
         $where['del'] = 0;
         $where['status'] = ['GT',1];
         $count = I('time');
-        $project = M('project') -> where($where) -> order('id asc') ->limit(5*$count,5) -> select();
+        $project = M('project') -> where($where) -> order('id desc') ->limit(5*$count,5) -> select();
 
         if($project){
             foreach($project as &$v){
