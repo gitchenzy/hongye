@@ -25,11 +25,11 @@
     </div>
     <div class="out_card_in">
         <p>银行卡：</p>
-        <input type="text" placeholder="请输入银行卡" id="cards">
+        <input type="text" placeholder="请输入银行卡卡号" id="cards">
     </div>
     <div style="border:none" class="out_card_in">
         <p>开户行：</p>
-        <input type="text" placeholder="请输入开户行" id="address">
+        <input type="text" placeholder="请输入开户行支行" id="address">
     </div>
 </div>
 <div class="out_card_2">
@@ -86,9 +86,10 @@
 
                 if(data.status == 1){
                     alert('提交申请成功！');
-                    location.href= "{:U('Center/index')}";
+                    location.href= "{:U('center/index')}";
                 }else{
                     alert(data.info);
+                    location.href= "{:U('center/index')}";
                 }
             })
         })
