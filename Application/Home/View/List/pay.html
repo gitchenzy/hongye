@@ -158,9 +158,10 @@
            });
        }else if(2 == v){
             //发起余额支付 先判断是否够
-           var $return = '{$return.amount}';
-           var amount = '{$amount}';
-            if(amount < $return){
+           var $return = parseInt('{$return.amount}');
+           var amount = parseInt('{$amount}');
+
+            if(parseInt(amount) < parseInt($return)){
                 alert('余额不足！');
                 return false;
             }
