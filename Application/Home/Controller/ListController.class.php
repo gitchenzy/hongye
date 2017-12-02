@@ -298,7 +298,7 @@ class ListController extends CommonController {
 
     public function insertCon(){
         $img = I('picurl');
-        $p_id = I('project_id');
+        $p_id = I('project');
         $pic = M('project') -> where(['id'=>$p_id]) -> getfield('pic');
         $this->assign('img',$img);
         $this->assign('pic',$pic);
