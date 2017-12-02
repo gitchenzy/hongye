@@ -1,0 +1,151 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <title>开始制作</title>
+</head>
+<script tyep="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
+<body>
+<style>
+    html{
+        max-width: 360px;
+        margin: 0;
+        padding: 0;
+        font-family: Microsoft Yahei,"微软雅黑";
+    }
+    a{
+        text-decoration: none;
+    }
+    .contain{
+        text-align: center;
+        padding: 50px 0;
+    }
+    .contain h1{
+        font-size: 20px;
+        font-weight: lighter;
+        color: rgba(0, 0, 0, 0.9);
+    }
+    .add-box{
+        margin: 0 5px;
+        height: 100px;
+        background: rgba(0, 0, 0, 0.02);
+        border: 1px solid #f2f2f2;
+        display: flex;
+        justify-content: center;
+        border-radius: 5px;
+    }
+    .add-in{
+        height: 70px;
+        width: auto;
+        padding-top: 15px;
+        text-align: center;
+    }
+    .add-circle{
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        background: #3d66e4;
+        position: relative;
+    }
+    .add-1{
+        height: 35px;
+        width:3px;
+        border-radius: 1.5px;
+        background: #ffffff;
+        position: absolute;
+        left: 24px;
+        top: 7px;
+    }
+    .add-2{
+        height: 3px;
+        width:35px;
+        border-radius: 1.5px;
+        background: #ffffff;
+        position: absolute;
+        left: 8px;
+        top: 22px;
+    }
+    .add-in a{
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.9);
+        line-height: 28px;
+    }
+    .next{
+        width: 100%;
+        height: 50px;
+        text-align: center;
+        border-top: 1px solid #e5e5e5;
+        position: fixed;
+        bottom: 0%;
+    }
+    .next a{
+        font-size: 16px;
+        line-height: 46px;
+        color: #3d66e4;
+    }
+    .bgs{
+        margin: 5px 5px 0 5px;
+        background: rgba(0, 0, 0, 0.02);
+        border-top: 1px solid #f2f2f2;
+        border-radius: 9px;
+        min-height: 340px;
+    }
+</style>
+<div class="contain">
+    <h1>开始创作内容</h1>
+</div>
+<div class="add-box">
+    <div class="add-in">
+        <div class="add-circle" id="uploads"> <!- 添加图片->
+            <div class="add-1"></div>
+            <div class="add-2"></div>
+        </div>
+        <a href="">添加图片</a>
+    </div>
+    <div class="next">
+        <a href="">下一步</a>
+    </div>
+</div>
+<div class="bgs"></div>
+
+<script type="text/javascript" src='__PUBLIC__/Static/uploadifive/Sample/jquery.uploadifive.min.js'></script>
+<script>
+    var wid=window.innerWidth;
+    var main=document.querySelector('html');
+    (function(){
+        if(wid>=1024){
+            main.style.minWidth=1024+'px';
+        }else{
+            main.style.minWidth=wid+'px';
+        }
+    })();
+    $(function () {
+        $("#uploads").uploadifive({
+            height: 50,
+            swf: '/public/Static/uploadify/uploadify.swf',
+            uploadScript: "{:U('File/uploadProject')}",
+            width: 50,
+            buttonClass: "add-circle",
+            buttonText: '',
+            onUploadComplete: function (file, data) {
+                data = $.parseJSON(data);
+                if (data.status) {
+//                    $("#photo_preview").attr("src", data.data);
+                    var id = '{$Think.get.project_id}'
+                    location.href = '/index.php/Home/List/insertCon?picurl='+data.data+'&project='+id
+                  //  $(".add-circle").css('background-image','url('+data.data+')');
+                   // $("#pic").val(data.data);
+                }
+                else {
+                    (data.info);
+                }
+            }
+        })
+
+
+    })
+
+</script>
+</body>
+</html>

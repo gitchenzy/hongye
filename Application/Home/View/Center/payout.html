@@ -24,6 +24,10 @@
         <input type="text" placeholder="请输入姓名" id="name">
     </div>
     <div class="out_card_in">
+        <p>手机号码：</p>
+        <input type="text" placeholder="请输入手机号码" id="phone">
+    </div>
+    <div class="out_card_in">
         <p>银行卡：</p>
         <input type="text" placeholder="请输入银行卡卡号" id="cards">
     </div>
@@ -58,11 +62,12 @@
         $('#sub').click(function(){
             var balance = '{$balance}';
             var name = $('#name').val();
+            var phone = $('#phone').val();
             var address = $('#address').val();
             var cards = $('#cards').val();
             var yue = $('#yue').val();
-            if(!name){
-                alert('姓名不能为空！');
+            if(!name || !phone){
+                alert('姓名或者手机号码不能为空！');
                 return false;
             }
             if(!cards){
@@ -81,7 +86,7 @@
                 alert('可提现金额不足！');
                 return false;
             }
-            var info = {type:1,yue:yue,name:name,address:address,cards:cards}
+            var info = {type:1,yue:yue,name:name,address:address,cards:cards,phone:phone}
             $.post("{:U('Center/addout')}",info,function(data){
 
                 if(data.status == 1){

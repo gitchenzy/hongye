@@ -285,12 +285,27 @@ class ListController extends CommonController {
         $data['time'] = time();
         $res = M('project') -> add($data);
         if($res){
-            $url = U('List/payreturn',array('project_id'=>$res));
+//            $url = U('List/payreturn',array('project_id'=>$res));
+            $url = U('List/addContent',array('project_id'=>$res));
             $this -> success($url);
         }else{
             $this -> error('添加失败！');
         }
     }
+    public function addContent(){
+        $this -> display();
+    }
+
+    public function insertCon(){
+        $img = I('picurl');
+        $p_id = I('project_id');
+        $pic = M('project') -> where(['id'=>$p_id]) -> getfield('pic');
+        $this->assign('img',$img);
+        $this->assign('pic',$pic);
+        $this -> display('insertcon');
+    }
+
+
     //项目回报
     public function payreturn(){
 
