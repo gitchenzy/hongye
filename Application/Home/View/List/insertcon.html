@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+        <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
     </head>
     <body>
         <style>
@@ -20,13 +21,13 @@
                 text-decoration: none;
             }
             .top-img{
-                width: 100%;
+
                 overflow: hidden;
                 height: 115px;
                 position: relative;
             }
             .top-img img{
-
+                width: 100%;
             }
             .top-img h1{
                 color: #fff;
@@ -60,6 +61,7 @@
                 min-height: 470px;
                 width: 100%;
                 padding: 5px 0 0 0;
+                margin-bottom: 65px;
             }
             .add-icon{
                 width: 25px;
@@ -106,25 +108,25 @@
             }
             .text-container{
                 margin: 0 5px 5px 5px;
-                height: 100px;
+
                 background: #fff;
                 border-radius: 8px;
                 border: 1px solid #e5e5e5;
-                display: flex;
                 position: relative;
             }
             .text-container img{
-                width: 70px;
-                height: 70px;
-                margin: 15px 10px 15px 15px;
+                width: 310px;
+                display: block;
+                margin: 5px auto;
             }
-            .text-container span{
+            .text-container p{
                 height: 70px;
-                width: 220px;
-                margin: 15px 0 ;
+                width: 310px;
+                margin: 5px auto ;
                 word-break: break-all;
                 text-overflow: ellipsis;
-                display: -webkit-box; 
+                display: block;
+
                 -webkit-box-orient: vertical; 
                 -webkit-line-clamp: 3;
                 overflow: hidden;  
@@ -143,6 +145,31 @@
                 line-height: 43px;
                 font-weight: lighter;
             }
+            #text-container{
+                margin: 0 5px 5px 5px;
+
+                background: #fff;
+                border-radius: 8px;
+                border: 1px solid #e5e5e5;
+                position: relative;
+            }
+            #text-container img{
+                width: 310px;
+                display: block;
+                margin: 5px auto;
+            }
+            #text-container p{
+                height: 70px;
+                width: 310px;
+                margin: 5px auto ;
+                word-break: break-all;
+                text-overflow: ellipsis;
+                display: block;
+
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+                overflow: hidden;
+            }
         </style>       
         <div class="top-img">
             <img src="{$pic}" alt="">
@@ -150,9 +177,9 @@
             <!--<div class="img-btn left">-->
                 <!--<a href="">添加音乐</a>-->
             <!--</div>-->
-            <div class="img-btn right">
-                <!--<a href="">更换封面</a>-->
-            </div>
+            <!--<div class="img-btn right">-->
+                <!--&lt;!&ndash;<a href="">更换封面</a>&ndash;&gt;-->
+            <!--</div>-->
         </div>
         <div class="container">
             <div class="add-icon">
@@ -160,15 +187,13 @@
                 <div class="add-child-2"></div>
             </div>
             <div>
+
                 <div class="text-container">
-                    <div>
-                    <!-- <关闭按钮>  -->
-                        <div class="close-1"></div>
-                        <div class="close-2"></div>
-                    </div>
-                    <img src="{$img}" alt="">
-                    <span><textarea style="width: 220px;height: 70px;padding:5px;"placeholder="1,每一句话结束都用句号结尾。描述是显示在图片下面的"></textarea></span>
+                    <p><textarea class="content" style="width: 310px;height: 70px;padding:5px;"placeholder="描述"></textarea></p>
+                    <img src="{$img}"  alt="">
                 </div>
+
+
                 <div class="add-icon">
                         <div class="add-child-1"></div>
                         <div class="add-child-2"></div>
@@ -176,8 +201,32 @@
             </div>
         </div>
 
+
         <div class="done">
-            <a href="">完成</a>
+            <a class='sub'>完成</a>
         </div>
     </body>
+    <script>
+        $('.done').click(function(){
+            var content = $('.content').val();
+            if(!content){
+                alert('内容不能为空');
+                return false;
+            }
+            var img = '{$Think.get.picurl}';
+            var id = '{$Think.get.project}';
+            var info = {content:content,img:img,id:id};
+            $.post("{:U('list/editcondes')}",info,function(data){
+                if(1 == data.status){
+                    alert(data.info)
+                    location.href = data.url;
+                }else{
+                    alert(data.info)
+                }
+            })
+        })
+
+
+
+    </script>
 </html>

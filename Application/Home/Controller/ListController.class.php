@@ -293,6 +293,10 @@ class ListController extends CommonController {
         }
     }
     public function addContent(){
+        $id = I('project_id');
+
+        $info  = M('project')-> where(['id'=>$id]) -> find();
+        $this->assign('info',$info);
         $this -> display();
     }
 
@@ -304,7 +308,30 @@ class ListController extends CommonController {
         $this->assign('pic',$pic);
         $this -> display('insertcon');
     }
+    //添加内容
+    public function editcondes(){
+        $data= I('post.');
+        $explode = explode("\n",$data['content']);
+        $content = '';
+        foreach($explode as $e){
+            $content .= '<p>'.$e.'</p>';
+        }
+     //   var_dump($explode);
+        $content .= '<p><img src="'.$data['img'].'"></p>';
+      //  线查找出信息
+        $info  = M('project')-> where(['id'=>$data['id']]) -> find();
 
+        $edit['des'] = $info['des'].htmlentities($content);
+
+        $result = M('project')-> where(['id'=>$data['id']]) -> save($edit);
+        if($result){
+           $url = U('List/addContent',['project_id'=>$data['id']]);
+           $url  = 'http://'.$_SERVER['HTTP_HOST'].$url;
+            $this -> success('添加成功！',$url);
+        }else{
+            $this -> error('添加失败！');
+        }
+    }
 
     //项目回报
     public function payreturn(){

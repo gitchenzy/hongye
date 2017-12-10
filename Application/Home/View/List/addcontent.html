@@ -74,10 +74,13 @@
     .next{
         width: 100%;
         height: 50px;
+        line-height:50px;
+        background: #f2f3f2;
         text-align: center;
         border-top: 1px solid #e5e5e5;
         position: fixed;
         bottom: 0%;
+        color: #3d66e4;
     }
     .next a{
         font-size: 16px;
@@ -91,9 +94,36 @@
         border-radius: 9px;
         min-height: 340px;
     }
+    #text-container{
+        margin: 0 5px 5px 5px;
+
+        background: #fff;
+        border-radius: 8px;
+        border: 1px solid #e5e5e5;
+        position: relative;
+    }
+    #text-container img{
+        width: 310px;
+        display: block;
+        margin: 5px auto;
+    }
+    #text-container p{
+        width: 310px;
+        margin: 5px auto ;
+        word-break: break-all;
+        text-overflow: ellipsis;
+        display: block;
+
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+    }
 </style>
 <div class="contain">
     <h1>开始创作内容</h1>
+</div>
+<div id="text-container">
+    {$info.des|htmlspecialchars_decode}
 </div>
 <div class="add-box">
     <div class="add-in">
@@ -103,10 +133,13 @@
         </div>
         <a href="">添加图片</a>
     </div>
-    <div class="next">
-        <a href="">下一步</a>
-    </div>
+
 </div>
+
+<div class="next">
+    下一步
+</div>
+
 <div class="bgs"></div>
 
 <script type="text/javascript" src='__PUBLIC__/Static/uploadifive/Sample/jquery.uploadifive.min.js'></script>
@@ -144,6 +177,11 @@
         })
 
 
+    })
+
+    $('.next').click(function(){
+        var id = '{$Think.get.project_id}';
+        location.href = '/index.php/List/payreturn?project_id='+id;
     })
 
 </script>
