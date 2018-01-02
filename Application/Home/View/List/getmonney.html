@@ -18,13 +18,13 @@
         <div class="get">
                 <div class="get_in">
                     <div class="get_top">
-                        <h1>无回报支持</h1>
-                        <p>{$count}人支持</p>
+                        <h1>热心帮助</h1>
+                        <!--<p>{$count}人支持</p>-->
                     </div>
                 </div>
                 <div class="get_blow">
-                    <h1>感谢您无偿支持</h1><!-- 固定不变 -->
-                    <span>赠人玫瑰，手有余香！</span>
+                    <h1>自愿发心，随缘乐助</h1><!-- 固定不变 -->
+                    <span></span>
                     <button type="button" class="zhichi">我要支持</button><!-- 点击可输入任意支持金额 -->
                 </div>
             </div>
@@ -36,7 +36,7 @@
                             <if condition="$vo['amount'] eq 0"> 免费抽奖活动
                                 <else /> ￥{$vo['amount']} </if>
                         </h1>
-                        <p>{$vo.count|default=0}人支持</p>
+                        <!--<p>{$vo.count|default=0}人支持</p>-->
                     </div>
                 </div>
                 <div class="get_blow">
@@ -63,7 +63,7 @@
             <div class="b_box">
                 <div class="b_box_in">
                     <h1>我要无偿支持</h1>
-                    <p>请输入支持金额，最少0.01元，最高不限</p>
+                    <p>请输入支持金额，最少1元，最高不限</p>
                     <input type="text" id="amount" placeholder="0">
                 </div>
                 <div class="b_box_bottom">
@@ -80,7 +80,7 @@
 </body>
 
 
-<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
 <script>
     var wid=parseInt($(window).width());
     var num=(wid-325)/2;
@@ -124,106 +124,7 @@
         });
     })
 
-    $(function() {
-        wx.config({
-            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-            appId: '<?php echo $data["appId"];?>', // 必填，公众号的唯一标识
-            timestamp: '<?php echo $data["timestamp"];?>', // 必填，生成签名的时间戳
-            nonceStr: '<?php echo $data["nonceStr"];?>', // 必填，生成签名的随机串
-            signature: '<?php echo $data["signature"];?>', // 必填，签名，见附录1
-            jsApiList: [
-                    'checkJsApi',
-                    'onMenuShareTimeline',
-                    'onMenuShareAppMessage',
-                    'onMenuShareQQ',
-                    'onMenuShareWeibo',
-                    'onMenuShareQZone',
-                    'hideMenuItems',
-                    'showMenuItems',
-                    'hideAllNonBaseMenuItem',
-                    'showAllNonBaseMenuItem',
-                    'translateVoice',
-                    'startRecord',
-                    'stopRecord',
-                    'onVoiceRecordEnd',
-                    'playVoice',
-                    'onVoicePlayEnd',
-                    'pauseVoice',
-                    'stopVoice',
-                    'uploadVoice',
-                    'downloadVoice',
-                    'chooseImage',
-                    'previewImage',
-                    'uploadImage',
-                    'downloadImage',
-                    'getNetworkType',
-                    'openLocation',
-                    'getLocation',
-                    'hideOptionMenu',
-                    'showOptionMenu',
-                    'closeWindow',
-                    'scanQRCode',
-                    'chooseWXPay',
-                    'openProductSpecificView',
-                    'addCard',
-                    'chooseCard',
-                    'openCard'
-                ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-        });
-    });
-    wx.ready(function() {
-        //取消除微信相关的分享
-        wx.hideMenuItems({
-            menuList: ['menuItem:share:qq',
-                "menuItem:share:weiboApp",
-                'menuItem:share:QZone',
-                'menuItem:copyUrl',
-                "menuItem:originPage",
-                "menuItem:openWithQQBrowser",
-                "menuItem:openWithSafari",
-                "menuItem:share:email"
-            ]
-        });
-        // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
-        //        wx.onMenuShareAppMessage({
-        //            title: '快来啊，滑雪拼车随你畅游',
-        //            desc: '过年啦!!还在等什么？一起去拼车滑雪畅游世界吧',
-        //            link: 'http://zuoyou365.com/weixin/tp/index.php/Home/Carpoos1/getCode',
-        //            imgUrl: 'http://zuoyou365.com/weixin/tp/public/pic/logo.png',
-        //            trigger: function (res) {
-        //                // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
-        //
-        //            },
-        //            success: function (res) {
-        //
-        //            },
-        //            cancel: function (res) {
-        //
-        //            },
-        //            fail: function (res) {
-        //                alert(JSON.stringify(res));
-        //            }
-        //        });
-        wx.onMenuShareTimeline({
-            title: '{$fenx.title}',
-            link: "{:U('List/content',array('id'=>$fenx['id']))}",
-            imgUrl: '{$fenx.pic}',
-            trigger: function(res) {
-                // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
 
-            },
-            success: function(res) {
-
-            },
-            cancel: function(res) {
-
-            },
-            fail: function(res) {
-                alert(JSON.stringify(res));
-            }
-        });
-
-    });
 </script>
 
 </html>

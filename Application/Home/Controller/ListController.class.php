@@ -61,8 +61,14 @@ class ListController extends CommonController {
     //项目详情
 
     public function content(){
-
         $id = I('id');
+        $user = get_user_info();
+        //    $user['user_id'] = 15;
+        if (!$user) {
+            session('back_url','List/content?id='.$id);
+            $this->redirect("Login/index");
+        }
+
         $where['id'] = $id;
         $where['del'] = 0;
 
@@ -105,7 +111,8 @@ class ListController extends CommonController {
                         if($project['reach_amount']>=$project['target_amount']){
                             $status = 5;
                         }else{
-                            $status = 4;
+                            $status =
+                                4;
                         }
                         M('project')-> where($where)->save(['status'=>$status]);
                         $shijian['s'] = 0;
@@ -122,8 +129,8 @@ class ListController extends CommonController {
             $shijian['s'] = 0;
         }
 
-        $project['count'] =  M('user_attention')-> where(['project_id'=>$id]) -> count();
-        $project['comment_count'] =  M('comments')-> where(['project_id'=>$id]) -> count();
+     //   $project['count'] = session('p_count'); M('user_attention')-> where(['project_id'=>$id]) -> count();
+      //  $project['comment_count'] =  M('comments')-> where(['project_id'=>$id]) -> count();
         $fenx = M('project') -> where(['id'=>$id]) -> find();
         $fenx['name'] = $info['nick_name'];
         $fenx['pic'] = 'http://'.$_SERVER['SERVER_NAME'].$fenx['pic'];
@@ -368,28 +375,28 @@ class ListController extends CommonController {
             $v['rule'] = trim($v['rule'],';');
             $v['rule'] = explode(';',$v['rule']);
             //
-            if($v['amount'] > 0){
-                $v['count'] = M('orders') -> where(['return_id'=>$v['id'],'status'=>['GT','1']]) -> count();
-            }else{
-                $v['count'] = M('orders') -> where(['return_id'=>$v['id']]) -> count();
-            }
+//            if($v['amount'] > 0){
+//                $v['count'] = M('orders') -> where(['return_id'=>$v['id'],'status'=>['GT','1']]) -> count();
+//            }else{
+//                $v['count'] = M('orders') -> where(['return_id'=>$v['id']]) -> count();
+//            }
 
         }
 
-        $count = M('orders') -> where(['return_id'=>0,'project_id'=>$project_id]) -> count();
+//        $count = M('orders') -> where(['return_id'=>0,'project_id'=>$project_id]) -> count();
 
         //查询分享内容
-        $fenx = M('project') -> where(['id'=>$project_id]) -> find();
-        $fenx['pic'] = 'http://'.$_SERVER['SERVER_NAME'].$fenx['pic'];
-        Vendor("Wifisoft.Jssdk");
-        $appid = C('WX_APP_ID');
-        $APPSECRET = C('WX_APP_SECRET');
-        $jssdk = new \Jssdk($appid, $APPSECRET);
-        $data = $jssdk->GetSignPackage();
+//        $fenx = M('project') -> where(['id'=>$project_id]) -> find();
+//        $fenx['pic'] = 'http://'.$_SERVER['SERVER_NAME'].$fenx['pic'];
+//        Vendor("Wifisoft.Jssdk");
+//        $appid = C('WX_APP_ID');
+//        $APPSECRET = C('WX_APP_SECRET');
+//        $jssdk = new \Jssdk($appid, $APPSECRET);
+//        $data = $jssdk->GetSignPackage();
         $this -> assign('info',$info);
-        $this -> assign('count',$count);
-        $this -> assign('data',$data);
-        $this -> assign('fenx',$fenx);
+//        $this -> assign('count',$count);
+//        $this -> assign('data',$data);
+//        $this -> assign('fenx',$fenx);
         $this -> display();
 
     }
