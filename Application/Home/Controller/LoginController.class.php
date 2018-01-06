@@ -26,12 +26,12 @@ class LoginController extends Controller {
         $data = json_decode($data);
 
         //线判断是否有，没有则注册
-        $res = M('users') -> where(['openid'=>$data -> openid,'del'=>0]) -> find();
+        $res = M('users') -> where(['unionid'=>$data -> unionid,'del'=>0]) -> find();
 
         if($res){
-            if(!$res['unionid']){
-                M('users') -> where(['openid'=>$data -> openid,'del'=>0]) -> save(['unionid'=>$data -> unionid]);
-            }
+//            if(!$res['unionid']){
+//                M('users') -> where(['openid'=>$data -> openid,'del'=>0]) -> save(['unionid'=>$data -> unionid]);
+//            }
             $current_user['user_id'] = $res['id'];
             session("user" , $current_user);
             $back_url = session('back_url');

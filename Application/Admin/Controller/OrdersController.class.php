@@ -320,6 +320,38 @@ class OrdersController extends AdminController
         }
 
     }
+    public function cashclose(){
+
+        $id = I('id');
+        $node = I('node');
+        $info = M('withdrawals') -> where(['id'=> $id]) -> find();
+        $data['user_id'] = $info['user_id'];
+        $data['content'] = $node;
+        $data['time'] = time();
+        $data['cash_id'] = $id;
+        $obj = M('infos');
+        $obj->startTrans();
+        $result = $obj ->add($data);
+        if($result){
+            $res = M('withdrawals') -> where(['id' => $id]) -> save(['status'=>2]);
+            if($res){
+                $obj -> commit();
+                $this -> success('处理成功');
+            }else{
+                $obj->rollback();
+                $this -> error('处理失败');
+            }
+        }else{
+            $obj->rollback();
+            $this -> error('处理失败');
+        }
+
+
+
+
+
+    }
+
 
 
 
